@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "dependencies": {
-    "grafanaDependency": ">=8.3.0",
+    "grafanaDependency": ">=8.5.0",
     "plugins": []
   },
   "id": "volkovlabs-echarts-panel",
