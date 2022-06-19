@@ -1,1 +1,1 @@
-export * from './EchartsPanel';
+export * from './EChartsPanel';

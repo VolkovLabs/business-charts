@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { EchartsEditor } from './EchartsEditor';
+import { EChartsEditor } from './EChartsEditor';
 
 /**
  * Editor
@@ -8,11 +8,11 @@ import { EchartsEditor } from './EchartsEditor';
 describe('Editor', () => {
   it('Should find component', async () => {
     const getComponent = ({ options = {}, ...restProps }: any) => {
-      return <EchartsEditor {...restProps} options={options} />;
+      return <EChartsEditor {...restProps} options={options} />;
     };
 
     const wrapper = shallow(getComponent({}));
-    const textarea = wrapper.find('textarea');
-    expect(textarea.exists()).toBeTruthy();
+    const div = wrapper.find('div');
+    expect(div.exists()).toBeTruthy();
   });
 });

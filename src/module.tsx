@@ -1,12 +1,12 @@
 import { PanelPlugin } from '@grafana/data';
-import { EchartsEditor, EchartsPanel } from './components';
+import { EChartsEditor, EChartsPanel } from './components';
 import { DefaultOptions } from './constants';
 import { PanelOptions } from './types';
 
 /**
  * Panel Plugin
  */
-export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOptions((builder) => {
   builder
     .addBooleanSwitch({
       path: 'followTheme',
@@ -17,10 +17,10 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel).setPanelOption
     .addCustomEditor({
       id: 'getOption',
       path: 'getOption',
-      name: 'Echarts options',
-      description: 'Return options called by echarts or just use echartsInstance.setOption(...).',
+      name: 'Function',
+      description: 'Return options called by ECharts. Parameters: data, theme, echartsInstance, echarts',
       defaultValue: DefaultOptions.getOption,
-      editor: EchartsEditor,
+      editor: EChartsEditor,
     });
 
   return builder;

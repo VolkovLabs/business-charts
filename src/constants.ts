@@ -1,14 +1,22 @@
 import { PanelOptions } from './types';
 
 /**
- * Parameters
+ * ECharts Editor
  */
-export const funcParams = 'data, theme, echartsInstance, echarts';
+export const EChartsEditorHeight = 600;
 
 /**
- * Body
+ * Supported Languages
  */
-const funcBody = `const series = data.series.map((s) => {
+export const enum CodeLanguage {
+  JAVASCRIPT = 'javascript',
+  JSON = 'json',
+}
+
+/**
+ * ECharts Chart Example
+ */
+const EChartsExample = `const series = data.series.map((s) => {
   const sData = s.fields.find((f) => f.type === 'number').values.buffer;
   const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
 
@@ -80,9 +88,9 @@ return {
 };`;
 
 /**
- * Default value
+ * Default Options
  */
 export const DefaultOptions: PanelOptions = {
   followTheme: false,
-  getOption: funcBody,
+  getOption: EChartsExample,
 };

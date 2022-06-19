@@ -1,1 +1,1 @@
-export * from './EchartsEditor';
+export * from './EChartsEditor';
