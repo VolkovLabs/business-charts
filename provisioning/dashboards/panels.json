@@ -29,24 +29,24 @@
   "panels": [
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "marcusolsson-static-datasource",
+        "uid": "P1D2C73DC01F2359B"
       },
       "gridPos": {
-        "h": 14,
-        "w": 12,
+        "h": 13,
+        "w": 8,
         "x": 0,
         "y": 0
       },
-      "id": 6,
+      "id": 9,
       "options": {
         "editor": {
-          "height": 400
+          "height": 745
         },
         "followTheme": true,
-        "getOption": "return {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: data.series.map((s) => s.name),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time',\n    },\n    axisOption\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value',\n      min: 'dataMin',\n    },\n    axisOption\n  ),\n  grid: {\n    left: 0,\n    right: 16,\n    top: 6,\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};"
+        "getOption": "  var date = new Date();\n  var second = date.getSeconds();\n  var minute = date.getMinutes() + second / 60;\n  var hour = (date.getHours() % 12) + minute / 60;\n\nreturn {\n  series: [\n    {\n      name: 'hour',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 12,\n      splitNumber: 12,\n      clockwise: true,\n      axisLine: {\n        lineStyle: {\n          width: 15,\n          color: [[1, 'rgba(0,0,0,0.7)']],\n          shadowColor: 'rgba(0, 0, 0, 0.5)',\n          shadowBlur: 15\n        }\n      },\n      splitLine: {\n        lineStyle: {\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 3,\n          shadowOffsetX: 1,\n          shadowOffsetY: 2\n        }\n      },\n      axisLabel: {\n        fontSize: 50,\n        distance: 25,\n        formatter: function (value) {\n          if (value === 0) {\n            return '';\n          }\n          return value + '';\n        }\n      },\n      anchor: {\n        show: true,\n        icon: 'path://M532.8,70.8C532.8,70.8,532.8,70.8,532.8,70.8L532.8,70.8C532.7,70.8,532.8,70.8,532.8,70.8z M456.1,49.6c-2.2-6.2-8.1-10.6-15-10.6h-37.5v10.6h37.5l0,0c2.9,0,5.3,2.4,5.3,5.3c0,2.9-2.4,5.3-5.3,5.3v0h-22.5c-1.5,0.1-3,0.4-4.3,0.9c-4.5,1.6-8.1,5.2-9.7,9.8c-0.6,1.7-0.9,3.4-0.9,5.3v16h10.6v-16l0,0l0,0c0-2.7,2.1-5,4.7-5.3h10.3l10.4,21.2h11.8l-10.4-21.2h0c6.9,0,12.8-4.4,15-10.6c0.6-1.7,0.9-3.5,0.9-5.3C457,53,456.7,51.2,456.1,49.6z M388.9,92.1h11.3L381,39h-3.6h-11.3L346.8,92v0h11.3l3.9-10.7h7.3h7.7l3.9-10.6h-7.7h-7.3l7.7-21.2v0L388.9,92.1z M301,38.9h-10.6v53.1H301V70.8h28.4l3.7-10.6H301V38.9zM333.2,38.9v10.6v10.7v31.9h10.6V38.9H333.2z M249.5,81.4L249.5,81.4L249.5,81.4c-2.9,0-5.3-2.4-5.3-5.3h0V54.9h0l0,0c0-2.9,2.4-5.3,5.3-5.3l0,0l0,0h33.6l3.9-10.6h-37.5c-1.9,0-3.6,0.3-5.3,0.9c-4.5,1.6-8.1,5.2-9.7,9.7c-0.6,1.7-0.9,3.5-0.9,5.3l0,0v21.3c0,1.9,0.3,3.6,0.9,5.3c1.6,4.5,5.2,8.1,9.7,9.7c1.7,0.6,3.5,0.9,5.3,0.9h33.6l3.9-10.6H249.5z M176.8,38.9v10.6h49.6l3.9-10.6H176.8z M192.7,81.4L192.7,81.4L192.7,81.4c-2.9,0-5.3-2.4-5.3-5.3l0,0v-5.3h38.9l3.9-10.6h-53.4v10.6v5.3l0,0c0,1.9,0.3,3.6,0.9,5.3c1.6,4.5,5.2,8.1,9.7,9.7c1.7,0.6,3.4,0.9,5.3,0.9h23.4h10.2l3.9-10.6l0,0H192.7z M460.1,38.9v10.6h21.4v42.5h10.6V49.6h17.5l3.8-10.6H460.1z M541.6,68.2c-0.2,0.1-0.4,0.3-0.7,0.4C541.1,68.4,541.4,68.3,541.6,68.2L541.6,68.2z M554.3,60.2h-21.6v0l0,0c-2.9,0-5.3-2.4-5.3-5.3c0-2.9,2.4-5.3,5.3-5.3l0,0l0,0h33.6l3.8-10.6h-37.5l0,0c-6.9,0-12.8,4.4-15,10.6c-0.6,1.7-0.9,3.5-0.9,5.3c0,1.9,0.3,3.7,0.9,5.3c2.2,6.2,8.1,10.6,15,10.6h21.6l0,0c2.9,0,5.3,2.4,5.3,5.3c0,2.9-2.4,5.3-5.3,5.3l0,0h-37.5v10.6h37.5c6.9,0,12.8-4.4,15-10.6c0.6-1.7,0.9-3.5,0.9-5.3c0-1.9-0.3-3.7-0.9-5.3C567.2,64.6,561.3,60.2,554.3,60.2z',\n        showAbove: false,\n        offsetCenter: [0, '-35%'],\n        size: 120,\n        keepAspect: true,\n        itemStyle: {\n          color: '#707177'\n        }\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 12,\n        length: '55%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: [0, '30%']\n      },\n      data: [\n        {\n          value: hour\n        }\n      ]\n    },\n    {\n      name: 'minute',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 60,\n      clockwise: true,\n      axisLine: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 8,\n        length: '70%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      anchor: {\n        show: true,\n        size: 20,\n        showAbove: false,\n        itemStyle: {\n          borderWidth: 15,\n          borderColor: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: ['0%', '-40%']\n      },\n      data: [\n        {\n          value: minute\n        }\n      ]\n    },\n    {\n      name: 'second',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 60,\n      animationEasingUpdate: 'bounceOut',\n      clockwise: true,\n      axisLine: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 4,\n        length: '85%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      anchor: {\n        show: true,\n        size: 15,\n        showAbove: true,\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: ['0%', '-40%']\n      },\n      data: [\n        {\n          value: second\n        }\n      ]\n    }\n  ]\n};\n"
       },
-      "title": "Error",
+      "title": "Clock",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -55,9 +55,9 @@
         "uid": "grafana"
       },
       "gridPos": {
-        "h": 14,
-        "w": 12,
-        "x": 12,
+        "h": 13,
+        "w": 8,
+        "x": 8,
         "y": 0
       },
       "id": 3,
@@ -77,10 +77,54 @@
         "uid": "grafana"
       },
       "gridPos": {
-        "h": 14,
+        "h": 13,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "editor": {
+          "height": 771
+        },
+        "followTheme": true,
+        "getOption": "let values= [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      splitNumber: 12,\n      itemStyle: {\n        color: '#FFAB91'\n      },\n      progress: {\n        show: true,\n        width: 30\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        lineStyle: {\n          width: 30\n        }\n      },\n      axisTick: {\n        distance: -45,\n        splitNumber: 5,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      splitLine: {\n        distance: -52,\n        length: 14,\n        lineStyle: {\n          width: 3,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: -20,\n        color: '#999',\n        fontSize: 20\n      },\n      anchor: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        valueAnimation: true,\n        width: '60%',\n        lineHeight: 40,\n        borderRadius: 8,\n        offsetCenter: [0, '-15%'],\n        fontSize: 60,\n        fontWeight: 'bolder',\n        formatter: '{value} °C',\n        color: 'inherit'\n      },\n      data: [\n        {\n          value: Math.round(values.pop())\n        }\n      ]\n    },\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      itemStyle: {\n        color: '#FD7347'\n      },\n      progress: {\n        show: true,\n        width: 8\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    }\n  ]\n};"
+      },
+      "title": "Random Walk Gauge",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "P1D2C73DC01F2359B"
+      },
+      "gridPos": {
+        "h": 9,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 13
+      },
+      "id": 11,
+      "options": {
+        "editor": {
+          "height": 400
+        },
+        "followTheme": true,
+        "getOption": "return {\n  dataset: [\n    {\n      // This dataset is on `datasetIndex: 0`.\n      source: [\n        ['Product', 'Sales', 'Price', 'Year'],\n        ['Cake', 123, 32, 2011],\n        ['Cereal', 231, 14, 2011],\n        ['Tofu', 235, 5, 2011],\n        ['Dumpling', 341, 25, 2011],\n        ['Biscuit', 122, 29, 2011],\n        ['Cake', 143, 30, 2012],\n        ['Cereal', 201, 19, 2012],\n        ['Tofu', 255, 7, 2012],\n        ['Dumpling', 241, 27, 2012],\n        ['Biscuit', 102, 34, 2012],\n        ['Cake', 153, 28, 2013],\n        ['Cereal', 181, 21, 2013],\n        ['Tofu', 395, 4, 2013],\n        ['Dumpling', 281, 31, 2013],\n        ['Biscuit', 92, 39, 2013],\n        ['Cake', 223, 29, 2014],\n        ['Cereal', 211, 17, 2014],\n        ['Tofu', 345, 3, 2014],\n        ['Dumpling', 211, 35, 2014],\n        ['Biscuit', 72, 24, 2014]\n      ]\n      // id: 'a'\n    },\n    {\n      // This dataset is on `datasetIndex: 1`.\n      // A `transform` is configured to indicate that the\n      // final data of this dataset is transformed via this\n      // transform function.\n      transform: {\n        type: 'filter',\n        config: { dimension: 'Year', value: 2011 }\n      }\n      // There can be optional properties `fromDatasetIndex` or `fromDatasetId`\n      // to indicate that where is the input data of the transform from.\n      // For example, `fromDatasetIndex: 0` specify the input data is from\n      // the dataset on `datasetIndex: 0`, or `fromDatasetId: 'a'` specify the\n      // input data is from the dataset having `id: 'a'`.\n      // [DEFAULT_RULE]\n      // If both `fromDatasetIndex` and `fromDatasetId` are omitted,\n      // `fromDatasetIndex: 0` are used by default.\n    },\n    {\n      // This dataset is on `datasetIndex: 2`.\n      // Similarly, if neither `fromDatasetIndex` nor `fromDatasetId` is\n      // specified, `fromDatasetIndex: 0` is used by default\n      transform: {\n        // The \"filter\" transform filters and gets data items only match\n        // the given condition in property `config`.\n        type: 'filter',\n        // Transforms has a property `config`. In this \"filter\" transform,\n        // the `config` specify the condition that each result data item\n        // should be satisfied. In this case, this transform get all of\n        // the data items that the value on dimension \"Year\" equals to 2012.\n        config: { dimension: 'Year', value: 2012 }\n      }\n    },\n    {\n      // This dataset is on `datasetIndex: 3`\n      transform: {\n        type: 'filter',\n        config: { dimension: 'Year', value: 2013 }\n      }\n    }\n  ],\n  series: [\n    {\n      type: 'pie',\n      radius: 50,\n      center: ['25%', '50%'],\n      // In this case, each \"pie\" series reference to a dataset that has\n      // the result of its \"filter\" transform.\n      datasetIndex: 1\n    },\n    {\n      type: 'pie',\n      radius: 50,\n      center: ['50%', '50%'],\n      datasetIndex: 2\n    },\n    {\n      type: 'pie',\n      radius: 50,\n      center: ['75%', '50%'],\n      datasetIndex: 3\n    }\n  ]\n};"
+      },
+      "title": "Pie Chart",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "P1D2C73DC01F2359B"
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 13
       },
       "id": 2,
       "options": {
@@ -88,8 +132,35 @@
           "height": 771
         },
         "followTheme": true,
-        "getOption": "return {\n        title: {\n          text: 'ECharts Getting Started Example'\n        },\n        tooltip: {},\n        legend: {\n          data: ['sales']\n        },\n        xAxis: {\n          data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks']\n        },\n        yAxis: {},\n        series: [\n          {\n            name: 'sales',\n            type: 'bar',\n            data: [5, 20, 36, 10, 10, 20]\n          }\n        ]\n      };\n"
+        "getOption": "let names= [];\nlet amounts= [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n        title: {\n          text: 'ECharts Getting Started Example'\n        },\n        tooltip: {},\n        legend: {\n          data: ['sales']\n        },\n        xAxis: {\n          data: names\n        },\n        yAxis: {},\n        series: [\n          {\n            name: 'sales',\n            type: 'bar',\n            data: amounts\n          }\n        ]\n      };\n"
       },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "P1D2C73DC01F2359B"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
+              },
+              {
+                "config": {},
+                "name": "Amount",
+                "type": "string",
+                "values": ["5", "20", "36", "10", "10", "20"]
+              }
+            ],
+            "meta": {},
+            "name": "sales"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Getting Started",
       "type": "volkovlabs-echarts-panel"
     },
@@ -101,18 +172,18 @@
       "gridPos": {
         "h": 14,
         "w": 12,
-        "x": 12,
-        "y": 14
+        "x": 0,
+        "y": 22
       },
-      "id": 4,
+      "id": 6,
       "options": {
         "editor": {
-          "height": 771
+          "height": 400
         },
         "followTheme": true,
-        "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      splitNumber: 12,\n      itemStyle: {\n        color: '#FFAB91'\n      },\n      progress: {\n        show: true,\n        width: 30\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        lineStyle: {\n          width: 30\n        }\n      },\n      axisTick: {\n        distance: -45,\n        splitNumber: 5,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      splitLine: {\n        distance: -52,\n        length: 14,\n        lineStyle: {\n          width: 3,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: -20,\n        color: '#999',\n        fontSize: 20\n      },\n      anchor: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        valueAnimation: true,\n        width: '60%',\n        lineHeight: 40,\n        borderRadius: 8,\n        offsetCenter: [0, '-15%'],\n        fontSize: 60,\n        fontWeight: 'bolder',\n        formatter: '{value} °C',\n        color: 'inherit'\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    },\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      itemStyle: {\n        color: '#FD7347'\n      },\n      progress: {\n        show: true,\n        width: 8\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    }\n  ]\n};"
+        "getOption": "return {\n  series,\n};"
       },
-      "title": "Random Walk Chart",
+      "title": "Error",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -121,10 +192,10 @@
         "uid": "grafana"
       },
       "gridPos": {
-        "h": 14,
+        "h": 12,
         "w": 12,
-        "x": 0,
-        "y": 28
+        "x": 12,
+        "y": 24
       },
       "id": 7,
       "options": {
@@ -153,6 +224,6 @@
   "timezone": "",
   "title": "Panels",
   "uid": "O4tc_E6Gz",
-  "version": 3,
+  "version": 7,
   "weekStart": ""
 }
