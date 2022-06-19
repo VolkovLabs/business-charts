@@ -42,10 +42,10 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
 
     chart?.clear();
     chart?.dispose();
-    setChart(echarts.init(echartRef.current, options.followTheme && theme.isDark ? 'dark' : undefined));
+    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.followTheme]);
+  }, []);
 
   /**
    * Resize
@@ -85,7 +85,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
      */
     try {
       const func = new Function('data', 'theme', 'echartsInstance', 'echarts', options.getOption);
-      chart.setOption(func(data, theme.v1, chart, echarts));
+      chart.setOption(func(data, theme, chart, echarts));
     } catch (err) {
       setError(err as any);
     }
@@ -94,33 +94,28 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
   }, [chart, options.getOption, data]);
 
   /**
-   * Error
-   */
-  if (error) {
-    return (
-      <>
-        <Alert severity="warning" title="ECharts Execution Error">
-          {error.message}
-        </Alert>
-
-        <pre>{error.stack}</pre>
-      </>
-    );
-  }
-
-  /**
    * EChart
    */
   return (
-    <div
-      ref={echartRef}
-      className={cx(
-        styles.wrapper,
-        css`
-          width: ${width}px;
-          height: ${height}px;
-        `
+    <>
+      {error?.message && (
+        <Alert severity="warning" title="ECharts Execution Error">
+          {error.message}
+        </Alert>
       )}
-    />
+
+      {error?.stack && <pre>{error.stack}</pre>}
+
+      <div
+        ref={echartRef}
+        className={cx(
+          styles.wrapper,
+          css`
+            width: ${width}px;
+            height: ${height}px;
+          `
+        )}
+      />
+    </>
   );
 };
