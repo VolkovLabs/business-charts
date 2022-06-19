@@ -1,11 +1,6 @@
 import { PanelOptions } from './types';
 
 /**
- * ECharts Editor
- */
-export const EChartsEditorHeight = 600;
-
-/**
  * Supported Languages
  */
 export const enum CodeLanguage {
@@ -93,4 +88,5 @@ return {
 export const DefaultOptions: PanelOptions = {
   followTheme: false,
   getOption: EChartsExample,
+  editor: { height: 400 },
 };

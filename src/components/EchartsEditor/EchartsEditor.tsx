@@ -1,7 +1,7 @@
 import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { CodeEditor } from '@grafana/ui';
-import { CodeLanguage, EChartsEditorHeight } from '../../constants';
+import { CodeLanguage } from '../../constants';
 
 /**
  * Properties
@@ -21,7 +21,7 @@ interface Props extends StandardEditorProps {
 /**
  * ECharts Editor
  */
-export const EChartsEditor: React.FC<Props> = ({ value, onChange }) => {
+export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => {
   return (
     <div>
       <CodeEditor
@@ -29,7 +29,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange }) => {
         showLineNumbers={true}
         showMiniMap={true}
         value={value}
-        height={`${EChartsEditorHeight}px`}
+        height={`${context.options.editor.height}px`}
         onBlur={(code) => {
           onChange(code);
         }}

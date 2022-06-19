@@ -14,12 +14,23 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
       description: 'Use default theme or follow theme of grafana (light or dark).',
       defaultValue: DefaultOptions.followTheme,
     })
+    .addSliderInput({
+      path: 'editor.height',
+      name: 'Height, px',
+      defaultValue: DefaultOptions.editor.height,
+      settings: {
+        min: 100,
+        max: 2000,
+      },
+      category: ['ECharts Editor'],
+    })
     .addCustomEditor({
       id: 'getOption',
       path: 'getOption',
       name: 'Function',
       description: 'Return options called by ECharts. Parameters: data, theme, echartsInstance, echarts',
       defaultValue: DefaultOptions.getOption,
+      category: ['ECharts Editor'],
       editor: EChartsEditor,
     });
 
