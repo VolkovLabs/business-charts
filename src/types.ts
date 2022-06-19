@@ -3,13 +3,6 @@
  */
 export interface PanelOptions {
   /**
-   * Follow Theme
-   *
-   * @type {boolean}
-   */
-  followTheme: boolean;
-
-  /**
    * Option
    *
    * @type {string}
