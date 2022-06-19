@@ -7,8 +7,12 @@ import { EChartsEditor } from './EChartsEditor';
  */
 describe('Editor', () => {
   it('Should find component', async () => {
-    const getComponent = ({ options = {}, ...restProps }: any) => {
-      return <EChartsEditor {...restProps} options={options} />;
+    const context = {
+      options: { editor: { height: 300 } },
+    };
+
+    const getComponent = ({ ...restProps }: any) => {
+      return <EChartsEditor {...restProps} context={context} />;
     };
 
     const wrapper = shallow(getComponent({}));
