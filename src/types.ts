@@ -10,7 +10,7 @@ export interface PanelOptions {
   followTheme: boolean;
 
   /**
-   * Options
+   * Option
    *
    * @type {string}
    */
