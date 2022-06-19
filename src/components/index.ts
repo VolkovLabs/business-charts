@@ -1,2 +1,2 @@
-export * from './EChartsEditor2';
-export * from './EChartsPanel2';
+export * from './EChartsEditor';
+export * from './EChartsPanel';
