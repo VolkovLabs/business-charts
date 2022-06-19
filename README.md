@@ -1,4 +1,6 @@
-# Grafana Echarts Panel
+# ECharts Panel plugin for Grafana
+
+![Echarts](https://github.com/Billiballa/bilibala-echarts-panel/raw/master/src/img/panel.png)
 
 [![Grafana 9](https://img.shields.io/badge/Grafana-9-orange)](https://www.grafana.com)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
@@ -7,9 +9,9 @@
 
 ## Introduction
 
-The Echarts Panel is a plugin for Grafana that supports Apache ECharts, an Open Source JavaScript Visualization Library.
+The ECharts Panel is a plugin for Grafana that allows to visualize Apache ECharts on your Grafana dashboard.
 
-![screenshot](https://github.com/Billiballa/bilibala-echarts-panel/raw/master/src/img/screenshot.png)
+Apache ECharts is a free, powerful charting and visualization library offering an easy way of adding intuitive, interactive, and highly customizable charts to your commercial products. It is written in pure JavaScript and based on zrender, which is a whole new lightweight canvas library.
 
 ### Requirements
 
@@ -17,24 +19,16 @@ The Echarts Panel is a plugin for Grafana that supports Apache ECharts, an Open 
 
 ## Getting Started
 
-1. Echarts option in the edit panel will execute when the data from grafana is refreshed, so you should avoid side effects or ensure that the side effects of the last execution can be cleared.
+ECharts panel is under development and not included in the Grafana Marketplace yet. It can be installed manually from our private repository or downloaded directly from the GitHub repository:
 
+```bash
+grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echarts-panel
 ```
-function (data, theme, echartsInstance, echarts) {
-  echartsInstance.off('click') // clear side effects
-  echartsInstance.on('click', () => {
-    console.log('Click!');
-  })
-  return {...}
-}
-```
-
-2. Add Map: clone repo, add YourMap.json to **src/map** and run `yarn build`, panel will auto register it(`echarts.registerMap('YourMap', {...}))`.
 
 ## Features
 
-- Code editor is attached in the edit panel to configure the option of [Apache ECharts (incubating)](https://github.com/apache/incubator-echarts).
-- Supports [echarts-wordcloud](https://github.com/ecomfe/echarts-wordcloud), [echarts-liquidfill](https://github.com/ecomfe/echarts-liquidfill) and [echarts-gl](https://github.com/ecomfe/echarts-gl).
+- Allows to visualize Apache ECharts using Monaco Code Editor.
+- Supports Light and Dark mode synchronized with Grafana Theme.
 
 ## Feedback
 

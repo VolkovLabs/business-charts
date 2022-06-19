@@ -1,6 +1,6 @@
 {
   "author": "Volkov Labs",
-  "description": "Echarts panel for Grafana",
+  "description": "ECharts panel for Grafana",
   "devDependencies": {
     "@grafana/data": "^9.0.0",
     "@grafana/toolkit": "^9.0.0",
@@ -10,12 +10,8 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/lodash": "^4.14.165",
     "echarts": "^5.3.3",
-    "echarts-gl": "^2.0.9",
-    "echarts-liquidfill": "^3.1.0",
-    "echarts-wordcloud": "^2.0.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "lodash": "^4.17.20"
+    "enzyme-adapter-react-16": "^1.15.6"
   },
   "engines": {
     "node": ">=16"

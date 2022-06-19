@@ -34,16 +34,85 @@
       },
       "gridPos": {
         "h": 14,
-        "w": 13,
+        "w": 12,
         "x": 0,
         "y": 0
       },
+      "id": 6,
+      "options": {
+        "editor": {
+          "height": 400
+        },
+        "followTheme": true,
+        "getOption": "return {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: data.series.map((s) => s.name),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time',\n    },\n    axisOption\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value',\n      min: 'dataMin',\n    },\n    axisOption\n  ),\n  grid: {\n    left: 0,\n    right: 16,\n    top: 6,\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};"
+      },
+      "title": "Error",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "editor": {
+          "height": 771
+        },
+        "followTheme": true,
+        "getOption": "var d = [\n  {\n    name: 'Grandpa',\n    children: [\n      {\n        name: 'Uncle Leo',\n        value: 15,\n        children: [\n          {\n            name: 'Cousin Jack',\n            value: 2\n          },\n          {\n            name: 'Cousin Mary',\n            value: 5,\n            children: [\n              {\n                name: 'Jackson',\n                value: 2\n              }\n            ]\n          },\n          {\n            name: 'Cousin Ben',\n            value: 4\n          }\n        ]\n      },\n      {\n        name: 'Father',\n        value: 10,\n        children: [\n          {\n            name: 'Me',\n            value: 5\n          },\n          {\n            name: 'Brother Peter',\n            value: 1\n          }\n        ]\n      }\n    ]\n  },\n  {\n    name: 'Nancy',\n    children: [\n      {\n        name: 'Uncle Nike',\n        children: [\n          {\n            name: 'Cousin Betty',\n            value: 1\n          },\n          {\n            name: 'Cousin Jenny',\n            value: 2\n          }\n        ]\n      }\n    ]\n  }\n];\n\nreturn {\n  series: {\n    type: 'sunburst',\n    data: d,\n    radius: [60, '90%'],\n    itemStyle: {\n      borderRadius: 7,\n      borderWidth: 2\n    },\n    label: {\n      show: true\n    }\n  }\n};"
+      },
+      "title": "Sunburst",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
       "id": 2,
       "options": {
-        "followTheme": false,
+        "editor": {
+          "height": 771
+        },
+        "followTheme": true,
         "getOption": "const series = data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;\n\n  return {\n    name: s.name,\n    type: 'line',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\nconst axisOption = {\n  axisTick: {\n    show: false,\n  },\n  axisLine: {\n    show: false,\n  },\n  axisLabel: {\n    color: 'rgba(128, 128, 128, .9)',\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)',\n    },\n  },\n};\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: data.series.map((s) => s.name),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time',\n    },\n    axisOption\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value',\n      min: 'dataMin',\n    },\n    axisOption\n  ),\n  grid: {\n    left: 0,\n    right: 16,\n    top: 6,\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};"
       },
-      "title": "Random Walk",
+      "title": "Random Walk Chart",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 4,
+      "options": {
+        "editor": {
+          "height": 771
+        },
+        "followTheme": true,
+        "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      splitNumber: 12,\n      itemStyle: {\n        color: '#FFAB91'\n      },\n      progress: {\n        show: true,\n        width: 30\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        lineStyle: {\n          width: 30\n        }\n      },\n      axisTick: {\n        distance: -45,\n        splitNumber: 5,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      splitLine: {\n        distance: -52,\n        length: 14,\n        lineStyle: {\n          width: 3,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: -20,\n        color: '#999',\n        fontSize: 20\n      },\n      anchor: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        valueAnimation: true,\n        width: '60%',\n        lineHeight: 40,\n        borderRadius: 8,\n        offsetCenter: [0, '-15%'],\n        fontSize: 60,\n        fontWeight: 'bolder',\n        formatter: '{value} °C',\n        color: 'inherit'\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    },\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      itemStyle: {\n        color: '#FD7347'\n      },\n      progress: {\n        show: true,\n        width: 8\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    }\n  ]\n};"
+      },
+      "title": "Random Walk Chart",
       "type": "volkovlabs-echarts-panel"
     }
   ],
@@ -62,6 +131,6 @@
   "timezone": "",
   "title": "Panels",
   "uid": "O4tc_E6Gz",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
