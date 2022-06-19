@@ -1,6 +1,6 @@
 # ECharts Panel plugin for Grafana
 
-![Echarts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
+![Echarts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
 [![Grafana 9](https://img.shields.io/badge/Grafana-9-orange)](https://www.grafana.com)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)

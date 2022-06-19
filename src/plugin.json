@@ -28,6 +28,10 @@
     },
     "screenshots": [
       {
+        "name": "Dashboard",
+        "path": "img/dashboard.png"
+      },
+      {
         "name": "Panel",
         "path": "img/panel.png"
       }
