@@ -44,7 +44,7 @@
         "getOption": "const series = data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;\n\n  return {\n    name: s.name,\n    type: 'line',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\nconst axisOption = {\n  axisTick: {\n    show: false,\n  },\n  axisLine: {\n    show: false,\n  },\n  axisLabel: {\n    color: 'rgba(128, 128, 128, .9)',\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)',\n    },\n  },\n};\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: data.series.map((s) => s.name),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time',\n    },\n    axisOption\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value',\n      min: 'dataMin',\n    },\n    axisOption\n  ),\n  grid: {\n    left: 0,\n    right: 16,\n    top: 6,\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};"
       },
       "title": "Random Walk",
-      "type": "bilibala-echarts-panel"
+      "type": "volkovlabs-echarts-panel"
     }
   ],
   "refresh": "",

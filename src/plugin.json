@@ -1,42 +1,40 @@
 {
-  "type": "panel",
-  "name": "Echarts",
-  "id": "bilibala-echarts-panel",
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "dependencies": {
+    "grafanaDependency": ">=8.3.0",
+    "plugins": []
+  },
+  "id": "volkovlabs-echarts-panel",
   "info": {
-    "description": "Echarts panel for grafana",
     "author": {
-      "name": "bilibala",
-      "url": "https://github.com/Billiballa"
+      "name": "Volkov Labs",
+      "url": "https://volkovlabs.io"
     },
-    "keywords": [
-      "echarts"
-    ],
-    "logos": {
-      "small": "img/logo.png",
-      "large": "img/logo.png"
-    },
+    "description": "Echarts panel for grafana",
+    "keywords": ["echarts"],
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/Billiballa/bilibala-echarts-panel"
+        "url": "https://github.com/VolkovLabs/volkovlabs-echarts-panel"
       },
       {
         "name": "License",
-        "url": "https://github.com/Billiballa/bilibala-echarts-panel/blob/master/LICENSE"
+        "url": "https://github.com/VolkovLabs/volkovlabs-echarts-panel/blob/main/LICENSE"
       }
     ],
+    "logos": {
+      "large": "img/logo.svg",
+      "small": "img/logo.svg"
+    },
     "screenshots": [
       {
         "name": "screenshot",
         "path": "img/screenshot.png"
       }
     ],
-    "version": "%VERSION%",
-    "updated": "%TODAY%"
+    "updated": "%TODAY%",
+    "version": "%VERSION%"
   },
-  "dependencies": {
-    "grafanaDependency": ">=6.3.0",
-    "grafanaVersion": "6.3.x",
-    "plugins": []
-  }
+  "name": "Echarts",
+  "type": "panel"
 }

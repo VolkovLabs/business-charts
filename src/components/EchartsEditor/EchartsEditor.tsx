@@ -16,7 +16,7 @@ import CodeMirror from 'codemirror';
 import React, { useEffect, useRef } from 'react';
 // import { StandardEditorProps } from '@grafana/data';
 import { css } from '@emotion/css';
-import { funcParams } from '../types';
+import { funcParams } from '../../constants';
 
 // import 'codemirror/addon/hint/show-hint.css';
 // import 'codemirror/addon/hint/show-hint.js';
@@ -30,13 +30,22 @@ const getStyles = () => ({
   `,
 });
 
-// interface Props extends StandardEditorProps<string> {
+/**
+ * Properties
+ */
 interface Props {
+  /**
+   * Value
+   */
   value: string;
+
+  /**
+   * On Change
+   */
   onChange: (value?: string) => void;
 }
 
-export const FieldCMEditor: React.FC<Props> = ({ value, onChange }) => {
+export const EchartsEditor: React.FC<Props> = ({ value, onChange }) => {
   const editorRef = useRef<HTMLTextAreaElement>(null);
   const styles = getStyles();
 
