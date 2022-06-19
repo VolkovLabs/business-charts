@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { toDataFrame } from '@grafana/data';
-import { EchartsPanel } from './EchartsPanel';
+import { EChartsPanel } from './EChartsPanel';
 
 /**
  * Panel
@@ -17,7 +17,7 @@ describe('Panel', () => {
           }),
         ],
       };
-      return <EchartsPanel data={data} {...restProps} options={options} />;
+      return <EChartsPanel data={data} {...restProps} options={options} />;
     };
 
     const wrapper = shallow(getComponent({}));

@@ -1,14 +1,17 @@
 import { PanelOptions } from './types';
 
 /**
- * Parameters
+ * Supported Languages
  */
-export const funcParams = 'data, theme, echartsInstance, echarts';
+export const enum CodeLanguage {
+  JAVASCRIPT = 'javascript',
+  JSON = 'json',
+}
 
 /**
- * Body
+ * ECharts Chart Example
  */
-const funcBody = `const series = data.series.map((s) => {
+const EChartsExample = `const series = data.series.map((s) => {
   const sData = s.fields.find((f) => f.type === 'number').values.buffer;
   const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
 
@@ -80,9 +83,10 @@ return {
 };`;
 
 /**
- * Default value
+ * Default Options
  */
 export const DefaultOptions: PanelOptions = {
   followTheme: false,
-  getOption: funcBody,
+  getOption: EChartsExample,
+  editor: { height: 400 },
 };

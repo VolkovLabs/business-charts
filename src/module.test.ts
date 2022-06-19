@@ -16,6 +16,7 @@ describe('plugin', () => {
     const builder: any = {
       addBooleanSwitch: jest.fn().mockImplementation(() => builder),
       addCustomEditor: jest.fn().mockImplementation(() => builder),
+      addSliderInput: jest.fn().mockImplementation(() => builder),
     };
 
     /**
@@ -28,5 +29,6 @@ describe('plugin', () => {
      */
     expect(builder.addBooleanSwitch).toHaveBeenCalled();
     expect(builder.addCustomEditor).toHaveBeenCalled();
+    expect(builder.addSliderInput).toHaveBeenCalled();
   });
 });

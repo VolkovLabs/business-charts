@@ -7,7 +7,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { PanelProps } from '@grafana/data';
 import { useTheme2 } from '@grafana/ui';
-import { funcParams } from '../../constants';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 
@@ -16,9 +15,13 @@ import { PanelOptions } from '../../types';
  */
 interface Props extends PanelProps<PanelOptions> {}
 
-export const EchartsPanel: React.FC<Props> = ({ options, data, width, height }) => {
+/**
+ * Panel
+ */
+export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const echartRef = useRef<HTMLDivElement>(null);
 
+  /** */
   const [chart, setChart] = useState<echarts.ECharts>();
   const [tips, setTips] = useState<Error | undefined>();
 
@@ -39,9 +42,10 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height }) 
       try {
         setTips(undefined);
         chart.clear();
-        let getOption = new Function(funcParams, options.getOption);
-        const o = getOption(data, theme.v1, chart, echarts);
-        o && chart.setOption(o);
+
+        const func = new Function('data', 'theme', 'echartsInstance', 'echarts', options.getOption);
+        const getOptions = func(data, theme.v1, chart, echarts);
+        getOptions && chart.setOption(getOptions);
       } catch (err) {
         console.error('Editor content error!', err);
         setTips(err as any);
