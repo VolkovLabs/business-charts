@@ -4,36 +4,29 @@
 import * as echarts from 'echarts';
 import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
-import { funcParams, PanelOptions } from 'types';
 import { css, cx } from '@emotion/css';
-import { GrafanaTheme, PanelProps } from '@grafana/data';
-import { withTheme } from '@grafana/ui';
+import { PanelProps } from '@grafana/data';
+import { useTheme2 } from '@grafana/ui';
+import { funcParams } from '../../constants';
+import { getStyles } from '../../styles';
+import { PanelOptions } from '../../types';
 
-const getStyles = () => ({
-  tips: css`
-    padding: 0 10%;
-    height: 100%;
-    background: rgba(128, 128, 128, 0.1);
-    overflow: auto;
-  `,
-  tipsTitle: css`
-    margin: 48px 0 32px;
-    text-align: center;
-  `,
-  wrapper: css`
-    position: relative;
-  `,
-});
+/**
+ * Properties
+ */
+interface Props extends PanelProps<PanelOptions> {}
 
-interface Props extends PanelProps<PanelOptions> {
-  theme: GrafanaTheme;
-}
-
-const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, theme }) => {
-  const styles = getStyles();
+export const EchartsPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const echartRef = useRef<HTMLDivElement>(null);
+
   const [chart, setChart] = useState<echarts.ECharts>();
   const [tips, setTips] = useState<Error | undefined>();
+
+  /**
+   * Styles and Theme
+   */
+  const theme = useTheme2();
+  const styles = getStyles();
 
   const resetOption = debounce(
     () => {
@@ -47,7 +40,7 @@ const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, the
         setTips(undefined);
         chart.clear();
         let getOption = new Function(funcParams, options.getOption);
-        const o = getOption(data, theme, chart, echarts);
+        const o = getOption(data, theme.v1, chart, echarts);
         o && chart.setOption(o);
       } catch (err) {
         console.error('Editor content error!', err);
@@ -62,7 +55,7 @@ const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, the
     if (echartRef.current) {
       chart?.clear();
       chart?.dispose();
-      setChart(echarts.init(echartRef.current, options.followTheme ? theme.type : undefined));
+      setChart(echarts.init(echartRef.current, options.followTheme ? theme.v1.type : undefined));
     }
 
     return () => {
@@ -72,16 +65,25 @@ const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, the
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [echartRef.current, options.followTheme]);
 
+  /**
+   * Resize
+   */
   useEffect(() => {
     chart?.resize();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height]);
 
+  /**
+   * Reset Options
+   */
   useEffect(() => {
     chart && resetOption();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chart, options.getOption, data]);
 
+  /**
+   * Return
+   */
   return (
     <>
       {tips && (
@@ -92,6 +94,7 @@ const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, the
           ))}
         </div>
       )}
+
       <div
         ref={echartRef}
         className={cx(
@@ -105,5 +108,3 @@ const PartialSimplePanel: React.FC<Props> = ({ options, data, width, height, the
     </>
   );
 };
-
-export const EchartsPanel = withTheme(PartialSimplePanel);
