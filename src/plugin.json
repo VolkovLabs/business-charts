@@ -10,7 +10,7 @@
       "name": "Volkov Labs",
       "url": "https://volkovlabs.io"
     },
-    "description": "Echarts panel for grafana",
+    "description": "ECharts panel",
     "keywords": ["echarts"],
     "links": [
       {
@@ -28,13 +28,13 @@
     },
     "screenshots": [
       {
-        "name": "screenshot",
-        "path": "img/screenshot.png"
+        "name": "Panel",
+        "path": "img/panel.png"
       }
     ],
     "updated": "%TODAY%",
     "version": "%VERSION%"
   },
-  "name": "Echarts",
+  "name": "ECharts",
   "type": "panel"
 }

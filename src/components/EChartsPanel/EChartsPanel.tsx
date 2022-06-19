@@ -1,12 +1,8 @@
-//import 'echarts-wordcloud';
-//import 'echarts-liquidfill';
-//import 'echarts-gl';
 import * as echarts from 'echarts';
-import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { PanelProps } from '@grafana/data';
-import { useTheme2 } from '@grafana/ui';
+import { Alert, useTheme2 } from '@grafana/ui';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 
@@ -19,11 +15,16 @@ interface Props extends PanelProps<PanelOptions> {}
  * Panel
  */
 export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) => {
+  /**
+   * Reference
+   */
   const echartRef = useRef<HTMLDivElement>(null);
 
-  /** */
+  /**
+   * States
+   */
   const [chart, setChart] = useState<echarts.ECharts>();
-  const [tips, setTips] = useState<Error | undefined>();
+  const [error, setError] = useState<Error | undefined>();
 
   /**
    * Styles and Theme
@@ -31,84 +32,95 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
   const theme = useTheme2();
   const styles = getStyles();
 
-  const resetOption = debounce(
-    () => {
-      if (!chart) {
-        return;
-      }
-      if (data.state && data.state !== 'Done') {
-        return;
-      }
-      try {
-        setTips(undefined);
-        chart.clear();
-
-        const func = new Function('data', 'theme', 'echartsInstance', 'echarts', options.getOption);
-        const getOptions = func(data, theme.v1, chart, echarts);
-        getOptions && chart.setOption(getOptions);
-      } catch (err) {
-        console.error('Editor content error!', err);
-        setTips(err as any);
-      }
-    },
-    150,
-    { leading: true }
-  );
-
+  /**
+   * Initialize
+   */
   useEffect(() => {
-    if (echartRef.current) {
-      chart?.clear();
-      chart?.dispose();
-      setChart(echarts.init(echartRef.current, options.followTheme ? theme.v1.type : undefined));
+    if (!echartRef.current) {
+      return;
     }
 
-    return () => {
-      chart?.clear();
-      chart?.dispose();
-    };
+    chart?.clear();
+    chart?.dispose();
+    setChart(echarts.init(echartRef.current, options.followTheme && theme.isDark ? 'dark' : undefined));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [echartRef.current, options.followTheme]);
+  }, [options.followTheme]);
 
   /**
    * Resize
    */
   useEffect(() => {
     chart?.resize();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height]);
 
   /**
-   * Reset Options
+   * Execute EChart Function
    */
   useEffect(() => {
-    chart && resetOption();
+    /**
+     * Skip if chart is not defined
+     */
+    if (!chart) {
+      return;
+    }
+
+    /**
+     * Wait until Data Source return results
+     */
+    if (data.state && data.state !== 'Done') {
+      return;
+    }
+
+    /**
+     * Clear out chart and remove error
+     */
+    setError(undefined);
+    chart.clear();
+
+    /**
+     * Execution Function
+     */
+    try {
+      const func = new Function('data', 'theme', 'echartsInstance', 'echarts', options.getOption);
+      chart.setOption(func(data, theme.v1, chart, echarts));
+    } catch (err) {
+      setError(err as any);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chart, options.getOption, data]);
 
   /**
-   * Return
+   * Error
+   */
+  if (error) {
+    return (
+      <>
+        <Alert severity="warning" title="ECharts Execution Error">
+          {error.message}
+        </Alert>
+
+        <pre>{error.stack}</pre>
+      </>
+    );
+  }
+
+  /**
+   * EChart
    */
   return (
-    <>
-      {tips && (
-        <div className={styles.tips}>
-          <h5 className={styles.tipsTitle}>Editor content error!</h5>
-          {(tips.stack || tips.message).split('\n').map((s) => (
-            <p key={s}>{s}</p>
-          ))}
-        </div>
+    <div
+      ref={echartRef}
+      className={cx(
+        styles.wrapper,
+        css`
+          width: ${width}px;
+          height: ${height}px;
+        `
       )}
-
-      <div
-        ref={echartRef}
-        className={cx(
-          styles.wrapper,
-          css`
-            width: ${width}px;
-            height: ${height}px;
-          `
-        )}
-      />
-    </>
+    />
   );
 };

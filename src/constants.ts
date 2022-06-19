@@ -86,7 +86,7 @@ return {
  * Default Options
  */
 export const DefaultOptions: PanelOptions = {
-  followTheme: false,
+  followTheme: true,
   getOption: EChartsExample,
   editor: { height: 400 },
 };
