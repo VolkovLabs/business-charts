@@ -6,17 +6,7 @@ import { CodeLanguage } from '../../constants';
 /**
  * Properties
  */
-interface Props extends StandardEditorProps {
-  /**
-   * Value
-   */
-  value: string;
-
-  /**
-   * On Change
-   */
-  onChange: (value?: string) => void;
-}
+interface Props extends StandardEditorProps {}
 
 /**
  * ECharts Editor
