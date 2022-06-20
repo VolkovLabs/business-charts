@@ -1,7 +1,16 @@
+import { Renderer } from './constants';
+
 /**
  * Options
  */
 export interface PanelOptions {
+  /**
+   * Renderer
+   *
+   * @type {Renderer}
+   */
+  renderer: Renderer;
+
   /**
    * Option
    *
