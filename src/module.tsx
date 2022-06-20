@@ -18,7 +18,6 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
       },
       defaultValue: DefaultOptions.renderer,
     })
-
     .addSliderInput({
       path: 'editor.height',
       name: 'Editor Height, px',
