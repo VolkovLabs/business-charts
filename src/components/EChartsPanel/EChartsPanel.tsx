@@ -42,10 +42,10 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
 
     chart?.clear();
     chart?.dispose();
-    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined));
+    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined, { renderer: options.renderer }));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [options.renderer]);
 
   /**
    * Resize

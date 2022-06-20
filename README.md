@@ -29,6 +29,7 @@ grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echa
 
 - Allows to visualize Apache ECharts using Monaco Code Editor.
 - Supports Light and Dark mode synchronized with Grafana Theme.
+- Supports SVG and Canvas renderer.
 
 ## Feedback
 
