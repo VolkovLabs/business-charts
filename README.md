@@ -1,4 +1,4 @@
-# ECharts Panel plugin for Grafana
+# Apache ECharts Panel plugin for Grafana
 
 ![Echarts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
@@ -28,8 +28,28 @@ grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echa
 ## Features
 
 - Allows to visualize Apache ECharts using Monaco Code Editor.
+- Use setOption() function to set configuration and data.
+- Based on the ECharts 5.3.3.
 - Supports Light and Dark mode synchronized with Grafana Theme.
 - Supports SVG and Canvas renderer.
+
+## setOption() Function
+
+Configuration item, data, universal interface, all parameters and data can all be modified through setOption() function in the plugin's options.
+Available Parameters:
+
+- `data` - Grafana's `data` object.
+- `theme` - Grafana's `theme` object.
+- `echartsInstance` - Instance of the Echarts.
+- `echarts` - Echarts library.
+
+![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
+
+To learn more about parameters you can be log them in the Browser Console:
+
+```javascript
+console.log(data, theme, echartsInstance, echarts);
+```
 
 ## Feedback
 

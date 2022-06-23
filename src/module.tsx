@@ -30,8 +30,9 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     .addCustomEditor({
       id: 'getOption',
       path: 'getOption',
-      name: 'Function',
-      description: 'Return options called by ECharts. Parameters: data, theme, echartsInstance, echarts',
+      name: 'setOptions Function',
+      description:
+        'Should return options for setOptions(). Available parameters: data, theme, echartsInstance, echarts',
       defaultValue: DefaultOptions.getOption,
       editor: EChartsEditor,
     });

@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Add setOption() description in README And Options
+
 ## 3.0.0 (2022-06-19)
 
 ### Breaking changes
