@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Add setOption() description in README And Options
+- Add setOption() description in README And Options (#12)
 
 ## 3.0.0 (2022-06-19)
 

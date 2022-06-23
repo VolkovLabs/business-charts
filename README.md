@@ -45,7 +45,7 @@ Available Parameters:
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
-To learn more about parameters you can be log them in the Browser Console:
+To learn more about parameters you can log them in the Browser Console:
 
 ```javascript
 console.log(data, theme, echartsInstance, echarts);
