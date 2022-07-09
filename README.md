@@ -32,6 +32,7 @@ grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echa
 - Based on the ECharts 5.3.3.
 - Supports Light and Dark mode synchronized with Grafana Theme.
 - Supports SVG and Canvas renderer.
+- Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
 
 ## setOption() Function
 
