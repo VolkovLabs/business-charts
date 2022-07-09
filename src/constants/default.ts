@@ -1,17 +1,11 @@
-import { PanelOptions } from './types';
+import { PanelOptions } from '../types';
+import { Renderer } from './echarts';
+import { Format } from './editor';
 
 /**
- * Supported Languages
+ * ECharts Example
  */
-export const enum CodeLanguage {
-  JAVASCRIPT = 'javascript',
-  JSON = 'json',
-}
-
-/**
- * ECharts Chart Example
- */
-const EChartsExample = `const series = data.series.map((s) => {
+const getOption = `const series = data.series.map((s) => {
   const sData = s.fields.find((f) => f.type === 'number').values.buffer;
   const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
 
@@ -83,26 +77,10 @@ return {
 };`;
 
 /**
- * Renderer
- */
-export enum Renderer {
-  CANVAS = 'canvas',
-  SVG = 'svg',
-}
-
-/**
- * Renderer Options
- */
-export const RendererOptions = [
-  { value: Renderer.CANVAS, label: 'Canvas' },
-  { value: Renderer.SVG, label: 'SVG' },
-];
-
-/**
  * Default Options
  */
 export const DefaultOptions: PanelOptions = {
-  getOption: EChartsExample,
+  getOption,
   renderer: Renderer.CANVAS,
-  editor: { height: 600 },
+  editor: { height: 600, format: Format.AUTO },
 };

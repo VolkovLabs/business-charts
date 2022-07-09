@@ -7,6 +7,7 @@
 - Add setOption() description in README And Options (#12)
 - Maps json files are missing (#14)
 - Registering USA and World maps (#20)
+- Add Auto Formatting (#21)
 
 ## 3.0.0 (2022-06-19)
 
