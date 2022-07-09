@@ -1,4 +1,4 @@
-import { Renderer } from './constants';
+import { Format, Renderer } from './constants';
 
 /**
  * Options
@@ -34,4 +34,11 @@ export interface EditorOptions {
    * @type {number}
    */
   height: number;
+
+  /**
+   * Format
+   *
+   * @type {Format}
+   */
+  format: Format;
 }
