@@ -4,6 +4,15 @@ import { toDataFrame } from '@grafana/data';
 import { EChartsPanel } from './EChartsPanel';
 
 /**
+ * Skip Register Maps
+ */
+jest.mock('../../utils', () => ({
+  registerMaps: () => {
+    return;
+  },
+}));
+
+/**
  * Panel
  */
 describe('Panel', () => {

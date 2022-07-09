@@ -5,11 +5,17 @@ import { PanelProps } from '@grafana/data';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
+import { registerMaps } from '../../utils';
 
 /**
  * Properties
  */
 interface Props extends PanelProps<PanelOptions> {}
+
+/**
+ * Register maps
+ */
+registerMaps();
 
 /**
  * Panel
