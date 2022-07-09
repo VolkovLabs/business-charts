@@ -1,6 +1,15 @@
 import { PanelPlugin } from '@grafana/data';
 import { plugin } from './module';
 
+/**
+ * Skip Register Maps
+ */
+jest.mock('./utils', () => ({
+  registerMaps: () => {
+    return;
+  },
+}));
+
 /*
  Plugin
  */
