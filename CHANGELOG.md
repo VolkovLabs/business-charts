@@ -8,6 +8,7 @@
 - Maps json files are missing (#14)
 - Registering USA and World maps (#20)
 - Add Auto Formatting (#21)
+- Rebuild using Grafana 9.0.2 (#22)
 
 ## 3.0.0 (2022-06-19)
 
