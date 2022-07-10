@@ -49,7 +49,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     id: 'getOption',
     path: 'getOption',
     name: 'Should return options for setOptions()',
-    description: 'Available parameters: data, theme, echartsInstance, echarts, replaceVariables',
+    description: 'Parameters: data, theme, echartsInstance, echarts, replaceVariables, locationService',
     defaultValue: DefaultOptions.getOption,
     editor: EChartsEditor,
     category: ['Function'],

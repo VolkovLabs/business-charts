@@ -33,6 +33,7 @@ grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echa
 - Supports Light and Dark mode synchronized with Grafana Theme.
 - Supports SVG and Canvas renderer.
 - Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
+- Supports variables and location service to make Charts interactive.
 
 ## setOption() Function
 
@@ -41,9 +42,10 @@ Available Parameters:
 
 - `data` - Grafana's `data` object.
 - `theme` - Grafana's `theme` object.
-- `echartsInstance` - Instance of the Echarts.
-- `echarts` - Echarts library.
+- `echartsInstance` - Instance of the ECharts.
+- `echarts` - ECharts library.
 - `replaceVariables` - the `replaceVariables()` function to interpolate variables.
+- `locationService` - Grafana's `locationService` to work with browser location and history.
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
