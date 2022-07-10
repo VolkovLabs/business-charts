@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1657468252951,
+  "iteration": 1657493592359,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -54,7 +54,7 @@
     },
     {
       "datasource": {
-        "type": "datasource",
+        "type": "grafana",
         "uid": "grafana"
       },
       "gridPos": {
@@ -63,17 +63,25 @@
         "x": 8,
         "y": 0
       },
-      "id": 3,
+      "id": 20,
       "options": {
         "editor": {
           "format": "auto",
-          "height": 771
+          "height": 600
         },
-        "followTheme": true,
-        "getOption": "var d = [\n  {\n    name: 'Grandpa',\n    children: [\n      {\n        name: 'Uncle Leo',\n        value: 15,\n        children: [\n          {\n            name: 'Cousin Jack',\n            value: 2\n          },\n          {\n            name: 'Cousin Mary',\n            value: 5,\n            children: [\n              {\n                name: 'Jackson',\n                value: 2\n              }\n            ]\n          },\n          {\n            name: 'Cousin Ben',\n            value: 4\n          }\n        ]\n      },\n      {\n        name: 'Father',\n        value: 10,\n        children: [\n          {\n            name: 'Me',\n            value: 5\n          },\n          {\n            name: 'Brother Peter',\n            value: 1\n          }\n        ]\n      }\n    ]\n  },\n  {\n    name: 'Nancy',\n    children: [\n      {\n        name: 'Uncle Nike',\n        children: [\n          {\n            name: 'Cousin Betty',\n            value: 1\n          },\n          {\n            name: 'Cousin Jenny',\n            value: 2\n          }\n        ]\n      }\n    ]\n  }\n];\n\nreturn {\n  series: {\n    type: 'sunburst',\n    data: d,\n    radius: [60, '90%'],\n    itemStyle: {\n      borderRadius: 7,\n      borderWidth: 2\n    },\n    label: {\n      show: true\n    }\n  }\n};",
+        "getOption": "let values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: [values[0]/100, values[1]/100, values[2]/100]\n  }]\n};",
         "renderer": "canvas"
       },
-      "title": "Sunburst",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Liquid Fill",
       "type": "volkovlabs-echarts-panel"
     },
     {

@@ -1,3 +1,4 @@
+import 'echarts-liquidfill';
 import * as echarts from 'echarts';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
