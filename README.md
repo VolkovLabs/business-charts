@@ -34,6 +34,7 @@ grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echa
 - Supports SVG and Canvas renderer.
 - Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
 - Supports variables and location service to make Charts interactive.
+- Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill).
 
 ## setOption() Function
 
@@ -52,7 +53,7 @@ Available Parameters:
 To learn more about parameters you can log them in the Browser Console:
 
 ```javascript
-console.log(data, theme, echartsInstance, echarts, replaceVariables);
+console.log(data, theme, echartsInstance, echarts, replaceVariables, locationService);
 ```
 
 ## Feedback

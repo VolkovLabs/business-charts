@@ -4565,6 +4565,11 @@ duplexer@^0.1.2:
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
+echarts-liquidfill@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/echarts-liquidfill/-/echarts-liquidfill-3.1.0.tgz#4ec70f3697382d0404c95fff9f3e8dd85c8377da"
+  integrity sha512-5Dlqs/jTsdTUAsd+K5LPLLTgrbbNORUSBQyk8PSy1Mg2zgHDWm83FmvA4s0ooNepCJojFYRITTQ4GU1UUSKYLw==
+
 echarts@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/echarts/-/echarts-5.3.3.tgz#df97b09c4c0e2ffcdfb44acf518d50c50e0b838e"
