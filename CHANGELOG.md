@@ -9,6 +9,7 @@
 - Registering USA and World maps (#20)
 - Add Auto Formatting (#21)
 - Rebuild using Grafana 9.0.2 (#22)
+- Add Variables in the Code Editor (#9)
 
 ## 3.0.0 (2022-06-19)
 

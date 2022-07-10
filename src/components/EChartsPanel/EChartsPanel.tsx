@@ -20,7 +20,7 @@ registerMaps();
 /**
  * Panel
  */
-export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) => {
+export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables }) => {
   /**
    * Reference
    */
@@ -90,8 +90,8 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height }) 
      * Execution Function
      */
     try {
-      const func = new Function('data', 'theme', 'echartsInstance', 'echarts', options.getOption);
-      chart.setOption(func(data, theme, chart, echarts));
+      const func = new Function('data', 'theme', 'echartsInstance', 'echarts', 'replaceVariables', options.getOption);
+      chart.setOption(func(data, theme, chart, echarts, replaceVariables));
     } catch (err) {
       setError(err as any);
     }

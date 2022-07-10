@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "iteration": 1657468252951,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -141,7 +142,7 @@
           "height": 771
         },
         "followTheme": true,
-        "getOption": "let names= [];\nlet amounts= [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n        title: {\n          text: 'ECharts Getting Started Example'\n        },\n        tooltip: {},\n        legend: {\n          data: ['sales']\n        },\n        xAxis: {\n          data: names\n        },\n        yAxis: {},\n        series: [\n          {\n            name: 'sales',\n            type: 'bar',\n            data: amounts\n          }\n        ]\n      };\n",
+        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  title: {\n    text: 'ECharts Getting Started Example'\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$sales')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  series: [\n    {\n      name: replaceVariables('$sales'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
         "renderer": "canvas"
       },
       "targets": [
@@ -307,7 +308,28 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "sales",
+          "value": "sales"
+        },
+        "hide": 0,
+        "label": "Sales",
+        "name": "sales",
+        "options": [
+          {
+            "selected": true,
+            "text": "sales",
+            "value": "sales"
+          }
+        ],
+        "query": "sales",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
