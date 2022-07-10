@@ -43,13 +43,14 @@ Available Parameters:
 - `theme` - Grafana's `theme` object.
 - `echartsInstance` - Instance of the Echarts.
 - `echarts` - Echarts library.
+- `replaceVariables` - the `replaceVariables()` function to interpolate variables in panel plugins.
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
 To learn more about parameters you can log them in the Browser Console:
 
 ```javascript
-console.log(data, theme, echartsInstance, echarts);
+console.log(data, theme, echartsInstance, echarts, replaceVariables);
 ```
 
 ## Feedback

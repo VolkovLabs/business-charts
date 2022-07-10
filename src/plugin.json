@@ -10,7 +10,7 @@
       "name": "Volkov Labs",
       "url": "https://volkovlabs.io"
     },
-    "description": "ECharts panel",
+    "description": "Apache ECharts panel",
     "keywords": ["echarts"],
     "links": [
       {
@@ -39,6 +39,6 @@
     "updated": "%TODAY%",
     "version": "%VERSION%"
   },
-  "name": "ECharts",
+  "name": "Apache ECharts",
   "type": "panel"
 }
