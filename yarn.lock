@@ -1351,6 +1351,23 @@
     eslint-plugin-react-hooks "4.3.0"
     typescript "4.6.4"
 
+"@grafana/runtime@^9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@grafana/runtime/-/runtime-9.0.2.tgz#d8fef14bbfc3e716d71043e31eb8d99f4414b13b"
+  integrity sha512-jtdpLYfhfmb4ZB8KGfY/2ig+RHlAhka6slriAz2xp1Yd90TfX4ERjf3RzJevS+LNkDdPPJt8Uv7b3F8/SkSxJA==
+  dependencies:
+    "@grafana/data" "9.0.2"
+    "@grafana/e2e-selectors" "9.0.2"
+    "@grafana/ui" "9.0.2"
+    "@sentry/browser" "6.19.7"
+    history "4.10.1"
+    lodash "4.17.21"
+    react "17.0.2"
+    react-dom "17.0.2"
+    rxjs "7.5.5"
+    systemjs "0.20.19"
+    tslib "2.4.0"
+
 "@grafana/schema@9.0.2":
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/@grafana/schema/-/schema-9.0.2.tgz#658fe561e76a8fa9f2041fd6ff1a4365a1e4109e"
@@ -5444,7 +5461,7 @@ highlight-words-core@^1.2.0:
   resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
   integrity sha512-BXUKIkUuh6cmmxzi5OIbUJxrG8OAk2MqoL1DtO3Wo9D2faJg2ph5ntyuQeLqaHJmzER6H5tllCDA9ZnNe9BVGg==
 
-history@^4.9.0:
+history@4.10.1, history@^4.9.0:
   version "4.10.1"
   resolved "https://registry.yarnpkg.com/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
   integrity sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
@@ -9346,6 +9363,11 @@ symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
+
+systemjs@0.20.19:
+  version "0.20.19"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.19.tgz#c2b9e79c19f4bea53a19b1ed3f974ffb463be949"
+  integrity sha512-H/rKwNEEyej/+IhkmFNmKFyJul8tbH/muiPq5TyNoVTwsGhUjRsN3NlFnFQUvFXA3+GQmsXkCNXU6QKPl779aw==
 
 tapable@^1.0.0:
   version "1.1.3"

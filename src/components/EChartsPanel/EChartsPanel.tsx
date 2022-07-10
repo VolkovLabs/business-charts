@@ -2,6 +2,7 @@ import * as echarts from 'echarts';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { PanelProps } from '@grafana/data';
+import { locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
@@ -90,8 +91,16 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
      * Execution Function
      */
     try {
-      const func = new Function('data', 'theme', 'echartsInstance', 'echarts', 'replaceVariables', options.getOption);
-      chart.setOption(func(data, theme, chart, echarts, replaceVariables));
+      const func = new Function(
+        'data',
+        'theme',
+        'echartsInstance',
+        'echarts',
+        'replaceVariables',
+        'locationService',
+        options.getOption
+      );
+      chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
     } catch (err) {
       setError(err as any);
     }
