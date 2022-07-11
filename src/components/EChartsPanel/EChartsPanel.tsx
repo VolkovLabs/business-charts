@@ -41,17 +41,29 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   const styles = getStyles();
 
   /**
-   * Initialize
+   * Initialize Chart
    */
-  useEffect(() => {
+  const initChart = () => {
     if (!echartRef.current) {
       return;
     }
 
-    chart?.clear();
-    chart?.dispose();
-    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined, { renderer: options.renderer }));
+    /**
+     * Clear and dispose old chart
+     */
+    if (chart) {
+      chart.clear();
+      chart.dispose();
+    }
 
+    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined, { renderer: options.renderer }));
+  };
+
+  /**
+   * Initialize chart if Render updated
+   */
+  useEffect(() => {
+    initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.renderer]);
 
@@ -74,6 +86,13 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     if (!chart) {
       return;
     }
+
+    /**
+     * Re-initialize on Restore
+     */
+    chart.on('restore', () => {
+      initChart();
+    });
 
     /**
      * Wait until Data Source return results
