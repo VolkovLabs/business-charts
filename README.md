@@ -19,7 +19,7 @@ Apache ECharts is a free, powerful charting and visualization library offering a
 
 ## Getting Started
 
-ECharts panel is under development and not included in the Grafana Marketplace yet. It can be installed manually from our private repository or downloaded directly from the GitHub repository:
+Apache ECharts panel is not included in the Grafana Marketplace. It can be installed manually from our Private Repository or downloaded directly from the GitHub repository:
 
 ```bash
 grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echarts-panel

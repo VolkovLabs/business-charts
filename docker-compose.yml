@@ -3,15 +3,13 @@ version: '3.4'
 services:
   grafana:
     container_name: grafana
-    image: grafana/grafana:9.0.0
+    image: ghcr.io/volkovlabs/app:latest
     ports:
       - 3000:3000/tcp
     environment:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_BASIC_ENABLED=false
-      - GF_ENABLE_GZIP=true
-      - GF_USERS_DEFAULT_THEME=light
       - GF_DEFAULT_APP_MODE=development
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/panels.json
       - GF_INSTALL_PLUGINS=marcusolsson-static-datasource
