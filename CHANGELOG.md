@@ -9,7 +9,7 @@
 - Registering USA and World maps (#20)
 - Add Auto Formatting (#21)
 - Rebuild using Grafana 9.0.2 (#22)
-- Add Variables (`replaceVariables`) in the Code Editor (#9)
+- Add Variables support (`replaceVariables`) in the Code Editor (#9)
 - Add `locationService` parameter (#24)
 - Add Liquid fill plugin (#25)
 
