@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.1.0 (IN PROGRESS)
+## 3.1.0 (2022-07-10)
 
 ### Features / Enhancements
 
@@ -10,6 +10,10 @@
 - Add Auto Formatting (#21)
 - Rebuild using Grafana 9.0.2 (#22)
 - Add Variables in the Code Editor (#9)
+
+### Bug fixes
+
+- Reset zoom will destroy the chart (#13)
 
 ## 3.0.0 (2022-06-19)
 

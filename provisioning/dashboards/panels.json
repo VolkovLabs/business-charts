@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1657493592359,
+  "iteration": 1657496049995,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -150,7 +150,7 @@
           "height": 771
         },
         "followTheme": true,
-        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  title: {\n    text: 'ECharts Getting Started Example'\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$sales')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  series: [\n    {\n      name: replaceVariables('$sales'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
+        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  title: {\n    text: 'ECharts Getting Started Example'\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$sales')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$sales'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
         "renderer": "canvas"
       },
       "targets": [
@@ -347,6 +347,6 @@
   "timezone": "",
   "title": "Panels",
   "uid": "O4tc_E6Gz",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
