@@ -13,7 +13,9 @@ The ECharts Panel is a plugin for Grafana that allows to visualize Apache EChart
 
 Apache ECharts is a free, powerful charting and visualization library offering an easy way of adding intuitive, interactive, and highly customizable charts to your commercial products. It is written in pure JavaScript and based on zrender, which is a whole new lightweight canvas library.
 
-[![Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial](https://img.youtube.com/vi/DxqCrBEmrQw/0.jpg)](https://youtu.be/DxqCrBEmrQw)
+Watch the video "Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial" to learn more.
+
+[![Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/video.png)](https://youtu.be/DxqCrBEmrQw)
 
 ### Requirements
 
