@@ -58,6 +58,14 @@ To learn more about parameters you can log them in the Browser Console:
 console.log(data, theme, echartsInstance, echarts, replaceVariables, locationService);
 ```
 
+## Tutorial
+
+Data visualizations can and should be done in style. In two parts video tutorial Daria explained how we built and visualized directed graph in Grafana using Apache ECharts panel.
+
+[![Build directional graph in Grafana using Apache ECharts | Tutorial part 1](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial1.png)](https://youtu.be/e3VHgpuzEF0)
+
+[![Build directional graph in Grafana using Apache ECharts | Tutorial part 2](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial2.png)](https://youtu.be/oM7XAVlsOio)
+
 ## Feedback
 
 We love to hear from users, developers, and the whole community interested in this plugin. These are various ways to get in touch with us:
