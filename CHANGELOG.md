@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Add YouTube video to README (#29)
+- Add YouTube Tutorial (#31)
 
 ## 3.1.0 (2022-07-11)
 
