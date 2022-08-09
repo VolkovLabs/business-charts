@@ -6,7 +6,7 @@
 
 - Add YouTube video to README (#29)
 - Add YouTube Tutorial (#31)
-- Update to Grafana 9.0.6 ()
+- Update to Grafana 9.0.6 (#34)
 
 ## 3.1.0 (2022-07-11)
 
