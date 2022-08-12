@@ -8,7 +8,7 @@
 
 ### Features / Enhancements
 
-- Update to be included in the Grafana Marketplace (#69)
+- Update to be included in the Grafana Marketplace (#35)
 
 ## 3.2.0 (2022-08-09)
 
