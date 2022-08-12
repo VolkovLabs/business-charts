@@ -24,12 +24,12 @@
     "build": "grafana-toolkit plugin:build --coverage",
     "dev": "grafana-toolkit plugin:dev",
     "format": "prettier --write \"**\"",
-    "sign": "grafana-toolkit plugin:sign --rootUrls http://localhost:3000/",
+    "sign": "grafana-toolkit plugin:sign",
     "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",
     "test": "grafana-toolkit plugin:test",
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"
   },
-  "version": "3.2.0"
+  "version": "3.3.0"
 }

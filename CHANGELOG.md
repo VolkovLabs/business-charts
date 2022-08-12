@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.0 (2022-08-12)
+
+### Breaking changes
+
+- Signed as Community Plugin.
+
+### Features / Enhancements
+
+- Update to be included in the Grafana Marketplace (#69)
+
 ## 3.2.0 (2022-08-09)
 
 ### Features / Enhancements
