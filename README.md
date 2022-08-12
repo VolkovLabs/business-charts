@@ -1,6 +1,6 @@
 # Apache ECharts Panel plugin for Grafana
 
-![Echarts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
+![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
 [![Grafana 9](https://img.shields.io/badge/Grafana-9.0.6-orange)](https://www.grafana.com)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
@@ -21,10 +21,10 @@ Apache ECharts is a free, powerful charting and visualization library offering a
 
 ## Getting Started
 
-Apache ECharts panel is not included in the Grafana Marketplace. It can be installed manually from our Private Repository or downloaded directly from the GitHub repository:
+Apache ECharts panel can be installed from the Grafana Marketplace or use the `grafana-cli` tool to install from the command line:
 
 ```bash
-grafana-cli --repo https://volkovlabs.io/plugins plugins install volkovlabs-echarts-panel
+grafana-cli plugins install volkovlabs-echarts-panel
 ```
 
 ## Features
