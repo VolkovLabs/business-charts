@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Update to Grafana 9.1.0 (#37)
+- Add Youtube tutorial for PNG/SVG images (#38)
 
 ## 3.3.0 (2022-08-12)
 
