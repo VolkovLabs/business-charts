@@ -58,6 +58,16 @@ To learn more about parameters you can log them in the Browser Console:
 console.log(data, theme, echartsInstance, echarts, replaceVariables, locationService);
 ```
 
+## Dashboard Variables
+
+Use `replaceVariables()` function to replace Dashboard and Global variables.
+
+```javascript
+const email = replaceVariables('${__user.email}');
+```
+
+You can find [global built-in variables](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/) in the Grafana documentation.
+
 ## Tutorial
 
 ### Directed Graph
