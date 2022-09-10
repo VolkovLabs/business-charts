@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana 9](https://img.shields.io/badge/Grafana-9.1.0-orange)](https://www.grafana.com)
+[![Grafana 9](https://img.shields.io/badge/Grafana-9.1.4-orange)](https://www.grafana.com)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/VolkovLabs/volkovlabs-echarts-panel.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/VolkovLabs/volkovlabs-echarts-panel/context:javascript)
@@ -88,12 +88,6 @@ We love to hear from users, developers, and the whole community interested in th
 
 - Ask a question, request a new feature, and file a bug with [GitHub issues](https://github.com/volkovlabs/volkovlabs-echarts-panel/issues/new/choose).
 - Star the repository to show your support.
-
-## Contributing
-
-- Fork the repository.
-- Find an issue to work on and submit a pull request.
-- Could not find an issue? Look for documentation, bugs, typos, and missing features.
 
 ## License
 

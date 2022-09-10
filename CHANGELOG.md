@@ -7,6 +7,7 @@
 - Update to Grafana 9.1.0 (#37)
 - Add Youtube tutorial for PNG/SVG images (#38)
 - Access to dashboard variables - explain in README (#39)
+- Update to Grafana 9.1.4 ()
 
 ## 3.3.0 (2022-08-12)
 
