@@ -40,10 +40,10 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## setOption() Function
 
-Configuration item, data, universal interface, all parameters and data can all be modified through setOption() function in the plugin's options.
-Available Parameters:
+Configuration item, data, universal interface, all parameters and data can all be modified through `setOption()` function in the plugin's options.
+Available parameters:
 
-- `data` - Grafana's `data` object.
+- `data` - Grafana's `data` object with time range, series and request information.
 - `theme` - Grafana's `theme` object.
 - `echartsInstance` - Instance of the ECharts.
 - `echarts` - ECharts library.
@@ -58,7 +58,7 @@ To learn more about parameters you can log them in the Browser Console:
 console.log(data, theme, echartsInstance, echarts, replaceVariables, locationService);
 ```
 
-## Dashboard Variables
+## Dashboard and Global Variables
 
 Use `replaceVariables()` function to replace Dashboard and Global variables.
 
@@ -79,6 +79,8 @@ Data visualizations can and should be done in style. In two parts video tutorial
 [![Build directional graph in Grafana using Apache ECharts | Tutorial part 2](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial2.png)](https://youtu.be/oM7XAVlsOio)
 
 ### PNG and SVG images
+
+A quick guide for using images in Apache ECharts shows each type's prefixes.
 
 [![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
 
