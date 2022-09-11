@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana 9](https://img.shields.io/badge/Grafana-9.1.0-orange)](https://www.grafana.com)
+[![Grafana 9](https://img.shields.io/badge/Grafana-9.1.4-orange)](https://www.grafana.com)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/VolkovLabs/volkovlabs-echarts-panel.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/VolkovLabs/volkovlabs-echarts-panel/context:javascript)
@@ -40,10 +40,10 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## setOption() Function
 
-Configuration item, data, universal interface, all parameters and data can all be modified through setOption() function in the plugin's options.
-Available Parameters:
+Configuration item, data, universal interface, all parameters and data can all be modified through `setOption()` function in the plugin's options.
+Available parameters:
 
-- `data` - Grafana's `data` object.
+- `data` - Grafana's `data` object with time range, series and request information.
 - `theme` - Grafana's `theme` object.
 - `echartsInstance` - Instance of the ECharts.
 - `echarts` - ECharts library.
@@ -58,7 +58,7 @@ To learn more about parameters you can log them in the Browser Console:
 console.log(data, theme, echartsInstance, echarts, replaceVariables, locationService);
 ```
 
-## Dashboard Variables
+## Dashboard and Global Variables
 
 Use `replaceVariables()` function to replace Dashboard and Global variables.
 
@@ -80,6 +80,8 @@ Data visualizations can and should be done in style. In two parts video tutorial
 
 ### PNG and SVG images
 
+A quick guide for using images in Apache ECharts shows each type's prefixes.
+
 [![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
 
 ## Feedback
@@ -88,12 +90,6 @@ We love to hear from users, developers, and the whole community interested in th
 
 - Ask a question, request a new feature, and file a bug with [GitHub issues](https://github.com/volkovlabs/volkovlabs-echarts-panel/issues/new/choose).
 - Star the repository to show your support.
-
-## Contributing
-
-- Fork the repository.
-- Find an issue to work on and submit a pull request.
-- Could not find an issue? Look for documentation, bugs, typos, and missing features.
 
 ## License
 
