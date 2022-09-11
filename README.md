@@ -66,6 +66,8 @@ Use `replaceVariables()` function to replace Dashboard and Global variables.
 const email = replaceVariables('${__user.email}');
 ```
 
+[![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
+
 You can find [global built-in variables](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/) in the Grafana documentation.
 
 ## Tutorial
