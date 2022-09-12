@@ -9,6 +9,7 @@
 - Access to dashboard variables - explain in README (#39)
 - Update to Grafana 9.1.4 (#44)
 - Add Grafana Variables video (#45)
+- Add Data Source instructions to README (#46)
 
 ## 3.3.0 (2022-08-12)
 

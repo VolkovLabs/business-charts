@@ -3,6 +3,7 @@
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
 [![Grafana 9](https://img.shields.io/badge/Grafana-9.1.4-orange)](https://www.grafana.com)
+[![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/VolkovLabs/volkovlabs-echarts-panel.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/VolkovLabs/volkovlabs-echarts-panel/context:javascript)
@@ -69,6 +70,40 @@ const email = replaceVariables('${__user.email}');
 [![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
 
 You can find [global built-in variables](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/) in the Grafana documentation.
+
+## Data Sources
+
+To use Apache ECharts with data from data sources get each field in a array:
+
+```javascript
+data.series.map((s) => {
+  if (s.refId === 'logo') {
+    images = s.fields.find((f) => f.name === 'body').values.buffer;
+  } else if (s.refId === 'connections') {
+    sources = s.fields.find((f) => f.name === 'source').values.buffer;
+    targets = s.fields.find((f) => f.name === 'target').values.buffer;
+  } else if (s.refId === 'nodes') {
+    titles = s.fields.find((f) => f.name === 'title').values.buffer;
+    descriptions = s.fields.find((f) => f.name === 'description').values.buffer;
+  }
+});
+```
+
+or
+
+- get values for each field
+- combine in an array of arrays
+- use as `sData[0]` to access first query
+
+```javascript
+const series = data.series.map((s) => {
+  const rates = s.fields.find((f) => f.name === 'Rate').values.buffer;
+  const calls = s.fields.find((f) => f.name === 'Calls').values.buffer;
+  const names = s.fields.find((f) => f.name === 'Name').values.buffer;
+
+  return rates.map((d, i) => [d, calls[i], names[i]]);
+});
+```
 
 ## Tutorial
 
