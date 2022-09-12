@@ -95,7 +95,7 @@ or
 - combine in an array of arrays
 - use as `sData[0]` to access first query
 
-```
+```javascript
 const series = data.series.map((s) => {
   const rates = s.fields.find((f) => f.name === 'Rate').values.buffer;
   const calls = s.fields.find((f) => f.name === 'Calls').values.buffer;
