@@ -7,14 +7,15 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v3
         with:
           node-version: "16.x"
 
@@ -64,6 +65,13 @@ jobs:
           go install
           popd
           plugincheck2 -config ./plugin-validator/config/default.yaml dist.zip
+
+      - name: Compatibility check
+        uses: grafana/plugin-actions/is-compatible@v1
+        with:
+          module: "./src/module.ts"
+          comment-pr: 'yes'
+          fail-if-incompatible: 'no'
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
