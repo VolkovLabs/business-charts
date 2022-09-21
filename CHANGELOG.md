@@ -10,6 +10,8 @@
 - Update to Grafana 9.1.4 (#44)
 - Add Grafana Variables video (#45)
 - Add Data Source instructions to README (#46)
+- Add Compatibility Check Workflow (#49)
+- Update to Grafana 9.1.6 (#50)
 
 ## 3.3.0 (2022-08-12)
 
