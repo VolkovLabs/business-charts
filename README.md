@@ -37,7 +37,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Supports SVG and Canvas renderer.
 - Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
 - Supports variables and location service to make Charts interactive.
-- Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill).
+- Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
+- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization and WebGL acceleration.
 
 ## setOption() Function
 
