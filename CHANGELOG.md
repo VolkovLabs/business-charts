@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.4.0 (IN PROGRESS)
+## 3.4.0 (2022-09-21)
 
 ### Features / Enhancements
 
@@ -12,6 +12,7 @@
 - Add Data Source instructions to README (#46)
 - Add Compatibility Check Workflow (#49)
 - Update to Grafana 9.1.6 (#50)
+- Add ECharts-GL extension, which provides 3D plots, globe visualization and WebGL acceleration (#51)
 
 ## 3.3.0 (2022-08-12)
 

@@ -11,6 +11,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/webpack-env": "^1.18.0",
     "echarts": "^5.3.3",
+    "echarts-gl": "^2.0.9",
     "echarts-liquidfill": "^3.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6"
