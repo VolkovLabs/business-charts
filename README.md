@@ -32,7 +32,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 - Allows to visualize Apache ECharts using Monaco Code Editor with Auto formatting.
 - Use setOption() function to set configuration and data.
-- Based on the ECharts 5.3.3.
+- Based on the ECharts 5.4.0.
 - Supports Light and Dark mode synchronized with Grafana Theme.
 - Supports SVG and Canvas renderer.
 - Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
