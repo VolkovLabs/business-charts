@@ -1,3 +1,4 @@
+
 # Stacked Bar Graph
 
 Example for a stacked bar graph with an InfluxDB flux-query as data source
@@ -10,9 +11,9 @@ Example for a stacked bar graph with an InfluxDB flux-query as data source
 ### Queries
 
 <details>
-  <summary>**Series A**</summary>
-  
-```  
+  <summary>Series A</summary>
+
+```
 from(bucket: "home")
   |>  range(start: v.timeRangeStart, stop: v.timeRangeStop)
   |>  filter(fn: (r)  => r["_measurement"] == "vzlogger")
@@ -20,14 +21,14 @@ from(bucket: "home")
   |>  filter(fn: (r)  => r["_field"] == "Energy")
   |>  aggregateWindow(every: 1d, fn: sum, createEmpty: true)
   |>  set(key: "Source",  value: "Grid Feed")
-```  
+```
 
 </details>
 
 <details>
-  <summary>**Series B**</summary>
+  <summary>Series B</summary>
 
-```  
+```
 from(bucket: "home")
   |>  range(start: v.timeRangeStart, stop: v.timeRangeStop)
   |>  filter(fn: (r)  => r["_measurement"] == "vzlogger")
@@ -40,9 +41,9 @@ from(bucket: "home")
 </details>
 
 <details>
-  <summary>**Series C**</summary>
+  <summary>Series C</summary>
 
-```  
+```
 from(bucket: "home")
   |>  range(start: v.timeRangeStart, stop: v.timeRangeStop)
   |>  filter(fn: (r)  => r["_measurement"] == "vzlogger")
@@ -56,13 +57,13 @@ from(bucket: "home")
 
 ### Notes
 
- - `createEmpty: true` makes sure that the data of the individual bar segments stays aligned when data is missing in the series 
+ - `createEmpty: true` makes sure that the data of the individual bar segments stays aligned when data is missing in the series
  -  `set(key: "Source",  value: "Self Consumption")` manipulates the field used for naming the series
- 
+
 
 ## Graph Definition
 
-```js  
+```js
 console.log(data.series)
 const series = data.series.map((s) => {
   let sData = s.fields.find((f) => f.type === 'number').values.buffer;
@@ -183,17 +184,19 @@ return {
   },
   series,
 };
-```  
+```
 
 ## Static Panel
 
 ### Description
 The Static Panel is a ready made example that can be imported into a Grafana Panel as JSON. It requires the [Static data source for Grafana](https://grafana.com/grafana/plugins/marcusolsson-static-datasource/) plugin.
 
-<details>
-  <summary>**JSON**</summary>
+## Panel JSON
 
-```  
+<details>
+  <summary>JSON</summary>
+
+```JSON
 {
   "id": 91,
   "gridPos": {
@@ -497,4 +500,3 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
 ```
 
 </details>
-
