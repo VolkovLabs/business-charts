@@ -5,7 +5,6 @@ Example for a stacked bar graph with an InfluxDB flux-query as data source
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/examples/img/stacked_bar_graph_influxdb.png)
 
-
 ## Data Source
 
 ### Queries
@@ -57,21 +56,31 @@ from(bucket: "home")
 
 ### Notes
 
- - `createEmpty: true` makes sure that the data of the individual bar segments stays aligned when data is missing in the series
- -  `set(key: "Source",  value: "Self Consumption")` manipulates the field used for naming the series
-
+- `createEmpty: true` makes sure that the data of the individual bar segments stays aligned when data is missing in the series
+- `set(key: "Source",  value: "Self Consumption")` manipulates the field used for naming the series
 
 ## Graph Definition
 
 ```js
-console.log(data.series)
 const series = data.series.map((s) => {
   let sData = s.fields.find((f) => f.type === 'number').values.buffer;
   // Move 'Grid Feed' to the negative quadrant
   if (s.refId === 'A') {
-    sData = sData.map(function (x) { return x * -1.0; })
+    sData = sData.map(function (x) {
+      return x * -1.0;
+    });
   }
-  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
+  // It seems that eCharts is no friend of Unix timestamps
+  // Use JS date and set the hours to 0 since we are interested
+  // in the entire day
+  let sTime = s.fields.find((f) => f.type === 'time').values.buffer;
+  sTime = sTime.map(function (x) {
+    // Move back 1 ms to avoid the overflow to the next day
+    x -= 1;
+    const tmpDate = new Date(x);
+    return tmpDate.setHours(0, 0, 0, 0);
+  });
+
   return {
     name: s.fields[1].labels.Source,
     type: 'bar',
@@ -79,43 +88,40 @@ const series = data.series.map((s) => {
     // 'createEmpty: true' is needed to align the bars in case of missing values
     // but creates 'null' values in the data and eCharts fails
     // Make sure to catch the null values via 'd ? d.toFixed(2) : 0'
-    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0]),
+    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0])
   };
 });
 
 // Debug
-console.log('series')
-console.log(series)
+//console.log('series');
+//console.log(series);
 
 const axisOptionX = {
   axisLabel: {
     // Should show all category values on the x-Axis but
     // does not work
     interval: 0,
-    color: 'rgba(128, 128, 128, .9)',
+    color: 'rgba(128, 128, 128, .9)'
   },
-  axisTick: {
-    show: false,
-  },
+  formatter: '{d}',
   axisLine: {
     show: false,
+    onZero: false
   },
   splitLine: {
     lineStyle: {
-      color: 'rgba(128, 128, 128, .2)',
-    },
+      color: 'rgba(128, 128, 128, .2)'
+    }
   },
   // Work around the 'interval: 0' issue
   // Potentially causes issues for low data count
-  splitNumber: 30,
+  splitNumber: 31,
   boundaryGap: true,
   axisTick: {
+    show: false,
     interval: 0,
     alignWithLabel: true
-  },
-  axisLine: {
-    onZero: false
-  },
+  }
 };
 
 const axisOptionY = {
@@ -123,21 +129,21 @@ const axisOptionY = {
     formatter: function (value) {
       // 'toLocaleString' applies internationalization to the
       // number format, e.g. thousands separator
-      return value.toLocaleString() + ' Wh'
+      return value.toLocaleString() + ' Wh';
     },
-    color: 'rgba(128, 128, 128, .9)',
+    color: 'rgba(128, 128, 128, .9)'
   },
   axisTick: {
-    show: false,
+    show: false
   },
   axisLine: {
-    show: false,
+    show: false
   },
   splitLine: {
     lineStyle: {
-      color: 'rgba(128, 128, 128, .2)',
-    },
-  },
+      color: 'rgba(128, 128, 128, .2)'
+    }
+  }
 };
 
 return {
@@ -148,47 +154,57 @@ return {
   ],
   backgroundColor: 'transparent',
   tooltip: {
-    valueFormatter: (value) => {
-      return ((value / 1000.0).toFixed(2)).toLocaleString() + ' kWh'
-    },
     trigger: 'axis',
+    valueFormatter: function (value) {
+      return ((value / 1000.0).toFixed(2)).toLocaleString() + ' kWh';
+    },
     axisPointer: {
-      type: 'shadow'
+      type: 'shadow',
+      label: {
+        // For whatever reason axisPointer.label sets the tooltip "heading"
+        formatter: function (params) {
+          const tmpDate = new Date(params.value);
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          return tmpDate.toLocaleDateString('en-EN', options);
+        }
+      }
     }
   },
   legend: {
     left: '0',
     bottom: '0',
     textStyle: {
-      color: 'rgba(128, 128, 128, .9)',
-    },
+      color: 'rgba(128, 128, 128, .9)'
+    }
   },
   xAxis: Object.assign(
     {
-      type: 'time',
+      type: 'time'
     },
     axisOptionX
   ),
   yAxis: Object.assign(
     {
-      type: 'value',
+      type: 'value'
     },
     axisOptionY
   ),
   grid: {
-    left: 0,
-    right: 16,
+    left: 10,
+    right: 10,
     top: 6,
     bottom: 24,
-    containLabel: true,
+    containLabel: true
   },
-  series,
+  series
 };
+
 ```
 
 ## Static Panel
 
 ### Description
+
 The Static Panel is a ready made example that can be imported into a Grafana Panel as JSON. It requires the [Static data source for Grafana](https://grafana.com/grafana/plugins/marcusolsson-static-datasource/) plugin.
 
 ## Panel JSON
@@ -220,7 +236,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
       "height": 600,
       "format": "auto"
     },
-    "getOption": "const series = data.series.map((s) => {\n  let sData = s.fields.find((f) => f.type === 'number').values.buffer;\n  // Move 'Grid Feed' to the negative quadrant\n  if (s.refId === 'A') {\n    sData = sData.map(function (x) { return x * -1.0; })\n  }\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;\n  return {\n    name: s.name,\n    type: 'bar',\n    stack: 'total',\n    // 'createEmpty: true' is needed to align the bars in case of missing values\n    // but creates 'null' values in the data and eCharts fails\n    // Make sure to catch the null values via 'd ? d.toFixed(2) : 0'\n    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0]),\n  };\n});\n\n// Debug\nconsole.log('series')\nconsole.log(series)\n\nconst axisOptionX = {\n  axisLabel: {\n    // Should show all category values on the x-Axis but\n    // does not work\n    interval: 0,\n    color: 'rgba(128, 128, 128, .9)',\n  },\n  axisTick: {\n    show: false,\n  },\n  axisLine: {\n    show: false,\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)',\n    },\n  },\n  // Work around the 'interval: 0' issue\n  // Potentially causes issues for low data count\n  splitNumber: 30,\n  boundaryGap: true,\n  axisTick: {\n    interval: 0,\n    alignWithLabel: true\n  },\n  axisLine: {\n    onZero: false\n  },\n};\n\nconst axisOptionY = {\n  axisLabel: {\n    formatter: function (value) {\n      // 'toLocaleString' applies internationalization to the\n      // number format, e.g. thousands separator\n      return value.toLocaleString() + ' Wh'\n    },\n    color: 'rgba(128, 128, 128, .9)',\n  },\n  axisTick: {\n    show: false,\n  },\n  axisLine: {\n    show: false,\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)',\n    },\n  },\n};\n\nreturn {\n  color: [\n    '#27727b', // Series A\n    '#c23531', // Series B\n    '#9bca63'  // Series C\n  ],\n  backgroundColor: 'transparent',\n  tooltip: {\n    valueFormatter: (value) => {\n      return ((value / 1000.0).toFixed(2)).toLocaleString() + ' kWh'\n    },\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time',\n    },\n    axisOptionX\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value',\n    },\n    axisOptionY\n  ),\n  grid: {\n    left: 0,\n    right: 16,\n    top: 6,\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};"
+    "getOption": "const series = data.series.map((s) => {\n  let sData = s.fields.find((f) => f.type === 'number').values.buffer;\n  // Move 'Grid Feed' to the negative quadrant\n  if (s.refId === 'A') {\n    sData = sData.map(function (x) {\n      return x * -1.0;\n    });\n  }\n  // It seems that eCharts is no friend of Unix timestamps\n  // Use JS date and set the hours to 0 since we are interested\n  // in the entire day\n  let sTime = s.fields.find((f) => f.type === 'time').values.buffer;\n  sTime = sTime.map(function (x) {\n    // Move back 1 ms to avoid the overflow to the next day\n    x -= 1;\n    const tmpDate = new Date(x);\n    console.log(x + '   ' + tmpDate);\n    return tmpDate.setHours(0, 0, 0, 0);\n  });\n\n  return {\n    name: s.name,\n    type: 'bar',\n    stack: 'total',\n    // 'createEmpty: true' is needed to align the bars in case of missing values\n    // but creates 'null' values in the data and eCharts fails\n    // Make sure to catch the null values via 'd ? d.toFixed(2) : 0'\n    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0])\n  };\n});\n\n// Debug\nconsole.log('series');\nconsole.log(series);\n\nconst axisOptionX = {\n  axisLabel: {\n    // Should show all category values on the x-Axis but\n    // does not work\n    interval: 0,\n    color: 'rgba(128, 128, 128, .9)'\n  },\n  formatter: '{d}',\n  axisLine: {\n    show: false,\n    onZero: false\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)'\n    }\n  },\n  // Work around the 'interval: 0' issue\n  // Potentially causes issues for low data count\n  splitNumber: 31,\n  boundaryGap: true,\n  axisTick: {\n    show: false,\n    interval: 0,\n    alignWithLabel: true\n  }\n};\n\nconst axisOptionY = {\n  axisLabel: {\n    formatter: function (value) {\n      // 'toLocaleString' applies internationalization to the\n      // number format, e.g. thousands separator\n      return value.toLocaleString() + ' Wh';\n    },\n    color: 'rgba(128, 128, 128, .9)'\n  },\n  axisTick: {\n    show: false\n  },\n  axisLine: {\n    show: false\n  },\n  splitLine: {\n    lineStyle: {\n      color: 'rgba(128, 128, 128, .2)'\n    }\n  }\n};\n\nreturn {\n  color: [\n    '#27727b', // Series A\n    '#c23531', // Series B\n    '#9bca63'  // Series C\n  ],\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n    valueFormatter: function (value) {\n      return ((value / 1000.0).toFixed(2)).toLocaleString() + ' kWh';\n    },\n    axisPointer: {\n      type: 'shadow',\n      label: {\n        // For whatever reason axisPointer.label sets the tooltip \"heading\"\n        formatter: function (params) {\n          const tmpDate = new Date(params.value);\n          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\n          return tmpDate.toLocaleDateString('en-EN', options);\n        }\n      }\n    }\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)'\n    }\n  },\n  xAxis: Object.assign(\n    {\n      type: 'time'\n    },\n    axisOptionX\n  ),\n  yAxis: Object.assign(\n    {\n      type: 'value'\n    },\n    axisOptionY\n  ),\n  grid: {\n    left: 10,\n    right: 10,\n    top: 6,\n    bottom: 24,\n    containLabel: true\n  },\n  series\n};\n"
   },
   "targets": [
     {
@@ -264,8 +280,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               1664236800000,
               1664323200000,
               1664409600000,
-              1664496000000,
-              1664575199999
+              1664496000000
             ]
           },
           {
@@ -302,8 +317,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               9866.89999999851,
               6571.9000000059605,
               93.09999999403954,
-              2389.4000000059605,
-              0
+              2389.4000000059605
             ]
           }
         ],
@@ -354,8 +368,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               1664236800000,
               1664323200000,
               1664409600000,
-              1664496000000,
-              1664575199999
+              1664496000000
             ]
           },
           {
@@ -392,8 +405,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               16063.40000000596,
               22240.79999999702,
               20840.79999999702,
-              18149.20000000298,
-              5577.60000000149
+              18149.20000000298
             ]
           }
         ],
@@ -444,8 +456,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               1664236800000,
               1664323200000,
               1664409600000,
-              1664496000000,
-              1664575199999
+              1664496000000
             ]
           },
           {
@@ -482,8 +493,7 @@ The Static Panel is a ready made example that can be imported into a Grafana Pan
               12742,
               11412,
               5856,
-              12390,
-              189
+              12390
             ]
           }
         ],
