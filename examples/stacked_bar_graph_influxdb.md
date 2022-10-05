@@ -1,4 +1,3 @@
-
 # Stacked Bar Graph
 
 Example for a stacked bar graph with an InfluxDB flux-query as data source
@@ -57,7 +56,7 @@ from(bucket: "home")
 ### Notes
 
 - `createEmpty: true` makes sure that the data of the individual bar segments stays aligned when data is missing in the series
-- `set(key: "Source",  value: "Self Consumption")` manipulates the field used for naming the series
+- `set(key: "Source", value: "Self Consumption")` manipulates the field used for naming the series
 
 ## Graph Definition
 
@@ -88,7 +87,7 @@ const series = data.series.map((s) => {
     // 'createEmpty: true' is needed to align the bars in case of missing values
     // but creates 'null' values in the data and eCharts fails
     // Make sure to catch the null values via 'd ? d.toFixed(2) : 0'
-    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0])
+    data: sData.map((d, i) => [sTime[i], d ? d.toFixed(2) : 0]),
   };
 });
 
@@ -101,17 +100,17 @@ const axisOptionX = {
     // Should show all category values on the x-Axis but
     // does not work
     interval: 0,
-    color: 'rgba(128, 128, 128, .9)'
+    color: 'rgba(128, 128, 128, .9)',
   },
   formatter: '{d}',
   axisLine: {
     show: false,
-    onZero: false
+    onZero: false,
   },
   splitLine: {
     lineStyle: {
-      color: 'rgba(128, 128, 128, .2)'
-    }
+      color: 'rgba(128, 128, 128, .2)',
+    },
   },
   // Work around the 'interval: 0' issue
   // Potentially causes issues for low data count
@@ -120,8 +119,8 @@ const axisOptionX = {
   axisTick: {
     show: false,
     interval: 0,
-    alignWithLabel: true
-  }
+    alignWithLabel: true,
+  },
 };
 
 const axisOptionY = {
@@ -131,32 +130,32 @@ const axisOptionY = {
       // number format, e.g. thousands separator
       return value.toLocaleString() + ' Wh';
     },
-    color: 'rgba(128, 128, 128, .9)'
+    color: 'rgba(128, 128, 128, .9)',
   },
   axisTick: {
-    show: false
+    show: false,
   },
   axisLine: {
-    show: false
+    show: false,
   },
   splitLine: {
     lineStyle: {
-      color: 'rgba(128, 128, 128, .2)'
-    }
-  }
+      color: 'rgba(128, 128, 128, .2)',
+    },
+  },
 };
 
 return {
   color: [
     '#27727b', // Series A
     '#c23531', // Series B
-    '#9bca63'  // Series C
+    '#9bca63', // Series C
   ],
   backgroundColor: 'transparent',
   tooltip: {
     trigger: 'axis',
     valueFormatter: function (value) {
-      return ((value / 1000.0).toFixed(2)).toLocaleString() + ' kWh';
+      return (value / 1000.0).toFixed(2).toLocaleString() + ' kWh';
     },
     axisPointer: {
       type: 'shadow',
@@ -166,26 +165,26 @@ return {
           const tmpDate = new Date(params.value);
           const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
           return tmpDate.toLocaleDateString('en-EN', options);
-        }
-      }
-    }
+        },
+      },
+    },
   },
   legend: {
     left: '0',
     bottom: '0',
     textStyle: {
-      color: 'rgba(128, 128, 128, .9)'
-    }
+      color: 'rgba(128, 128, 128, .9)',
+    },
   },
   xAxis: Object.assign(
     {
-      type: 'time'
+      type: 'time',
     },
     axisOptionX
   ),
   yAxis: Object.assign(
     {
-      type: 'value'
+      type: 'value',
     },
     axisOptionY
   ),
@@ -194,11 +193,10 @@ return {
     right: 10,
     top: 6,
     bottom: 24,
-    containLabel: true
+    containLabel: true,
   },
-  series
+  series,
 };
-
 ```
 
 ## Static Panel
