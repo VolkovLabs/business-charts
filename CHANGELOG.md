@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.5.0 (IN PROGRESS)
+## 3.5.0 (2022-10-04)
 
 ### Features / Enhancements
 
