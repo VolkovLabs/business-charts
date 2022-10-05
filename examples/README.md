@@ -14,4 +14,4 @@ Some example provide a ready made panel to play with the graph. These panels req
 
 Example for a stacked bar graph with an InfluxDB flux-query as data source.
 
-[![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/examples/img/stacked_bar_graph_influxdb.png)](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/examples/stacked_bar_graph_influxdb.md)
+[![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/examples/img/stacked_bar_graph_influxdb.png)](stacked_bar_graph_influxdb.md)

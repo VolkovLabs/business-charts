@@ -5,6 +5,8 @@
 ### Features / Enhancements
 
 - Update to Apache ECharts 5.4.0 (#52)
+- Add Stacked Bar Graph (InfluxDB) Example (#55)
+- Update README
 
 ## 3.4.0 (2022-09-21)
 
