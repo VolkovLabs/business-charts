@@ -1,10 +1,12 @@
 # Change Log
 
-## 3.5.0 (IN PROGRESS)
+## 3.5.0 (2022-10-04)
 
 ### Features / Enhancements
 
 - Update to Apache ECharts 5.4.0 (#52)
+- Add Stacked Bar Graph (InfluxDB) Example (#55)
+- Add Examples to README and update links in Plugin.json (#56)
 
 ## 3.4.0 (2022-09-21)
 
