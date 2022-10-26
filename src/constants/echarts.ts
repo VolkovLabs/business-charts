@@ -13,3 +13,21 @@ export const RendererOptions = [
   { value: Renderer.CANVAS, label: 'Canvas' },
   { value: Renderer.SVG, label: 'SVG' },
 ];
+
+/**
+ * Echarts Map
+ */
+ export enum Map {
+  DEFAULT = 'none',
+  BMAP = 'bmap',
+  AMAP = 'amap',
+}
+
+/**
+ * Echarts Map Options
+ */
+ export const MapOptions = [
+  { value: Map.DEFAULT, label: 'None' },
+  { value: Map.BMAP, label: 'Bmap' },
+  { value: Map.AMAP, label: 'Amap' },
+];

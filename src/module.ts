@@ -1,6 +1,6 @@
 import { PanelPlugin } from '@grafana/data';
 import { EChartsEditor, EChartsPanel } from './components';
-import { DefaultOptions, FormatOptions, RendererOptions } from './constants';
+import { DefaultOptions, FormatOptions, RendererOptions, MapOptions } from './constants';
 import { PanelOptions } from './types';
 
 /**
@@ -55,5 +55,26 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     category: ['Function'],
   });
 
+  /**
+   * Type
+   */
+
+  builder.addRadio({
+    path: 'map',
+    name: 'Map',
+    description:
+      'Echarts Map, default is none, bmap is baidu map, amap is amap map, if you want to use map, you need to get a ak from baidu',
+    settings: {
+      options: MapOptions,
+    },
+    defaultValue: DefaultOptions.map,
+  })
+  .addTextInput({
+    path: 'ak',
+    name: 'ak',
+    description: 'Bmap ak, if you want to use bmap, you need to set ak. https://lbsyun.baidu.com/apiconsole/key#/home',
+    defaultValue: 'ak',
+    showIf: config => config.map === 'bmap' || config.map === 'amap',
+  });
   return builder;
 });

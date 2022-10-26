@@ -1,4 +1,4 @@
-import { Format, Renderer } from './constants';
+import { Format, Renderer, Map } from './constants';
 
 /**
  * Options
@@ -22,6 +22,17 @@ export interface PanelOptions {
    * Editor
    */
   editor: EditorOptions;
+
+  /**
+   * Type
+   */
+  map: Map;
+
+  /**
+   * Bmap ak
+   * @type {string}
+   */
+   ak: string;
 }
 
 /**
