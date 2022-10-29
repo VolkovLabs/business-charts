@@ -49,7 +49,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     id: 'getOption',
     path: 'getOption',
     name: 'Should return options for setOptions()',
-    description: 'Parameters: data, theme, echartsInstance, echarts, replaceVariables, locationService',
+    description: 'Parameters: data, theme, echartsInstance, echarts, replaceVariables, locationService.',
     defaultValue: DefaultOptions.getOption,
     editor: EChartsEditor,
     category: ['Function'],
@@ -63,7 +63,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     path: 'map',
     name: 'Map',
     description:
-      'Echarts Map, default is none, bmap is baidu map, amap is amap map, if you want to use map, you need to get a ak from baidu',
+      'Echarts Map, default is none, bmap is Baidu map.',
     settings: {
       options: MapOptions,
     },
@@ -71,10 +71,10 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
   })
   .addTextInput({
     path: 'ak',
-    name: 'ak',
-    description: 'Bmap ak, if you want to use bmap, you need to set ak. https://lbsyun.baidu.com/apiconsole/key#/home',
-    defaultValue: 'ak',
-    showIf: config => config.map === 'bmap' || config.map === 'amap',
+    name: 'Ak',
+    description: 'if you want to use bmap, you need to set Ak. You can get Ak from https://lbsyun.baidu.com/apiconsole/key#/home',
+    defaultValue: '',
+    showIf: config => config.map === 'bmap',
   });
   return builder;
 });

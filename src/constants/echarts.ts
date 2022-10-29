@@ -20,7 +20,6 @@ export const RendererOptions = [
  export enum Map {
   DEFAULT = 'none',
   BMAP = 'bmap',
-  AMAP = 'amap',
 }
 
 /**
@@ -29,5 +28,4 @@ export const RendererOptions = [
  export const MapOptions = [
   { value: Map.DEFAULT, label: 'None' },
   { value: Map.BMAP, label: 'Bmap' },
-  { value: Map.AMAP, label: 'Amap' },
 ];
