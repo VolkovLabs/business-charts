@@ -25,15 +25,6 @@ registerMaps();
  */
 export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables }) => {
 
-  if (options.map === 'bmap') {
-    console.log('get bmap js');
-    const script = document.createElement("script");
-    script.type = 'text/javascript';
-    script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
-    document.body.appendChild(script);
-    console.log(document);
-  }
-
   /**
    * Reference
    */
@@ -55,7 +46,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Initialize Chart
    */
   const initChart = () => {
-    console.log('initChart');
     if (!echartRef.current) {
       return;
     }
@@ -74,7 +64,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Initialize chart if Render updated
    */
   useEffect(() => {
-    console.log('useEffect, Render updated');
     initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.renderer]);
@@ -83,7 +72,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Initialize chart if Map updated
    */
    useEffect(() => {
-    console.log('useEffect, map updated');
     initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.map]);
@@ -92,7 +80,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Resize
    */
   useEffect(() => {
-    console.log('useEffect, Resize');
     chart?.resize();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,7 +89,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Execute EChart Function
    */
   useEffect(() => {
-    console.log('useEffect, Execute EChart Function');
     /**
      * Skip if chart is not defined
      */
@@ -143,7 +129,17 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'locationService',
         options.getOption
       );
-      chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
+      if (options.map === 'bmap') {
+        const script = document.createElement("script");
+        script.type = 'text/javascript';
+        script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
+        document.body.appendChild(script);
+        setTimeout(() => {
+          chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
+        }, 500);
+      } else {
+        chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
+      }
     } catch (err) {
       setError(err as any);
     }
