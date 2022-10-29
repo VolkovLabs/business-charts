@@ -130,13 +130,17 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         options.getOption
       );
       if (options.map === 'bmap') {
-        const script = document.createElement("script");
-        script.type = 'text/javascript';
-        script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
-        document.body.appendChild(script);
-        setTimeout(() => {
+        if(document.body.innerHTML.includes('http://api.map.baidu.com/api')){
           chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
-        }, 500);
+        } else {
+          const script = document.createElement("script");
+          script.type = 'text/javascript';
+          script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
+          document.body.appendChild(script);
+          setTimeout(() => {
+            chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
+          }, 1000);
+        }
       } else {
         chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
       }
