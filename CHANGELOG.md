@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.6.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Update CI to Node 16 and Synchronize with Release workflow
+
 ## 3.5.0 (2022-10-04)
 
 ### Features / Enhancements
