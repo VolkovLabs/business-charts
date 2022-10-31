@@ -10,24 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: "16.x"
+        uses: actions/setup-node@v3
 
       - name: Setup Go environment
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
-          go-version: "1.16"
+          go-version: '1.16'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache-yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -37,7 +35,7 @@ jobs:
 
       - name: Cache node_modules
         id: cache-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
@@ -45,10 +43,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile;
-        if: |
-          steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
 
       - name: Build and test frontend
         run: yarn build
@@ -69,19 +64,19 @@ jobs:
           export GRAFANA_PLUGIN_ARTIFACT=${GRAFANA_PLUGIN_ID}-${GRAFANA_PLUGIN_VERSION}.zip
           export GRAFANA_PLUGIN_ARTIFACT_CHECKSUM=${GRAFANA_PLUGIN_ARTIFACT}.md5
 
-          echo "::set-output name=plugin-id::${GRAFANA_PLUGIN_ID}"
-          echo "::set-output name=plugin-version::${GRAFANA_PLUGIN_VERSION}"
-          echo "::set-output name=plugin-type::${GRAFANA_PLUGIN_TYPE}"
-          echo "::set-output name=archive::${GRAFANA_PLUGIN_ARTIFACT}"
-          echo "::set-output name=archive-checksum::${GRAFANA_PLUGIN_ARTIFACT_CHECKSUM}"
+          echo "plugin-id=${GRAFANA_PLUGIN_ID}" >> $GITHUB_OUTPUT
+          echo "plugin-version=${GRAFANA_PLUGIN_VERSION}" >> $GITHUB_OUTPUT
+          echo "plugin-type=${GRAFANA_PLUGIN_TYPE}" >> $GITHUB_OUTPUT
+          echo "archive=${GRAFANA_PLUGIN_ARTIFACT}" >> $GITHUB_OUTPUT
+          echo "archive-checksum=${GRAFANA_PLUGIN_ARTIFACT_CHECKSUM}" >> $GITHUB_OUTPUT
 
-          echo ::set-output name=github-tag::${GITHUB_REF#refs/*/}
+          echo "github-tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
       - name: Read changelog
         id: changelog
         run: |
           awk '/^## / {s++} s == 1 {print}' CHANGELOG.md > release_notes.md
-          echo "::set-output name=path::release_notes.md"
+          echo "path=release_notes.md" >> $GITHUB_OUTPUT
 
       - name: Check package version
         run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.metadata.outputs.github-tag }}" ]; then printf "\033[0;31mPlugin version doesn't match tag name\033[0m\n"; exit 1; fi
@@ -92,7 +87,7 @@ jobs:
           mv dist ${{ steps.metadata.outputs.plugin-id }}
           zip ${{ steps.metadata.outputs.archive }} ${{ steps.metadata.outputs.plugin-id }} -r
           md5sum ${{ steps.metadata.outputs.archive }} > ${{ steps.metadata.outputs.archive-checksum }}
-          echo "::set-output name=checksum::$(cat ./${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)"
+          echo "checksum=$(cat ./${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)" >> $GITHUB_OUTPUT
 
       - name: Lint plugin
         continue-on-error: true
