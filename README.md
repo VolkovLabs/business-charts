@@ -1,4 +1,4 @@
-# Apache ECharts Panel plugin for Grafana
+# Apache ECharts Panel for Grafana
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
@@ -11,13 +11,13 @@
 
 The ECharts Panel is a plugin for Grafana that allows to visualize Apache ECharts on your Grafana dashboard.
 
-Apache ECharts is a free, powerful charting and visualization library offering an easy way of adding intuitive, interactive, and highly customizable charts to your commercial products. It is written in pure JavaScript and based on zrender, which is a whole new lightweight canvas library.
+[Apache ECharts](https://echarts.apache.org/en/index.html) is a free, powerful charting and visualization library offering an easy way of adding intuitive, interactive, and highly customizable charts. It is written in pure JavaScript and based on zrender, which is a whole new lightweight canvas library.
 
 [![Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/video.png)](https://youtu.be/DxqCrBEmrQw)
 
 ### Requirements
 
-- Grafana 8.5+, Grafana 9.0+ is required.
+- **Grafana 8.5+, Grafana 9.0+** is required.
 
 ## Getting Started
 
@@ -125,7 +125,7 @@ A quick guide for using images in Apache ECharts shows each type's prefixes.
 
 ## Examples
 
-Collection of [Examples](https://github.com/volkovlabs/volkovlabs-echarts-panel/blob/main/examples) (partially contributed by users) shows off the possibilities and provides a starting point for further exploration.
+Collection of [Examples](https://github.com/volkovlabs/volkovlabs-echarts-panel/blob/main/examples) shows off the possibilities and provides a starting point for further exploration.
 
 If you have setup a cool looking graph, please share your example. Take a look at the existing examples and send a pull-request with yours.
 
