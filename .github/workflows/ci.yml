@@ -51,6 +51,11 @@ jobs:
       - name: Build and test frontend
         run: yarn build
 
+      - name: Sign plugin
+        run: yarn sign
+        env:
+          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+
       - name: Get plugin metadata
         id: metadata
         run: |
@@ -107,3 +112,9 @@ jobs:
           files: ./coverage/lcov.info
           env_vars: OS,PYTHON
           fail_ci_if_error: true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.metadata.outputs.archive }}
+          path: ${{ steps.metadata.outputs.archive }}

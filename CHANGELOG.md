@@ -7,6 +7,7 @@
 - Update CI to Node 16 and Synchronize with Release workflow (#65)
 - Update to Grafana 9.2.2 (#66)
 - Update YouTube Thumbnails (#66)
+- Update CI to upload signed artifacts (#68)
 
 ## 3.5.0 (2022-10-04)
 
