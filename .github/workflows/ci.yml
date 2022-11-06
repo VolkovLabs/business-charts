@@ -116,5 +116,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.metadata.outputs.archive }}.zip
+          name: ${{ steps.metadata.outputs.archive }}
           path: ${{ steps.metadata.outputs.archive }}
