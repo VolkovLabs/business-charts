@@ -1,6 +1,7 @@
 import 'echarts-liquidfill';
 import 'echarts-gl';
 import * as echarts from 'echarts';
+import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { PanelProps } from '@grafana/data';
@@ -19,6 +20,11 @@ interface Props extends PanelProps<PanelOptions> {}
  * Register maps
  */
 registerMaps();
+
+/**
+ * Transformations
+ */
+const ecStat: any = echartsStat;
 
 /**
  * Panel
@@ -117,11 +123,12 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'theme',
         'echartsInstance',
         'echarts',
+        'ecStat',
         'replaceVariables',
         'locationService',
         options.getOption
       );
-      chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
+      chart.setOption(func(data, theme, chart, echarts, ecStat, replaceVariables, locationService));
     } catch (err) {
       setError(err as any);
     }
