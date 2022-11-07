@@ -25,7 +25,6 @@ registerMaps();
  * Transformations
  */
 const ecStat: any = echartsStat;
-echarts.registerTransform(ecStat.transform.regression);
 
 /**
  * Panel
