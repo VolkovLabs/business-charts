@@ -13,6 +13,7 @@
     "echarts": "^5.4.0",
     "echarts-gl": "^2.0.9",
     "echarts-liquidfill": "^3.1.0",
+    "echarts-stat": "^1.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "react": "18.2.0",

@@ -50,6 +50,7 @@ Available parameters:
 - `echarts` - ECharts library.
 - `replaceVariables` - the `replaceVariables()` function to interpolate variables.
 - `locationService` - Grafana's `locationService` to work with browser location and history.
+- `ecStat` - Statistics tool for Apache ECharts.
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
