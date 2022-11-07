@@ -50,9 +50,9 @@ Configuration item, data, universal interface, all parameters and data can all b
 - `theme` - Grafana's `theme` object.
 - `echartsInstance` - Instance of the ECharts.
 - `echarts` - ECharts library.
+- `ecStat` - A statistical and data mining tool for Apache ECharts.
 - `replaceVariables` - the `replaceVariables()` function to interpolate variables.
 - `locationService` - Grafana's `locationService` to work with browser location and history.
-- `ecStat` - Statistics tool for Apache ECharts.
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
