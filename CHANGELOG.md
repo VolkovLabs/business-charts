@@ -8,7 +8,8 @@
 - Update to Grafana 9.2.2 (#66)
 - Update YouTube Thumbnails (#66)
 - Update CI to upload signed artifacts (#68)
-- Add Statistics tool (Regression, Clustering, etc.) #69
+- Add Statistics tool (Regression, Clustering, etc.) (#69)
+- Add how to react on mouse events (#71)
 
 ## 3.5.0 (2022-10-04)
 

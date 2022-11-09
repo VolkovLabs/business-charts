@@ -110,6 +110,28 @@ const series = data.series.map((s) => {
 });
 ```
 
+## Events Handling
+
+To react on Mouse and other events use `echartsInstance`:
+
+```
+/**
+ * On Mouse Click
+ */
+echartsInstance.on('click', (params) => {
+  ...
+  echartsInstance.resize(); // to redraw visualization
+});
+
+/**
+ * On Double Click
+ */
+echartsInstance.on('dblclick', (params) => {
+  ...
+  echartsInstance.resize();
+});
+```
+
 ## Tutorial
 
 ### Directed Graph
@@ -143,3 +165,7 @@ We love to hear from users, developers, and the whole community interested in th
 ## License
 
 - Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/volkovlabs-echarts-panel/blob/main/LICENSE).
+
+```
+
+```
