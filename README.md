@@ -112,7 +112,7 @@ const series = data.series.map((s) => {
 
 ## Events Handling
 
-To react on Mouse and other events use `echartsInstance`:
+To react on Mouse and other events use `echartsInstance` to handle events:
 
 ```
 /**
