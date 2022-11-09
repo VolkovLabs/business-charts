@@ -165,7 +165,3 @@ We love to hear from users, developers, and the whole community interested in th
 ## License
 
 - Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/volkovlabs-echarts-panel/blob/main/LICENSE).
-
-```
-
-```
