@@ -110,6 +110,28 @@ const series = data.series.map((s) => {
 });
 ```
 
+## Events Handling
+
+To react on Mouse and other events use `echartsInstance` to get an instance of EChart:
+
+```
+/**
+ * On Mouse Click
+ */
+echartsInstance.on('click', (params) => {
+  ...
+  echartsInstance.resize(); // to redraw visualization
+});
+
+/**
+ * On Double Click
+ */
+echartsInstance.on('dblclick', (params) => {
+  ...
+  echartsInstance.resize();
+});
+```
+
 ## Tutorial
 
 ### Directed Graph
