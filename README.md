@@ -169,7 +169,7 @@ Baidu Maps are loaded using APIv3 and require Access Key. You can get it from [h
 
 - Loading Baidu Maps takes 2-3 seconds.
 - Callback function `bmapReady` will be executed on load. Name can be changed in the Panel options.
-- While loading animation can be displayed using following code.
+- While loading, animation can be displayed using following code.
 
 ```
 /**
