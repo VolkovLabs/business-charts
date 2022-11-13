@@ -41,8 +41,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Available Parameters.
-- Allows to display Success and Error notifications from the Custom Code.
-- Supports Baidu Maps loaded using APIv3.
+- Allows to display Success and Error notifications.
+- Supports Baidu maps loaded using APIv3.
 
 ## setOption() Function
 
