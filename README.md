@@ -143,7 +143,7 @@ Success and Error notifications can be triggered on events handling:
 
 ```
 notifySuccess(['Update', 'Values updated successfully.']);
-notifyError(['Update', `An error occured updating values: ${response.status}`]);
+notifyError(['Update', `An error occured updating values.`]);
 ```
 
 ## Tutorial
