@@ -1,15 +1,16 @@
 import 'echarts-liquidfill';
 import 'echarts-gl';
+import 'echarts/extension/bmap/bmap';
 import * as echarts from 'echarts';
+import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
-import { PanelProps } from '@grafana/data';
-import { locationService } from '@grafana/runtime';
+import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana/data';
+import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 import { registerMaps } from '../../utils';
-import 'echarts/extension/bmap/bmap';
 
 /**
  * Properties
@@ -20,11 +21,11 @@ interface Props extends PanelProps<PanelOptions> {}
  * Register maps
  */
 registerMaps();
+
 /**
  * Panel
  */
 export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables }) => {
-
   /**
    * Reference
    */
@@ -41,6 +42,34 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    */
   const theme = useTheme2();
   const styles = getStyles();
+
+  /**
+   * Events
+   */
+  const appEvents = getAppEvents();
+  const notifySuccess = (payload: AlertPayload) => appEvents.publish({ type: AppEvents.alertSuccess.name, payload });
+  const notifyError = (payload: AlertErrorPayload) => appEvents.publish({ type: AppEvents.alertError.name, payload });
+
+  /**
+   * Transformations
+   */
+  const ecStat: any = echartsStat;
+
+  /**
+   * Load Baidu Maps
+   */
+  if (options.map === 'bmap') {
+    if (!document.body.innerHTML.includes('http://api.map.baidu.com/api')) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
+      document.body.appendChild(script);
+
+      setTimeout(() => {
+        chart?.resize();
+      }, 1000);
+    }
+  }
 
   /**
    * Initialize Chart
@@ -71,7 +100,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   /**
    * Initialize chart if Map updated
    */
-   useEffect(() => {
+  useEffect(() => {
     initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.map]);
@@ -125,25 +154,17 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'theme',
         'echartsInstance',
         'echarts',
+        'ecStat',
         'replaceVariables',
         'locationService',
+        'notifySuccess',
+        'notifyError',
         options.getOption
       );
-      if (options.map === 'bmap') {
-        if(document.body.innerHTML.includes('http://api.map.baidu.com/api')){
-          chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
-        } else {
-          const script = document.createElement("script");
-          script.type = 'text/javascript';
-          script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
-          document.body.appendChild(script);
-          setTimeout(() => {
-            chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
-          }, 1000);
-        }
-      } else {
-        chart.setOption(func(data, theme, chart, echarts, replaceVariables, locationService));
-      }
+
+      chart.setOption(
+        func(data, theme, chart, echarts, ecStat, replaceVariables, locationService, notifySuccess, notifyError)
+      );
     } catch (err) {
       setError(err as any);
     }

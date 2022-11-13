@@ -1,6 +1,6 @@
 import { PanelPlugin } from '@grafana/data';
 import { EChartsEditor, EChartsPanel } from './components';
-import { DefaultOptions, FormatOptions, RendererOptions, MapOptions } from './constants';
+import { DefaultOptions, FormatOptions, MapOptions, RendererOptions } from './constants';
 import { PanelOptions } from './types';
 
 /**
@@ -48,33 +48,33 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
   builder.addCustomEditor({
     id: 'getOption',
     path: 'getOption',
-    name: 'Should return options for setOptions()',
-    description: 'Parameters: data, theme, echartsInstance, echarts, replaceVariables, locationService.',
+    name: 'setOptions() Function',
+    description: 'Should return parameters and data for setOptions().',
     defaultValue: DefaultOptions.getOption,
     editor: EChartsEditor,
     category: ['Function'],
   });
 
   /**
-   * Type
+   * Maps
    */
-
-  builder.addRadio({
-    path: 'map',
-    name: 'Map',
-    description:
-      'Echarts Map, default is none, bmap is Baidu map.',
-    settings: {
-      options: MapOptions,
-    },
-    defaultValue: DefaultOptions.map,
-  })
-  .addTextInput({
-    path: 'ak',
-    name: 'Ak',
-    description: 'if you want to use bmap, you need to set Ak. You can get Ak from https://lbsyun.baidu.com/apiconsole/key#/home',
-    defaultValue: '',
-    showIf: config => config.map === 'bmap',
-  });
+  builder
+    .addRadio({
+      path: 'map',
+      name: 'Map',
+      description: 'Echarts Map, default is none, bmap is Baidu map.',
+      settings: {
+        options: MapOptions,
+      },
+      defaultValue: DefaultOptions.map,
+    })
+    .addTextInput({
+      path: 'ak',
+      name: 'Ak',
+      description:
+        'if you want to use bmap, you need to set Ak. You can get Ak from https://lbsyun.baidu.com/apiconsole/key#/home',
+      defaultValue: '',
+      showIf: (config) => config.map === 'bmap',
+    });
   return builder;
 });
