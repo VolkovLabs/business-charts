@@ -1,5 +1,6 @@
 import 'echarts-liquidfill';
 import 'echarts-gl';
+import 'echarts/extension/bmap/bmap';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
@@ -7,9 +8,10 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
+import { Map } from '../../constants';
+import { loadBaidu, registerMaps } from '../../maps';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
-import { registerMaps } from '../../utils';
 
 /**
  * Properties
@@ -79,7 +81,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   useEffect(() => {
     initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.renderer]);
+  }, [options.renderer, options.map]);
 
   /**
    * Resize
@@ -137,6 +139,14 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'notifyError',
         options.getOption
       );
+
+      /**
+       * Load Baidu Maps
+       */
+      if (options.map === Map.BMAP && !(window as any).BMap) {
+        loadBaidu(options.baidu);
+      }
+
       chart.setOption(
         func(data, theme, chart, echarts, ecStat, replaceVariables, locationService, notifySuccess, notifyError)
       );

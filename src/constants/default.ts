@@ -1,5 +1,5 @@
 import { PanelOptions } from '../types';
-import { Renderer } from './echarts';
+import { Map, Renderer } from './echarts';
 import { Format } from './editor';
 
 /**
@@ -83,4 +83,10 @@ export const DefaultOptions: PanelOptions = {
   getOption,
   renderer: Renderer.CANVAS,
   editor: { height: 600, format: Format.AUTO },
+  map: Map.DEFAULT,
+  baidu: {
+    url: 'https://api.map.baidu.com/api',
+    key: '',
+    callback: 'bmapReady',
+  },
 };

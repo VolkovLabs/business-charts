@@ -4,7 +4,7 @@ import { plugin } from './module';
 /**
  * Skip Register Maps
  */
-jest.mock('./utils', () => ({
+jest.mock('./maps', () => ({
   registerMaps: () => {
     return;
   },
@@ -26,6 +26,7 @@ describe('plugin', () => {
       addCustomEditor: jest.fn().mockImplementation(() => builder),
       addSliderInput: jest.fn().mockImplementation(() => builder),
       addRadio: jest.fn().mockImplementation(() => builder),
+      addTextInput: jest.fn().mockImplementation(() => builder),
     };
 
     /**
@@ -39,5 +40,6 @@ describe('plugin', () => {
     expect(builder.addCustomEditor).toHaveBeenCalled();
     expect(builder.addSliderInput).toHaveBeenCalled();
     expect(builder.addRadio).toHaveBeenCalled();
+    expect(builder.addTextInput).toHaveBeenCalled();
   });
 });
