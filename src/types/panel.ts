@@ -1,4 +1,6 @@
-import { Format, Map, Renderer } from './constants';
+import { Map, Renderer } from '../constants';
+import { BaiduOptions } from './baidu';
+import { EditorOptions } from './editor';
 
 /**
  * Options
@@ -33,28 +35,9 @@ export interface PanelOptions {
   map: Map;
 
   /**
-   * Access Key for Baidu Maps
+   * Baidu
    *
-   * @type {string}
+   * @type {BaiduOptions}
    */
-  accessKey: string;
-}
-
-/**
- * Editor Options
- */
-export interface EditorOptions {
-  /**
-   * Height
-   *
-   * @type {number}
-   */
-  height: number;
-
-  /**
-   * Format
-   *
-   * @type {Format}
-   */
-  format: Format;
+  baidu: BaiduOptions;
 }

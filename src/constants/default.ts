@@ -84,5 +84,9 @@ export const DefaultOptions: PanelOptions = {
   renderer: Renderer.CANVAS,
   editor: { height: 600, format: Format.AUTO },
   map: Map.DEFAULT,
-  accessKey: '',
+  baidu: {
+    url: 'https://api.map.baidu.com/api',
+    key: '',
+    callback: 'bmapReady',
+  },
 };

@@ -18,7 +18,7 @@ export const RendererOptions = [
  * ECharts Map
  */
 export enum Map {
-  DEFAULT = 'none',
+  DEFAULT = 'json',
   BMAP = 'bmap',
 }
 
@@ -26,6 +26,6 @@ export enum Map {
  * Echarts Map Options
  */
 export const MapOptions = [
-  { value: Map.DEFAULT, label: 'None' },
-  { value: Map.BMAP, label: 'Bmap' },
+  { value: Map.DEFAULT, label: 'JSON' },
+  { value: Map.BMAP, label: 'Baidu' },
 ];
