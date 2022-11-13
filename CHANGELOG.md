@@ -13,6 +13,8 @@
 - Add Monaco Code Editor suggestions for available parameters (#32)
 - Improve Tests Coverage (#8)
 - Add Status notification on event handling (#74)
+- Add Baidu map support (#64)
+- Add Tutorial on how to use Baidu maps (#65)
 
 ## 3.5.0 (2022-10-04)
 
