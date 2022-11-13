@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.6.0 (IN PROGRESS)
+## 3.6.0 (2022-11-13)
 
 ### Features / Enhancements
 
@@ -10,6 +10,8 @@
 - Update CI to upload signed artifacts (#68)
 - Add Statistics tool (Regression, Clustering, etc.) (#69)
 - Add how to react on mouse events (#71)
+- Added Monaco Code Editor suggestions for available parameters (#32)
+- Improve Tests Coverage (#8)
 
 ## 3.5.0 (2022-10-04)
 
