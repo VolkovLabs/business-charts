@@ -42,6 +42,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Available Parameters.
 - Allows to display Success and Error notifications from the Custom Code.
+- Supports Baidu Maps loaded using APIv3.
 
 ## setOption() Function
 
@@ -161,6 +162,84 @@ Data visualizations can and should be done in style. In two parts video tutorial
 A quick guide for using images in Apache ECharts shows each type's prefixes.
 
 [![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
+
+## Baidu Maps
+
+Baidu Maps are loaded using APIv3 and require Access Key. You can get it from [https://lbsyun.baidu.com/apiconsole/key#/home](https://lbsyun.baidu.com/apiconsole/key#/home).
+
+- Loading Baidu Maps takes 2-3 seconds.
+- Callback function `bmapReady` will be executed on load. Name can be changed in the Panel options.
+- While loading animation can be displayed using following code.
+
+```
+/**
+ * Baidu Maps
+ */
+const bmap = {
+  tooltip: {
+    trigger: "item",
+  },
+  bmap: {
+    zoom: 5,
+    roam: true,
+  },
+};
+
+/**
+ * Loading
+ */
+const loading = {
+  graphic: {
+    elements: [
+      {
+        type: 'group',
+        left: 'center',
+        top: 'center',
+        children: new Array(7).fill(0).map((val, i) => ({
+          type: 'rect',
+          x: i * 20,
+          shape: {
+            x: 0,
+            y: -40,
+            width: 10,
+            height: 80
+          },
+          style: {
+            fill: '#5470c6'
+          },
+          keyframeAnimation: {
+            duration: 1000,
+            delay: i * 200,
+            loop: true,
+            keyframes: [
+              {
+                percent: 0.5,
+                scaleY: 0.3,
+                easing: 'cubicIn'
+              },
+              {
+                percent: 1,
+                scaleY: 1,
+                easing: 'cubicOut'
+              }
+            ]
+          }
+        }))
+      }
+    ]
+  }
+}
+
+/**
+ * Maps are Ready
+ */
+window.bmapReady = () => {
+  notifySuccess(['Baidu Maps', 'Loaded...']);
+  echartsInstance.setOption(bmap, notmerge = true);
+}
+
+return window.BMap ? bmap : loading;
+```
 
 ## Examples
 
