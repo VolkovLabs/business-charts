@@ -63,4 +63,14 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Interpolate variables.',
   },
+  {
+    label: 'notifySuccess',
+    kind: CodeEditorSuggestionItemKind.Method,
+    detail: 'Display successful notification.',
+  },
+  {
+    label: 'notifyError',
+    kind: CodeEditorSuggestionItemKind.Method,
+    detail: 'Display error notification.',
+  },
 ];
