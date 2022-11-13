@@ -39,10 +39,11 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
+- Supports Code Editor suggestions for Available Parameters.
 
 ## setOption() Function
 
-Configuration item, data, universal interface, all parameters and data can all be modified through `setOption()` function in the plugin's options.
+Configuration item, data, universal interface, all parameters and data can be modified through `setOption()` function in the plugin's options.
 
 ### Available parameters
 
