@@ -4,7 +4,7 @@ import { plugin } from './module';
 /**
  * Skip Register Maps
  */
-jest.mock('./utils', () => ({
+jest.mock('./maps', () => ({
   registerMaps: () => {
     return;
   },

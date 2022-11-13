@@ -6,7 +6,7 @@ import { EChartsPanel } from './EChartsPanel';
 /**
  * Skip Register Maps
  */
-jest.mock('../../utils', () => ({
+jest.mock('../../maps', () => ({
   registerMaps: () => {
     return;
   },
