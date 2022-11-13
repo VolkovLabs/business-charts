@@ -1,6 +1,6 @@
 import { PanelPlugin } from '@grafana/data';
 import { EChartsEditor, EChartsPanel } from './components';
-import { DefaultOptions, FormatOptions, MapOptions, RendererOptions } from './constants';
+import { DefaultOptions, FormatOptions, Map, MapOptions, RendererOptions } from './constants';
 import { PanelOptions } from './types';
 
 /**
@@ -62,19 +62,20 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     .addRadio({
       path: 'map',
       name: 'Map',
-      description: 'Echarts Map, default is none, bmap is Baidu map.',
+      description: 'ECharts Map, default is none, bmap is Baidu map.',
       settings: {
         options: MapOptions,
       },
       defaultValue: DefaultOptions.map,
     })
     .addTextInput({
-      path: 'ak',
-      name: 'Ak',
+      path: 'accessKey',
+      name: 'Access Key',
       description:
-        'if you want to use bmap, you need to set Ak. You can get Ak from https://lbsyun.baidu.com/apiconsole/key#/home',
+        'Set Access Key to use Baidu Maps. You can get it from https://lbsyun.baidu.com/apiconsole/key#/home',
       defaultValue: '',
-      showIf: (config) => config.map === 'bmap',
+      showIf: (config) => config.map === Map.BMAP,
     });
+
   return builder;
 });

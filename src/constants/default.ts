@@ -1,5 +1,5 @@
 import { PanelOptions } from '../types';
-import { Renderer, Map } from './echarts';
+import { Map, Renderer } from './echarts';
 import { Format } from './editor';
 
 /**
@@ -84,5 +84,5 @@ export const DefaultOptions: PanelOptions = {
   renderer: Renderer.CANVAS,
   editor: { height: 600, format: Format.AUTO },
   map: Map.DEFAULT,
-  ak: '',
+  accessKey: '',
 };

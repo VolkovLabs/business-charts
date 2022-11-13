@@ -20,19 +20,24 @@ export interface PanelOptions {
 
   /**
    * Editor
+   *
+   * @type {EditorOptions}
    */
   editor: EditorOptions;
 
   /**
    * Type
+   *
+   * @type {Map}
    */
   map: Map;
 
   /**
-   * Bmap ak
+   * Access Key for Baidu Maps
+   *
    * @type {string}
    */
-  ak: string;
+  accessKey: string;
 }
 
 /**

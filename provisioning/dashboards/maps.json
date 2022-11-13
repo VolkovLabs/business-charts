@@ -1,0 +1,73 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "P1D2C73DC01F2359B"
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 15,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "accessKey": "wINcgFmL1HyM7gWoQ5uPu6Xt9szz3chV",
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "getOption": "option = {\n  tooltip: {\n    trigger: \"item\",\n  },\n  bmap: {\n    // 地图展示的中心，即加载时首先出现在人眼前的点\n    center: [104.114129, 37.550339],\n    // 当前地图缩放的大小，如果是一个省内的一些地方，那么zoom值应该设置得大点\n    // 设置的初始值大小应根据要展示的数据而定\n    zoom: 5,\n    roam: true, //允许缩放\n    // 个性化地图\n    mapStyleV2: {},\n  },\n};\nreturn option;",
+        "map": "bmap",
+        "renderer": "canvas"
+      },
+      "title": "Baidu",
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "New dashboard",
+  "uid": "ITQ-8Xv4k",
+  "version": 1,
+  "weekStart": ""
+}

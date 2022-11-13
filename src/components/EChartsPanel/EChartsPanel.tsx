@@ -8,6 +8,7 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
+import { Map } from '../../constants';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 import { registerMaps } from '../../utils';
@@ -58,17 +59,15 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   /**
    * Load Baidu Maps
    */
-  if (options.map === 'bmap') {
-    if (!document.body.innerHTML.includes('http://api.map.baidu.com/api')) {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'http://api.map.baidu.com/api?v=3.0&ak=' + options.ak + '&callback=initialize';
-      document.body.appendChild(script);
+  if (options.map === Map.BMAP && !document.body.innerHTML.includes('http://api.map.baidu.com/api')) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = `https://api.map.baidu.com/api?v=3.0&ak=${options.accessKey}&callback=initialize`;
+    document.body.appendChild(script);
 
-      setTimeout(() => {
-        chart?.resize();
-      }, 1000);
-    }
+    setTimeout(() => {
+      chart?.resize();
+    }, 1000);
   }
 
   /**
@@ -86,6 +85,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       chart.clear();
       chart.dispose();
     }
+
     setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined, { renderer: options.renderer }));
   };
 
