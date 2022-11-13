@@ -10,8 +10,9 @@
 - Update CI to upload signed artifacts (#68)
 - Add Statistics tool (Regression, Clustering, etc.) (#69)
 - Add how to react on mouse events (#71)
-- Added Monaco Code Editor suggestions for available parameters (#32)
+- Add Monaco Code Editor suggestions for available parameters (#32)
 - Improve Tests Coverage (#8)
+- Add Status notification on event handling (#74)
 
 ## 3.5.0 (2022-10-04)
 

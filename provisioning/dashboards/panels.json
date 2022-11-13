@@ -68,7 +68,7 @@
           "format": "auto",
           "height": 600
         },
-        "getOption": "let values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: [values[0]/100, values[1]/100, values[2]/100]\n  }]\n};",
+        "getOption": "notifySuccess(['Liquidy', 'Loaded']);\n\nlet values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: [values[0] / 100, values[1] / 100, values[2] / 100]\n  }]\n};",
         "renderer": "canvas"
       },
       "targets": [
@@ -333,6 +333,6 @@
   "timezone": "",
   "title": "Panels",
   "uid": "O4tc_E6Gz",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

@@ -6,6 +6,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
+[![CodeQL](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml)
 
 ## Introduction
 
@@ -40,6 +41,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Available Parameters.
+- Allows to display Success and Error notifications from the Custom Code.
 
 ## setOption() Function
 
@@ -54,6 +56,8 @@ Configuration item, data, universal interface, all parameters and data can be mo
 - `ecStat` - A statistical and data mining tool for Apache ECharts.
 - `replaceVariables` - the `replaceVariables()` function to interpolate variables.
 - `locationService` - Grafana's `locationService` to work with browser location and history.
+- `notifySuccess(['Header', 'Message'])` - Display successful notification.
+- `notifyError(['Header', 'Error Message'])` - Display error notification.
 
 ![Panel](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/panel.png)
 
@@ -131,6 +135,15 @@ echartsInstance.on('dblclick', (params) => {
   ...
   echartsInstance.resize();
 });
+```
+
+## Notifications
+
+Success and Error notifications can be triggered on events handling:
+
+```
+notifySuccess(['Update', 'Values updated successfully.']);
+notifyError(['Update', `An error occured updating values.`]);
 ```
 
 ## Tutorial
