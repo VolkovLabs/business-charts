@@ -42,6 +42,10 @@
       {
         "name": "3D GL",
         "path": "img/3d.png"
+      },
+      {
+        "name": "Baidu Maps",
+        "path": "img/baidu.png"
       }
     ],
     "updated": "%TODAY%",

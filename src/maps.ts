@@ -5,8 +5,6 @@ import { BaiduOptions } from 'types';
  * Register maps
  */
 export const registerMaps = () => {
-  console.log('Maps Loaded');
-
   const maps = require.context('./maps', false, /\.json/);
   maps.keys().map((m: string) => {
     const matched = m.match(/\.\/([0-9a-zA-Z_]*)\.json/);
