@@ -9,9 +9,9 @@ import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
+import { loadBaidu, registerMaps } from '../../maps';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
-import { registerMaps } from '../../utils';
 
 /**
  * Properties
@@ -57,20 +57,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   const ecStat: any = echartsStat;
 
   /**
-   * Load Baidu Maps
-   */
-  if (options.map === Map.BMAP && !document.body.innerHTML.includes('http://api.map.baidu.com/api')) {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = `https://api.map.baidu.com/api?v=3.0&ak=${options.accessKey}&callback=initialize`;
-    document.body.appendChild(script);
-
-    setTimeout(() => {
-      chart?.resize();
-    }, 1000);
-  }
-
-  /**
    * Initialize Chart
    */
   const initChart = () => {
@@ -95,15 +81,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   useEffect(() => {
     initChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.renderer]);
-
-  /**
-   * Initialize chart if Map updated
-   */
-  useEffect(() => {
-    initChart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.map]);
+  }, [options.renderer, options.map]);
 
   /**
    * Resize
@@ -161,6 +139,13 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'notifyError',
         options.getOption
       );
+
+      /**
+       * Load Baidu Maps
+       */
+      if (options.map === Map.BMAP && !(window as any).BMap) {
+        loadBaidu(options.baidu);
+      }
 
       chart.setOption(
         func(data, theme, chart, echarts, ecStat, replaceVariables, locationService, notifySuccess, notifyError)

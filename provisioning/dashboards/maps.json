@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 5,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -42,11 +42,16 @@
       "id": 2,
       "options": {
         "accessKey": "wINcgFmL1HyM7gWoQ5uPu6Xt9szz3chV",
+        "baidu": {
+          "callback": "bmapReady",
+          "key": "wINcgFmL1HyM7gWoQ5uPu6Xt9szz3chV",
+          "url": "https://api.map.baidu.com/api"
+        },
         "editor": {
           "format": "auto",
           "height": 600
         },
-        "getOption": "option = {\n  tooltip: {\n    trigger: \"item\",\n  },\n  bmap: {\n    // 地图展示的中心，即加载时首先出现在人眼前的点\n    center: [104.114129, 37.550339],\n    // 当前地图缩放的大小，如果是一个省内的一些地方，那么zoom值应该设置得大点\n    // 设置的初始值大小应根据要展示的数据而定\n    zoom: 5,\n    roam: true, //允许缩放\n    // 个性化地图\n    mapStyleV2: {},\n  },\n};\nreturn option;",
+        "getOption": "/**\n * Baidu Maps\n */\nconst bmap = {\n  tooltip: {\n    trigger: \"item\",\n  },\n  bmap: {\n    zoom: 5,\n    roam: true,\n  },\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\nwindow.bmapReady = () => {\n  notifySuccess(['Baidu Maps', 'Loaded...']);\n  echartsInstance.setOption(bmap, notmerge = true);\n}\n\nreturn window.BMap ? bmap : loading;",
         "map": "bmap",
         "renderer": "canvas"
       },
@@ -66,8 +71,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "New dashboard",
-  "uid": "ITQ-8Xv4k",
-  "version": 1,
+  "title": "Baidu Maps",
+  "uid": "zmv5qXDVk",
+  "version": 41,
   "weekStart": ""
 }
