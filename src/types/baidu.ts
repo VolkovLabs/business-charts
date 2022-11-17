@@ -3,13 +3,6 @@
  */
 export interface BaiduOptions {
   /**
-   * URL
-   *
-   * @type {string}
-   */
-  url: string;
-
-  /**
    * Access Key
    *
    * @type {string}

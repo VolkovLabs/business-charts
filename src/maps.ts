@@ -1,5 +1,6 @@
 import * as echarts from 'echarts';
-import { BaiduOptions } from 'types';
+import { BaiduApi } from './constants';
+import { BaiduOptions } from './types';
 
 /**
  * Register maps
@@ -22,7 +23,7 @@ export const registerMaps = () => {
 export const loadBaidu = (baidu: BaiduOptions) => {
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = `${baidu.url}?v=3.0&ak=${baidu.key}&callback=${baidu.callback}`;
+  script.src = `${BaiduApi}?v=3.0&ak=${baidu.key}&callback=${baidu.callback}`;
 
   document.body.appendChild(script);
 };
