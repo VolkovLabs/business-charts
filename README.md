@@ -104,7 +104,7 @@ Merge elements into array:
 
 - get values for each field
 - combine in an array of arrays
-- use as `sData[0]` to access first query
+- use as `series[0]` to access first query
 
 ```javascript
 const series = data.series.map((s) => {

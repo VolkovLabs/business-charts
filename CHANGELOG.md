@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.7.0 (2022-11-16)
+
+### Features / Enhancements
+
+- Limit the URL for loading the Baidu map (#76)
+
 ## 3.6.0 (2022-11-13)
 
 ### Features / Enhancements

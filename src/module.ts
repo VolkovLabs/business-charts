@@ -32,13 +32,6 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
    */
   builder
     .addTextInput({
-      path: 'baidu.url',
-      name: 'URL',
-      defaultValue: DefaultOptions.baidu.url,
-      showIf: (config) => config.map === Map.BMAP,
-      category: ['Baidu'],
-    })
-    .addTextInput({
       path: 'baidu.key',
       name: 'Access Key',
       description:
