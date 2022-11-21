@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.8.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Update documentation for Event Handling (#80)
+
 ## 3.7.0 (2022-11-16)
 
 ### Features / Enhancements

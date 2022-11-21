@@ -35,5 +35,5 @@
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"
   },
-  "version": "3.7.0"
+  "version": "3.8.0"
 }
