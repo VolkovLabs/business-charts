@@ -116,15 +116,16 @@ const series = data.series.map((s) => {
 });
 ```
 
-## Events Handling
+## Event Handling
 
-To react on Mouse and other events use `echartsInstance` to get an instance of EChart:
+Users can trigger corresponding events by their operation. To react on Mouse and other events use `echartsInstance`:
 
 ```
 /**
  * On Mouse Click
  */
 echartsInstance.on('click', (params) => {
+  notifySuccess(['Event', 'On Click']);
   ...
   echartsInstance.resize(); // to redraw visualization
 });
@@ -137,6 +138,8 @@ echartsInstance.on('dblclick', (params) => {
   echartsInstance.resize();
 });
 ```
+
+Take a look at the official documentation [Event and Action](https://apache.github.io/echarts-handbook/en/concepts/event/) to learn more.
 
 ## Notifications
 
