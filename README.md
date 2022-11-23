@@ -166,6 +166,12 @@ A quick guide for using images in Apache ECharts shows each type's prefixes.
 
 [![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
 
+### Histograms, Clustering, Regression
+
+Mathematical and statistical functions to your extended visualization arsenal. 
+
+[![Histograms, Clustering. Regression in Apache ECharts panel for Grafana | ecStat math, stat library](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/ecstat.png)](https://youtu.be/qfDrAW8-Mh8)
+
 ## Baidu Maps
 
 Baidu Maps are loaded using APIv3 and require Access Key. You can get it from [https://lbsyun.baidu.com/apiconsole/key#/home](https://lbsyun.baidu.com/apiconsole/key#/home).
