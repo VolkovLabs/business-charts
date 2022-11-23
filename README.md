@@ -150,6 +150,23 @@ notifySuccess(['Update', 'Values updated successfully.']);
 notifyError(['Update', `An error occured updating values.`]);
 ```
 
+## Scale when resize
+
+To scale the content when panel resized use `echartsInstance` methods to retrieve width and height of the panel.
+
+```
+  graphic: {
+    type: "image",
+    style: {
+      image: `data:image/svg+xml;utf8,${SVG}`,
+      width: echartsInstance.getWidth(),
+      height: echartsInstance.getHeight(),
+    },
+  },
+```
+
+Take a look at the official documentation [echartsInstance](https://echarts.apache.org/en/api.html#echartsInstance) to see all available methods.
+
 ## Tutorial
 
 ### Directed Graph
