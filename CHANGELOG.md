@@ -5,7 +5,7 @@
 ### Features / Enhancements
 
 - Update documentation for Event Handling (#80)
-- Add Histograms, Clustering, Regression tutorial (#81)
+- Add Histograms, Clustering, Regression tutorial (#83)
 
 ## 3.7.0 (2022-11-16)
 
