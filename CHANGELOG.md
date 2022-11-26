@@ -7,6 +7,10 @@
 - Update documentation for Event Handling (#80)
 - Add Histograms, Clustering, Regression tutorial (#83)
 
+### Bug fixes
+
+- Fix Disabled Format options #88
+
 ## 3.7.0 (2022-11-16)
 
 ### Features / Enhancements
