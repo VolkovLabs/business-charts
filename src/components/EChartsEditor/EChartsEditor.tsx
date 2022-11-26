@@ -57,10 +57,10 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
   /**
    * Format Options
    */
-  let monacoOptions = {};
-  if (context.options.editor.format === Format.AUTO) {
-    monacoOptions = { formatOnPaste: true, formatOnType: true };
-  }
+  const monacoOptions =
+    context.options.editor.format === Format.AUTO
+      ? { formatOnPaste: true, formatOnType: true }
+      : { formatOnPaste: false, formatOnType: false };
 
   return (
     <div>
