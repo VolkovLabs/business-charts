@@ -213,8 +213,8 @@
     },
     {
       "datasource": {
-        "type": "volkovlabs-rss-datasource",
-        "uid": "rZAdZdf7a"
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 10,
@@ -241,8 +241,8 @@
     },
     {
       "datasource": {
-        "type": "volkovlabs-rss-datasource",
-        "uid": "rZAdZdf7a"
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 10,
@@ -269,8 +269,8 @@
     },
     {
       "datasource": {
-        "type": "volkovlabs-rss-datasource",
-        "uid": "rZAdZdf7a"
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 10,
