@@ -16,5 +16,6 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
+      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
       # Uncomment to preserve Grafana configuration
       # - ./data:/var/lib/grafana

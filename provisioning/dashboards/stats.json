@@ -30,7 +30,7 @@
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
-        "uid": "P1D2C73DC01F2359B"
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 13,
@@ -53,7 +53,7 @@
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
-        "uid": "P1D2C73DC01F2359B"
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 13,
@@ -76,7 +76,7 @@
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
-        "uid": "P1D2C73DC01F2359B"
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 13,
@@ -99,7 +99,7 @@
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
-        "uid": "P1D2C73DC01F2359B"
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 16,
@@ -122,7 +122,7 @@
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
-        "uid": "P1D2C73DC01F2359B"
+        "uid": "4ytGZmF4k"
       },
       "gridPos": {
         "h": 16,

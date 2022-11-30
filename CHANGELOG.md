@@ -6,6 +6,7 @@
 
 - Update documentation for Event Handling (#80)
 - Add Histograms, Clustering, Regression tutorial (#83)
+- Add Provisioning dashboards for Examples on https://echarts.volkovlabs.io (#91)
 
 ### Bug fixes
 
