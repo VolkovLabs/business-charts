@@ -88,4 +88,8 @@ export const DefaultOptions: PanelOptions = {
     key: '',
     callback: 'bmapReady',
   },
+  gaode: {
+    key: '',
+    plugin: 'AMap.Scale,AMap.ToolBar',
+  },
 };

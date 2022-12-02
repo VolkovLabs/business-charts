@@ -1,5 +1,6 @@
 import { Map, Renderer } from '../constants';
 import { BaiduOptions } from './baidu';
+import { GaodeOptions } from './gaode';
 import { EditorOptions } from './editor';
 
 /**
@@ -40,4 +41,11 @@ export interface PanelOptions {
    * @type {BaiduOptions}
    */
   baidu: BaiduOptions;
+
+  /**
+   * Gaode
+   *
+   * @type {GaodeOptions}
+   */
+  gaode: GaodeOptions;
 }

@@ -20,6 +20,7 @@ export const RendererOptions = [
 export enum Map {
   DEFAULT = 'json',
   BMAP = 'bmap',
+  AMAP = 'amap',
 }
 
 /**
@@ -28,4 +29,5 @@ export enum Map {
 export const MapOptions = [
   { value: Map.DEFAULT, label: 'JSON' },
   { value: Map.BMAP, label: 'Baidu' },
+  { value: Map.AMAP, label: 'Gaode' },
 ];
