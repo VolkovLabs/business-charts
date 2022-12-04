@@ -95,5 +95,6 @@ export const DefaultOptions: PanelOptions = {
   },
   google: {
     key: '',
+    callback: 'gmapReady',
   },
 };

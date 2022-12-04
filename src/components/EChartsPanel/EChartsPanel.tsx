@@ -149,7 +149,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         loadBaidu(options.baidu);
       } else if (options.map === Map.AMAP && !(window as any).AMap) {
         loadGaode(options.gaode);
-      } else if (options.map === Map.GMAP && !(window as any).GMap) {
+      } else if (options.map === Map.GMAP && !(typeof google === 'object' && typeof google.maps === 'object')) {
         loadGoogle(options.google);
       }
 

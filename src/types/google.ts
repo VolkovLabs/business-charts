@@ -8,4 +8,11 @@ export interface GoogleOptions {
    * @type {string}
    */
   key: string;
+
+  /**
+   * Callback Function
+   *
+   * @type {string}
+   */
+  callback: string;
 }

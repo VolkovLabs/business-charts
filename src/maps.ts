@@ -45,7 +45,7 @@ export const loadGaode = (gaode: GaodeOptions) => {
 export const loadGoogle = (google: GoogleOptions) => {
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = `${GoogleApi}?key=${google.key}`;
+  script.src = `${GoogleApi}?key=${google.key}&callback=${google.callback}`;
 
   document.body.appendChild(script);
 };

@@ -9,6 +9,7 @@
     "@types/echarts": "^4.9.16",
     "@types/enzyme": "^3.10.12",
     "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/googlemaps": "^3.43.3",
     "@types/webpack-env": "^1.18.0",
     "echarts": "^5.4.0",
     "echarts-extension-amap": "^1.11.0",
