@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
-import { BaiduApi } from './constants';
-import { BaiduOptions } from './types';
+import { BaiduApi, GaodeApi } from './constants';
+import { BaiduOptions, GaodeOptions } from './types';
 
 /**
  * Register maps
@@ -24,6 +24,17 @@ export const loadBaidu = (baidu: BaiduOptions) => {
   const script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = `${BaiduApi}?v=3.0&ak=${baidu.key}&callback=${baidu.callback}`;
+
+  document.body.appendChild(script);
+};
+
+/**
+ * Load Gaode Maps
+ */
+export const loadGaode = (gaode: GaodeOptions) => {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = `${GaodeApi}?v=1.4.15&ak=${gaode.key}&plugin=${gaode.plugin}`;
 
   document.body.appendChild(script);
 };
