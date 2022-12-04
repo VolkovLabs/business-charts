@@ -57,7 +57,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
       path: 'gaode.key',
       name: 'Access Key',
       description: 'Set Access Key to use Gaode Maps. You can get it from https://console.amap.com/dev/key/app',
-      defaultValue: DefaultOptions.baidu.key,
+      defaultValue: DefaultOptions.gaode.key,
       showIf: (config) => config.map === Map.AMAP,
       category: ['Gaode'],
     })
