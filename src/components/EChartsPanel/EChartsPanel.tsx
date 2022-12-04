@@ -10,7 +10,7 @@ import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
-import { loadBaidu, registerMaps, loadGaode } from '../../maps';
+import { loadBaidu, loadGaode, registerMaps } from '../../maps';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 

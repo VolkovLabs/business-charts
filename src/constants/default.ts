@@ -1,6 +1,7 @@
 import { PanelOptions } from '../types';
-import { Map, Renderer } from './echarts';
+import { Renderer } from './echarts';
 import { Format } from './editor';
+import { Map } from './maps';
 
 /**
  * ECharts Example

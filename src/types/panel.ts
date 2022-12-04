@@ -1,7 +1,7 @@
 import { Map, Renderer } from '../constants';
 import { BaiduOptions } from './baidu';
-import { GaodeOptions } from './gaode';
 import { EditorOptions } from './editor';
+import { GaodeOptions } from './gaode';
 
 /**
  * Options

@@ -56,16 +56,15 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
     .addTextInput({
       path: 'gaode.key',
       name: 'Access Key',
-      description:
-        'Set Access Key to use Gaode Maps. You can get it from https://console.amap.com/dev/key/app',
+      description: 'Set Access Key to use Gaode Maps. You can get it from https://console.amap.com/dev/key/app',
       defaultValue: DefaultOptions.baidu.key,
       showIf: (config) => config.map === Map.AMAP,
       category: ['Gaode'],
     })
     .addTextInput({
       path: 'gaode.plugin',
-      name: 'Plugin',
-      description: 'Name of the Plugin.',
+      name: 'Plugins',
+      description: 'Name of the Plugins to use.',
       defaultValue: DefaultOptions.gaode.plugin,
       showIf: (config) => config.map === Map.AMAP,
       category: ['Gaode'],

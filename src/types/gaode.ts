@@ -10,9 +10,9 @@ export interface GaodeOptions {
   key: string;
 
   /**
-   * Callback Function
+   * Additional Plugins
    *
    * @type {string}
    */
-   plugin: string;
+  plugin: string;
 }

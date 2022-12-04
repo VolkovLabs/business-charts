@@ -1,4 +1,4 @@
 export * from './baidu';
-export * from './gaode';
 export * from './editor';
+export * from './gaode';
 export * from './panel';
