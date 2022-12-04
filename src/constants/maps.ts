@@ -2,9 +2,9 @@
  * Map Extensions
  */
 export enum Map {
-  DEFAULT = 'json',
-  BMAP = 'bmap',
   AMAP = 'amap',
+  BMAP = 'bmap',
+  DEFAULT = 'json',
   GMAP = 'gmap',
 }
 
