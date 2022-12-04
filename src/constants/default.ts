@@ -93,4 +93,8 @@ export const DefaultOptions: PanelOptions = {
     key: '',
     plugin: 'AMap.Scale,AMap.ToolBar',
   },
+  google: {
+    key: '',
+    callback: 'gmapReady',
+  },
 };
