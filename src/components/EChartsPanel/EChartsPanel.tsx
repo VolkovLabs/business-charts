@@ -21,11 +21,6 @@ import { PanelOptions } from '../../types';
 interface Props extends PanelProps<PanelOptions> {}
 
 /**
- * Register maps
- */
-registerMaps();
-
-/**
  * Panel
  */
 export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables }) => {
@@ -143,16 +138,28 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       );
 
       /**
-       * Load Baidu Maps
+       * Load Maps
        */
-      if (options.map === Map.BMAP && !(window as any).BMap) {
-        loadBaidu(options.baidu);
-      } else if (options.map === Map.AMAP && !(window as any).AMap) {
-        loadGaode(options.gaode);
-      } else if (options.map === Map.GMAP && !(typeof google === 'object' && typeof google.maps === 'object')) {
-        loadGoogle(options.google);
+      switch (options.map) {
+        case Map.NONE:
+          break;
+        case Map.JSON:
+          registerMaps();
+          break;
+        case Map.GMAP:
+          loadGoogle(options.google);
+          break;
+        case Map.BMAP:
+          loadBaidu(options.baidu);
+          break;
+        case Map.AMAP:
+          loadGaode(options.gaode);
+          break;
       }
 
+      /**
+       * Set Options
+       */
       chart.setOption(
         func(data, theme, chart, echarts, ecStat, replaceVariables, locationService, notifySuccess, notifyError)
       );

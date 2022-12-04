@@ -2,6 +2,10 @@
 
 ## 3.8.0 (IN PROGRESS)
 
+### Breaking changes
+
+- World and USA GeoJSON maps are not loaded by default. Please select `JSON` in Maps option.
+
 ### Features / Enhancements
 
 - Update documentation for Event Handling (#80)
@@ -9,6 +13,8 @@
 - Add Provisioning dashboards for ECharts Examples on https://echarts.volkovlabs.io (#91)
 - Add Gaode map support (#95)
 - Update to Grafana 9.3.1 (#97)
+- Add Google map support (#98)
+- Refactor Maps support (#99)
 
 ### Bug fixes
 

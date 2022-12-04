@@ -84,7 +84,7 @@ export const DefaultOptions: PanelOptions = {
   getOption,
   renderer: Renderer.CANVAS,
   editor: { height: 600, format: Format.AUTO },
-  map: Map.DEFAULT,
+  map: Map.NONE,
   baidu: {
     key: '',
     callback: 'bmapReady',
