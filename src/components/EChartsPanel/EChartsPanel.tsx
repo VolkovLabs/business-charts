@@ -2,6 +2,7 @@ import 'echarts-liquidfill';
 import 'echarts-gl';
 import 'echarts/extension/bmap/bmap';
 import 'echarts-extension-amap';
+import 'echarts-extension-gmap';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
@@ -10,7 +11,7 @@ import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
-import { loadBaidu, loadGaode, registerMaps } from '../../maps';
+import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { getStyles } from '../../styles';
 import { PanelOptions } from '../../types';
 
@@ -148,6 +149,8 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         loadBaidu(options.baidu);
       } else if (options.map === Map.AMAP && !(window as any).AMap) {
         loadGaode(options.gaode);
+      } else if (options.map === Map.GMAP && !(window as any).GMap) {
+        loadGoogle(options.google);
       }
 
       chart.setOption(
