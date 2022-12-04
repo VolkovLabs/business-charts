@@ -6,11 +6,13 @@
 
 - Update documentation for Event Handling (#80)
 - Add Histograms, Clustering, Regression tutorial (#83)
-- Add Provisioning dashboards for Examples on https://echarts.volkovlabs.io (#91)
+- Add Provisioning dashboards for ECharts Examples on https://echarts.volkovlabs.io (#91)
+- Add Gaode map support (#95)
+- Update to Grafana 9.3.1 (#97)
 
 ### Bug fixes
 
-- Fix Disabled Format options #88
+- Fix Disabled Format options (#88)
 
 ## 3.7.0 (2022-11-16)
 
