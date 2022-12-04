@@ -4753,6 +4753,11 @@ echarts-extension-amap@^1.11.0:
   resolved "https://registry.yarnpkg.com/echarts-extension-amap/-/echarts-extension-amap-1.11.0.tgz#221da1603643311e2c51afc89fc97f1cea4cc25f"
   integrity sha512-H93Nx8DGbhczkz+whD+5jcrzcEzyEvkaabdeSzzaG9xy9e756sRU7lwLT4JWNdklRWqG+QuQnnxhDRdipeKy/A==
 
+echarts-extension-gmap@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/echarts-extension-gmap/-/echarts-extension-gmap-1.5.0.tgz#b05c57ccb2f7f0fd15f4d7db25cc4602ebf85b59"
+  integrity sha512-WLXYynGr1mA8O7dD/8T3fV1ddtq65u73GSmBElCbG4IRdPDhSC8qkxAHsy4FHwtTG2tshdlTMTqWTX1gmV6vZw==
+
 echarts-gl@^2.0.9:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/echarts-gl/-/echarts-gl-2.0.9.tgz#ee228a6c7520a6fb7bbb71ea94394f3637ade033"

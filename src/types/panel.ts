@@ -2,6 +2,7 @@ import { Map, Renderer } from '../constants';
 import { BaiduOptions } from './baidu';
 import { EditorOptions } from './editor';
 import { GaodeOptions } from './gaode';
+import { GoogleOptions } from './google';
 
 /**
  * Options
@@ -48,4 +49,11 @@ export interface PanelOptions {
    * @type {GaodeOptions}
    */
   gaode: GaodeOptions;
+
+  /**
+   * Google
+   *
+   * @type {GoogleOptions}
+   */
+  google: GoogleOptions;
 }

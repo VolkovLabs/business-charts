@@ -70,6 +70,19 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOption
       category: ['Gaode'],
     });
 
+    /**
+     * Google
+     */
+    builder
+      .addTextInput({
+        path: 'google.key',
+        name: 'Access Key',
+        description: 'Set Access Key to use Google Maps. You can get it from https://console.cloud.google.com/apis/credentials',
+        defaultValue: DefaultOptions.google.key,
+        showIf: (config) => config.map === Map.GMAP,
+        category: ['Google'],
+      });
+
   /**
    * Editor
    */
