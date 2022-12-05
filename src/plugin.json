@@ -46,6 +46,10 @@
       {
         "name": "Baidu Maps",
         "path": "img/baidu.png"
+      },
+      {
+        "name": "Examples",
+        "path": "img/examples.png"
       }
     ],
     "updated": "%TODAY%",

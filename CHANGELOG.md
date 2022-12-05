@@ -4,7 +4,7 @@
 
 ### Breaking changes
 
-- World and USA GeoJSON maps are not loaded by default. Please select `JSON` in Maps option.
+- World and USA GeoJSON maps are not loaded by default. Please select `JSON` in the Maps option.
 
 ### Features / Enhancements
 
