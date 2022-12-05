@@ -36,14 +36,17 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Based on the ECharts 5.4.0.
 - Supports Light and Dark mode synchronized with Grafana Theme.
 - Supports SVG and Canvas renderer.
-- Includes USA and World maps. Allows to add custom Map files in the `maps` folder.
+- Includes USA and World GeoJSON maps. Allows to add custom Map files in the `maps` folder.
 - Supports variables and location service to make Charts interactive.
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Available Parameters.
 - Allows to display Success and Error notifications.
-- Supports Baidu maps loaded using APIv3.
+- Supports Baidu, Gaode, Google maps using API. Requires to provide access key.
+- 100+ examples are available at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+
+![Examples](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/examples.png)
 
 ## setOption() Function
 
@@ -190,83 +193,9 @@ Mathematical and statistical functions to your extended visualization arsenal.
 
 [![Histograms, Clustering. Regression in Apache ECharts panel for Grafana | ecStat math, stat library](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/ecstat.png)](https://youtu.be/qfDrAW8-Mh8)
 
-## Baidu Maps
+### Maps
 
-Baidu Maps are loaded using APIv3 and require Access Key. You can get it from [https://lbsyun.baidu.com/apiconsole/key#/home](https://lbsyun.baidu.com/apiconsole/key#/home).
-
-- Loading Baidu Maps takes 2-3 seconds.
-- Callback function `bmapReady` will be executed on load. Name can be changed in the Panel options.
-- While loading, animation can be displayed using following code.
-
-```
-/**
- * Baidu Maps
- */
-const bmap = {
-  tooltip: {
-    trigger: "item",
-  },
-  bmap: {
-    zoom: 5,
-    roam: true,
-  },
-};
-
-/**
- * Loading
- */
-const loading = {
-  graphic: {
-    elements: [
-      {
-        type: 'group',
-        left: 'center',
-        top: 'center',
-        children: new Array(7).fill(0).map((val, i) => ({
-          type: 'rect',
-          x: i * 20,
-          shape: {
-            x: 0,
-            y: -40,
-            width: 10,
-            height: 80
-          },
-          style: {
-            fill: '#5470c6'
-          },
-          keyframeAnimation: {
-            duration: 1000,
-            delay: i * 200,
-            loop: true,
-            keyframes: [
-              {
-                percent: 0.5,
-                scaleY: 0.3,
-                easing: 'cubicIn'
-              },
-              {
-                percent: 1,
-                scaleY: 1,
-                easing: 'cubicOut'
-              }
-            ]
-          }
-        }))
-      }
-    ]
-  }
-}
-
-/**
- * Maps are Ready
- */
-window.bmapReady = () => {
-  notifySuccess(['Baidu Maps', 'Loaded...']);
-  echartsInstance.setOption(bmap, notmerge = true);
-}
-
-return window.BMap ? bmap : loading;
-```
+The Apache ECharts panel includes extensions to support Baidu, Gaode and Google Maps. You can find details how to use them in the [documentation](https://docs.volkovlabs.io/volkovlabs-echarts-panel).
 
 ## Examples
 

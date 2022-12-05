@@ -4,23 +4,27 @@
 export enum Map {
   AMAP = 'amap',
   BMAP = 'bmap',
-  DEFAULT = 'json',
   GMAP = 'gmap',
+  JSON = 'json',
+  NONE = 'none',
 }
 
 /**
  * Map Extensions Options
  */
 export const MapOptions = [
-  { value: Map.DEFAULT, label: 'JSON' },
   { value: Map.BMAP, label: 'Baidu' },
   { value: Map.AMAP, label: 'Gaode' },
   { value: Map.GMAP, label: 'Google' },
+  { value: Map.JSON, label: 'JSON' },
+  { value: Map.NONE, label: 'None' },
 ];
 
 /**
  * API
  */
-export const BaiduApi = 'https://api.map.baidu.com/api';
-export const GaodeApi = 'https://webapi.amap.com/maps';
-export const GoogleApi = 'https://maps.googleapis.com/maps/api/js';
+export const MapApi = {
+  baidu: 'https://api.map.baidu.com/api',
+  gaode: 'https://webapi.amap.com/maps',
+  google: 'https://maps.googleapis.com/maps/api/js',
+};
