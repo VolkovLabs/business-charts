@@ -15,6 +15,7 @@
 - Update to Grafana 9.3.1 (#97)
 - Add Google map support (#98)
 - Refactor Maps support (#99)
+- Update to Apache ECharts 5.4.1 (#100) 
 
 ### Bug fixes
 
