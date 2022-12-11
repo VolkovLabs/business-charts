@@ -333,6 +333,42 @@
         "x": 8,
         "y": 20
       },
+      "id": 25,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/6zyVsZ54z/sankey?orgId=1');\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: [0.6, 0.55, 0.4, 0.25],\n    radius: '90%',\n    outline: {\n      show: false\n    },\n    backgroundStyle: {\n      borderColor: '#156ACF',\n      borderWidth: 1,\n      shadowColor: 'rgba(0, 0, 0, 0.4)',\n      shadowBlur: 20\n    },\n    shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',\n    label: {\n      position: ['38%', '40%'],\n      formatter: function () {\n        return 'ECharts\\nLiquid Fill';\n      },\n      fontSize: 40,\n      color: '#D94854'\n    }\n  }],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Liquid Fill",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 20
+      },
       "id": 6,
       "options": {
         "baidu": {
@@ -366,8 +402,8 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 16,
-        "y": 20
+        "x": 0,
+        "y": 30
       },
       "id": 7,
       "options": {
@@ -402,7 +438,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 30
       },
       "id": 12,
@@ -438,7 +474,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 8,
+        "x": 16,
         "y": 30
       },
       "id": 16,
@@ -474,8 +510,8 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 16,
-        "y": 30
+        "x": 0,
+        "y": 40
       },
       "id": 10,
       "options": {
@@ -510,7 +546,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 40
       },
       "id": 8,
@@ -576,6 +612,6 @@
   "timezone": "",
   "title": "Home",
   "uid": "pL5iH7FVk",
-  "version": 2,
+  "version": 6,
   "weekStart": ""
 }
