@@ -124,7 +124,7 @@ const series = data.series.map((s) => {
 
 Users can trigger corresponding events by their operation. To react on Mouse and other events use `echartsInstance`:
 
-```
+```javascript
 /**
  * On Mouse Click
  */
@@ -149,7 +149,7 @@ Take a look at the official documentation [Event and Action](https://apache.gith
 
 Success and Error notifications can be triggered on events handling:
 
-```
+```javascript
 notifySuccess(['Update', 'Values updated successfully.']);
 notifyError(['Update', `An error occured updating values.`]);
 ```
@@ -158,7 +158,7 @@ notifyError(['Update', `An error occured updating values.`]);
 
 To scale the content when panel resized use `echartsInstance` methods to retrieve width and height of the panel.
 
-```
+```javascript
   graphic: {
     type: "image",
     style: {
