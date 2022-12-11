@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
   "links": [
     {
       "asDropdown": false,
@@ -47,8 +46,8 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -62,7 +61,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {},\n  yAxis: {},\n  series: [\n    {\n      symbolSize: 20,\n      data: [\n        [10.0, 8.04],\n        [8.07, 6.95],\n        [13.0, 7.58],\n        [9.05, 8.81],\n        [11.0, 8.33],\n        [14.0, 7.66],\n        [13.4, 6.81],\n        [10.0, 6.33],\n        [14.0, 8.96],\n        [12.5, 6.82],\n        [9.15, 7.2],\n        [11.5, 7.2],\n        [3.03, 4.23],\n        [12.2, 7.83],\n        [2.02, 4.47],\n        [1.05, 3.33],\n        [4.05, 4.96],\n        [6.03, 7.24],\n        [12.0, 6.26],\n        [12.0, 8.84],\n        [7.08, 5.82],\n        [5.02, 5.68]\n      ],\n      type: 'scatter'\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -75,9 +82,9 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
+        "h": 12,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 2,
@@ -90,7 +97,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "const dataAll = [\n  [\n    [10.0, 8.04],\n    [8.0, 6.95],\n    [13.0, 7.58],\n    [9.0, 8.81],\n    [11.0, 8.33],\n    [14.0, 9.96],\n    [6.0, 7.24],\n    [4.0, 4.26],\n    [12.0, 10.84],\n    [7.0, 4.82],\n    [5.0, 5.68]\n  ],\n  [\n    [10.0, 9.14],\n    [8.0, 8.14],\n    [13.0, 8.74],\n    [9.0, 8.77],\n    [11.0, 9.26],\n    [14.0, 8.1],\n    [6.0, 6.13],\n    [4.0, 3.1],\n    [12.0, 9.13],\n    [7.0, 7.26],\n    [5.0, 4.74]\n  ],\n  [\n    [10.0, 7.46],\n    [8.0, 6.77],\n    [13.0, 12.74],\n    [9.0, 7.11],\n    [11.0, 7.81],\n    [14.0, 8.84],\n    [6.0, 6.08],\n    [4.0, 5.39],\n    [12.0, 8.15],\n    [7.0, 6.42],\n    [5.0, 5.73]\n  ],\n  [\n    [8.0, 6.58],\n    [8.0, 5.76],\n    [8.0, 7.71],\n    [8.0, 8.84],\n    [8.0, 8.47],\n    [8.0, 7.04],\n    [8.0, 5.25],\n    [19.0, 12.5],\n    [8.0, 5.56],\n    [8.0, 7.91],\n    [8.0, 6.89]\n  ]\n];\nconst markLineOpt = {\n  animation: false,\n  label: {\n    formatter: 'y = 0.5 * x + 3',\n    align: 'right'\n  },\n  lineStyle: {\n    type: 'solid'\n  },\n  tooltip: {\n    formatter: 'y = 0.5 * x + 3'\n  },\n  data: [\n    [\n      {\n        coord: [0, 3],\n        symbol: 'none'\n      },\n      {\n        coord: [20, 13],\n        symbol: 'none'\n      }\n    ]\n  ]\n};\n\nreturn {\n  grid: [\n    { left: '7%', top: '7%', width: '38%', height: '38%' },\n    { right: '7%', top: '7%', width: '38%', height: '38%' },\n    { left: '7%', bottom: '7%', width: '38%', height: '38%' },\n    { right: '7%', bottom: '7%', width: '38%', height: '38%' }\n  ],\n  tooltip: {\n    formatter: 'Group {a}: ({c})'\n  },\n  xAxis: [\n    { gridIndex: 0, min: 0, max: 20 },\n    { gridIndex: 1, min: 0, max: 20 },\n    { gridIndex: 2, min: 0, max: 20 },\n    { gridIndex: 3, min: 0, max: 20 }\n  ],\n  yAxis: [\n    { gridIndex: 0, min: 0, max: 15 },\n    { gridIndex: 1, min: 0, max: 15 },\n    { gridIndex: 2, min: 0, max: 15 },\n    { gridIndex: 3, min: 0, max: 15 }\n  ],\n  series: [\n    {\n      name: 'I',\n      type: 'scatter',\n      xAxisIndex: 0,\n      yAxisIndex: 0,\n      data: dataAll[0],\n      markLine: markLineOpt\n    },\n    {\n      name: 'II',\n      type: 'scatter',\n      xAxisIndex: 1,\n      yAxisIndex: 1,\n      data: dataAll[1],\n      markLine: markLineOpt\n    },\n    {\n      name: 'III',\n      type: 'scatter',\n      xAxisIndex: 2,\n      yAxisIndex: 2,\n      data: dataAll[2],\n      markLine: markLineOpt\n    },\n    {\n      name: 'IV',\n      type: 'scatter',\n      xAxisIndex: 3,\n      yAxisIndex: 3,\n      data: dataAll[3],\n      markLine: markLineOpt\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -103,10 +118,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 0
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 12
       },
       "id": 5,
       "options": {
@@ -118,7 +133,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.clustering);\nconst values = [\n  [3.275154, 2.957587],\n  [-3.344465, 2.603513],\n  [0.355083, -3.376585],\n  [1.852435, 3.547351],\n  [-2.078973, 2.552013],\n  [-0.993756, -0.884433],\n  [2.682252, 4.007573],\n  [-3.087776, 2.878713],\n  [-1.565978, -1.256985],\n  [2.441611, 0.444826],\n  [-0.659487, 3.111284],\n  [-0.459601, -2.618005],\n  [2.17768, 2.387793],\n  [-2.920969, 2.917485],\n  [-0.028814, -4.168078],\n  [3.625746, 2.119041],\n  [-3.912363, 1.325108],\n  [-0.551694, -2.814223],\n  [2.855808, 3.483301],\n  [-3.594448, 2.856651],\n  [0.421993, -2.372646],\n  [1.650821, 3.407572],\n  [-2.082902, 3.384412],\n  [-0.718809, -2.492514],\n  [4.513623, 3.841029],\n  [-4.822011, 4.607049],\n  [-0.656297, -1.449872],\n  [1.919901, 4.439368],\n  [-3.287749, 3.918836],\n  [-1.576936, -2.977622],\n  [3.598143, 1.97597],\n  [-3.977329, 4.900932],\n  [-1.79108, -2.184517],\n  [3.914654, 3.559303],\n  [-1.910108, 4.166946],\n  [-1.226597, -3.317889],\n  [1.148946, 3.345138],\n  [-2.113864, 3.548172],\n  [0.845762, -3.589788],\n  [2.629062, 3.535831],\n  [-1.640717, 2.990517],\n  [-1.881012, -2.485405],\n  [4.606999, 3.510312],\n  [-4.366462, 4.023316],\n  [0.765015, -3.00127],\n  [3.121904, 2.173988],\n  [-4.025139, 4.65231],\n  [-0.559558, -3.840539],\n  [4.376754, 4.863579],\n  [-1.874308, 4.032237],\n  [-0.089337, -3.026809],\n  [3.997787, 2.518662],\n  [-3.082978, 2.884822],\n  [0.845235, -3.454465],\n  [1.327224, 3.358778],\n  [-2.889949, 3.596178],\n  [-0.966018, -2.839827],\n  [2.960769, 3.079555],\n  [-3.275518, 1.577068],\n  [0.639276, -3.41284]\n];\nvar CLUSTER_COUNT = 6;\nvar DIENSIION_CLUSTER_INDEX = 2;\nvar COLOR_ALL = [\n  '#37A2DA',\n  '#e06343',\n  '#37a354',\n  '#b55dba',\n  '#b5bd48',\n  '#8378EA',\n  '#96BFFF'\n];\nvar pieces = [];\nfor (var i = 0; i < CLUSTER_COUNT; i++) {\n  pieces.push({\n    value: i,\n    label: 'cluster ' + i,\n    color: COLOR_ALL[i]\n  });\n}\n\nreturn {\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:clustering',\n        // print: true,\n        config: {\n          clusterCount: CLUSTER_COUNT,\n          outputType: 'single',\n          outputClusterIndexDimension: DIENSIION_CLUSTER_INDEX\n        }\n      }\n    }\n  ],\n  tooltip: {\n    position: 'top'\n  },\n  visualMap: {\n    type: 'piecewise',\n    top: 'middle',\n    min: 0,\n    max: CLUSTER_COUNT,\n    left: 10,\n    splitNumber: CLUSTER_COUNT,\n    dimension: DIENSIION_CLUSTER_INDEX,\n    pieces: pieces\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"120\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {},\n  yAxis: {},\n  series: {\n    type: 'scatter',\n    encode: { tooltip: [0, 1] },\n    symbolSize: 15,\n    itemStyle: {\n      borderColor: '#555'\n    },\n    datasetIndex: 1\n  }\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -131,10 +154,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
       "id": 6,
       "options": {
@@ -146,7 +169,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "var originalData = [\n  [3.275154, 2.957587],\n  [-3.344465, 2.603513],\n  [0.355083, -3.376585],\n  [1.852435, 3.547351],\n  [-2.078973, 2.552013],\n  [-0.993756, -0.884433],\n  [2.682252, 4.007573],\n  [-3.087776, 2.878713],\n  [-1.565978, -1.256985],\n  [2.441611, 0.444826],\n  [-0.659487, 3.111284],\n  [-0.459601, -2.618005],\n  [2.17768, 2.387793],\n  [-2.920969, 2.917485],\n  [-0.028814, -4.168078],\n  [3.625746, 2.119041],\n  [-3.912363, 1.325108],\n  [-0.551694, -2.814223],\n  [2.855808, 3.483301],\n  [-3.594448, 2.856651],\n  [0.421993, -2.372646],\n  [1.650821, 3.407572],\n  [-2.082902, 3.384412],\n  [-0.718809, -2.492514],\n  [4.513623, 3.841029],\n  [-4.822011, 4.607049],\n  [-0.656297, -1.449872],\n  [1.919901, 4.439368],\n  [-3.287749, 3.918836],\n  [-1.576936, -2.977622],\n  [3.598143, 1.97597],\n  [-3.977329, 4.900932],\n  [-1.79108, -2.184517],\n  [3.914654, 3.559303],\n  [-1.910108, 4.166946],\n  [-1.226597, -3.317889],\n  [1.148946, 3.345138],\n  [-2.113864, 3.548172],\n  [0.845762, -3.589788],\n  [2.629062, 3.535831],\n  [-1.640717, 2.990517],\n  [-1.881012, -2.485405],\n  [4.606999, 3.510312],\n  [-4.366462, 4.023316],\n  [0.765015, -3.00127],\n  [3.121904, 2.173988],\n  [-4.025139, 4.65231],\n  [-0.559558, -3.840539],\n  [4.376754, 4.863579],\n  [-1.874308, 4.032237],\n  [-0.089337, -3.026809],\n  [3.997787, 2.518662],\n  [-3.082978, 2.884822],\n  [0.845235, -3.454465],\n  [1.327224, 3.358778],\n  [-2.889949, 3.596178],\n  [-0.966018, -2.839827],\n  [2.960769, 3.079555],\n  [-3.275518, 1.577068],\n  [0.639276, -3.41284]\n];\nvar DIM_CLUSTER_INDEX = 2;\nvar DATA_DIM_IDX = [0, 1];\nvar CENTER_DIM_IDX = [3, 4];\n// See https://github.com/ecomfe/echarts-stat\nvar step = ecStat.clustering.hierarchicalKMeans(originalData, {\n  clusterCount: 6,\n  outputType: 'single',\n  outputClusterIndexDimension: DIM_CLUSTER_INDEX,\n  outputCentroidDimensions: CENTER_DIM_IDX,\n  stepByStep: true\n});\nvar colorAll = [\n  '#bbb',\n  '#37A2DA',\n  '#e06343',\n  '#37a354',\n  '#b55dba',\n  '#b5bd48',\n  '#8378EA',\n  '#96BFFF'\n];\n\nvar ANIMATION_DURATION_UPDATE = 1500;\nfunction renderItemPoint(params, api) {\n  var coord = api.coord([api.value(0), api.value(1)]);\n  var clusterIdx = api.value(2);\n  if (clusterIdx == null || isNaN(clusterIdx)) {\n    clusterIdx = 0;\n  }\n  var isNewCluster = clusterIdx === api.value(3);\n  var extra = {\n    transition: []\n  };\n  var contentColor = colorAll[clusterIdx];\n  return {\n    type: 'circle',\n    x: coord[0],\n    y: coord[1],\n    shape: {\n      cx: 0,\n      cy: 0,\n      r: 10\n    },\n    extra: extra,\n    style: {\n      fill: contentColor,\n      stroke: '#333',\n      lineWidth: 1,\n      shadowColor: contentColor,\n      shadowBlur: isNewCluster ? 12 : 0,\n      transition: ['shadowBlur', 'fill']\n    }\n  };\n}\n\nfunction renderBoundary(params, api) {\n  var xVal = api.value(0);\n  var yVal = api.value(1);\n  var maxDist = api.value(2);\n  var center = api.coord([xVal, yVal]);\n  var size = api.size([maxDist, maxDist]);\n  return {\n    type: 'ellipse',\n    shape: {\n      cx: isNaN(center[0]) ? 0 : center[0],\n      cy: isNaN(center[1]) ? 0 : center[1],\n      rx: isNaN(size[0]) ? 0 : size[0] + 15,\n      ry: isNaN(size[1]) ? 0 : size[1] + 15\n    },\n    extra: {\n      renderProgress: ++targetRenderProgress,\n      enterFrom: {\n        renderProgress: 0\n      },\n      transition: 'renderProgress'\n    },\n    style: {\n      fill: null,\n      stroke: 'rgba(0,0,0,0.2)',\n      lineDash: [4, 4],\n      lineWidth: 4\n    }\n  };\n}\n\nfunction makeStepOption(option, data, centroids) {\n  var newCluIdx = centroids ? centroids.length - 1 : -1;\n  var maxDist = 0;\n  for (var i = 0; i < data.length; i++) {\n    var line = data[i];\n    if (line[DIM_CLUSTER_INDEX] === newCluIdx) {\n      var dist0 = Math.pow(line[DATA_DIM_IDX[0]] - line[CENTER_DIM_IDX[0]], 2);\n      var dist1 = Math.pow(line[DATA_DIM_IDX[1]] - line[CENTER_DIM_IDX[1]], 2);\n      maxDist = Math.max(maxDist, dist0 + dist1);\n    }\n  }\n\n  var boundaryData = centroids\n    ? [[centroids[newCluIdx][0], centroids[newCluIdx][1], Math.sqrt(maxDist)]]\n    : [];\n  option.options.push({\n    series: [\n      {\n        type: 'custom',\n        encode: {\n          tooltip: [0, 1]\n        },\n        renderItem: renderItemPoint,\n        data: data\n      },\n      {\n        type: 'custom',\n        renderItem: renderBoundary,\n        animationDuration: 3000,\n        silent: true,\n        data: boundaryData\n      }\n    ]\n  });\n}\n\nvar targetRenderProgress = 0;\noption = {\n  timeline: {\n    top: 'center',\n    right: 50,\n    height: 300,\n    width: 10,\n    inverse: true,\n    autoPlay: false,\n    playInterval: 2500,\n    symbol: 'none',\n    orient: 'vertical',\n    axisType: 'category',\n    label: {\n      formatter: 'step {value}',\n      position: 10\n    },\n    checkpointStyle: {\n      animationDuration: ANIMATION_DURATION_UPDATE\n    },\n    data: []\n  },\n  baseOption: {\n    animationDurationUpdate: ANIMATION_DURATION_UPDATE,\n    transition: ['shape'],\n    tooltip: {},\n    xAxis: {\n      type: 'value'\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        type: 'scatter'\n      }\n    ]\n  },\n  options: []\n};\n\nmakeStepOption(option, originalData);\noption.timeline.data.push('0');\nfor (var i = 1, stepResult; !(stepResult = step.next()).isEnd; i++) {\n  makeStepOption(\n    option,\n    echarts.util.clone(stepResult.data),\n    echarts.util.clone(stepResult.centroids)\n  );\n  option.timeline.data.push(i + '');\n}\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -159,10 +190,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 24
       },
       "id": 7,
       "options": {
@@ -174,7 +205,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.regression);\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: [\n        [1, 4862.4],\n        [2, 5294.7],\n        [3, 5934.5],\n        [4, 7171.0],\n        [5, 8964.4],\n        [6, 10202.2],\n        [7, 11962.5],\n        [8, 14928.3],\n        [9, 16909.2],\n        [10, 18547.9],\n        [11, 21617.8],\n        [12, 26638.1],\n        [13, 34634.4],\n        [14, 46759.4],\n        [15, 58478.1],\n        [16, 67884.6],\n        [17, 74462.6],\n        [18, 79395.7]\n      ]\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        config: {\n          method: 'exponential'\n          // 'end' by default\n          // formulaOn: 'start'\n        }\n      }\n    }\n  ],\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter',\n      datasetIndex: 0\n    },\n    {\n      name: 'line',\n      type: 'line',\n      smooth: true,\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -187,10 +226,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 24
       },
       "id": 8,
       "options": {
@@ -202,7 +241,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {\n    scale: true\n  },\n  yAxis: {\n    scale: true\n  },\n  series: [\n    {\n      type: 'effectScatter',\n      symbolSize: 20,\n      data: [\n        [172.7, 105.2],\n        [153.4, 42]\n      ]\n    },\n    {\n      type: 'scatter',\n      // prettier-ignore\n      data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],\n      [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],\n      [172.5, 55.2], [170.9, 54.2], [172.9, 62.5], [153.4, 42.0], [160.0, 50.0],\n      [147.2, 49.8], [168.2, 49.2], [175.0, 73.2], [157.0, 47.8], [167.6, 68.8],\n      [159.5, 50.6], [175.0, 82.5], [166.8, 57.2], [176.5, 87.8], [170.2, 72.8],\n      [174.0, 54.5], [173.0, 59.8], [179.9, 67.3], [170.5, 67.8], [160.0, 47.0],\n      [154.4, 46.2], [162.0, 55.0], [176.5, 83.0], [160.0, 54.4], [152.0, 45.8],\n      [162.1, 53.6], [170.0, 73.2], [160.2, 52.1], [161.3, 67.9], [166.4, 56.6],\n      [168.9, 62.3], [163.8, 58.5], [167.6, 54.5], [160.0, 50.2], [161.3, 60.3],\n      [167.6, 58.3], [165.1, 56.2], [160.0, 50.2], [170.0, 72.9], [157.5, 59.8],\n      [167.6, 61.0], [160.7, 69.1], [163.2, 55.9], [152.4, 46.5], [157.5, 54.3],\n      [168.3, 54.8], [180.3, 60.7], [165.5, 60.0], [165.0, 62.0], [164.5, 60.3],\n      [156.0, 52.7], [160.0, 74.3], [163.0, 62.0], [165.7, 73.1], [161.0, 80.0],\n      [162.0, 54.7], [166.0, 53.2], [174.0, 75.7], [172.7, 61.1], [167.6, 55.7],\n      [151.1, 48.7], [164.5, 52.3], [163.5, 50.0], [152.0, 59.3], [169.0, 62.5],\n      [164.0, 55.7], [161.2, 54.8], [155.0, 45.9], [170.0, 70.6], [176.2, 67.2],\n      [170.0, 69.4], [162.5, 58.2], [170.3, 64.8], [164.1, 71.6], [169.5, 52.8],\n      [163.2, 59.8], [154.5, 49.0], [159.8, 50.0], [173.2, 69.2], [170.0, 55.9],\n      [161.4, 63.4], [169.0, 58.2], [166.2, 58.6], [159.4, 45.7], [162.5, 52.2],\n      [159.0, 48.6], [162.8, 57.8], [159.0, 55.6], [179.8, 66.8], [162.9, 59.4],\n      [161.0, 53.6], [151.1, 73.2], [168.2, 53.4], [168.9, 69.0], [173.2, 58.4],\n      [171.8, 56.2], [178.0, 70.6], [164.3, 59.8], [163.0, 72.0], [168.5, 65.2],\n      [166.8, 56.6], [172.7, 105.2], [163.5, 51.8], [169.4, 63.4], [167.8, 59.0],\n      [159.5, 47.6], [167.6, 63.0], [161.2, 55.2], [160.0, 45.0], [163.2, 54.0],\n      [162.2, 50.2], [161.3, 60.2], [149.5, 44.8], [157.5, 58.8], [163.2, 56.4],\n      [172.7, 62.0], [155.0, 49.2], [156.5, 67.2], [164.0, 53.8], [160.9, 54.4],\n      [162.8, 58.0], [167.0, 59.8], [160.0, 54.8], [160.0, 43.2], [168.9, 60.5],\n      [158.2, 46.4], [156.0, 64.4], [160.0, 48.8], [167.1, 62.2], [158.0, 55.5],\n      [167.6, 57.8], [156.0, 54.6], [162.1, 59.2], [173.4, 52.7], [159.8, 53.2],\n      [170.5, 64.5], [159.2, 51.8], [157.5, 56.0], [161.3, 63.6], [162.6, 63.2],\n      [160.0, 59.5], [168.9, 56.8], [165.1, 64.1], [162.6, 50.0], [165.1, 72.3],\n      [166.4, 55.0], [160.0, 55.9], [152.4, 60.4], [170.2, 69.1], [162.6, 84.5],\n      [170.2, 55.9], [158.8, 55.5], [172.7, 69.5], [167.6, 76.4], [162.6, 61.4],\n      [167.6, 65.9], [156.2, 58.6], [175.2, 66.8], [172.1, 56.6], [162.6, 58.6],\n      [160.0, 55.9], [165.1, 59.1], [182.9, 81.8], [166.4, 70.7], [165.1, 56.8],\n      [177.8, 60.0], [165.1, 58.2], [175.3, 72.7], [154.9, 54.1], [158.8, 49.1],\n      [172.7, 75.9], [168.9, 55.0], [161.3, 57.3], [167.6, 55.0], [165.1, 65.5],\n      [175.3, 65.5], [157.5, 48.6], [163.8, 58.6], [167.6, 63.6], [165.1, 55.2],\n      [165.1, 62.7], [168.9, 56.6], [162.6, 53.9], [164.5, 63.2], [176.5, 73.6],\n      [168.9, 62.0], [175.3, 63.6], [159.4, 53.2], [160.0, 53.4], [170.2, 55.0],\n      [162.6, 70.5], [167.6, 54.5], [162.6, 54.5], [160.7, 55.9], [160.0, 59.0],\n      [157.5, 63.6], [162.6, 54.5], [152.4, 47.3], [170.2, 67.7], [165.1, 80.9],\n      [172.7, 70.5], [165.1, 60.9], [170.2, 63.6], [170.2, 54.5], [170.2, 59.1],\n      [161.3, 70.5], [167.6, 52.7], [167.6, 62.7], [165.1, 86.3], [162.6, 66.4],\n      [152.4, 67.3], [168.9, 63.0], [170.2, 73.6], [175.2, 62.3], [175.2, 57.7],\n      [160.0, 55.4], [165.1, 104.1], [174.0, 55.5], [170.2, 77.3], [160.0, 80.5],\n      [167.6, 64.5], [167.6, 72.3], [167.6, 61.4], [154.9, 58.2], [162.6, 81.8],\n      [175.3, 63.6], [171.4, 53.4], [157.5, 54.5], [165.1, 53.6], [160.0, 60.0],\n      [174.0, 73.6], [162.6, 61.4], [174.0, 55.5], [162.6, 63.6], [161.3, 60.9],\n      [156.2, 60.0], [149.9, 46.8], [169.5, 57.3], [160.0, 64.1], [175.3, 63.6],\n      [169.5, 67.3], [160.0, 75.5], [172.7, 68.2], [162.6, 61.4], [157.5, 76.8],\n      [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -215,10 +262,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
-        "y": 18
+        "y": 36
       },
       "id": 9,
       "options": {
@@ -230,7 +277,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.regression);\nconst values = [\n  [0.067732, 3.176513],\n  [0.42781, 3.816464],\n  [0.995731, 4.550095],\n  [0.738336, 4.256571],\n  [0.981083, 4.560815],\n  [0.526171, 3.929515],\n  [0.378887, 3.52617],\n  [0.033859, 3.156393],\n  [0.132791, 3.110301],\n  [0.138306, 3.149813],\n  [0.247809, 3.476346],\n  [0.64827, 4.119688],\n  [0.731209, 4.282233],\n  [0.236833, 3.486582],\n  [0.969788, 4.655492],\n  [0.607492, 3.965162],\n  [0.358622, 3.5149],\n  [0.147846, 3.125947],\n  [0.63782, 4.094115],\n  [0.230372, 3.476039],\n  [0.070237, 3.21061],\n  [0.067154, 3.190612],\n  [0.925577, 4.631504],\n  [0.717733, 4.29589],\n  [0.015371, 3.085028],\n  [0.33507, 3.44808],\n  [0.040486, 3.16744],\n  [0.212575, 3.364266],\n  [0.617218, 3.993482],\n  [0.541196, 3.891471],\n  [0.045353, 3.143259],\n  [0.126762, 3.114204],\n  [0.556486, 3.851484],\n  [0.901144, 4.621899],\n  [0.958476, 4.580768],\n  [0.274561, 3.620992],\n  [0.394396, 3.580501],\n  [0.87248, 4.618706],\n  [0.409932, 3.676867],\n  [0.908969, 4.641845],\n  [0.166819, 3.175939],\n  [0.665016, 4.26498],\n  [0.263727, 3.558448],\n  [0.231214, 3.436632],\n  [0.552928, 3.831052],\n  [0.047744, 3.182853],\n  [0.365746, 3.498906],\n  [0.495002, 3.946833],\n  [0.493466, 3.900583],\n  [0.792101, 4.238522],\n  [0.76966, 4.23308],\n  [0.251821, 3.521557],\n  [0.181951, 3.203344],\n  [0.808177, 4.278105],\n  [0.334116, 3.555705],\n  [0.33863, 3.502661],\n  [0.452584, 3.859776],\n  [0.69477, 4.275956],\n  [0.590902, 3.916191],\n  [0.307928, 3.587961],\n  [0.148364, 3.183004],\n  [0.70218, 4.225236],\n  [0.721544, 4.231083],\n  [0.666886, 4.240544],\n  [0.124931, 3.222372],\n  [0.618286, 4.021445],\n  [0.381086, 3.567479],\n  [0.385643, 3.56258],\n  [0.777175, 4.262059],\n  [0.116089, 3.208813],\n  [0.115487, 3.169825],\n  [0.66351, 4.193949],\n  [0.254884, 3.491678],\n  [0.993888, 4.533306],\n  [0.295434, 3.550108],\n  [0.952523, 4.636427],\n  [0.307047, 3.557078],\n  [0.277261, 3.552874],\n  [0.279101, 3.494159],\n  [0.175724, 3.206828],\n  [0.156383, 3.195266],\n  [0.733165, 4.221292],\n  [0.848142, 4.413372],\n  [0.771184, 4.184347],\n  [0.429492, 3.742878],\n  [0.162176, 3.201878],\n  [0.917064, 4.648964],\n  [0.315044, 3.510117],\n  [0.201473, 3.274434],\n  [0.297038, 3.579622],\n  [0.336647, 3.489244],\n  [0.666109, 4.237386],\n  [0.583888, 3.913749],\n  [0.085031, 3.22899],\n  [0.687006, 4.286286],\n  [0.949655, 4.628614],\n  [0.189912, 3.239536],\n  [0.844027, 4.457997],\n  [0.333288, 3.513384],\n  [0.427035, 3.729674],\n  [0.466369, 3.834274],\n  [0.550659, 3.811155],\n  [0.278213, 3.598316],\n  [0.918769, 4.692514],\n  [0.886555, 4.604859],\n  [0.569488, 3.864912],\n  [0.066379, 3.184236],\n  [0.335751, 3.500796],\n  [0.426863, 3.743365],\n  [0.395746, 3.622905],\n  [0.694221, 4.310796],\n  [0.27276, 3.583357],\n  [0.503495, 3.901852],\n  [0.067119, 3.233521],\n  [0.038326, 3.105266],\n  [0.599122, 3.865544],\n  [0.947054, 4.628625],\n  [0.671279, 4.231213],\n  [0.434811, 3.791149],\n  [0.509381, 3.968271],\n  [0.749442, 4.25391],\n  [0.058014, 3.19471],\n  [0.482978, 3.996503],\n  [0.466776, 3.904358],\n  [0.357767, 3.503976],\n  [0.949123, 4.557545],\n  [0.41732, 3.699876],\n  [0.920461, 4.613614],\n  [0.156433, 3.140401],\n  [0.656662, 4.206717],\n  [0.616418, 3.969524],\n  [0.853428, 4.476096],\n  [0.133295, 3.136528],\n  [0.693007, 4.279071],\n  [0.178449, 3.200603],\n  [0.199526, 3.299012],\n  [0.073224, 3.209873],\n  [0.286515, 3.632942],\n  [0.182026, 3.248361],\n  [0.621523, 3.995783],\n  [0.344584, 3.563262],\n  [0.398556, 3.649712],\n  [0.480369, 3.951845],\n  [0.15335, 3.145031],\n  [0.171846, 3.181577],\n  [0.867082, 4.637087],\n  [0.223855, 3.404964],\n  [0.528301, 3.873188],\n  [0.890192, 4.633648],\n  [0.106352, 3.154768],\n  [0.917886, 4.623637],\n  [0.014855, 3.078132],\n  [0.567682, 3.913596],\n  [0.068854, 3.221817],\n  [0.603535, 3.938071],\n  [0.53205, 3.880822],\n  [0.651362, 4.176436],\n  [0.901225, 4.648161],\n  [0.204337, 3.332312],\n  [0.696081, 4.240614],\n  [0.963924, 4.532224],\n  [0.98139, 4.557105],\n  [0.987911, 4.610072],\n  [0.990947, 4.636569],\n  [0.736021, 4.229813],\n  [0.253574, 3.50086],\n  [0.674722, 4.245514],\n  [0.939368, 4.605182],\n  [0.235419, 3.45434],\n  [0.110521, 3.180775],\n  [0.218023, 3.38082],\n  [0.869778, 4.56502],\n  [0.19683, 3.279973],\n  [0.958178, 4.554241],\n  [0.972673, 4.63352],\n  [0.745797, 4.281037],\n  [0.445674, 3.844426],\n  [0.470557, 3.891601],\n  [0.549236, 3.849728],\n  [0.335691, 3.492215],\n  [0.884739, 4.592374],\n  [0.918916, 4.632025],\n  [0.441815, 3.75675],\n  [0.116598, 3.133555],\n  [0.359274, 3.567919],\n  [0.814811, 4.363382],\n  [0.387125, 3.560165],\n  [0.982243, 4.564305],\n  [0.78088, 4.215055],\n  [0.652565, 4.174999],\n  [0.87003, 4.58664],\n  [0.604755, 3.960008],\n  [0.255212, 3.529963],\n  [0.730546, 4.213412],\n  [0.493829, 3.908685],\n  [0.257017, 3.585821],\n  [0.833735, 4.374394],\n  [0.070095, 3.213817],\n  [0.52707, 3.952681],\n  [0.116163, 3.129283]\n];\n\nreturn {\n  grid: {\n    bottom: \"4%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:regression'\n        // 'linear' by default.\n        // config: { method: 'linear', formulaOn: 'end'}\n      }\n    }\n  ],\n  legend: {\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter'\n    },\n    {\n      name: 'line',\n      type: 'line',\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -243,10 +298,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 18
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 36
       },
       "id": 10,
       "options": {
@@ -258,7 +313,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.regression);\nconst values = [\n  [96.24, 11.35],\n  [33.09, 85.11],\n  [57.6, 36.61],\n  [36.77, 27.26],\n  [20.1, 6.72],\n  [45.53, 36.37],\n  [110.07, 80.13],\n  [72.05, 20.88],\n  [39.82, 37.15],\n  [48.05, 70.5],\n  [0.85, 2.57],\n  [51.66, 63.7],\n  [61.07, 127.13],\n  [64.54, 33.59],\n  [35.5, 25.01],\n  [226.55, 664.02],\n  [188.6, 175.31],\n  [81.31, 108.68]\n];\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        config: { method: 'polynomial', order: 3 }\n      }\n    }\n  ],\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    },\n    splitNumber: 20\n  },\n  yAxis: {\n    min: -40,\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter'\n    },\n    {\n      name: 'line',\n      type: 'line',\n      smooth: true,\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -271,10 +334,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 18
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 48
       },
       "id": 11,
       "options": {
@@ -286,7 +349,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "// prettier-ignore\nconst hours = [\n  '12a', '1a', '2a', '3a', '4a', '5a', '6a',\n  '7a', '8a', '9a', '10a', '11a',\n  '12p', '1p', '2p', '3p', '4p', '5p',\n  '6p', '7p', '8p', '9p', '10p', '11p'\n];\n// prettier-ignore\nconst days = [\n  'Saturday', 'Friday', 'Thursday',\n  'Wednesday', 'Tuesday', 'Monday', 'Sunday'\n];\n// prettier-ignore\nconst values = [[0, 0, 5], [0, 1, 1], [0, 2, 0], [0, 3, 0], [0, 4, 0], [0, 5, 0], [0, 6, 0], [0, 7, 0], [0, 8, 0], [0, 9, 0], [0, 10, 0], [0, 11, 2], [0, 12, 4], [0, 13, 1], [0, 14, 1], [0, 15, 3], [0, 16, 4], [0, 17, 6], [0, 18, 4], [0, 19, 4], [0, 20, 3], [0, 21, 3], [0, 22, 2], [0, 23, 5], [1, 0, 7], [1, 1, 0], [1, 2, 0], [1, 3, 0], [1, 4, 0], [1, 5, 0], [1, 6, 0], [1, 7, 0], [1, 8, 0], [1, 9, 0], [1, 10, 5], [1, 11, 2], [1, 12, 2], [1, 13, 6], [1, 14, 9], [1, 15, 11], [1, 16, 6], [1, 17, 7], [1, 18, 8], [1, 19, 12], [1, 20, 5], [1, 21, 5], [1, 22, 7], [1, 23, 2], [2, 0, 1], [2, 1, 1], [2, 2, 0], [2, 3, 0], [2, 4, 0], [2, 5, 0], [2, 6, 0], [2, 7, 0], [2, 8, 0], [2, 9, 0], [2, 10, 3], [2, 11, 2], [2, 12, 1], [2, 13, 9], [2, 14, 8], [2, 15, 10], [2, 16, 6], [2, 17, 5], [2, 18, 5], [2, 19, 5], [2, 20, 7], [2, 21, 4], [2, 22, 2], [2, 23, 4], [3, 0, 7], [3, 1, 3], [3, 2, 0], [3, 3, 0], [3, 4, 0], [3, 5, 0], [3, 6, 0], [3, 7, 0], [3, 8, 1], [3, 9, 0], [3, 10, 5], [3, 11, 4], [3, 12, 7], [3, 13, 14], [3, 14, 13], [3, 15, 12], [3, 16, 9], [3, 17, 5], [3, 18, 5], [3, 19, 10], [3, 20, 6], [3, 21, 4], [3, 22, 4], [3, 23, 1], [4, 0, 1], [4, 1, 3], [4, 2, 0], [4, 3, 0], [4, 4, 0], [4, 5, 1], [4, 6, 0], [4, 7, 0], [4, 8, 0], [4, 9, 2], [4, 10, 4], [4, 11, 4], [4, 12, 2], [4, 13, 4], [4, 14, 4], [4, 15, 14], [4, 16, 12], [4, 17, 1], [4, 18, 8], [4, 19, 5], [4, 20, 3], [4, 21, 7], [4, 22, 3], [4, 23, 0], [5, 0, 2], [5, 1, 1], [5, 2, 0], [5, 3, 3], [5, 4, 0], [5, 5, 0], [5, 6, 0], [5, 7, 0], [5, 8, 2], [5, 9, 0], [5, 10, 4], [5, 11, 1], [5, 12, 5], [5, 13, 10], [5, 14, 5], [5, 15, 7], [5, 16, 11], [5, 17, 6], [5, 18, 0], [5, 19, 5], [5, 20, 3], [5, 21, 4], [5, 22, 2], [5, 23, 0], [6, 0, 1], [6, 1, 0], [6, 2, 0], [6, 3, 0], [6, 4, 0], [6, 5, 0], [6, 6, 0], [6, 7, 0], [6, 8, 0], [6, 9, 0], [6, 10, 1], [6, 11, 0], [6, 12, 2], [6, 13, 1], [6, 14, 3], [6, 15, 4], [6, 16, 0], [6, 17, 0], [6, 18, 0], [6, 19, 0], [6, 20, 1], [6, 21, 2], [6, 22, 2], [6, 23, 6]]\n  .map(function (item) {\n    return [item[1], item[0], item[2]];\n  });\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  legend: {\n    data: ['Punch Card'],\n    left: 'right'\n  },\n  tooltip: {\n    position: 'top',\n    formatter: function (params) {\n      return (\n        params.value[2] +\n        ' commits in ' +\n        hours[params.value[0]] +\n        ' of ' +\n        days[params.value[1]]\n      );\n    }\n  },\n  grid: {\n    left: 2,\n    bottom: 10,\n    right: 10,\n    containLabel: true\n  },\n  xAxis: {\n    type: 'category',\n    data: hours,\n    boundaryGap: false,\n    splitLine: {\n      show: true\n    },\n    axisLine: {\n      show: false\n    }\n  },\n  yAxis: {\n    type: 'category',\n    data: days,\n    axisLine: {\n      show: false\n    }\n  },\n  series: [\n    {\n      name: 'Punch Card',\n      type: 'scatter',\n      symbolSize: function (val) {\n        return val[2] * 2;\n      },\n      data: values,\n      animationDelay: function (idx) {\n        return idx * 5;\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -310,6 +381,6 @@
   "timezone": "",
   "title": "Scatter",
   "uid": "U332C4K4z",
-  "version": 17,
+  "version": 1,
   "weekStart": ""
 }
