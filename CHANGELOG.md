@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
--
+- Update ECharts Examples on https://echarts.volkovlabs.io (#103)
 
 ### Bug fixes
 
