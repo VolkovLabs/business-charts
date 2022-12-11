@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.9.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+-
+
+### Bug fixes
+
+- Fix javascript code in documentation (#102)
+
 ## 3.8.0 (2022-12-10)
 
 ### Breaking changes
