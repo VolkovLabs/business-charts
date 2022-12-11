@@ -24,7 +24,20 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": ["echarts"],
+      "targetBlank": false,
+      "title": "Apache ECharts",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "liveNow": false,
   "panels": [
     {
@@ -186,6 +199,6 @@
   "timezone": "",
   "title": "3D Bar / Scatter / Surface",
   "uid": "wKTeianVk",
-  "version": 6,
+  "version": 1,
   "weekStart": ""
 }

@@ -46,8 +46,8 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -66,6 +66,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      data: [\n        { value: 1048, name: 'Search Engine' },\n        { value: 735, name: 'Direct' },\n        { value: 580, name: 'Email' },\n        { value: 484, name: 'Union Ads' },\n        { value: 300, name: 'Video Ads' }\n      ],\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -78,9 +82,9 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
+        "h": 12,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 2,
@@ -98,6 +102,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  legend: {\n    top: '5%',\n    left: 'center'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: ['40%', '70%'],\n      avoidLabelOverlap: false,\n      itemStyle: {\n        borderRadius: 10,\n        borderColor: '#fff',\n        borderWidth: 2\n      },\n      label: {\n        show: false,\n        position: 'center'\n      },\n      emphasis: {\n        label: {\n          show: true,\n          fontSize: '40',\n          fontWeight: 'bold'\n        }\n      },\n      labelLine: {\n        show: false\n      },\n      data: [\n        { value: 1048, name: 'Search Engine' },\n        { value: 735, name: 'Direct' },\n        { value: 580, name: 'Email' },\n        { value: 484, name: 'Union Ads' },\n        { value: 300, name: 'Video Ads' }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -110,10 +118,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 0
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 12
       },
       "id": 5,
       "options": {
@@ -130,6 +138,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  legend: {\n    top: '5%',\n    left: 'center'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: ['40%', '70%'],\n      avoidLabelOverlap: false,\n      label: {\n        show: false,\n        position: 'center'\n      },\n      emphasis: {\n        label: {\n          show: true,\n          fontSize: '40',\n          fontWeight: 'bold'\n        }\n      },\n      labelLine: {\n        show: false\n      },\n      data: [\n        { value: 1048, name: 'Search Engine' },\n        { value: 735, name: 'Direct' },\n        { value: 580, name: 'Email' },\n        { value: 484, name: 'Union Ads' },\n        { value: 300, name: 'Video Ads' }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -142,10 +154,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
       "id": 6,
       "options": {
@@ -162,6 +174,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  backgroundColor: '#2c343c',\n  tooltip: {\n    trigger: 'item'\n  },\n  visualMap: {\n    show: false,\n    min: 80,\n    max: 600,\n    inRange: {\n      colorLightness: [0, 1]\n    }\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '85%',\n      center: ['50%', '50%'],\n      data: [\n        { value: 335, name: 'Direct' },\n        { value: 310, name: 'Email' },\n        { value: 274, name: 'Union Ads' },\n        { value: 235, name: 'Video Ads' },\n        { value: 400, name: 'Search Engine' }\n      ].sort(function (a, b) {\n        return a.value - b.value;\n      }),\n      roseType: 'radius',\n      label: {\n        color: 'rgba(255, 255, 255, 0.3)'\n      },\n      labelLine: {\n        lineStyle: {\n          color: 'rgba(255, 255, 255, 0.3)'\n        },\n        smooth: 0.2,\n        length: 10,\n        length2: 20\n      },\n      itemStyle: {\n        color: '#c23531',\n        shadowBlur: 200,\n        shadowColor: 'rgba(0, 0, 0, 0.5)'\n      },\n      animationType: 'scale',\n      animationEasing: 'elasticOut',\n      animationDelay: function (idx) {\n        return Math.random() * 200;\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -174,10 +190,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 24
       },
       "id": 7,
       "options": {
@@ -194,6 +210,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "let pie = [];\nlet bg = [];\n\ndata.series.map((s) => {\n  pie = s.fields.find((f) => f.name === 'pie').values.buffer;\n  bg = s.fields.find((f) => f.name === 'bg').values.buffer;\n});\n\nconst piePatternImg = new Image();\npiePatternImg.src = pie[0];\n\nconst bgPatternImg = new Image();\nbgPatternImg.src = bg[0];\n\nreturn {\n  backgroundColor: {\n    image: bgPatternImg,\n    repeat: 'repeat'\n  },\n  tooltip: {},\n  series: [\n    {\n      name: 'pie',\n      type: 'pie',\n      selectedMode: 'single',\n      selectedOffset: 30,\n      clockwise: true,\n      label: {\n        fontSize: 18,\n        color: '#235894'\n      },\n      labelLine: {\n        lineStyle: {\n          color: '#235894'\n        }\n      },\n      data: [\n        { value: 1048, name: 'Search Engine' },\n        { value: 735, name: 'Direct' },\n        { value: 580, name: 'Email' },\n        { value: 484, name: 'Union Ads' },\n        { value: 300, name: 'Video Ads' }\n      ],\n      itemStyle: {\n        opacity: 0.7,\n        color: {\n          image: piePatternImg,\n          repeat: 'repeat'\n        },\n        borderWidth: 3,\n        borderColor: '#235894'\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -236,10 +256,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 9
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 24
       },
       "id": 8,
       "options": {
@@ -256,6 +276,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {\n    trigger: 'item',\n    formatter: '{a} <br/>{b} : {c} ({d}%)'\n  },\n  legend: {\n    left: 'center',\n    top: 'bottom',\n    data: [\n      'rose1',\n      'rose2',\n      'rose3',\n      'rose4',\n      'rose5',\n      'rose6',\n      'rose7',\n      'rose8'\n    ]\n  },\n  toolbox: {\n    show: true,\n    feature: {\n      mark: { show: true },\n      dataView: { show: true, readOnly: false },\n      restore: { show: true },\n      saveAsImage: { show: true }\n    }\n  },\n  series: [\n    {\n      name: 'Radius Mode',\n      type: 'pie',\n      radius: ['10%', '50%'],\n      center: ['25%', '50%'],\n      roseType: 'radius',\n      itemStyle: {\n        borderRadius: 5\n      },\n      label: {\n        show: false\n      },\n      emphasis: {\n        label: {\n          show: true\n        }\n      },\n      data: [\n        { value: 40, name: 'rose 1' },\n        { value: 33, name: 'rose 2' },\n        { value: 28, name: 'rose 3' },\n        { value: 22, name: 'rose 4' },\n        { value: 20, name: 'rose 5' },\n        { value: 15, name: 'rose 6' },\n        { value: 12, name: 'rose 7' },\n        { value: 10, name: 'rose 8' }\n      ]\n    },\n    {\n      name: 'Area Mode',\n      type: 'pie',\n      radius: ['15%', '55%'],\n      center: ['75%', '50%'],\n      roseType: 'area',\n      itemStyle: {\n        borderRadius: 5\n      },\n      data: [\n        { value: 30, name: 'rose 1' },\n        { value: 28, name: 'rose 2' },\n        { value: 26, name: 'rose 3' },\n        { value: 24, name: 'rose 4' },\n        { value: 22, name: 'rose 5' },\n        { value: 20, name: 'rose 6' },\n        { value: 18, name: 'rose 7' },\n        { value: 16, name: 'rose 8' }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -268,10 +292,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
-        "y": 18
+        "y": 36
       },
       "id": 9,
       "options": {
@@ -288,6 +312,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  toolbox: {\n    show: true,\n    feature: {\n      mark: { show: true },\n      dataView: { show: true, readOnly: false },\n      restore: { show: true },\n      saveAsImage: { show: true }\n    }\n  },\n  series: [\n    {\n      name: 'Nightingale Chart',\n      type: 'pie',\n      radius: ['20%', '75%'],\n      center: ['50%', '50%'],\n      roseType: 'area',\n      itemStyle: {\n        borderRadius: 8\n      },\n      data: [\n        { value: 40, name: 'rose 1' },\n        { value: 38, name: 'rose 2' },\n        { value: 32, name: 'rose 3' },\n        { value: 30, name: 'rose 4' },\n        { value: 28, name: 'rose 5' },\n        { value: 26, name: 'rose 6' },\n        { value: 22, name: 'rose 7' },\n        { value: 18, name: 'rose 8' }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -300,10 +328,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 18
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 36
       },
       "id": 10,
       "options": {
@@ -320,6 +348,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "const values = [\n  {\n    name: 'Apples',\n    value: 70\n  },\n  {\n    name: 'Strawberries',\n    value: 68\n  },\n  {\n    name: 'Bananas',\n    value: 48\n  },\n  {\n    name: 'Oranges',\n    value: 40\n  },\n  {\n    name: 'Pears',\n    value: 32\n  },\n  {\n    name: 'Pineapples',\n    value: 27\n  },\n  {\n    name: 'Grapes',\n    value: 18\n  }\n];\n\nreturn {\n  title: [\n    {\n      subtext: 'alignTo: \"none\" (default)',\n      left: '16.67%',\n      top: '75%',\n      textAlign: 'center'\n    },\n    {\n      subtext: 'alignTo: \"labelLine\"',\n      left: '50%',\n      top: '75%',\n      textAlign: 'center'\n    },\n    {\n      subtext: 'alignTo: \"edge\"',\n      left: '83.33%',\n      top: '75%',\n      textAlign: 'center'\n    }\n  ],\n  series: [\n    {\n      type: 'pie',\n      radius: '25%',\n      center: ['50%', '50%'],\n      data: values,\n      label: {\n        position: 'outer',\n        alignTo: 'none',\n        bleedMargin: 5\n      },\n      left: 0,\n      right: '66.6667%',\n      top: 0,\n      bottom: 0\n    },\n    {\n      type: 'pie',\n      radius: '25%',\n      center: ['50%', '50%'],\n      data: values,\n      label: {\n        position: 'outer',\n        alignTo: 'labelLine',\n        bleedMargin: 5\n      },\n      left: '33.3333%',\n      right: '33.3333%',\n      top: 0,\n      bottom: 0\n    },\n    {\n      type: 'pie',\n      radius: '25%',\n      center: ['50%', '50%'],\n      data: values,\n      label: {\n        position: 'outer',\n        alignTo: 'edge',\n        margin: 20\n      },\n      left: '66.6667%',\n      right: 0,\n      top: 0,\n      bottom: 0\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -332,10 +364,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 18
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 48
       },
       "id": 11,
       "options": {
@@ -352,6 +384,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "var datas = [\n  ////////////////////////////////////////\n  [\n    { name: '圣彼得堡来客', value: 5.6 },\n    { name: '陀思妥耶夫斯基全集', value: 1 },\n    { name: '史记精注全译（全6册）', value: 0.8 },\n    { name: '加德纳艺术通史', value: 0.5 },\n    { name: '表象与本质', value: 0.5 },\n    { name: '其它', value: 3.8 }\n  ],\n  // ////////////////////////////////////////\n  [\n    { name: '银河帝国5：迈向基地', value: 3.8 },\n    { name: '俞军产品方法论', value: 2.3 },\n    { name: '艺术的逃难', value: 2.2 },\n    { name: '第一次世界大战回忆录（全五卷）', value: 1.3 },\n    { name: 'Scrum 精髓', value: 1.2 },\n    { name: '其它', value: 5.7 }\n  ],\n  ////////////////////////////////////////\n  [\n    { name: '克莱因壶', value: 3.5 },\n    { name: '投资最重要的事', value: 2.8 },\n    { name: '简读中国史', value: 1.7 },\n    { name: '你当像鸟飞往你的山', value: 1.4 },\n    { name: '表象与本质', value: 0.5 },\n    { name: '其它', value: 3.8 }\n  ]\n];\n\nreturn {\n  title: {\n    text: '阅读书籍分布',\n    left: 'center',\n    textStyle: {\n      color: '#999',\n      fontWeight: 'normal',\n      fontSize: 14\n    }\n  },\n  series: datas.map(function (data, idx) {\n    var top = idx * 33.3;\n    return {\n      type: 'pie',\n      radius: ['20%', '50%'],\n      top: top + '%',\n      height: '33.33%',\n      left: 'center',\n      width: 400,\n      itemStyle: {\n        borderColor: '#fff',\n        borderWidth: 1\n      },\n      label: {\n        alignTo: 'edge',\n        formatter: '{name|{b}}\\n{time|{c} 小时}',\n        minMargin: 5,\n        edgeDistance: 10,\n        lineHeight: 15,\n        rich: {\n          time: {\n            fontSize: 10,\n            color: '#999'\n          }\n        }\n      },\n      labelLine: {\n        length: 15,\n        length2: 0,\n        maxSurfaceAngle: 80\n      },\n      labelLayout: function (params) {\n        const isLeft = params.labelRect.x < echartsInstance.getWidth() / 2;\n        const points = params.labelLinePoints;\n        // Update the end point.\n        points[2][0] = isLeft\n          ? params.labelRect.x\n          : params.labelRect.x + params.labelRect.width;\n        return {\n          labelLinePoints: points\n        };\n      },\n      data: data\n    };\n  })\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -364,10 +400,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 27
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 48
       },
       "id": 12,
       "options": {
@@ -384,6 +420,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "const values = genData(50);\n\noption = {\n  tooltip: {\n    trigger: 'item',\n    formatter: '{a} <br/>{b} : {c} ({d}%)'\n  },\n  legend: {\n    type: 'scroll',\n    orient: 'vertical',\n    right: 10,\n    top: 20,\n    bottom: 20,\n    data: values.legendData\n  },\n  series: [\n    {\n      name: '姓名',\n      type: 'pie',\n      radius: '55%',\n      center: ['40%', '50%'],\n      data: values.seriesData,\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};\n\nfunction genData(count) {\n  // prettier-ignore\n  const nameList = [\n    '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '冯', '陈', '褚', '卫', '蒋', '沈', '韩', '杨', '朱', '秦', '尤', '许', '何', '吕', '施', '张', '孔', '曹', '严', '华', '金', '魏', '陶', '姜', '戚', '谢', '邹', '喻', '柏', '水', '窦', '章', '云', '苏', '潘', '葛', '奚', '范', '彭', '郎', '鲁', '韦', '昌', '马', '苗', '凤', '花', '方', '俞', '任', '袁', '柳', '酆', '鲍', '史', '唐', '费', '廉', '岑', '薛', '雷', '贺', '倪', '汤', '滕', '殷', '罗', '毕', '郝', '邬', '安', '常', '乐', '于', '时', '傅', '皮', '卞', '齐', '康', '伍', '余', '元', '卜', '顾', '孟', '平', '黄', '和', '穆', '萧', '尹', '姚', '邵', '湛', '汪', '祁', '毛', '禹', '狄', '米', '贝', '明', '臧', '计', '伏', '成', '戴', '谈', '宋', '茅', '庞', '熊', '纪', '舒', '屈', '项', '祝', '董', '梁', '杜', '阮', '蓝', '闵', '席', '季', '麻', '强', '贾', '路', '娄', '危'\n  ];\n  const legendData = [];\n  const seriesData = [];\n  for (var i = 0; i < count; i++) {\n    var name =\n      Math.random() > 0.65\n        ? makeWord(4, 1) + '·' + makeWord(3, 0)\n        : makeWord(2, 1);\n    legendData.push(name);\n    seriesData.push({\n      name: name,\n      value: Math.round(Math.random() * 100000)\n    });\n  }\n\n  return {\n    legendData: legendData,\n    seriesData: seriesData\n  };\n\n  function makeWord(max, min) {\n    const nameLen = Math.ceil(Math.random() * max + min);\n    const name = [];\n    for (var i = 0; i < nameLen; i++) {\n      name.push(nameList[Math.round(Math.random() * nameList.length - 1)]);\n    }\n    return name.join('');\n  }\n}\n\nreturn option",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -396,10 +436,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 27
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 60
       },
       "id": 13,
       "options": {
@@ -416,6 +456,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "const weatherIcons = {\n  Sunny: 'https://echarts.apache.org/examples/data/asset/img/weather/sunny_128.png',\n  Cloudy: 'https://echarts.apache.org/examples/data/asset/img/weather/cloudy_128.png',\n  Showers: 'https://echarts.apache.org/examples/data/asset/img/weather/showers_128.png'\n};\n\nreturn {\n  tooltip: {\n    trigger: 'item',\n    formatter: '{a} <br/>{b} : {c} ({d}%)'\n  },\n  series: [\n    {\n      type: 'pie',\n      radius: '75%',\n      center: ['50%', '50%'],\n      selectedMode: 'single',\n      data: [\n        {\n          value: 1548,\n          name: 'CityE',\n          label: {\n            formatter: [\n              '{title|{b}}{abg|}',\n              '  {weatherHead|Weather}{valueHead|Days}{rateHead|Percent}',\n              '{hr|}',\n              '  {Sunny|}{value|202}{rate|55.3%}',\n              '  {Cloudy|}{value|142}{rate|38.9%}',\n              '  {Showers|}{value|21}{rate|5.8%}'\n            ].join('\\n'),\n            backgroundColor: '#eee',\n            borderColor: '#777',\n            borderWidth: 1,\n            borderRadius: 4,\n            rich: {\n              title: {\n                color: '#eee',\n                align: 'center'\n              },\n              abg: {\n                backgroundColor: '#333',\n                width: '100%',\n                align: 'right',\n                height: 25,\n                borderRadius: [4, 4, 0, 0]\n              },\n              Sunny: {\n                height: 30,\n                align: 'left',\n                backgroundColor: {\n                  image: weatherIcons.Sunny\n                }\n              },\n              Cloudy: {\n                height: 30,\n                align: 'left',\n                backgroundColor: {\n                  image: weatherIcons.Cloudy\n                }\n              },\n              Showers: {\n                height: 30,\n                align: 'left',\n                backgroundColor: {\n                  image: weatherIcons.Showers\n                }\n              },\n              weatherHead: {\n                color: '#333',\n                height: 24,\n                align: 'left'\n              },\n              hr: {\n                borderColor: '#777',\n                width: '100%',\n                borderWidth: 0.5,\n                height: 0\n              },\n              value: {\n                width: 20,\n                padding: [0, 20, 0, 30],\n                align: 'left'\n              },\n              valueHead: {\n                color: '#333',\n                width: 20,\n                padding: [0, 20, 0, 30],\n                align: 'center'\n              },\n              rate: {\n                width: 40,\n                align: 'right',\n                padding: [0, 10, 0, 0]\n              },\n              rateHead: {\n                color: '#333',\n                width: 40,\n                align: 'center',\n                padding: [0, 10, 0, 0]\n              }\n            }\n          }\n        },\n        { value: 735, name: 'CityC' },\n        { value: 510, name: 'CityD' },\n        { value: 434, name: 'CityB' },\n        { value: 335, name: 'CityA' }\n      ],\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -428,10 +472,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 27
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 60
       },
       "id": 14,
       "options": {
@@ -448,6 +492,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {\n    trigger: 'item',\n    formatter: '{a} <br/>{b}: {c} ({d}%)'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      selectedMode: 'single',\n      radius: [0, '30%'],\n      label: {\n        position: 'inner',\n        fontSize: 14\n      },\n      labelLine: {\n        show: false\n      },\n      data: [\n        { value: 1548, name: 'Search Engine' },\n        { value: 775, name: 'Direct' },\n        { value: 679, name: 'Marketing', selected: true }\n      ]\n    },\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: ['45%', '40%'],\n      labelLine: {\n        length: 30\n      },\n      label: {\n        formatter: '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  ',\n        backgroundColor: '#F6F8FC',\n        borderColor: '#8C8D8E',\n        borderWidth: 1,\n        borderRadius: 4,\n        rich: {\n          a: {\n            color: '#6E7079',\n            lineHeight: 22,\n            align: 'center'\n          },\n          hr: {\n            borderColor: '#8C8D8E',\n            width: '100%',\n            borderWidth: 1,\n            height: 0\n          },\n          b: {\n            color: '#4C5058',\n            fontSize: 14,\n            fontWeight: 'bold',\n            lineHeight: 33\n          },\n          per: {\n            color: '#fff',\n            backgroundColor: '#4C5058',\n            padding: [3, 4],\n            borderRadius: 4\n          }\n        }\n      },\n      data: [\n        { value: 1048, name: 'Baidu' },\n        { value: 335, name: 'Direct' },\n        { value: 310, name: 'Email' },\n        { value: 251, name: 'Google' },\n        { value: 234, name: 'Union Ads' },\n        { value: 147, name: 'Bing' },\n        { value: 135, name: 'Video Ads' },\n        { value: 102, name: 'Others' }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -460,10 +508,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
-        "y": 36
+        "y": 72
       },
       "id": 15,
       "options": {
@@ -480,6 +528,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  dataset: [\n    {\n      source: [\n        ['Product', 'Sales', 'Price', 'Year'],\n        ['Cake', 123, 32, 2011],\n        ['Cereal', 231, 14, 2011],\n        ['Tofu', 235, 5, 2011],\n        ['Dumpling', 341, 25, 2011],\n        ['Biscuit', 122, 29, 2011],\n        ['Cake', 143, 30, 2012],\n        ['Cereal', 201, 19, 2012],\n        ['Tofu', 255, 7, 2012],\n        ['Dumpling', 241, 27, 2012],\n        ['Biscuit', 102, 34, 2012],\n        ['Cake', 153, 28, 2013],\n        ['Cereal', 181, 21, 2013],\n        ['Tofu', 395, 4, 2013],\n        ['Dumpling', 281, 31, 2013],\n        ['Biscuit', 92, 39, 2013],\n        ['Cake', 223, 29, 2014],\n        ['Cereal', 211, 17, 2014],\n        ['Tofu', 345, 3, 2014],\n        ['Dumpling', 211, 35, 2014],\n        ['Biscuit', 72, 24, 2014]\n      ]\n    },\n    {\n      transform: {\n        type: 'filter',\n        config: { dimension: 'Year', value: 2011 }\n      }\n    },\n    {\n      transform: {\n        type: 'filter',\n        config: { dimension: 'Year', value: 2012 }\n      }\n    },\n    {\n      transform: {\n        type: 'filter',\n        config: { dimension: 'Year', value: 2013 }\n      }\n    }\n  ],\n  series: [\n    {\n      type: 'pie',\n      radius: '30%',\n      center: ['50%', '25%'],\n      datasetIndex: 1\n    },\n    {\n      type: 'pie',\n      radius: '30%',\n      center: ['50%', '50%'],\n      datasetIndex: 2\n    },\n    {\n      type: 'pie',\n      radius: '30%',\n      center: ['50%', '75%'],\n      datasetIndex: 3\n    }\n  ],\n  // Optional. Only for responsive layout:\n  media: [\n    {\n      query: { minAspectRatio: 1 },\n      option: {\n        series: [\n          { center: ['25%', '50%'] },\n          { center: ['50%', '50%'] },\n          { center: ['75%', '50%'] }\n        ]\n      }\n    },\n    {\n      option: {\n        series: [\n          { center: ['50%', '25%'] },\n          { center: ['50%', '50%'] },\n          { center: ['50%', '75%'] }\n        ]\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -492,10 +544,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 36
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 72
       },
       "id": 16,
       "options": {
@@ -512,6 +564,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "return {\n  tooltip: {},\n  dataset: {\n    source: [\n      ['product', '2012', '2013', '2014', '2015', '2016', '2017'],\n      ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],\n      ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],\n      ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],\n      ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]\n    ]\n  },\n  series: [\n    {\n      type: 'pie',\n      radius: '25%',\n      center: ['25%', '30%']\n      // No encode specified, by default, it is '2012'.\n    },\n    {\n      type: 'pie',\n      radius: '20%',\n      center: ['75%', '30%'],\n      encode: {\n        itemName: 'product',\n        value: '2013'\n      }\n    },\n    {\n      type: 'pie',\n      radius: '20%',\n      center: ['25%', '75%'],\n      encode: {\n        itemName: 'product',\n        value: '2014'\n      }\n    },\n    {\n      type: 'pie',\n      radius: '20%',\n      center: ['75%', '75%'],\n      encode: {\n        itemName: 'product',\n        value: '2015'\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -524,10 +580,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 36
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 84
       },
       "id": 17,
       "options": {
@@ -544,6 +600,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "const cellSize = [80, 80];\nconst pieRadius = '10%';\n\nfunction getVirtualData() {\n  const date = +echarts.time.parse('2017-02-01');\n  const end = +echarts.time.parse('2017-03-01');\n  const dayTime = 3600 * 24 * 1000;\n  const data = [];\n  for (let time = date; time < end; time += dayTime) {\n    data.push([\n      echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n      Math.floor(Math.random() * 10000)\n    ]);\n  }\n  return data;\n}\n\nconst scatterData = getVirtualData();\nconst pieSeries = scatterData.map(function (item, index) {\n  return {\n    type: 'pie',\n    id: 'pie-' + index,\n    center: item[0],\n    radius: pieRadius,\n    coordinateSystem: 'calendar',\n    label: {\n      formatter: '{c}',\n      position: 'inside'\n    },\n    data: [\n      { name: 'Work', value: Math.round(Math.random() * 24) },\n      { name: 'Entertainment', value: Math.round(Math.random() * 24) },\n      { name: 'Sleep', value: Math.round(Math.random() * 24) }\n    ]\n  };\n});\n\nreturn {\n  tooltip: {},\n  legend: {\n    data: ['Work', 'Entertainment', 'Sleep'],\n    bottom: 20\n  },\n  calendar: {\n    top: 'middle',\n    left: 'center',\n    orient: 'vertical',\n    cellSize: cellSize,\n    yearLabel: {\n      show: false,\n      fontSize: 30\n    },\n    dayLabel: {\n      margin: 20,\n      firstDay: 1,\n      nameMap: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    monthLabel: {\n      show: false\n    },\n    range: ['2017-02']\n  },\n  series: [\n    {\n      id: 'label',\n      type: 'scatter',\n      coordinateSystem: 'calendar',\n      symbolSize: 0,\n      label: {\n        show: true,\n        formatter: function (params) {\n          return echarts.time.format(params.value[0], '{dd}', false);\n        },\n        offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],\n        fontSize: 14\n      },\n      data: scatterData\n    },\n    ...pieSeries\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -556,10 +616,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 45
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 84
       },
       "id": 18,
       "options": {
@@ -576,6 +636,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "var option;\n\nfunction randomPieSeries(center, radius) {\n  const values = ['A', 'B', 'C', 'D'].map((t) => {\n    return {\n      value: Math.round(Math.random() * 100),\n      name: 'Category ' + t\n    };\n  });\n\n  return {\n    type: 'pie',\n    coordinateSystem: 'geo',\n    tooltip: {\n      formatter: '{b}: {c} ({d}%)'\n    },\n    label: {\n      show: false\n    },\n    labelLine: {\n      show: false\n    },\n    animationDuration: 0,\n    radius,\n    center,\n    values\n  };\n}\n\noption = {\n  geo: {\n    map: 'USA',\n    roam: true,\n    itemStyle: {\n      areaColor: '#e7e8ea'\n    }\n  },\n  tooltip: {},\n  legend: {},\n  series: [\n    randomPieSeries([-86.753504, 33.01077], 15),\n    randomPieSeries([-116.853504, 39.8], 25),\n    randomPieSeries([-99, 31.5], 30),\n    randomPieSeries(\n      // it's also supported to use geo region name as center since v5.4.1\n      +echarts.version.split('.').slice(0, 3).join('') > 540\n        ? 'Maine'\n        : // or you can only use the LngLat array\n        [-69, 45.5],\n      12\n    )\n  ]\n};\n\nreturn option",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -588,10 +652,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 45
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 96
       },
       "id": 20,
       "options": {
@@ -608,6 +672,10 @@
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
         "getOption": "option = {\n  tooltip: {\n    trigger: 'axis',\n    showContent: false\n  },\n  dataset: {\n    source: [\n      ['product', '2012', '2013', '2014', '2015', '2016', '2017'],\n      ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],\n      ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],\n      ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],\n      ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]\n    ]\n  },\n  xAxis: { type: 'category' },\n  yAxis: { gridIndex: 0 },\n  grid: {\n    top: '55%', bottom: '5%', containLabel: true\n },\n  series: [\n    {\n      type: 'line',\n      smooth: true,\n      seriesLayoutBy: 'row',\n      emphasis: { focus: 'series' }\n    },\n    {\n      type: 'line',\n      smooth: true,\n      seriesLayoutBy: 'row',\n      emphasis: { focus: 'series' }\n    },\n    {\n      type: 'line',\n      smooth: true,\n      seriesLayoutBy: 'row',\n      emphasis: { focus: 'series' }\n    },\n    {\n      type: 'line',\n      smooth: true,\n      seriesLayoutBy: 'row',\n      emphasis: { focus: 'series' }\n    },\n    {\n      type: 'pie',\n      id: 'pie',\n      radius: '30%',\n      center: ['50%', '25%'],\n      emphasis: {\n        focus: 'self'\n      },\n      label: {\n        formatter: '{b}: {@2012} ({d}%)'\n      },\n      encode: {\n        itemName: 'product',\n        value: '2012',\n        tooltip: '2012'\n      }\n    }\n  ]\n};\n\nechartsInstance.on('updateAxisPointer', function (event) {\n  const xAxisInfo = event.axesInfo[0];\n  if (xAxisInfo) {\n    const dimension = xAxisInfo.value + 1;\n    echartsInstance.setOption({\n      series: {\n        id: 'pie',\n        label: {\n          formatter: '{b}: {@[' + dimension + ']} ({d}%)'\n        },\n        encode: {\n          value: dimension,\n          tooltip: dimension\n        }\n      }\n    });\n  }\n});\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -644,6 +712,6 @@
   "timezone": "",
   "title": "Pie",
   "uid": "0b5-q7K4k",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

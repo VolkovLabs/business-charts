@@ -1,0 +1,541 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 16,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": ["echarts"],
+      "targetBlank": false,
+      "title": "Apache ECharts",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "let values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [values[0] / 100, values[1] / 100, values[2] / 100]\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Multiple Waves",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.5, 0.4, 0.3],\n    color: ['red', '#0f0', 'rgb(0, 0, 255)'],\n    itemStyle: {\n      opacity: 0.6\n    },\n    emphasis: {\n      itemStyle: {\n        opacity: 0.9\n      }\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Color and Opacity",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 5,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.5, 0.4, {\n      value: 0.3,\n      itemStyle: {\n        color: 'red',\n        opacity: 0.6\n      },\n      emphasis: {\n        itemStyle: {\n          opacity: 0.9\n        }\n      }\n    }]\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Run",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 15,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    data: [0.5, 0.4, 0.3, 0.2],\n    shape: 'container',\n    outline: {\n      show: false\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Run",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 7,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, 0.5, 0.4, 0.3],\n    amplitude: 0,\n    waveAnimation: 0\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Still Water",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 6,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    waveAnimation: false,\n    animationDuration: 0,\n    animationDurationUpdate: 0,\n    data: [0.6, 0.5, 0.4, 0.3]\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Static Waves",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 9,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, 0.5, 0.4, 0.3],\n    backgroundStyle: {\n      borderWidth: 5,\n      borderColor: 'red',\n      color: 'yellow'\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Background Style",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 8,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, {\n      value: 0.5,\n      direction: 'left',\n      itemStyle: {\n        color: 'red'\n      }\n    }, 0.4, 0.3]\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Change A Single Wave",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 11,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, 0.5, 0.4, 0.3],\n    shape: 'diamond'\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Shape",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 48
+      },
+      "id": 10,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, 0.5, 0.4, 0.3],\n    outline: {\n      show: false\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Outline Style",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "id": 13,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6, 0.5, 0.4, 0.3],\n    itemStyle: {\n      shadowBlur: 0\n    },\n    outline: {\n      borderDistance: 0,\n      itemStyle: {\n        borderWidth: 5,\n        borderColor: '#156ACF',\n        shadowBlur: 20,\n        shadowColor: 'rgba(255, 0, 0, 1)'\n      }\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Shadow",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 12,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    data: [0.6, 0.55, 0.4, 0.25],\n    radius: '90%',\n    outline: {\n      show: false\n    },\n    backgroundStyle: {\n      borderColor: '#156ACF',\n      borderWidth: 1,\n      shadowColor: 'rgba(0, 0, 0, 0.4)',\n      shadowBlur: 20\n    },\n    shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',\n    label: {\n      position: ['38%', '40%'],\n      formatter: function () {\n        return 'ECharts\\nLiquid Fill';\n      },\n      fontSize: 40,\n      color: '#D94854'\n    }\n  }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Run",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 72
+      },
+      "id": 14,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [0.6],\n    name: 'Liquid Fill'\n  }],\n    tooltip: {\n    show: true\n  }\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas"
+      },
+      "title": "Tooltip",
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": ["echarts"],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "Liquid Fill",
+  "uid": "6zyVsZ54z",
+  "version": 22,
+  "weekStart": ""
+}

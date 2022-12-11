@@ -24,7 +24,20 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": ["echarts"],
+      "targetBlank": false,
+      "title": "Apache ECharts",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "liveNow": false,
   "panels": [
     {
@@ -258,6 +271,6 @@
   "timezone": "",
   "title": "Candlestick",
   "uid": "ug-OvicVk",
-  "version": 8,
+  "version": 1,
   "weekStart": ""
 }
