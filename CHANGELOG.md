@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.8.0 (IN PROGRESS)
+## 3.8.0 (2022-12-10)
 
 ### Breaking changes
 
@@ -15,7 +15,7 @@
 - Update to Grafana 9.3.1 (#97)
 - Add Google map support (#98)
 - Refactor Maps support (#99)
-- Update to Apache ECharts 5.4.1 (#100) 
+- Update to Apache ECharts 5.4.1 (#101) 
 
 ### Bug fixes
 
