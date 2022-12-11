@@ -11,7 +11,7 @@ const getOption = `const series = data.series.map((s) => {
   const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
 
   return {
-    name: s.name,
+    name: s.refId,
     type: 'line',
     showSymbol: false,
     areaStyle: {
@@ -24,23 +24,6 @@ const getOption = `const series = data.series.map((s) => {
   };
 });
 
-const axisOption = {
-  axisTick: {
-    show: false,
-  },
-  axisLine: {
-    show: false,
-  },
-  axisLabel: {
-    color: 'rgba(128, 128, 128, .9)',
-  },
-  splitLine: {
-    lineStyle: {
-      color: 'rgba(128, 128, 128, .2)',
-    },
-  },
-};
-
 return {
   backgroundColor: 'transparent',
   tooltip: {
@@ -49,28 +32,22 @@ return {
   legend: {
     left: '0',
     bottom: '0',
-    data: data.series.map((s) => s.name),
+    data: data.series.map((s) => s.refId),
     textStyle: {
       color: 'rgba(128, 128, 128, .9)',
     },
   },
-  xAxis: Object.assign(
-    {
-      type: 'time',
-    },
-    axisOption
-  ),
-  yAxis: Object.assign(
-    {
-      type: 'value',
-      min: 'dataMin',
-    },
-    axisOption
-  ),
+  xAxis: {
+    type: 'time',
+  },
+  yAxis: {
+    type: 'value',
+    min: 'dataMin',
+  },
   grid: {
-    left: 0,
-    right: 16,
-    top: 6,
+    left: '2%',
+    right: '2%',
+    top: '2%',
     bottom: 24,
     containLabel: true,
   },

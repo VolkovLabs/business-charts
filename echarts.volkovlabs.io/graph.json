@@ -26,13 +26,13 @@
   "graphTooltip": 0,
   "links": [
     {
-      "asDropdown": true,
+      "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
       "tags": ["echarts"],
       "targetBlank": false,
-      "title": "Examples",
+      "title": "Apache ECharts",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
@@ -45,13 +45,15 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "",
       "gridPos": {
         "h": 10,
         "w": 8,
         "x": 0,
         "y": 0
       },
-      "id": 23,
+      "id": 2,
+      "links": [],
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -59,49 +61,21 @@
         },
         "editor": {
           "format": "auto",
-          "height": 771
+          "height": 600
         },
-        "followTheme": true,
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/tg6gWiKVk/line?orgId=1');\n});\n\nreturn {\n  grid: {\n    top: '4%',\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: [\n        120,\n        132,\n        101,\n        134,\n        90,\n        230,\n        210\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        220,\n        182,\n        191,\n        234,\n        290,\n        330,\n        310\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        150,\n        232,\n        201,\n        154,\n        190,\n        330,\n        410\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        320,\n        332,\n        301,\n        334,\n        390,\n        330,\n        320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        820,\n        932,\n        901,\n        934,\n        1290,\n        1330,\n        1320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: [\n        \"Mon\",\n        \"Tue\",\n        \"Wed\",\n        \"Thu\",\n        \"Fri\",\n        \"Sat\",\n        \"Sun\"\n      ],\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
-        "map": "none",
+        "map": "json",
         "renderer": "canvas"
       },
-      "targets": [
-        {
-          "datasource": {
-            "type": "marcusolsson-static-datasource",
-            "uid": "4ytGZmF4k"
-          },
-          "frame": {
-            "fields": [
-              {
-                "config": {},
-                "name": "Name",
-                "type": "string",
-                "values": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
-              },
-              {
-                "config": {},
-                "name": "Amount",
-                "type": "string",
-                "values": ["5", "20", "36", "10", "10", "20"]
-              }
-            ],
-            "meta": {},
-            "name": "sales"
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "Getting Started using Data Source",
+      "title": "Line",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -181,15 +155,13 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
-      "description": "",
       "gridPos": {
         "h": 10,
         "w": 8,
         "x": 0,
         "y": 10
       },
-      "id": 2,
-      "links": [],
+      "id": 16,
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -203,7 +175,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/tg6gWiKVk/line?orgId=1');\n});\n\nreturn {\n  grid: {\n    top: '4%',\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: [\n        120,\n        132,\n        101,\n        134,\n        90,\n        230,\n        210\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        220,\n        182,\n        191,\n        234,\n        290,\n        330,\n        310\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        150,\n        232,\n        201,\n        154,\n        190,\n        330,\n        410\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        320,\n        332,\n        301,\n        334,\n        390,\n        330,\n        320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        820,\n        932,\n        901,\n        934,\n        1290,\n        1330,\n        1320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: [\n        \"Mon\",\n        \"Tue\",\n        \"Wed\",\n        \"Thu\",\n        \"Fri\",\n        \"Sat\",\n        \"Sun\"\n      ],\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/U332C4K4z/scatter?orgId=1');\n});\n\n// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.regression);\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: [\n        [1, 4862.4],\n        [2, 5294.7],\n        [3, 5934.5],\n        [4, 7171.0],\n        [5, 8964.4],\n        [6, 10202.2],\n        [7, 11962.5],\n        [8, 14928.3],\n        [9, 16909.2],\n        [10, 18547.9],\n        [11, 21617.8],\n        [12, 26638.1],\n        [13, 34634.4],\n        [14, 46759.4],\n        [15, 58478.1],\n        [16, 67884.6],\n        [17, 74462.6],\n        [18, 79395.7]\n      ]\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        config: {\n          method: 'exponential'\n          // 'end' by default\n          // formulaOn: 'start'\n        }\n      }\n    }\n  ],\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter',\n      datasetIndex: 0\n    },\n    {\n      name: 'line',\n      type: 'line',\n      smooth: true,\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -211,7 +183,7 @@
         "map": "json",
         "renderer": "canvas"
       },
-      "title": "Line",
+      "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -297,7 +269,7 @@
         "x": 0,
         "y": 20
       },
-      "id": 16,
+      "id": 7,
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -311,7 +283,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/U332C4K4z/scatter?orgId=1');\n});\n\n// See https://github.com/ecomfe/echarts-stat\necharts.registerTransform(ecStat.transform.regression);\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: [\n        [1, 4862.4],\n        [2, 5294.7],\n        [3, 5934.5],\n        [4, 7171.0],\n        [5, 8964.4],\n        [6, 10202.2],\n        [7, 11962.5],\n        [8, 14928.3],\n        [9, 16909.2],\n        [10, 18547.9],\n        [11, 21617.8],\n        [12, 26638.1],\n        [13, 34634.4],\n        [14, 46759.4],\n        [15, 58478.1],\n        [16, 67884.6],\n        [17, 74462.6],\n        [18, 79395.7]\n      ]\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        config: {\n          method: 'exponential'\n          // 'end' by default\n          // formulaOn: 'start'\n        }\n      }\n    }\n  ],\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter',\n      datasetIndex: 0\n    },\n    {\n      name: 'line',\n      type: 'line',\n      smooth: true,\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/J06Bi4F4k/radar?orgId=1');\n});\n\nreturn {\n  radar: {\n    // shape: 'circle',\n    indicator: [\n      { name: 'Sales', max: 6500 },\n      { name: 'Administration', max: 16000 },\n      { name: 'Information Technology', max: 30000 },\n      { name: 'Customer Support', max: 38000 },\n      { name: 'Development', max: 52000 },\n      { name: 'Marketing', max: 25000 }\n    ]\n  },\n  series: [\n    {\n      name: 'Budget vs spending',\n      type: 'radar',\n      data: [\n        {\n          value: [4200, 3000, 20000, 35000, 50000, 18000],\n          name: 'Allocated Budget'\n        },\n        {\n          value: [5000, 14000, 28000, 26000, 42000, 21000],\n          name: 'Actual Spending'\n        }\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -319,7 +291,7 @@
         "map": "json",
         "renderer": "canvas"
       },
-      "title": "Scatter",
+      "title": "Radar",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -405,7 +377,7 @@
         "x": 0,
         "y": 30
       },
-      "id": 7,
+      "id": 10,
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -419,7 +391,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/J06Bi4F4k/radar?orgId=1');\n});\n\nreturn {\n  radar: {\n    // shape: 'circle',\n    indicator: [\n      { name: 'Sales', max: 6500 },\n      { name: 'Administration', max: 16000 },\n      { name: 'Information Technology', max: 30000 },\n      { name: 'Customer Support', max: 38000 },\n      { name: 'Development', max: 52000 },\n      { name: 'Marketing', max: 25000 }\n    ]\n  },\n  series: [\n    {\n      name: 'Budget vs spending',\n      type: 'radar',\n      data: [\n        {\n          value: [4200, 3000, 20000, 35000, 50000, 18000],\n          name: 'Allocated Budget'\n        },\n        {\n          value: [5000, 14000, 28000, 26000, 42000, 21000],\n          name: 'Actual Spending'\n        }\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};\n",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/vvxC_VFVz/sunburst?orgId=1');\n});\n\nconst item1 = {\n  color: '#F54F4A'\n};\nconst item2 = {\n  color: '#FF8C75'\n};\nconst item3 = {\n  color: '#FFB499'\n};\n\nconst values = [\n  {\n    children: [\n      {\n        value: 5,\n        children: [\n          {\n            value: 1,\n            itemStyle: item1\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          },\n          {\n            children: [\n              {\n                value: 1\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      },\n      {\n        value: 10,\n        children: [\n          {\n            value: 6,\n            children: [\n              {\n                value: 1,\n                itemStyle: item1\n              },\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item2\n              },\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item3\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item3\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      }\n    ],\n    itemStyle: item1\n  },\n  {\n    value: 9,\n    children: [\n      {\n        value: 4,\n        children: [\n          {\n            value: 2,\n            itemStyle: item2\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item1\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      },\n      {\n        children: [\n          {\n            value: 3,\n            children: [\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item2\n  },\n  {\n    value: 7,\n    children: [\n      {\n        children: [\n          {\n            value: 1,\n            itemStyle: item3\n          },\n          {\n            value: 3,\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              },\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item2\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item1\n              }\n            ],\n            itemStyle: item1\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item1\n  },\n  {\n    children: [\n      {\n        value: 6,\n        children: [\n          {\n            value: 1,\n            itemStyle: item2\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 2,\n                itemStyle: item2\n              }\n            ],\n            itemStyle: item1\n          },\n          {\n            value: 1,\n            itemStyle: item3\n          }\n        ],\n        itemStyle: item3\n      },\n      {\n        value: 3,\n        children: [\n          {\n            value: 1\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          },\n          {\n            value: 1\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item1\n  }\n];\n\nreturn {\n  series: {\n    radius: ['15%', '80%'],\n    type: 'sunburst',\n    sort: undefined,\n    emphasis: {\n      focus: 'ancestor'\n    },\n    data: values,\n    label: {\n      rotate: 'radial'\n    },\n    levels: [],\n    itemStyle: {\n      color: '#ddd',\n      borderWidth: 2\n    }\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -427,7 +399,7 @@
         "map": "json",
         "renderer": "canvas"
       },
-      "title": "Radar",
+      "title": "Sunburst",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -501,70 +473,13 @@
       },
       "title": "Gauge",
       "type": "volkovlabs-echarts-panel"
-    },
-    {
-      "datasource": {
-        "type": "marcusolsson-static-datasource",
-        "uid": "4ytGZmF4k"
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 0,
-        "y": 40
-      },
-      "id": 10,
-      "options": {
-        "baidu": {
-          "callback": "bmapReady",
-          "key": ""
-        },
-        "editor": {
-          "format": "auto",
-          "height": 600
-        },
-        "gaode": {
-          "key": "",
-          "plugin": "AMap.Scale,AMap.ToolBar"
-        },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/vvxC_VFVz/sunburst?orgId=1');\n});\n\nconst item1 = {\n  color: '#F54F4A'\n};\nconst item2 = {\n  color: '#FF8C75'\n};\nconst item3 = {\n  color: '#FFB499'\n};\n\nconst values = [\n  {\n    children: [\n      {\n        value: 5,\n        children: [\n          {\n            value: 1,\n            itemStyle: item1\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          },\n          {\n            children: [\n              {\n                value: 1\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      },\n      {\n        value: 10,\n        children: [\n          {\n            value: 6,\n            children: [\n              {\n                value: 1,\n                itemStyle: item1\n              },\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item2\n              },\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item3\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item3\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      }\n    ],\n    itemStyle: item1\n  },\n  {\n    value: 9,\n    children: [\n      {\n        value: 4,\n        children: [\n          {\n            value: 2,\n            itemStyle: item2\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item1\n              }\n            ]\n          }\n        ],\n        itemStyle: item1\n      },\n      {\n        children: [\n          {\n            value: 3,\n            children: [\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item2\n  },\n  {\n    value: 7,\n    children: [\n      {\n        children: [\n          {\n            value: 1,\n            itemStyle: item3\n          },\n          {\n            value: 3,\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              },\n              {\n                value: 1\n              }\n            ],\n            itemStyle: item2\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 1\n              },\n              {\n                value: 1,\n                itemStyle: item1\n              }\n            ],\n            itemStyle: item1\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item1\n  },\n  {\n    children: [\n      {\n        value: 6,\n        children: [\n          {\n            value: 1,\n            itemStyle: item2\n          },\n          {\n            value: 2,\n            children: [\n              {\n                value: 2,\n                itemStyle: item2\n              }\n            ],\n            itemStyle: item1\n          },\n          {\n            value: 1,\n            itemStyle: item3\n          }\n        ],\n        itemStyle: item3\n      },\n      {\n        value: 3,\n        children: [\n          {\n            value: 1\n          },\n          {\n            children: [\n              {\n                value: 1,\n                itemStyle: item2\n              }\n            ]\n          },\n          {\n            value: 1\n          }\n        ],\n        itemStyle: item3\n      }\n    ],\n    itemStyle: item1\n  }\n];\n\nreturn {\n  series: {\n    radius: ['15%', '80%'],\n    type: 'sunburst',\n    sort: undefined,\n    emphasis: {\n      focus: 'ancestor'\n    },\n    data: values,\n    label: {\n      rotate: 'radial'\n    },\n    levels: [],\n    itemStyle: {\n      color: '#ddd',\n      borderWidth: 2\n    }\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
-        "google": {
-          "callback": "gmapReady",
-          "key": ""
-        },
-        "map": "json",
-        "renderer": "canvas"
-      },
-      "title": "Sunburst",
-      "type": "volkovlabs-echarts-panel"
     }
   ],
   "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "Sales",
-          "value": "Sales"
-        },
-        "hide": 0,
-        "label": "Variable",
-        "name": "var",
-        "options": [
-          {
-            "selected": true,
-            "text": "Variable",
-            "value": "Variable"
-          }
-        ],
-        "query": "Sales",
-        "skipUrlSync": false,
-        "type": "textbox"
-      }
-    ]
+    "list": []
   },
   "time": {
     "from": "now-6h",
@@ -576,6 +491,6 @@
   "timezone": "",
   "title": "Home",
   "uid": "pL5iH7FVk",
-  "version": 11,
+  "version": 5,
   "weekStart": ""
 }
