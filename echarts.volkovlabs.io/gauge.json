@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 13,
   "links": [
     {
       "asDropdown": false,
@@ -47,8 +46,8 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -62,7 +61,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  tooltip: {\n    formatter: '{a} <br/>{b} : {c}%'\n  },\n  series: [\n    {\n      name: 'Pressure',\n      type: 'gauge',\n      detail: {\n        formatter: '{value}'\n      },\n      data: [\n        {\n          value: 50,\n          name: 'SCORE'\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -75,9 +82,9 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 8,
+        "h": 12,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 11,
@@ -90,7 +97,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  tooltip: {\n    formatter: '{a} <br/>{b} : {c}%'\n  },\n  series: [\n    {\n      name: 'Pressure',\n      type: 'gauge',\n      progress: {\n        show: true\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value}'\n      },\n      data: [\n        {\n          value: 50,\n          name: 'SCORE'\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -103,10 +118,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 16,
-        "y": 0
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 12
       },
       "id": 2,
       "options": {
@@ -118,7 +133,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      progress: {\n        show: true,\n        width: 18\n      },\n      axisLine: {\n        lineStyle: {\n          width: 18\n        }\n      },\n      axisTick: {\n        show: false\n      },\n      splitLine: {\n        length: 15,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: 25,\n        color: '#999',\n        fontSize: 20\n      },\n      anchor: {\n        show: true,\n        showAbove: true,\n        size: 25,\n        itemStyle: {\n          borderWidth: 10\n        }\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        valueAnimation: true,\n        fontSize: 80,\n        offsetCenter: [0, '70%']\n      },\n      data: [\n        {\n          value: 70\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -131,10 +154,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 0,
-        "y": 10
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
       "id": 5,
       "options": {
@@ -146,7 +169,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 180,\n      endAngle: 0,\n      min: 0,\n      max: 240,\n      splitNumber: 12,\n      itemStyle: {\n        color: '#58D9F9',\n        shadowColor: 'rgba(0,138,255,0.45)',\n        shadowBlur: 10,\n        shadowOffsetX: 2,\n        shadowOffsetY: 2\n      },\n      progress: {\n        show: true,\n        roundCap: true,\n        width: 18\n      },\n      pointer: {\n        icon: 'path://M2090.36389,615.30999 L2090.36389,615.30999 C2091.48372,615.30999 2092.40383,616.194028 2092.44859,617.312956 L2096.90698,728.755929 C2097.05155,732.369577 2094.2393,735.416212 2090.62566,735.56078 C2090.53845,735.564269 2090.45117,735.566014 2090.36389,735.566014 L2090.36389,735.566014 C2086.74736,735.566014 2083.81557,732.63423 2083.81557,729.017692 C2083.81557,728.930412 2083.81732,728.84314 2083.82081,728.755929 L2088.2792,617.312956 C2088.32396,616.194028 2089.24407,615.30999 2090.36389,615.30999 Z',\n        length: '75%',\n        width: 16,\n        offsetCenter: [0, '5%']\n      },\n      axisLine: {\n        roundCap: true,\n        lineStyle: {\n          width: 18\n        }\n      },\n      axisTick: {\n        splitNumber: 2,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      splitLine: {\n        length: 12,\n        lineStyle: {\n          width: 3,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: 30,\n        color: '#999',\n        fontSize: 20\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        backgroundColor: '#fff',\n        borderColor: '#999',\n        borderWidth: 2,\n        width: '60%',\n        lineHeight: 40,\n        height: 40,\n        borderRadius: 8,\n        offsetCenter: [0, '35%'],\n        valueAnimation: true,\n        formatter: function (value) {\n          return '{value|' + value.toFixed(0) + '}{unit|km/h}';\n        },\n        rich: {\n          value: {\n            fontSize: 50,\n            fontWeight: 'bolder',\n            color: '#777'\n          },\n          unit: {\n            fontSize: 20,\n            color: '#999',\n            padding: [0, 0, -20, 10]\n          }\n        }\n      },\n      data: [\n        {\n          value: 100\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -159,10 +190,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 8,
-        "y": 10
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 24
       },
       "id": 6,
       "options": {
@@ -174,7 +205,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 70\n        }\n      ]\n    }\n  ]\n};\n\nsetInterval(function () {\n  echartsInstance.setOption({\n    series: [\n      {\n        data: [\n          {\n            value: +(Math.random() * 100).toFixed(2)\n          }\n        ]\n      }\n    ]\n  });\n}, 2000);",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -187,10 +226,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 16,
-        "y": 10
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 24
       },
       "id": 7,
       "options": {
@@ -202,7 +241,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 180,\n      endAngle: 0,\n      center: ['50%', '75%'],\n      radius: '90%',\n      min: 0,\n      max: 1,\n      splitNumber: 8,\n      axisLine: {\n        lineStyle: {\n          width: 6,\n          color: [\n            [0.25, '#FF6E76'],\n            [0.5, '#FDDD60'],\n            [0.75, '#58D9F9'],\n            [1, '#7CFFB2']\n          ]\n        }\n      },\n      pointer: {\n        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',\n        length: '12%',\n        width: 20,\n        offsetCenter: [0, '-60%'],\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        length: 12,\n        lineStyle: {\n          color: 'auto',\n          width: 2\n        }\n      },\n      splitLine: {\n        length: 20,\n        lineStyle: {\n          color: 'auto',\n          width: 5\n        }\n      },\n      axisLabel: {\n        color: '#464646',\n        fontSize: 20,\n        distance: -60,\n        rotate: 'tangential',\n        formatter: function (value) {\n          if (value === 0.875) {\n            return 'Grade A';\n          } else if (value === 0.625) {\n            return 'Grade B';\n          } else if (value === 0.375) {\n            return 'Grade C';\n          } else if (value === 0.125) {\n            return 'Grade D';\n          }\n          return '';\n        }\n      },\n      title: {\n        offsetCenter: [0, '-10%'],\n        fontSize: 20\n      },\n      detail: {\n        fontSize: 30,\n        offsetCenter: [0, '-35%'],\n        valueAnimation: true,\n        formatter: function (value) {\n          return Math.round(value * 100) + '';\n        },\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 0.7,\n          name: 'Grade Rating'\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -215,10 +262,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
+        "h": 12,
+        "w": 12,
         "x": 0,
-        "y": 20
+        "y": 36
       },
       "id": 9,
       "options": {
@@ -230,7 +277,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "const gaugeData = [\n  {\n    value: 20,\n    name: 'Good',\n    title: {\n      offsetCenter: ['-40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['-40%', '95%']\n    }\n  },\n  {\n    value: 40,\n    name: 'Better',\n    title: {\n      offsetCenter: ['0%', '80%']\n    },\n    detail: {\n      offsetCenter: ['0%', '95%']\n    }\n  },\n  {\n    value: 60,\n    name: 'Perfect',\n    title: {\n      offsetCenter: ['40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['40%', '95%']\n    }\n  }\n];\n\noption = {\n  series: [\n    {\n      type: 'gauge',\n      anchor: {\n        show: true,\n        showAbove: true,\n        size: 18,\n        itemStyle: {\n          color: '#FAC858'\n        }\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 8,\n        length: '80%',\n        offsetCenter: [0, '8%']\n      },\n      progress: {\n        show: true,\n        overlap: true,\n        roundCap: true\n      },\n      axisLine: {\n        roundCap: true\n      },\n      data: gaugeData,\n      title: {\n        fontSize: 14\n      },\n      detail: {\n        width: 40,\n        height: 14,\n        fontSize: 14,\n        color: '#fff',\n        backgroundColor: 'auto',\n        borderRadius: 3,\n        formatter: '{value}%'\n      }\n    }\n  ]\n};\n\nsetInterval(function () {\n  gaugeData[0].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[1].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[2].value = +(Math.random() * 100).toFixed(2);\n  echartsInstance.setOption({\n    series: [\n      {\n        data: gaugeData\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -243,10 +298,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 20
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 36
       },
       "id": 8,
       "options": {
@@ -258,7 +313,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "option = {\n  series: [\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      splitNumber: 12,\n      itemStyle: {\n        color: '#FFAB91'\n      },\n      progress: {\n        show: true,\n        width: 30\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        lineStyle: {\n          width: 30\n        }\n      },\n      axisTick: {\n        distance: -45,\n        splitNumber: 5,\n        lineStyle: {\n          width: 2,\n          color: '#999'\n        }\n      },\n      splitLine: {\n        distance: -52,\n        length: 14,\n        lineStyle: {\n          width: 3,\n          color: '#999'\n        }\n      },\n      axisLabel: {\n        distance: -20,\n        color: '#999',\n        fontSize: 20\n      },\n      anchor: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        valueAnimation: true,\n        width: '60%',\n        lineHeight: 40,\n        borderRadius: 8,\n        offsetCenter: [0, '-15%'],\n        fontSize: 60,\n        fontWeight: 'bolder',\n        formatter: '{value} °C',\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    },\n    {\n      type: 'gauge',\n      center: ['50%', '60%'],\n      startAngle: 200,\n      endAngle: -20,\n      min: 0,\n      max: 60,\n      itemStyle: {\n        color: '#FD7347'\n      },\n      progress: {\n        show: true,\n        width: 8\n      },\n      pointer: {\n        show: false\n      },\n      axisLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: 20\n        }\n      ]\n    }\n  ]\n};\n\nsetInterval(function () {\n  const random = +(Math.random() * 60).toFixed(2);\n  echartsInstance.setOption({\n    series: [\n      {\n        data: [\n          {\n            value: random\n          }\n        ]\n      },\n      {\n        data: [\n          {\n            value: random\n          }\n        ]\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -271,10 +334,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 20
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 48
       },
       "id": 12,
       "options": {
@@ -286,7 +349,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "const gaugeData = [\n  {\n    value: 20,\n    name: 'Perfect',\n    title: {\n      offsetCenter: ['0%', '-30%']\n    },\n    detail: {\n      valueAnimation: true,\n      offsetCenter: ['0%', '-20%']\n    }\n  },\n  {\n    value: 40,\n    name: 'Good',\n    title: {\n      offsetCenter: ['0%', '0%']\n    },\n    detail: {\n      valueAnimation: true,\n      offsetCenter: ['0%', '10%']\n    }\n  },\n  {\n    value: 60,\n    name: 'Commonly',\n    title: {\n      offsetCenter: ['0%', '30%']\n    },\n    detail: {\n      valueAnimation: true,\n      offsetCenter: ['0%', '40%']\n    }\n  }\n];\n\noption = {\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      pointer: {\n        show: false\n      },\n      progress: {\n        show: true,\n        overlap: false,\n        roundCap: true,\n        clip: false,\n        itemStyle: {\n          borderWidth: 1,\n          borderColor: '#464646'\n        }\n      },\n      axisLine: {\n        lineStyle: {\n          width: 40\n        }\n      },\n      splitLine: {\n        show: false,\n        distance: 0,\n        length: 10\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false,\n        distance: 50\n      },\n      data: gaugeData,\n      title: {\n        fontSize: 14\n      },\n      detail: {\n        width: 50,\n        height: 14,\n        fontSize: 14,\n        color: 'auto',\n        borderColor: 'auto',\n        borderRadius: 20,\n        borderWidth: 1,\n        formatter: '{value}%'\n      }\n    }\n  ]\n};\n\nsetInterval(function () {\n  gaugeData[0].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[1].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[2].value = +(Math.random() * 100).toFixed(2);\n  echartsInstance.setOption({\n    series: [\n      {\n        data: gaugeData,\n        pointer: {\n          show: false\n        }\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -299,10 +370,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 29
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 48
       },
       "id": 13,
       "options": {
@@ -314,7 +385,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "option = {\n  series: [\n    {\n      type: 'gauge',\n      min: 0,\n      max: 100,\n      splitNumber: 10,\n      radius: '80%',\n      axisLine: {\n        lineStyle: {\n          color: [[1, '#f00']],\n          width: 3\n        }\n      },\n      splitLine: {\n        distance: -18,\n        length: 18,\n        lineStyle: {\n          color: '#f00'\n        }\n      },\n      axisTick: {\n        distance: -12,\n        length: 10,\n        lineStyle: {\n          color: '#f00'\n        }\n      },\n      axisLabel: {\n        distance: -50,\n        color: '#f00',\n        fontSize: 25\n      },\n      anchor: {\n        show: true,\n        size: 20,\n        itemStyle: {\n          borderColor: '#000',\n          borderWidth: 2\n        }\n      },\n      pointer: {\n        offsetCenter: [0, '10%'],\n        icon: 'path://M2090.36389,615.30999 L2090.36389,615.30999 C2091.48372,615.30999 2092.40383,616.194028 2092.44859,617.312956 L2096.90698,728.755929 C2097.05155,732.369577 2094.2393,735.416212 2090.62566,735.56078 C2090.53845,735.564269 2090.45117,735.566014 2090.36389,735.566014 L2090.36389,735.566014 C2086.74736,735.566014 2083.81557,732.63423 2083.81557,729.017692 C2083.81557,728.930412 2083.81732,728.84314 2083.82081,728.755929 L2088.2792,617.312956 C2088.32396,616.194028 2089.24407,615.30999 2090.36389,615.30999 Z',\n        length: '115%',\n        itemStyle: {\n          color: '#000'\n        }\n      },\n      detail: {\n        valueAnimation: true,\n        precision: 1\n      },\n      title: {\n        offsetCenter: [0, '-50%']\n      },\n      data: [\n        {\n          value: 58.46,\n          name: 'PLP'\n        }\n      ]\n    },\n    {\n      type: 'gauge',\n      min: 0,\n      max: 60,\n      splitNumber: 6,\n      axisLine: {\n        lineStyle: {\n          color: [[1, '#000']],\n          width: 3\n        }\n      },\n      splitLine: {\n        distance: -3,\n        length: 18,\n        lineStyle: {\n          color: '#000'\n        }\n      },\n      axisTick: {\n        distance: 0,\n        length: 10,\n        lineStyle: {\n          color: '#000'\n        }\n      },\n      axisLabel: {\n        distance: 10,\n        fontSize: 25,\n        color: '#000'\n      },\n      pointer: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      anchor: {\n        show: true,\n        size: 14,\n        itemStyle: {\n          color: '#000'\n        }\n      }\n    }\n  ]\n};\n\nsetInterval(function () {\n  echartsInstance.setOption({\n    series: [\n      {\n        type: 'gauge',\n        data: [\n          {\n            value: +(Math.random() * 100).toFixed(2),\n            name: 'PLP'\n          }\n        ]\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -327,10 +406,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 29
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 60
       },
       "id": 14,
       "options": {
@@ -342,7 +421,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "option = {\n  series: [\n    {\n      name: 'hour',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 12,\n      splitNumber: 12,\n      clockwise: true,\n      axisLine: {\n        lineStyle: {\n          width: 15,\n          color: [[1, 'rgba(0,0,0,0.7)']],\n          shadowColor: 'rgba(0, 0, 0, 0.5)',\n          shadowBlur: 15\n        }\n      },\n      splitLine: {\n        lineStyle: {\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 3,\n          shadowOffsetX: 1,\n          shadowOffsetY: 2\n        }\n      },\n      axisLabel: {\n        fontSize: 50,\n        distance: 25,\n        formatter: function (value) {\n          if (value === 0) {\n            return '';\n          }\n          return value + '';\n        }\n      },\n      anchor: {\n        show: true,\n        icon: 'path://M532.8,70.8C532.8,70.8,532.8,70.8,532.8,70.8L532.8,70.8C532.7,70.8,532.8,70.8,532.8,70.8z M456.1,49.6c-2.2-6.2-8.1-10.6-15-10.6h-37.5v10.6h37.5l0,0c2.9,0,5.3,2.4,5.3,5.3c0,2.9-2.4,5.3-5.3,5.3v0h-22.5c-1.5,0.1-3,0.4-4.3,0.9c-4.5,1.6-8.1,5.2-9.7,9.8c-0.6,1.7-0.9,3.4-0.9,5.3v16h10.6v-16l0,0l0,0c0-2.7,2.1-5,4.7-5.3h10.3l10.4,21.2h11.8l-10.4-21.2h0c6.9,0,12.8-4.4,15-10.6c0.6-1.7,0.9-3.5,0.9-5.3C457,53,456.7,51.2,456.1,49.6z M388.9,92.1h11.3L381,39h-3.6h-11.3L346.8,92v0h11.3l3.9-10.7h7.3h7.7l3.9-10.6h-7.7h-7.3l7.7-21.2v0L388.9,92.1z M301,38.9h-10.6v53.1H301V70.8h28.4l3.7-10.6H301V38.9zM333.2,38.9v10.6v10.7v31.9h10.6V38.9H333.2z M249.5,81.4L249.5,81.4L249.5,81.4c-2.9,0-5.3-2.4-5.3-5.3h0V54.9h0l0,0c0-2.9,2.4-5.3,5.3-5.3l0,0l0,0h33.6l3.9-10.6h-37.5c-1.9,0-3.6,0.3-5.3,0.9c-4.5,1.6-8.1,5.2-9.7,9.7c-0.6,1.7-0.9,3.5-0.9,5.3l0,0v21.3c0,1.9,0.3,3.6,0.9,5.3c1.6,4.5,5.2,8.1,9.7,9.7c1.7,0.6,3.5,0.9,5.3,0.9h33.6l3.9-10.6H249.5z M176.8,38.9v10.6h49.6l3.9-10.6H176.8z M192.7,81.4L192.7,81.4L192.7,81.4c-2.9,0-5.3-2.4-5.3-5.3l0,0v-5.3h38.9l3.9-10.6h-53.4v10.6v5.3l0,0c0,1.9,0.3,3.6,0.9,5.3c1.6,4.5,5.2,8.1,9.7,9.7c1.7,0.6,3.4,0.9,5.3,0.9h23.4h10.2l3.9-10.6l0,0H192.7z M460.1,38.9v10.6h21.4v42.5h10.6V49.6h17.5l3.8-10.6H460.1z M541.6,68.2c-0.2,0.1-0.4,0.3-0.7,0.4C541.1,68.4,541.4,68.3,541.6,68.2L541.6,68.2z M554.3,60.2h-21.6v0l0,0c-2.9,0-5.3-2.4-5.3-5.3c0-2.9,2.4-5.3,5.3-5.3l0,0l0,0h33.6l3.8-10.6h-37.5l0,0c-6.9,0-12.8,4.4-15,10.6c-0.6,1.7-0.9,3.5-0.9,5.3c0,1.9,0.3,3.7,0.9,5.3c2.2,6.2,8.1,10.6,15,10.6h21.6l0,0c2.9,0,5.3,2.4,5.3,5.3c0,2.9-2.4,5.3-5.3,5.3l0,0h-37.5v10.6h37.5c6.9,0,12.8-4.4,15-10.6c0.6-1.7,0.9-3.5,0.9-5.3c0-1.9-0.3-3.7-0.9-5.3C567.2,64.6,561.3,60.2,554.3,60.2z',\n        showAbove: false,\n        offsetCenter: [0, '-35%'],\n        size: 120,\n        keepAspect: true,\n        itemStyle: {\n          color: '#707177'\n        }\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 12,\n        length: '55%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: [0, '30%']\n      },\n      data: [\n        {\n          value: 0\n        }\n      ]\n    },\n    {\n      name: 'minute',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 60,\n      clockwise: true,\n      axisLine: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 8,\n        length: '70%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      anchor: {\n        show: true,\n        size: 20,\n        showAbove: false,\n        itemStyle: {\n          borderWidth: 15,\n          borderColor: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: ['0%', '-40%']\n      },\n      data: [\n        {\n          value: 0\n        }\n      ]\n    },\n    {\n      name: 'second',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 60,\n      animationEasingUpdate: 'bounceOut',\n      clockwise: true,\n      axisLine: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 4,\n        length: '85%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      anchor: {\n        show: true,\n        size: 15,\n        showAbove: true,\n        itemStyle: {\n          color: '#C0911F',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        offsetCenter: ['0%', '-40%']\n      },\n      data: [\n        {\n          value: 0\n        }\n      ]\n    }\n  ]\n};\n\nsetInterval(function () {\n  var date = new Date();\n  var second = date.getSeconds();\n  var minute = date.getMinutes() + second / 60;\n  var hour = (date.getHours() % 12) + minute / 60;\n  option.animationDurationUpdate = 300;\n  echartsInstance.setOption({\n    series: [\n      {\n        name: 'hour',\n        animation: hour !== 0,\n        data: [{ value: hour }]\n      },\n      {\n        name: 'minute',\n        animation: minute !== 0,\n        data: [{ value: minute }]\n      },\n      {\n        animation: second !== 0,\n        name: 'second',\n        data: [{ value: second }]\n      }\n    ]\n  });\n}, 1000);\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -355,10 +442,10 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 29
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 60
       },
       "id": 15,
       "options": {
@@ -370,7 +457,15 @@
           "format": "auto",
           "height": 600
         },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "option = {\n  backgroundColor: '#000',\n  tooltip: {\n    formatter: '{a} <br/>{b} : {c}%'\n  },\n  toolbox: {\n    feature: {\n      restore: {},\n      saveAsImage: {}\n    }\n  },\n  series: [\n    // left\n    {\n      name: 'gauge 0',\n      type: 'gauge',\n      min: -200,\n      max: 250,\n      startAngle: -30,\n      endAngle: -315,\n      splitNumber: 9,\n      radius: '35%',\n      center: ['21%', '55%'],\n      axisLine: {\n        lineStyle: {\n          color: [[1, '#AE96A6']]\n        }\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      anchor: {},\n      pointer: {\n        show: false\n      },\n      detail: {\n        show: false\n      },\n      title: {\n        fontSize: 12,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        color: '#fff',\n        offsetCenter: [0, '-60%']\n      },\n      progress: {\n        show: true,\n        width: 3,\n        itemStyle: {\n          color: '#fff'\n        }\n      },\n      data: [\n        {\n          value: 250,\n          name: 'km/h'\n        }\n      ]\n    },\n    {\n      name: 'gauge 1',\n      type: 'gauge',\n      min: 0,\n      max: 250,\n      startAngle: -140,\n      endAngle: -305,\n      splitNumber: 5,\n      radius: '35%',\n      center: ['21%', '55%'],\n      axisLine: {\n        lineStyle: {\n          color: [[1, '#AE96A6']]\n        }\n      },\n      splitLine: {\n        distance: -7,\n        length: 12,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisTick: {\n        distance: -8,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      axisLabel: {\n        distance: 14,\n        fontSize: 18,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        color: '#fff'\n      },\n      anchor: {},\n      pointer: {\n        icon: 'path://M-36.5,23.9L-41,4.4c-0.1-0.4-0.4-0.7-0.7-0.7c-0.5-0.1-1.1,0.2-1.2,0.7l-4.5,19.5c0,0.1,0,0.1,0,0.2v92.3c0,0.6,0.4,1,1,1h9c0.6,0,1-0.4,1-1V24.1C-36.5,24-36.5,23.9-36.5,23.9z M-39.5,114.6h-5v-85h5V114.6z',\n        width: 5,\n        length: '40%',\n        offsetCenter: [0, '-58%'],\n        itemStyle: {\n          color: '#f00',\n          shadowColor: 'rgba(255, 0, 0)',\n          shadowBlur: 5,\n          shadowOffsetY: 2\n        }\n      },\n      title: {\n        color: '#fff',\n        fontSize: 14,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        offsetCenter: [0, 0]\n      },\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: 0,\n          name: '当前位置：\\n \\n 中科路'\n        }\n      ]\n    },\n    // middle\n    {\n      name: 'gauge 2',\n      type: 'gauge',\n      min: 0,\n      max: 8,\n      z: 10,\n      startAngle: 210,\n      endAngle: -30,\n      splitNumber: 8,\n      radius: '50%',\n      center: ['50%', '50%'],\n      axisLine: {\n        show: true,\n        lineStyle: {\n          width: 0,\n          color: [\n            [0.825, '#fff'],\n            [1, '#f00']\n          ]\n        }\n      },\n      splitLine: {\n        distance: 20,\n        length: 15,\n        lineStyle: {\n          color: 'auto',\n          width: 4,\n          shadowColor: 'rgba(255, 255, 255, 0.5)',\n          shadowBlur: 15,\n          shadowOffsetY: -10\n        }\n      },\n      axisTick: {\n        distance: 20,\n        length: 8,\n        lineStyle: {\n          color: 'auto',\n          width: 2,\n          shadowColor: 'rgba(255, 255, 255)',\n          shadowBlur: 10,\n          shadowOffsetY: -10\n        }\n      },\n      axisLabel: {\n        distance: 10,\n        fontSize: 35,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        color: '#fff'\n      },\n      anchor: {},\n      pointer: {\n        icon: 'path://M-36.5,23.9L-41,4.4c-0.1-0.4-0.4-0.7-0.7-0.7c-0.5-0.1-1.1,0.2-1.2,0.7l-4.5,19.5c0,0.1,0,0.1,0,0.2v92.3c0,0.6,0.4,1,1,1h9c0.6,0,1-0.4,1-1V24.1C-36.5,24-36.5,23.9-36.5,23.9z M-39.5,114.6h-5v-85h5V114.6z',\n        width: 10,\n        offsetCenter: [0, '-10%'],\n        length: '75%',\n        itemStyle: {\n          color: '#f00',\n          shadowColor: 'rgba(255, 0, 0)',\n          shadowBlur: 5,\n          shadowOffsetY: 3\n        }\n      },\n      title: {\n        color: '#fff',\n        fontSize: 12,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        offsetCenter: [0, '-50%']\n      },\n      data: [\n        {\n          value: 0.6,\n          name: '1/min x 1000'\n        }\n      ],\n      detail: {\n        show: false\n      }\n    },\n    {\n      name: 'gauge 3',\n      type: 'gauge',\n      min: 0,\n      max: 8,\n      z: 10,\n      splitNumber: 8,\n      radius: '50%',\n      axisLine: {\n        lineStyle: {\n          width: 14,\n          color: [[1, '#000']]\n        }\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      anchor: {},\n      pointer: {\n        show: false\n      },\n      title: {\n        show: false\n      },\n      detail: {\n        offsetCenter: ['25%', '50%'],\n        formatter: '{a|{value}}{b|km/h}',\n        rich: {\n          a: {\n            fontSize: 60,\n            fontWeight: 800,\n            fontFamily: 'Arial',\n            color: '#fff',\n            align: 'center',\n            padding: [0, 5, 0, 0]\n          },\n          b: {\n            fontSize: 14,\n            fontWeight: 800,\n            fontFamily: 'Arial',\n            color: '#fff',\n            padding: [0, 0, 20, 0]\n          }\n        }\n      },\n      // value is speed\n      data: [\n        {\n          value: 0,\n          name: ''\n        }\n      ]\n    },\n    // right\n    {\n      name: 'gauge 4',\n      type: 'gauge',\n      min: 0,\n      max: 8,\n      startAngle: 135,\n      endAngle: -150,\n      splitNumber: 8,\n      radius: '35%',\n      center: ['79%', '55%'],\n      axisLine: {\n        lineStyle: {\n          color: [[1, '#AE96A6']]\n        }\n      },\n      splitLine: {\n        show: false\n      },\n      axisTick: {\n        show: false\n      },\n      axisLabel: {\n        show: false\n      },\n      anchor: {},\n      pointer: {\n        show: false\n      },\n      title: {},\n      detail: {\n        offsetCenter: ['-15%', 0],\n        formatter: [\n          '{a|                  00:00}',\n          '{a|行驶时间       0:00}{b| h}',\n          '{a|行驶距离        0.0}{b| km}',\n          '{a|平均耗能        ---}{b| 1/100km}',\n          '{a|平均速度        ---}{b| km/h}'\n        ].join('\\n'),\n        rich: {\n          a: {\n            fontSize: 14,\n            fontWeight: 800,\n            fontFamily: 'Arial',\n            lineHeight: 22,\n            color: '#fff',\n            align: 'left'\n          },\n          b: {\n            fontWeight: 600,\n            fontFamily: 'Arial',\n            lineHeight: 22,\n            color: '#fff',\n            align: 'left'\n          }\n        }\n      },\n      progress: {\n        show: true,\n        width: 3,\n        itemStyle: {\n          color: '#fff'\n        }\n      },\n      data: [\n        {\n          value: 250,\n          name: ''\n        }\n      ]\n    },\n    {\n      name: 'gauge 5',\n      type: 'gauge',\n      min: 0,\n      max: 1,\n      startAngle: 125,\n      endAngle: 55,\n      splitNumber: 2,\n      radius: '34%',\n      center: ['79%', '55.3%'],\n      axisLine: {\n        lineStyle: {\n          width: 9,\n          color: [\n            [0.15, '#f00'],\n            [1, 'rgba(255, 0, 0, 0)']\n          ]\n        }\n      },\n      splitLine: {\n        distance: -14,\n        length: 16,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisTick: {\n        distance: -14,\n        length: 10,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      axisLabel: {\n        distance: 12,\n        fontSize: 18,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        color: '#fff',\n        formatter: function (value) {\n          if (value === 0.5) {\n            return '2/4';\n          }\n          if (value === 1) {\n            return '4/4';\n          }\n          return value + '';\n        }\n      },\n      progress: {\n        show: true,\n        width: 5,\n        itemStyle: {\n          color: '#fff'\n        }\n      },\n      anchor: {\n        show: true,\n        itemStyle: {},\n        offsetCenter: ['-22%', '-57%'],\n        size: 18,\n        icon: 'path://M1.11979167,1.11111112 C1.11979167,0.497461393 1.61725306,0 2.23090279,0 L12.2309028,0 C12.8445525,1.43824153e-08 13.3420139,0.497461403 13.3420139,1.11111112 L13.3420139,10 L15.5642361,10 C16.7915356,10 17.7864583,10.9949228 17.7864583,12.2222222 L17.7864583,16.6666667 C17.7865523,17.28025 18.2839861,17.7776077 18.8975694,17.7776077 C19.5111527,17.7776077 20.0085866,17.28025 20.0086805,16.6666667 L20.0086805,8.88888888 L17.7864583,8.88888888 C17.1728086,8.88888888 16.6753472,8.3914275 16.6753472,7.77777779 L16.6753472,3.79333333 L15.6197917,2.73777777 C15.1859413,2.30392741 15.1859413,1.60051702 15.6197917,1.16666667 L15.6197917,1.16666667 C16.053642,0.732816318 16.7570524,0.732816318 17.1909028,1.16666667 L21.9053472,5.88111112 C22.1140468,6.08922811 22.2312072,6.37193273 22.2309028,6.66666667 L22.2309028,16.6666667 C22.2309028,18.5076158 20.7385186,20 18.8975695,20 C17.0566203,20 15.5642361,18.5076158 15.5642361,16.6666667 L15.5642361,12.2222222 L13.3420139,12.2222222 L13.3420139,17.7777778 L13.3420139,17.7777778 C13.9556636,17.7777778 14.453125,18.2752392 14.453125,18.8888889 L14.453125,18.8888889 C14.453125,19.5025386 13.9556636,20 13.3420139,20 L1.11979165,20 C0.506141934,20 0.00868054688,19.5025386 0.00868054687,18.8888889 L0.00868054687,18.8888889 C0.00868054688,18.2752392 0.506141934,17.7777778 1.11979165,17.7777778 L1.11979167,17.7777778 L1.11979167,1.11111112 Z M3.34201388,2.22222221 L3.34201388,8.88888888 L11.1197917,8.88888888 L11.1197917,2.22222221 L3.34201388,2.22222221 Z'\n      },\n      pointer: {\n        show: false\n      },\n      title: {},\n      detail: {\n        offsetCenter: ['10%', '-56%'],\n        formatter: '{a|831}{b| km}',\n        rich: {\n          a: {\n            fontSize: 15,\n            fontWeight: 800,\n            fontFamily: 'Arial',\n            color: '#fff'\n          },\n          b: {\n            fontWeight: 600,\n            fontFamily: 'Arial',\n            color: '#fff'\n          }\n        }\n      },\n      data: [\n        {\n          value: 0.85,\n          name: ''\n        }\n      ]\n    },\n    {\n      name: 'gauge 6',\n      type: 'gauge',\n      min: -120,\n      max: -60,\n      startAngle: 230,\n      endAngle: 310,\n      clockwise: false,\n      splitNumber: 2,\n      radius: '35%',\n      center: ['79%', '55%'],\n      axisLine: {\n        lineStyle: {\n          color: [\n            [1, '#AE96A6'],\n            [1.1, '#f00']\n          ]\n        }\n      },\n      splitLine: {\n        distance: -8,\n        length: 12,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisTick: {\n        splitNumber: 3,\n        length: 8,\n        distance: -8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      axisLabel: {\n        distance: 14,\n        fontSize: 18,\n        fontWeight: 800,\n        fontFamily: 'Arial',\n        color: '#fff',\n        formatter: function (value) {\n          return -value + '';\n        }\n      },\n      anchor: {\n        show: true,\n        itemStyle: {},\n        offsetCenter: [0, '55%'],\n        size: 20,\n        icon: 'path://M-34.1-1.1L-34.1-1.1c0-0.3-0.3-0.6-0.6-0.6h-3.6v-1.5c0-0.5-0.2-0.9-0.6-1.1s-0.9-0.2-1.3,0c-0.4,0.2-0.6,0.7-0.6,1.1V7.9c0,0,0,0.1,0,0.1c-0.8,0.5-1.2,1.5-0.9,2.5c0.3,0.9,1.1,1.6,2.1,1.6c1,0,1.8-0.6,2.1-1.5c0.3-0.9,0-1.9-0.8-2.5V6.3h3.5c0.4,0,0.7-0.3,0.7-0.7l0,0c0-0.4-0.3-0.7-0.7-0.7h-3.5V2.9h3.5c0.4,0,0.7-0.3,0.7-0.7l0,0c0-0.4-0.3-0.7-0.7-0.7h-3.5v-2.1h3.6C-34.4-0.5-34.1-0.8-34.1-1.1z M-44.9,11.6c-0.7,0-1.4-0.2-2-0.6c-0.4-0.3-0.9-0.4-1.4-0.4c-0.4,0-0.9,0.2-1.2,0.4c-0.4,0.2-1.4-0.9-0.9-1.3c0.6-0.4,1.3-0.6,2-0.7c0.8,0,1.5,0.2,2.2,0.5c0.4,0.3,0.9,0.4,1.3,0.4c0.6,0,1.1-0.2,1.5-0.6s1.6,0.7,0.9,1.3S-44,11.6-44.9,11.6L-44.9,11.6z M-34.3,11.6c-0.7,0-1.4-0.3-2-0.7c-0.6-0.4,0.5-1.6,0.9-1.3s0.8,0.4,1.2,0.4c0.5,0,1-0.1,1.4-0.4c0.6-0.3,1.3-0.5,2-0.6h0c0.9,0,1.7,0.3,2.4,0.9c0.7,0.5-0.5,1.6-0.9,1.3c-0.4-0.3-1-0.6-1.5-0.6h0c-0.5,0-0.9,0.2-1.3,0.4c-0.6,0.3-1.3,0.5-2,0.6H-34.3z M-33.5,16.3c-0.7,0-1.4-0.3-1.9-0.8c-0.4-0.3-0.6-0.5-1-0.5c-0.4,0-0.7,0.2-1,0.4c-0.6,0.5-1.3,0.7-2,0.7c-0.7,0-1.4-0.3-1.9-0.8c-0.2-0.3-0.6-0.4-0.9-0.4c-0.4,0-0.7,0.1-1.1,0.5c-0.6,0.5-1.3,0.7-2.1,0.7c-0.7-0.1-1.4-0.4-1.9-0.9c-0.4-0.3-0.6-0.5-1-0.5c-0.3,0-0.6,0.2-0.9,0.4s-1.6-0.7-1.1-1.2c0.5-0.5,1.2-0.8,1.9-0.9c1-0.1,1.6,0.4,2.1,0.8c0.3,0.3,0.6,0.5,1,0.5c0.4,0,0.6-0.1,1-0.4c0.6-0.5,1.4-0.8,2.1-0.8c0.7,0,1.4,0.3,1.9,0.8c0.2,0.2,0.6,0.4,0.9,0.4c0.4,0,0.6-0.1,1-0.4c0.6-0.5,1.3-0.7,2-0.7c0.8,0,1.5,0.3,2,0.9c0.4,0.3,0.6,0.4,0.9,0.4c0.3,0,0.7-0.2,1.1-0.5c0.5-0.4,1.2-0.9,2.3-0.8c0.7,0,1.4,0.3,1.9,0.7c0.5,0.4-0.7,1.5-1,1.3s-0.6-0.4-1-0.4c-0.4,0-0.7,0.2-1.2,0.5C-32,15.9-32.7,16.2-33.5,16.3L-33.5,16.3z'\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 15,\n        length: '4',\n        offsetCenter: [0, '-90%'],\n        itemStyle: {\n          color: '#f00'\n        }\n      },\n      title: {},\n      detail: {\n        show: false\n      },\n      data: [\n        {\n          value: -120,\n          name: ''\n        }\n      ]\n    }\n  ]\n};\n\nreturn option;",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
         "renderer": "canvas"
       },
@@ -394,6 +489,6 @@
   "timezone": "",
   "title": "Gauge",
   "uid": "PQeH9VFVk",
-  "version": 17,
+  "version": 1,
   "weekStart": ""
 }
