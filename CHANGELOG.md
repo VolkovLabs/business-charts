@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Update ECharts Examples on https://echarts.volkovlabs.io (#103)
+- Add Calendar Examples on https://echarts.volkovlabs.io (#105)
 
 ### Bug fixes
 

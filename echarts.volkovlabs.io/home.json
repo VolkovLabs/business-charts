@@ -59,7 +59,7 @@
         },
         "editor": {
           "format": "auto",
-          "height": 771
+          "height": 669
         },
         "followTheme": true,
         "gaode": {
@@ -151,6 +151,42 @@
         "x": 16,
         "y": 0
       },
+      "id": 27,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/qf1DhVc4z/calendar?orgId=1');\n});\n\nconst graphData = [\n  ['2022-02-01', 260],\n  ['2022-02-04', 200],\n  ['2022-02-09', 279],\n  ['2022-02-13', 847],\n  ['2022-02-18', 241],\n  ['2022-02-23', 411],\n  ['2022-03-14', 985]\n];\nconst links = graphData.map(function (item, idx) {\n  return {\n    source: idx,\n    target: idx + 1\n  };\n});\nlinks.pop();\n\nfunction getVirtualData(year) {\n  const date = +echarts.time.parse(year + '-01-01');\n  const end = +echarts.time.parse(+year + 1 + '-01-01');\n  const dayTime = 3600 * 24 * 1000;\n  const data = [];\n  for (let time = date; time < end; time += dayTime) {\n    data.push([\n      echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n      Math.floor(Math.random() * 1000)\n    ]);\n  }\n  return data;\n}\n\nreturn {\n  tooltip: {},\n  calendar: {\n    top: 80,\n    right: 'center',\n    orient: 'vertical',\n    bottom: 80,\n    cellSize: 40,\n    yearLabel: {\n      margin: 50,\n      fontSize: 30\n    },\n    dayLabel: {\n      firstDay: 1,\n      nameMap: 'cn'\n    },\n    monthLabel: {\n      nameMap: 'cn',\n      margin: 15,\n      fontSize: 20,\n      color: '#999'\n    },\n    range: ['2022-02', '2022-03-31']\n  },\n  visualMap: {\n    min: 0,\n    max: 1000,\n    type: 'piecewise',\n    left: 'center',\n    bottom: 20,\n    inRange: {\n      color: ['#5291FF', '#C7DBFF']\n    },\n    seriesIndex: [1],\n    orient: 'horizontal'\n  },\n  series: [\n    {\n      type: 'graph',\n      edgeSymbol: ['none', 'arrow'],\n      coordinateSystem: 'calendar',\n      links: links,\n      symbolSize: 15,\n      calendarIndex: 0,\n      itemStyle: {\n        color: 'yellow',\n        shadowBlur: 9,\n        shadowOffsetX: 1.5,\n        shadowOffsetY: 3,\n        shadowColor: '#555'\n      },\n      lineStyle: {\n        color: '#D10E00',\n        width: 1,\n        opacity: 1\n      },\n      data: graphData,\n      z: 20\n    },\n    {\n      type: 'heatmap',\n      coordinateSystem: 'calendar',\n      data: getVirtualData('2022')\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas"
+      },
+      "title": "Calendar",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
       "id": 19,
       "options": {
         "baidu": {
@@ -184,7 +220,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 10
       },
       "id": 14,
@@ -220,7 +256,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 8,
+        "x": 16,
         "y": 10
       },
       "id": 17,
@@ -256,8 +292,8 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 16,
-        "y": 10
+        "x": 0,
+        "y": 20
       },
       "id": 21,
       "options": {
@@ -293,7 +329,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 20
       },
       "id": 2,
@@ -330,7 +366,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 8,
+        "x": 16,
         "y": 20
       },
       "id": 25,
@@ -366,8 +402,8 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 16,
-        "y": 20
+        "x": 0,
+        "y": 30
       },
       "id": 6,
       "options": {
@@ -402,7 +438,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 30
       },
       "id": 7,
@@ -438,7 +474,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 8,
+        "x": 16,
         "y": 30
       },
       "id": 12,
@@ -474,8 +510,8 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 16,
-        "y": 30
+        "x": 0,
+        "y": 40
       },
       "id": 16,
       "options": {
@@ -510,7 +546,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 0,
+        "x": 8,
         "y": 40
       },
       "id": 10,
@@ -546,7 +582,7 @@
       "gridPos": {
         "h": 10,
         "w": 8,
-        "x": 8,
+        "x": 16,
         "y": 40
       },
       "id": 8,
