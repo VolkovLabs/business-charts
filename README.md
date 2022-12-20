@@ -51,7 +51,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 ## Documentation
 
 - [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options)
-- [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasource)
+- [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources)
 - Maps
   - [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu)
   - [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode)
@@ -64,7 +64,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 [![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
 
-### Data Source
+### Data Sources
 
 [![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
 
