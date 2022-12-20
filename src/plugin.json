@@ -14,16 +14,16 @@
     "keywords": ["echarts"],
     "links": [
       {
+        "name": "Documentation",
+        "url": "https://volkovlabs.io/plugins/volkovlabs-echarts-panel/"
+      },
+      {
         "name": "GitHub",
         "url": "https://github.com/VolkovLabs/volkovlabs-echarts-panel"
       },
       {
         "name": "YouTube Playlist",
         "url": "https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu"
-      },
-      {
-        "name": "Website",
-        "url": "https://volkovlabs.io"
       }
     ],
     "logos": {
