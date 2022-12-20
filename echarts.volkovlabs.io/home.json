@@ -36,6 +36,30 @@
       "tooltip": "",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "info",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Volkov Labs",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://volkovlabs.io"
+    },
+    {
+      "asDropdown": false,
+      "icon": "bolt",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "YouTube",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://youtube.com/@volkovlabs"
     }
   ],
   "liveNow": false,
@@ -648,6 +672,6 @@
   "timezone": "",
   "title": "Home",
   "uid": "pL5iH7FVk",
-  "version": 6,
+  "version": 3,
   "weekStart": ""
 }
