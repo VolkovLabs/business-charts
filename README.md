@@ -61,7 +61,11 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Tutorials
 
+### Dashboard and Global variables
+
 [![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
+
+### Data Source
 
 [![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
 
