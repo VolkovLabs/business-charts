@@ -1,21 +1,22 @@
 # Change Log
 
-## 3.9.0 (IN PROGRESS)
+## 4.0.0 (2022-12-20)
+
+### Breaking changes
+
+- World and USA GeoJSON maps are not loaded by default. Please select `JSON` in the Maps option.
 
 ### Features / Enhancements
 
 - Update ECharts Examples on https://echarts.volkovlabs.io (#103)
 - Add Calendar Examples on https://echarts.volkovlabs.io (#105)
+- Update README and move Documentation to docs.volkovlabs.io (#)
 
 ### Bug fixes
 
 - Fix javascript code in documentation (#102)
 
 ## 3.8.0 (2022-12-10)
-
-### Breaking changes
-
-- World and USA GeoJSON maps are not loaded by default. Please select `JSON` in the Maps option.
 
 ### Features / Enhancements
 
