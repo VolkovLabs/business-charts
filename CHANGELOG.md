@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Update README and documentation ()
+- Update README and documentation (#111)
 
 ## 4.0.0 (2022-12-20)
 
