@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Synchronize the README file with Documentation (#111)
+
 ## 4.0.0 (2022-12-20)
 
 ### Breaking changes
