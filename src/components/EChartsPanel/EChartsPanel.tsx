@@ -7,7 +7,7 @@ import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
-import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana/data';
+import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
@@ -69,7 +69,12 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       chart.dispose();
     }
 
-    setChart(echarts.init(echartRef.current, theme.isDark ? 'dark' : undefined, { renderer: options.renderer }));
+    /**
+     * Theme
+     */
+    const echartTheme = theme.isDark ? 'dark' : undefined;
+
+    setChart(echarts.init(echartRef.current, echartTheme, { renderer: options.renderer }));
   };
 
   /**
@@ -110,7 +115,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     /**
      * Wait until Data Source return results
      */
-    if (data.state && data.state !== 'Done') {
+    if (data.state && ![LoadingState.Done, LoadingState.Streaming].includes(data.state)) {
       return;
     }
 

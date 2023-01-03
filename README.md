@@ -48,6 +48,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Supports Code Editor suggestions for Parameters and variables.
 - Allows displaying Success and Error notifications.
 - Supports Baidu, Gaode, Google maps using API. Requires to provide access key.
+- Supports real-time data updates using streaming Data Sources and Grafana Live.
 - Has 100+ ready-as-is examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
 [![Examples](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
