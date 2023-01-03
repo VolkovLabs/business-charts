@@ -72,9 +72,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     /**
      * Theme
      */
-    const echartTheme = theme.isDark ? 'dark' : undefined;
+    const echartsTheme = theme.isDark ? 'dark' : undefined;
 
-    setChart(echarts.init(echartRef.current, echartTheme, { renderer: options.renderer }));
+    setChart(echarts.init(echartRef.current, echartsTheme, { renderer: options.renderer }));
   };
 
   /**
