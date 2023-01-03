@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Synchronize the README file with Documentation (#111)
+- Add Streaming Support for WebSockets and Grafana Live (#113)
 
 ## 4.0.0 (2022-12-20)
 

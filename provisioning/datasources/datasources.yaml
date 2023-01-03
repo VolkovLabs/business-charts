@@ -9,3 +9,12 @@ datasources:
     orgId: 1
     version: 1
     editable: true
+  - name: Websocket
+    type: golioth-websocket-datasource
+    uid: LWj8ert4k
+    access: proxy
+    orgId: 1
+    version: 1
+    editable: true
+    jsonData:
+      host: ws://host.docker.internal:8080
