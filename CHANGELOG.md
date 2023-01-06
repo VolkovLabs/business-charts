@@ -7,6 +7,7 @@
 - Synchronize the README file with Documentation (#111)
 - Add Streaming Support for WebSockets and Grafana Live (#113)
 - Move InfluxDB Example to the Guest Blog post (#115)
+- Update Documentation and Tutorials in README (#116)
 
 ## 4.0.0 (2022-12-20)
 
@@ -18,7 +19,7 @@
 
 - Update ECharts Examples on https://echarts.volkovlabs.io (#103)
 - Add Calendar Examples on https://echarts.volkovlabs.io (#105)
-- Update README and move Documentation to docs.volkovlabs.io (#)
+- Update README and move Documentation to docs.volkovlabs.io (#107)
 
 ### Bug fixes
 
