@@ -55,24 +55,31 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Documentation
 
-- [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options)
-- [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources)
-- [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples)
-- Maps
-  - [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu)
-  - [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode)
-  - [Google](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google)
-- [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables)
+| Section | Description |
+| -- | -- |
+| [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options) | Explains how to configure the main Apache ECharts library function. |
+| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources) | Demonstrates how to retrieve data from data sources. |
+| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples) | Explains how to get started with ECharts Examples. |
+| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming) | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
+| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables) | Demonstrated how to replace Dashboard and Global variables. |
+| [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph) | Explains how to build and visualize directed graphs. |
+| [PNG(raster) and SVG(vector) images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images) | Explains how to use images in various formats. |
+| [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat) | Explains how to use statistical and data mining library. |
+| [Baidu Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu) | Demonstrates how to work with Baidu Maps. |
+| [Gaode Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode) | Demonstrates how to work with Gaode Maps.|
+| [Google Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google)| Demonstrates how to work with Google Maps. |
 
 ## Tutorials
-
-### Dashboard and Global variables
-
-[![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
 
 ### Data Sources
 
 [![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
+
+### PNG and SVG images
+
+A quick guide for using images in Apache ECharts shows each type's prefixes.
+
+[![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
 
 ### Directed Graph
 
@@ -82,11 +89,9 @@ Data visualizations can and should be done in style. In two parts video tutorial
 
 [![Build directional graph in Grafana using Apache ECharts | Tutorial part 2](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial2.png)](https://youtu.be/oM7XAVlsOio)
 
-### PNG and SVG images
+### Dashboard and Global variables
 
-A quick guide for using images in Apache ECharts shows each type's prefixes.
-
-[![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
+[![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
 
 ### Histograms, Clustering, Regression
 

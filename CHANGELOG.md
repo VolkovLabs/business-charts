@@ -7,6 +7,7 @@
 - Synchronize the README file with Documentation (#111)
 - Add Streaming Support for WebSockets and Grafana Live (#113)
 - Move InfluxDB Example to the Guest Blog post (#115)
+- Update Documentation and Tutorials in README (#)
 
 ## 4.0.0 (2022-12-20)
 
