@@ -62,14 +62,12 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples) | Explains how to get started with ECharts Examples. |
 | [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming) | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
 | [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables) | Demonstrated how to replace Dashboard and Global variables. |
-| Tutorials |
 | [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph) | Explains how to build and visualize directed graphs. |
 | [PNG and SVG images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images) | Explains how to use images in various formats. |
 | [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat) | Explains how to use statistical and data mining library. |
-| Maps |
-| [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu) | Demonstrates how to work with Baidu Maps. |
-| [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode) | Demonstrates how to work with Gaode Maps.|
-| [Google](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google)| Demonstrates how to work with Google Maps. |
+| [Baidu Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu) | Demonstrates how to work with Baidu Maps. |
+| [Gaode Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode) | Demonstrates how to work with Gaode Maps.|
+| [Google Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google)| Demonstrates how to work with Google Maps. |
 
 ## Tutorials
 
