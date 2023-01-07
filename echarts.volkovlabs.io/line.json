@@ -65,7 +65,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  series: [\n    {\n      data: [\n        150,\n        230,\n        224,\n        218,\n        135,\n        147,\n        260\n      ],\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: [\n      \"Mon\",\n      \"Tue\",\n      \"Wed\",\n      \"Thu\",\n      \"Fri\",\n      \"Sat\",\n      \"Sun\"\n    ],\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
+        "getOption": "data.series.map((s) => {\n    categories = s.fields.find((f) => f.name === 'Category').values.buffer;\n    values = s.fields.find((f) => f.name === 'Value').values.buffer;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -73,7 +73,34 @@
         "map": "json",
         "renderer": "canvas"
       },
-      "title": "Basic Line Chart",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Category",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["150", "230", "224", "218", "135", "147", "260"]
+              }
+            ],
+            "meta": {},
+            "name": "Line"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Basic Line Chart (Data Source)",
       "type": "volkovlabs-echarts-panel"
     },
     {

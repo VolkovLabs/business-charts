@@ -24,6 +24,24 @@ const getOption = `const series = data.series.map((s) => {
   };
 });
 
+/**
+ * Enable Data Zoom by default
+ */
+setTimeout(() => echartsInstance.dispatchAction({
+  type: 'takeGlobalCursor',
+  key: 'dataZoomSelect',
+  dataZoomSelectActive: true,
+}), 500);
+
+/**
+ * Update Time Range on Zoom
+ */
+echartsInstance.on('datazoom', function (params) {
+  const startValue = params.batch[0]?.startValue;
+  const endValue = params.batch[0]?.endValue;
+  locationService.partial({ from: startValue, to: endValue });
+});
+
 return {
   backgroundColor: 'transparent',
   tooltip: {
@@ -36,6 +54,18 @@ return {
     textStyle: {
       color: 'rgba(128, 128, 128, .9)',
     },
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none',
+        icon: {
+          zoom: 'path://',
+          back: 'path://',
+        },
+      },
+      saveAsImage: {},
+    }
   },
   xAxis: {
     type: 'time',
