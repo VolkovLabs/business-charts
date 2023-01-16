@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Add `EventBus` to the available parameters to sent events (#)
+
 ## 4.1.0 (2023-01-12)
 
 ### Features / Enhancements

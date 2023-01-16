@@ -23,7 +23,7 @@ interface Props extends PanelProps<PanelOptions> {}
 /**
  * Panel
  */
-export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables }) => {
+export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables, eventBus }) => {
   /**
    * Reference
    */
@@ -136,6 +136,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'echarts',
         'ecStat',
         'replaceVariables',
+        'eventBus',
         'locationService',
         'notifySuccess',
         'notifyError',
@@ -166,7 +167,18 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
        * Set Options
        */
       chart.setOption(
-        func(data, theme, chart, echarts, ecStat, replaceVariables, locationService, notifySuccess, notifyError)
+        func(
+          data,
+          theme,
+          chart,
+          echarts,
+          ecStat,
+          replaceVariables,
+          eventBus,
+          locationService,
+          notifySuccess,
+          notifyError
+        )
       );
     } catch (err) {
       setError(err as any);
