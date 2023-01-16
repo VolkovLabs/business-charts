@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Add `EventBus` to the available parameters to sent events (#122)
+- Add `EventBus` to the available parameters to publish events (#122)
 
 ## 4.1.0 (2023-01-12)
 
