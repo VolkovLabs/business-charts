@@ -59,6 +59,11 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     detail: 'Browser location and history.',
   },
   {
+    label: 'eventBus',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Event bus for application events.',
+  },
+  {
     label: 'replaceVariables',
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Interpolate variables.',
