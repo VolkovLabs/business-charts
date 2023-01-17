@@ -59,6 +59,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | -- | -- |
 | [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options) | Explains how to configure the main Apache ECharts library function. |
 | [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources) | Demonstrates how to retrieve data from data sources. |
+| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events) | Demonstrates how to react on the triggered events. |
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples) | Explains how to get started with ECharts Examples. |
 | [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming) | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
 | [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables) | Demonstrated how to replace Dashboard and Global variables. |
