@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-9.3.1-orange)](https://www.grafana.com)
+[![Grafana](https://img.shields.io/badge/Grafana-9.3.6-orange)](https://www.grafana.com)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
@@ -33,8 +33,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 ## Features
 
 - Provides Monaco Code Editor for:
-   - Working with Grafana data frames (JavaScript),
-   - Updating chart configurations in JSON format.
+  - Working with Grafana data frames (JavaScript),
+  - Updating chart configurations in JSON format.
 - Supports Code Auto formatting.
 - Executes the `setOption()` function using Monaco Code Editor content.
 - Supports variables and location service to make Charts interactive.
