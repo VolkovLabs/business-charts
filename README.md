@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-9.3.1-orange)](https://www.grafana.com)
+[![Grafana](https://img.shields.io/badge/Grafana-9.3.6-orange)](https://www.grafana.com)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
@@ -33,8 +33,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 ## Features
 
 - Provides Monaco Code Editor for:
-   - Working with Grafana data frames (JavaScript),
-   - Updating chart configurations in JSON format.
+  - Working with Grafana data frames (JavaScript),
+  - Updating chart configurations in JSON format.
 - Supports Code Auto formatting.
 - Executes the `setOption()` function using Monaco Code Editor content.
 - Supports variables and location service to make Charts interactive.
@@ -47,7 +47,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Parameters and variables.
 - Allows displaying Success and Error notifications.
-- Supports Baidu, Gaode, Google maps using API. Requires to provide access key.
+- Supports Baidu, Gaode, and Google maps using API. Requires to provide access key.
 - Supports real-time data updates using streaming Data Sources and Grafana Live.
 - Has 100+ ready-as-is examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
@@ -55,20 +55,31 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Documentation
 
-| Section | Description |
-| -- | -- |
-| [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options) | Explains how to configure the main Apache ECharts library function. |
-| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources) | Demonstrates how to retrieve data from data sources. |
-| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events) | Demonstrates how to react on the triggered events. |
-| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples) | Explains how to get started with ECharts Examples. |
-| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming) | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
-| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables) | Demonstrated how to replace Dashboard and Global variables. |
-| [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph) | Explains how to build and visualize directed graphs. |
-| [PNG and SVG images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images) | Explains how to use images in various formats. |
-| [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat) | Explains how to use statistical and data mining library. |
-| [Baidu Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu) | Demonstrates how to work with Baidu Maps. |
-| [Gaode Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode) | Demonstrates how to work with Gaode Maps.|
-| [Google Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google)| Demonstrates how to work with Google Maps. |
+| Section                         | Description                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function.                                                |
+| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)     | Demonstrates how to retrieve data from data sources.                                                               |
+| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)        | Demonstrates how to react to the triggered events.                                                                 |
+| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)            | Explains how to get started with ECharts Examples.                                                                 |
+| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)          | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
+| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)          | Demonstrated how to replace Dashboard and Global variables.                                                        |
+
+### Tutorials
+
+| Section                                         | Description                                              |
+| ----------------------------------------------- | -------------------------------------------------------- |
+| [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph/)               | Explains how to build and visualize directed graphs.     |
+| [PNG and SVG images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images/)          | Explains how to use images in various formats.           |
+| [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat/) | Explains how to use statistical and data mining library. |
+
+### Maps
+
+| Section                 | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| [GeoJSON](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/geojson/) | Demonstrates how to work with GeoJSON Maps.    |
+| [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu/)     | Demonstrates how to work with Baidu Maps API.  |
+| [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode/)     | Demonstrates how to work with Gaode Maps API.  |
+| [Google](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google/)   | Demonstrates how to work with Google Maps API. |
 
 ## Tutorials
 

@@ -40,18 +40,6 @@
         "path": "img/dashboard.png"
       },
       {
-        "name": "Panel",
-        "path": "img/panel.png"
-      },
-      {
-        "name": "3D GL",
-        "path": "img/3d.png"
-      },
-      {
-        "name": "Baidu Maps",
-        "path": "img/baidu.png"
-      },
-      {
         "name": "Examples",
         "path": "img/examples.png"
       }
