@@ -30,7 +30,7 @@
   "scripts": {
     "build": "grafana-toolkit plugin:build --coverage",
     "dev": "grafana-toolkit plugin:dev",
-    "format": "prettier --write \"**\"",
+    "levitate": "npx @grafana/levitate@latest is-compatible --path src/module.ts --target @grafana/data,@grafana/runtime,@grafana/ui",
     "sign": "grafana-toolkit plugin:sign",
     "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",

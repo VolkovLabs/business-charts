@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*.*.*" # Run workflow on version tags, e.g. v1.0.0.
+      - 'v*.*.*' # Run workflow on version tags, e.g. v1.0.0.
 
 jobs:
   release:
@@ -14,33 +14,9 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
-
-      - name: Setup Go environment
-        uses: actions/setup-go@v3
         with:
-          go-version: '1.16'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache yarn cache
-        uses: actions/cache@v3
-        id: cache-yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Cache node_modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+          node-version: '16'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -51,7 +27,7 @@ jobs:
       - name: Sign plugin
         run: yarn sign
         env:
-          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }} # Requires a Grafana API key from Grafana.com.
+          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
 
       - name: Get plugin metadata
         id: metadata
@@ -76,7 +52,12 @@ jobs:
         id: changelog
         run: |
           awk '/^## / {s++} s == 1 {print}' CHANGELOG.md > release_notes.md
-          echo "path=release_notes.md" >> $GITHUB_OUTPUT
+          export RELEASE_TITLE=$(head -1 release_notes.md|sed 's/## //')
+          awk 'NR > 2 { print }' release_notes.md > release_body.md
+
+          echo "title=${RELEASE_TITLE}" >> $GITHUB_OUTPUT
+          echo "path=release_body.md" >> $GITHUB_OUTPUT
+          echo "version=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
       - name: Check package version
         run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.metadata.outputs.github-tag }}" ]; then printf "\033[0;31mPlugin version doesn't match tag name\033[0m\n"; exit 1; fi
@@ -89,44 +70,15 @@ jobs:
           md5sum ${{ steps.metadata.outputs.archive }} > ${{ steps.metadata.outputs.archive-checksum }}
           echo "checksum=$(cat ./${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)" >> $GITHUB_OUTPUT
 
-      - name: Lint plugin
-        continue-on-error: true
-        run: |
-          git clone https://github.com/grafana/plugin-validator
-          pushd ./plugin-validator/pkg/cmd/plugincheck2
-          go install
-          popd
-          plugincheck2 -config ./plugin-validator/config/default.yaml ${{ steps.metadata.outputs.archive }}
-
       - name: Create release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          name: ${{ steps.changelog.outputs.title }}
           body_path: ${{ steps.changelog.outputs.path }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
-
-      - name: Add plugin to release
-        id: upload-plugin-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{ steps.metadata.outputs.archive }}
-          asset_name: ${{ steps.metadata.outputs.archive }}
-          asset_content_type: application/zip
-
-      - name: Add checksum to release
-        id: upload-checksum-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{ steps.metadata.outputs.archive-checksum }}
-          asset_name: ${{ steps.metadata.outputs.archive-checksum }}
-          asset_content_type: text/plain
+          files: |
+            ./${{ steps.metadata.outputs.archive }}
+            ./${{ steps.metadata.outputs.archive-checksum }}
