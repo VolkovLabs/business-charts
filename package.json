@@ -23,7 +23,7 @@
     "react-dom": "18.2.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=16 <18"
   },
   "license": "Apache-2.0",
   "name": "volkovlabs-echarts-panel",
