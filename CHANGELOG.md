@@ -6,7 +6,7 @@
 
 - Add `EventBus` to the available parameters to publish events (#122)
 - Update to Grafana 9.3.6 (#132)
-- Update CI and Release workflows ()
+- Update CI and Release workflows (#134)
 
 ## 4.1.0 (2023-01-12)
 
