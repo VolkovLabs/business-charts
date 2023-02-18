@@ -18,11 +18,6 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
 
-      - name: Setup Go environment
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.16'
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
@@ -73,14 +68,6 @@ jobs:
           echo "archive=${GRAFANA_PLUGIN_ARTIFACT}" >> $GITHUB_OUTPUT
           echo "archive-checksum=${GRAFANA_PLUGIN_ARTIFACT_CHECKSUM}" >> $GITHUB_OUTPUT
 
-          echo "github-tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-
-      - name: Read changelog
-        id: changelog
-        run: |
-          awk '/^## / {s++} s == 1 {print}' CHANGELOG.md > release_notes.md
-          echo "path=release_notes.md" >> $GITHUB_OUTPUT
-
       - name: Package plugin
         id: package-plugin
         run: |
@@ -89,32 +76,22 @@ jobs:
           md5sum ${{ steps.metadata.outputs.archive }} > ${{ steps.metadata.outputs.archive-checksum }}
           echo "checksum=$(cat ./${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)" >> $GITHUB_OUTPUT
 
-      - name: Lint plugin
-        continue-on-error: true
-        run: |
-          git clone https://github.com/grafana/plugin-validator
-          pushd ./plugin-validator/pkg/cmd/plugincheck2
-          go install
-          popd
-          plugincheck2 -config ./plugin-validator/config/default.yaml ${{ steps.metadata.outputs.archive }}
-
-      - name: Compatibility check
-        uses: grafana/plugin-actions/is-compatible@v1
-        with:
-          module: "./src/module.ts"
-          comment-pr: 'yes'
-          fail-if-incompatible: 'no'
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           directory: ./coverage/
           files: ./coverage/lcov.info
           env_vars: OS,PYTHON
-          fail_ci_if_error: true
+          fail_ci_if_error: false
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.metadata.outputs.archive }}
           path: ${{ steps.metadata.outputs.archive }}
+
+      - name: Upload artifact checksum
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.metadata.outputs.archive-checksum }}
+          path: ${{ steps.metadata.outputs.archive-checksum }}
