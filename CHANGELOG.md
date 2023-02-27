@@ -8,7 +8,7 @@
 - Update to Grafana 9.3.6 (#132)
 - Update CI and Release workflows (#134)
 - Add NoPadding to remove extra padding around (#138)
-- Set Background color to Transparent for Dark theme (#139)
+- Set Background color to Transparent by default (#139)
 
 ## 4.1.0 (2023-01-12)
 
