@@ -166,8 +166,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       /**
        * Set Options
        */
-      chart.setOption(
-        func(
+      chart.setOption({
+        backgroundColor: 'transparent',
+        ...func(
           data,
           theme,
           chart,
@@ -178,8 +179,8 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
           locationService,
           notifySuccess,
           notifyError
-        )
-      );
+        ),
+      });
     } catch (err) {
       setError(err as any);
     }
