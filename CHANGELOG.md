@@ -1,6 +1,6 @@
 # Change Log
 
-## 4.2.0 (IN PROGRESS)
+## 4.2.0 (2023-02-27)
 
 ### Features / Enhancements
 
@@ -8,6 +8,7 @@
 - Update to Grafana 9.3.6 (#132)
 - Update CI and Release workflows (#134)
 - Add NoPadding to remove extra padding around (#138)
+- Set Background color to Transparent for Dark theme (#139)
 
 ## 4.1.0 (2023-01-12)
 
