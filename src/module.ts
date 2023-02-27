@@ -6,7 +6,7 @@ import { PanelOptions } from './types';
 /**
  * Panel Plugin
  */
-export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel).setNoPadding().setPanelOptions((builder) => {
   builder
     .addRadio({
       path: 'renderer',
