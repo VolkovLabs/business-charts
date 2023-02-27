@@ -10,13 +10,13 @@
 
 ## Introduction
 
-The Apache ECharts plugin is a visualization panel for Grafana that allows you to incorporate popular Apache ECharts libraries into your Grafana dashboard.
+The Apache ECharts plugin is a visualization panel for Grafana that allows you to incorporate the popular Apache ECharts library into your Grafana dashboard.
 
-[Apache ECharts libraries](https://echarts.apache.org/en/index.html) is a free, powerful charting and visualization library with statistical capabilities. It is written in pure JavaScript and based on zrender, which is a whole new lightweight canvas library.
+[Apache ECharts](https://echarts.apache.org/en/index.html) is a free, powerful charting and visualization library with statistical capabilities. It is written in pure JavaScript and based on zrender.
 
 [![Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/video.png)](https://youtu.be/DxqCrBEmrQw)
 
-Apache ECharts panel offers an easy way of adding intuitive, interactive, and highly customizable charts into your Grafana dashboard. 
+Apache ECharts visualization panel offers an easy way of adding intuitive, interactive, and highly customizable charts into your Grafana dashboard.
 
 ### Requirements
 
@@ -24,7 +24,9 @@ Apache ECharts panel offers an easy way of adding intuitive, interactive, and hi
 
 ## Getting Started
 
-Apache ECharts visualization panel can be installed from the [Grafana Catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or utilizing the Grafana command line tool. For the latter, use the following command:
+Apache ECharts visualization panel can be installed from the [Grafana Catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or utilizing the Grafana command line tool.
+
+For the latter, use the following command.
 
 ```bash
 grafana-cli plugins install volkovlabs-echarts-panel
@@ -55,14 +57,21 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Documentation
 
-| Section                         | Description                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [setOption() Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function.                                                |
-| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)     | Demonstrates how to retrieve data from data sources.                                                               |
-| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)        | Demonstrates how to react to the triggered events.                                                                 |
-| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)            | Explains how to get started with ECharts Examples.                                                                 |
-| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)          | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
-| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)          | Demonstrated how to replace Dashboard and Global variables.                                                        |
+| Section                     | Description                                                         |
+| --------------------------- | ------------------------------------------------------------------- |
+| [ECharts Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function. |
+| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)        | Explains how to get started with ECharts Examples.                  |
+| [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release/)    | Stay up to date with the latest features and updates.               |
+
+### Features
+
+| Section                      | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)  | Demonstrates how to retrieve data from data sources.                                                               |
+| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
+| [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
+| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)       | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
+| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)       | Demonstrated how to replace Dashboard and Global variables.                                                        |
 
 ### Tutorials
 
