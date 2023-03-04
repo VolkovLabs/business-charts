@@ -92,33 +92,13 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Tutorials
 
-### Data Sources
+How to use Data Source in Apache ECharts in 90 seconds. Data parameter explained.
 
 [![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
 
-### PNG and SVG images
+Three plugins that make Grafana complete. Dynamic Text, Data Manipulation, and Apache ECharts are all you need to create functional real-world web applications.
 
-A quick guide for using images in Apache ECharts shows each type's prefixes.
-
-[![Apache ECharts supports base64 PNG and SVG (vector) images | Prefixes for various types of pictures](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/images.png)](https://youtu.be/ygFDhmbPU-Y)
-
-### Directed Graph
-
-Data visualizations can and should be done in style. In two parts video tutorial Daria explained how we built and visualized directed graph in Grafana using Apache ECharts panel.
-
-[![Build directional graph in Grafana using Apache ECharts | Tutorial part 1](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial1.png)](https://youtu.be/e3VHgpuzEF0)
-
-[![Build directional graph in Grafana using Apache ECharts | Tutorial part 2](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/tutorial2.png)](https://youtu.be/oM7XAVlsOio)
-
-### Dashboard and Global variables
-
-[![Grafana variables | Dashboard, Global and Environment variables | Environment Data Source](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/variables.png)](https://youtu.be/sczRq2lI3e4)
-
-### Histograms, Clustering, Regression
-
-Mathematical and statistical functions to your extended visualization arsenal. 
-
-[![Histograms, Clustering. Regression in Apache ECharts panel for Grafana | ecStat math, stat library](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/ecstat.png)](https://youtu.be/qfDrAW8-Mh8)
+[![Magic JavaScript trio for Grafana | Dynamic Text, Data Manipulation and Apache ECharts plugins](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/magic-trio.png)](https://youtu.be/wPr4gZYzUVA)
 
 ## Feedback
 
