@@ -9,7 +9,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
-import { Alert, useTheme2 } from '@grafana/ui';
+import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { getStyles } from '../../styles';
@@ -39,7 +39,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Styles and Theme
    */
   const theme = useTheme2();
-  const styles = getStyles();
+  const styles = useStyles2(getStyles);
 
   /**
    * Events
