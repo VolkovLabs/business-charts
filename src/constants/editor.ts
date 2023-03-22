@@ -78,4 +78,9 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Display error notification.',
   },
+  {
+    label: 'getDataSourceSrv',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Retrieve the entry point to data sources.',
+  },
 ];

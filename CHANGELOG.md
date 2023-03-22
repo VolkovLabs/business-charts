@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.3.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Update to Grafana 9.4.7 (#142)
+- 
+
 ## 4.2.0 (2023-03-04)
 
 ### Features / Enhancements

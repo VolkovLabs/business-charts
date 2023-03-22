@@ -2,10 +2,10 @@
   "author": "Volkov Labs",
   "description": "Apache ECharts panel for Grafana",
   "devDependencies": {
-    "@grafana/data": "^9.4.3",
-    "@grafana/runtime": "^9.4.3",
-    "@grafana/toolkit": "^9.4.3",
-    "@grafana/ui": "^9.4.3",
+    "@grafana/data": "^9.4.7",
+    "@grafana/runtime": "^9.4.7",
+    "@grafana/toolkit": "^9.4.7",
+    "@grafana/ui": "^9.4.7",
     "@types/echarts": "^4.9.16",
     "@types/enzyme": "^3.10.12",
     "@types/enzyme-adapter-react-16": "^1.0.6",
@@ -38,5 +38,5 @@
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"
   },
-  "version": "4.2.0"
+  "version": "4.3.0"
 }
