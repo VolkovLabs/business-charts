@@ -11,7 +11,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/googlemaps": "^3.43.3",
     "@types/webpack-env": "^1.18.0",
-    "echarts": "^5.4.1",
+    "echarts": "^5.4.2",
     "echarts-extension-amap": "^1.11.0",
     "echarts-extension-gmap": "^1.5.0",
     "echarts-gl": "^2.0.9",
