@@ -19,16 +19,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Build and test frontend
-        run: yarn build
+        run: npm run build
 
       - name: Sign plugin
-        run: yarn sign
+        run: npm run sign
         env:
           GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
 
