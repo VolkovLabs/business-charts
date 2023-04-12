@@ -1,12 +1,13 @@
 # Change Log
 
-## 4.3.0 (IN PROGRESS)
+## 4.3.0 (2023-04-12)
 
 ### Features / Enhancements
 
 - Update to Grafana 9.4.7 (#146)
 - Add getDataSourceSrv parameter to retrieve the entry point to data sources (#146)
 - Update to Apache ECharts 5.4.2 (#147)
+- Update USA and World GeoJSON to used in GeoMap (#154)
 
 ## 4.2.0 (2023-03-04)
 

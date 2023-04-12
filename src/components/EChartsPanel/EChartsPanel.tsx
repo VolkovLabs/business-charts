@@ -12,7 +12,7 @@ import { getAppEvents, getDataSourceSrv, locationService } from '@grafana/runtim
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
-import { getStyles } from '../../styles';
+import { Styles } from '../../styles';
 import { PanelOptions } from '../../types';
 
 /**
@@ -39,7 +39,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Styles and Theme
    */
   const theme = useTheme2();
-  const styles = useStyles2(getStyles);
+  const styles = useStyles2(Styles);
 
   /**
    * Events
