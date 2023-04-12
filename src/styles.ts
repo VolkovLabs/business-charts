@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 /**
  * Styles
  */
-export const getStyles = () => ({
+export const Styles = () => ({
   wrapper: css`
     position: relative;
   `,
