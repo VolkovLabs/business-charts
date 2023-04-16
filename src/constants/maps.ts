@@ -13,10 +13,10 @@ export enum Map {
  * Map Extensions Options
  */
 export const MapOptions = [
-  { value: Map.BMAP, label: 'Baidu' },
-  { value: Map.AMAP, label: 'Gaode' },
-  { value: Map.GMAP, label: 'Google' },
-  { value: Map.JSON, label: 'JSON' },
+  { value: Map.BMAP, label: 'Baidu', description: 'Requires Baidu Maps.' },
+  { value: Map.AMAP, label: 'Gaode', description: 'Requires Gaode Maps.' },
+  { value: Map.GMAP, label: 'Google', description: 'Requires Google Maps.' },
+  { value: Map.JSON, label: 'JSON', description: 'Includes World and USA maps.' },
   { value: Map.NONE, label: 'None' },
 ];
 
