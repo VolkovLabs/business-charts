@@ -7,7 +7,7 @@
 - Update to Grafana 9.4.7 (#146)
 - Add getDataSourceSrv parameter to retrieve the entry point to data sources (#146)
 - Update to Apache ECharts 5.4.2 (#147)
-- Update USA and World GeoJSON to used in GeoMap (#154)
+- Update USA and World GeoJSON used in GeoMap (#154)
 - Add Alert State and Annotations (#155)
 
 ## 4.2.0 (2023-03-04)
