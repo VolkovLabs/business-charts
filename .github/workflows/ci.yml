@@ -49,20 +49,6 @@ jobs:
           echo "archive=${GRAFANA_PLUGIN_ARTIFACT}" >> $GITHUB_OUTPUT
           echo "archive-checksum=${GRAFANA_PLUGIN_ARTIFACT_CHECKSUM}" >> $GITHUB_OUTPUT
 
-      - name: Read changelog
-        id: changelog
-        run: |
-          awk '/^## / {s++} s == 1 {print}' CHANGELOG.md > release_notes.md
-          export RELEASE_TITLE=$(head -1 release_notes.md|sed 's/## //')
-          awk 'NR > 2 { print }' release_notes.md > release_body.md
-
-          echo "title=${RELEASE_TITLE}" >> $GITHUB_OUTPUT
-          echo "path=release_body.md" >> $GITHUB_OUTPUT
-          echo "version=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-
-      - name: Check package version
-        run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.changelog.version }}" ]; then printf "\033[0;31mPlugin version doesn't match change log\033[0m\n"; exit 1; fi
-
       - name: Package plugin
         id: package-plugin
         run: |
