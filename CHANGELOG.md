@@ -4,7 +4,7 @@
 
 ### Breaking changes
 
-- Due to security reasons getDataSourceSrv parameter was removed (#146)
+- Due to security reasons getDataSourceSrv parameter was removed (#156)
 
 ## 4.3.0 (2023-04-16)
 
