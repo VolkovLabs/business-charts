@@ -61,7 +61,7 @@ jobs:
           echo "version=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
       - name: Check package version
-        run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.metadata.changelog.version }}" ]; then printf "\033[0;31mPlugin version doesn't match change log\033[0m\n"; exit 1; fi
+        run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.changelog.version }}" ]; then printf "\033[0;31mPlugin version doesn't match change log\033[0m\n"; exit 1; fi
 
       - name: Package plugin
         id: package-plugin
