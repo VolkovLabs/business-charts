@@ -8,7 +8,7 @@ import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
 import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
-import { getAppEvents, getDataSourceSrv, locationService } from '@grafana/runtime';
+import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
@@ -140,7 +140,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         'locationService',
         'notifySuccess',
         'notifyError',
-        'getDataSourceSrv',
         options.getOption
       );
 
@@ -179,8 +178,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
           eventBus,
           locationService,
           notifySuccess,
-          notifyError,
-          getDataSourceSrv
+          notifyError
         ),
       });
     } catch (err) {

@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.3.1 (2023-04-21)
+
+### Breaking changes
+
+- Due to security reasons getDataSourceSrv parameter was removed (#156)
+
 ## 4.3.0 (2023-04-16)
 
 ### Features / Enhancements
