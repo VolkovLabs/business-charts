@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.4.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Increase Test Coverage and update test library (#163)
+
 ## 4.3.1 (2023-04-21)
 
 ### Breaking changes

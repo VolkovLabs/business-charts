@@ -6,9 +6,9 @@
     "@grafana/runtime": "^9.4.7",
     "@grafana/toolkit": "^9.4.7",
     "@grafana/ui": "^9.4.7",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "@types/echarts": "^4.9.16",
-    "@types/enzyme": "^3.10.12",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/googlemaps": "^3.43.3",
     "@types/webpack-env": "^1.18.0",
     "echarts": "^5.4.2",
@@ -17,8 +17,6 @@
     "echarts-gl": "^2.0.9",
     "echarts-liquidfill": "^3.1.0",
     "echarts-stat": "^1.2.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -38,5 +36,5 @@
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"
   },
-  "version": "4.3.1"
+  "version": "4.4.0"
 }
