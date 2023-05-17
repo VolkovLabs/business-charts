@@ -240,24 +240,24 @@ describe('Panel', () => {
 
     it('Should load google maps if options.map=GMAP', () => {
       render(getComponent({ options: { map: Map.GMAP } }));
+      expect(loadGoogle).toHaveBeenCalled();
       expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGaode).not.toHaveBeenCalled();
-      expect(loadGoogle).toHaveBeenCalled();
       expect(loadBaidu).not.toHaveBeenCalled();
     });
 
     it('Should load baidu maps if options.map=BMAP', () => {
       render(getComponent({ options: { map: Map.BMAP } }));
+      expect(loadBaidu).toHaveBeenCalled();
       expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGaode).not.toHaveBeenCalled();
       expect(loadGoogle).not.toHaveBeenCalled();
-      expect(loadBaidu).toHaveBeenCalled();
     });
 
     it('Should load gaode maps if options.map=AMAP', () => {
       render(getComponent({ options: { map: Map.AMAP } }));
-      expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGaode).toHaveBeenCalled();
+      expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGoogle).not.toHaveBeenCalled();
       expect(loadBaidu).not.toHaveBeenCalled();
     });
