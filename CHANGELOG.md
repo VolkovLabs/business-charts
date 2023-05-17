@@ -5,6 +5,8 @@
 ### Features / Enhancements
 
 - Increase Test Coverage and update test library (#163)
+- Update to Grafana 9.5.2 (#164)
+- Update Google Maps Extension to 1.6.0 (#164)
 
 ## 4.3.1 (2023-04-21)
 
