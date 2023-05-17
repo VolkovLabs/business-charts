@@ -203,6 +203,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
 
       <div
         ref={echartRef}
+        data-testid="chart"
         className={cx(
           styles.wrapper,
           css`

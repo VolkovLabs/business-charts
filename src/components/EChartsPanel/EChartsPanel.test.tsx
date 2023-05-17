@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react'
 import React from 'react';
 import { LoadingState, toDataFrame } from '@grafana/data';
 import { EChartsPanel } from './EChartsPanel';
@@ -29,9 +29,8 @@ describe('Panel', () => {
       return <EChartsPanel data={data} {...restProps} options={options} />;
     };
 
-    const wrapper = shallow(getComponent({}));
-    const div = wrapper.find('div');
-    expect(div.exists()).toBeTruthy();
+    render(getComponent({}))
+    expect(screen.getByTestId('chart')).toBeInTheDocument();
   });
 
   it('Should find component with Done state', async () => {
@@ -48,9 +47,8 @@ describe('Panel', () => {
       return <EChartsPanel data={data} {...restProps} options={options} />;
     };
 
-    const wrapper = shallow(getComponent({}));
-    const div = wrapper.find('div');
-    expect(div.exists()).toBeTruthy();
+    render(getComponent({}))
+    expect(screen.getByTestId('chart')).toBeInTheDocument();
   });
 
   it('Should find component for Streaming', async () => {
@@ -67,8 +65,7 @@ describe('Panel', () => {
       return <EChartsPanel data={data} {...restProps} options={options} />;
     };
 
-    const wrapper = shallow(getComponent({}));
-    const div = wrapper.find('div');
-    expect(div.exists()).toBeTruthy();
+    render(getComponent({}))
+    expect(screen.getByTestId('chart')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react'
 import React from 'react';
 import { EChartsEditor } from './EChartsEditor';
 
@@ -15,8 +15,7 @@ describe('Editor', () => {
       return <EChartsEditor {...restProps} context={context} />;
     };
 
-    const wrapper = shallow(getComponent({}));
-    const div = wrapper.find('div');
-    expect(div.exists()).toBeTruthy();
+    render(getComponent({}));
+    expect(screen.getByTestId('editor')).toBeInTheDocument();
   });
 });
