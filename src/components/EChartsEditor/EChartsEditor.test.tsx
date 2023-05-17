@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { getTemplateSrv } from '@grafana/runtime';
-import { Format, CodeEditorSuggestions } from '../../constants';
+import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
+import { render, screen } from '@testing-library/react';
+import { CodeEditorSuggestions, Format } from '../../constants';
 import { EChartsEditor } from './EChartsEditor';
 
 /**

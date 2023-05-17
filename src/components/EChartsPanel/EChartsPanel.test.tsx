@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import * as echarts from 'echarts';
 import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
-import * as echarts from 'echarts';
 import { getAppEvents } from '@grafana/runtime';
+import { render, screen } from '@testing-library/react';
 import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
@@ -18,7 +18,7 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock Echarts
+ * Mock ECharts
  */
 jest.mock('echarts', () => ({
   init: jest.fn(),
@@ -117,7 +117,7 @@ describe('Panel', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
     expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', { renderer });
-  })
+  });
 
   it('Should publish success and errors events with passed payload', () => {
     const publish = jest.fn();

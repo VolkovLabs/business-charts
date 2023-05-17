@@ -1,5 +1,5 @@
-import { loadBaidu, loadGaode, loadGoogle } from './maps';
 import { MapApi } from './constants';
+import { loadBaidu, loadGaode, loadGoogle } from './maps';
 
 /**
  * Maps
