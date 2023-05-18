@@ -43,13 +43,13 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Based on the ECharts 5.4.2.
 - Supports Light and Dark modes synchronized with Grafana Theme.
 - Supports SVG and Canvas renderers.
-- Includes USA and World GeoJSON maps. Allows adding custom Map files in the `maps` folder.
+- Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
-- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization, and WebGL acceleration.
+- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which provides 3D plots, globe visualization, and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Parameters and variables.
 - Allows displaying Success and Error notifications.
-- Supports Baidu, Gaode, and Google maps using API. Requires to provide access key.
+- Supports Baidu, Gaode, and Google Maps using API. Requires to provide access key.
 - Supports real-time data updates using streaming Data Sources and Grafana Live.
 - Has 100+ ready-as-is examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
