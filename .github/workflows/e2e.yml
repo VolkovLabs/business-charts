@@ -30,8 +30,12 @@ jobs:
       - name: Run e2e tests
         run: yarn run e2e
 
+      - name: Stop Grafana
+        run: docker-compose down
+
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
           path: |
+            cypress/videos
             cypress/screenshots/actual

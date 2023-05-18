@@ -15,14 +15,14 @@ const getTestIdSelector = (testId: string) => `[data-testid="${testId}"]`;
 /**
  * Panel
  */
-describe('viewing a panel with time series data', () => {
+describe('Viewing a panel with Apache ECharts', () => {
   beforeEach(() => {
     e2e.flows.openDashboard({
       uid: json.uid,
     });
   });
 
-  it('should display a good looking graph', () => {
+  it('Should display a Bar Chart', () => {
     const currentPanel = e2e.components.Panels.Panel.title(testedPanel.title);
     currentPanel.should('be.visible');
 
