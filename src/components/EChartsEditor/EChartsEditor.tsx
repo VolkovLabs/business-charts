@@ -64,7 +64,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
       : { formatOnPaste: false, formatOnType: false };
 
   return (
-    <div data-testid={testIds.editor}>
+    <div data-testid={testIds.editor.root}>
       <CodeEditor
         language={CodeLanguage.JAVASCRIPT}
         showLineNumbers={true}
