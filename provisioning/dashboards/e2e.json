@@ -1,0 +1,127 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 669
+        },
+        "followTheme": true,
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
+              },
+              {
+                "config": {},
+                "name": "Amount",
+                "type": "string",
+                "values": ["5", "20", "36", "10", "10", "20"]
+              }
+            ],
+            "meta": {},
+            "name": "sales"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Bar Chart",
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "Sales",
+          "value": "Sales"
+        },
+        "hide": 0,
+        "label": "Variable",
+        "name": "var",
+        "options": [
+          {
+            "selected": true,
+            "text": "Sales",
+            "value": "Sales"
+          }
+        ],
+        "query": "Sales",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "E2E Testing",
+  "uid": "fdd5dbe3-794c-4441-9d1c-024a537bbe99",
+  "version": 2,
+  "weekStart": ""
+}

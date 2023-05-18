@@ -1,4 +1,4 @@
-name: End to End tests
+name: E2E
 
 on:
   push:
@@ -24,13 +24,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Start Grafana
+        run: docker-compose up -d
+
       - name: Run e2e tests
-        run: yarn run e2e:docker
+        run: yarn run e2e
 
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
           path: |
-            cypress/videos
-            cypress/screenshots
-
+            cypress/screenshots/actual

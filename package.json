@@ -30,13 +30,12 @@
   "scripts": {
     "build": "grafana-toolkit plugin:build --coverage",
     "dev": "grafana-toolkit plugin:dev",
+    "e2e:update": "yarn cypress install && yarn grafana-e2e run --update-screenshots",
+    "e2e": "yarn cypress install && yarn grafana-e2e run",
     "levitate": "npx @grafana/levitate@latest is-compatible --path src/module.ts --target @grafana/data,@grafana/runtime,@grafana/ui",
     "sign": "grafana-toolkit plugin:sign",
-    "start": "docker-compose pull grafana && docker-compose up grafana",
+    "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",
-    "e2e:docker": "docker-compose pull && docker-compose up --exit-code-from cypress",
-    "e2e": "yarn cypress install && yarn grafana-e2e run",
-    "e2e:update": "yarn cypress install && yarn grafana-e2e run --update-screenshots",
     "test": "grafana-toolkit plugin:test",
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"

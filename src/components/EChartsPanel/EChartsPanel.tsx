@@ -14,7 +14,7 @@ import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
 import { PanelOptions } from '../../types';
-import { testIds } from '../testIds'
+import { testIds } from '../testIds';
 
 /**
  * Properties
