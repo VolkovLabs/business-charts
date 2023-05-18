@@ -2,8 +2,7 @@ import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { CodeEditorSuggestions, CodeLanguage, Format } from '../../constants';
-import { testIds } from '../testIds';
+import { CodeEditorSuggestions, CodeLanguage, Format, TestIds } from '../../constants';
 
 /**
  * Monaco
@@ -64,7 +63,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
       : { formatOnPaste: false, formatOnType: false };
 
   return (
-    <div data-testid={testIds.editor.root}>
+    <div data-testid={TestIds.editor.root}>
       <CodeEditor
         language={CodeLanguage.JAVASCRIPT}
         showLineNumbers={true}

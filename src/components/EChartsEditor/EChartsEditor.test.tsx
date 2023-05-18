@@ -2,8 +2,7 @@ import React from 'react';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
-import { CodeEditorSuggestions, Format } from '../../constants';
-import { testIds } from '../testIds';
+import { CodeEditorSuggestions, Format, TestIds } from '../../constants';
 import { EChartsEditor } from './EChartsEditor';
 
 /**
@@ -56,7 +55,7 @@ describe('Editor', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId(testIds.editor.root)).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.editor.root)).toBeInTheDocument();
   });
 
   it('Should show mini map if value more than 100 symbols', () => {

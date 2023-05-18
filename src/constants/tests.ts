@@ -1,4 +1,7 @@
-export const testIds = {
+/**
+ * Tests Identifiers
+ */
+export const TestIds = {
   panel: {
     chart: 'chart',
   },

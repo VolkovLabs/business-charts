@@ -1,5 +1,5 @@
 import { e2e } from '@grafana/e2e';
-import { testIds } from '../../src/components/testIds';
+import { TestIds } from '../../src/constants';
 
 /**
  * Dashboard
@@ -29,7 +29,7 @@ describe('Viewing a panel with Apache ECharts', () => {
     /**
      * Chart
      */
-    const chart = currentPanel.find(getTestIdSelector(testIds.panel.chart));
+    const chart = currentPanel.find(getTestIdSelector(TestIds.panel.chart));
     chart.should('be.visible');
 
     /**
