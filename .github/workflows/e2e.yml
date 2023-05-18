@@ -24,6 +24,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Build and test frontend
+        run: yarn build
+
+      - name: Sign plugin
+        run: yarn sign
+        env:
+          GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+
       - name: Start Grafana
         run: docker-compose up -d
 
