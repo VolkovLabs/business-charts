@@ -14,3 +14,13 @@ services:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
       - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+  cypress:
+    image: cypress/included
+    depends_on:
+      - grafana
+    environment:
+      - CYPRESS_baseUrl=http://grafana:3000
+    entrypoint: yarn run e2e
+    working_dir: /cypress
+    volumes:
+      - ./:/cypress
