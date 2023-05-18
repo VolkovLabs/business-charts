@@ -35,6 +35,7 @@
     "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",
     "e2e": "yarn cypress install && yarn grafana-e2e run",
+    "e2e:update": "yarn cypress install && yarn grafana-e2e run --update-screenshots",
     "test": "grafana-toolkit plugin:test",
     "upgrade": "yarn upgrade --latest",
     "watch": "grafana-toolkit plugin:dev --watch"

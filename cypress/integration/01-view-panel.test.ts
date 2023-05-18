@@ -2,8 +2,10 @@ import { e2e } from '@grafana/e2e';
 import { testIds } from '../../src/components/testIds';
 const json = require('../../echarts.volkovlabs.io/home.json')
 
-const { panel } = e2e.getSelectors(testIds);
 const uid = json.uid;
+const testedPanel = json.panels[0]
+
+const getTestIdSelector = (testId: string) => `[data-testid="${testId}"]`
 
 describe('viewing a panel with time series data', () => {
     beforeEach(() => {
@@ -13,7 +15,11 @@ describe('viewing a panel with time series data', () => {
     });
 
     it('should display a good looking graph', () => {
-        e2e.components.Panels.Panel.title('Getting Started using Data Source').should('be.visible');
-        panel.chart().should('be.visible')
+        const currentPanel = e2e.components.Panels.Panel.title(testedPanel.title)
+        currentPanel.should('be.visible');
+        const chart = currentPanel.find(getTestIdSelector(testIds.panel.chart))
+        chart.should('be.visible');
+        chart.screenshot(testedPanel.title)
+        e2e().compareScreenshots(testedPanel.title)
     });
 });

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["cypress", "cypress-image-diff-js"]
+    "types": ["cypress"]
   },
   "extends": "../tsconfig.json"
 }
