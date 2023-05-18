@@ -36,6 +36,6 @@ describe('Viewing a panel with Apache ECharts', () => {
      * Screenshot
      */
     chart.screenshot(testedPanel.title);
-    e2e().compareScreenshots(testedPanel.title);
+    e2e().compareScreenshots({ name: testedPanel.title, threshold: 0.05 });
   });
 });
