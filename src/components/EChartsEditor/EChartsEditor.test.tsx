@@ -3,6 +3,7 @@ import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
 import { CodeEditorSuggestions, Format } from '../../constants';
+import { testIds } from '../testIds'
 import { EChartsEditor } from './EChartsEditor';
 
 /**
@@ -55,7 +56,7 @@ describe('Editor', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId('editor')).toBeInTheDocument();
+    expect(screen.getByTestId(testIds.editor.root)).toBeInTheDocument();
   });
 
   it('Should show mini map if value more than 100 symbols', () => {

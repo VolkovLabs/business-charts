@@ -14,6 +14,7 @@ import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
 import { PanelOptions } from '../../types';
+import { testIds } from '../testIds'
 
 /**
  * Properties
@@ -203,7 +204,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
 
       <div
         ref={echartRef}
-        data-testid="chart"
+        data-testid={testIds.panel.chart}
         className={cx(
           styles.wrapper,
           css`
