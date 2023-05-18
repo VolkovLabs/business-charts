@@ -3,7 +3,7 @@ import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { CodeEditorSuggestions, CodeLanguage, Format } from '../../constants';
-import { testIds } from '../testIds'
+import { testIds } from '../testIds';
 
 /**
  * Monaco

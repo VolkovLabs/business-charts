@@ -3,7 +3,7 @@ import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
 import { CodeEditorSuggestions, Format } from '../../constants';
-import { testIds } from '../testIds'
+import { testIds } from '../testIds';
 import { EChartsEditor } from './EChartsEditor';
 
 /**

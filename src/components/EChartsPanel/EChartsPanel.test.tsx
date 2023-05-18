@@ -5,7 +5,7 @@ import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
 import { Map } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
-import { testIds } from '../testIds'
+import { testIds } from '../testIds';
 import { EChartsPanel } from './EChartsPanel';
 
 /**
