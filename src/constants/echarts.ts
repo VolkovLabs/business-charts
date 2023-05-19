@@ -7,6 +7,22 @@ export enum Renderer {
 }
 
 /**
+ * Theme
+ */
+export enum Theme {
+  DEFAULT = 'default',
+  CUSTOM = 'custom',
+}
+
+/**
+ * Theme options
+ */
+export const ThemeOptions = [
+  { value: Theme.DEFAULT, label: 'Default', description: 'Default ECharts theme' },
+  { value: Theme.CUSTOM, label: 'Custom', description: 'Ability to use custom ECharts theme' },
+];
+
+/**
  * Renderer Options
  */
 export const RendererOptions = [

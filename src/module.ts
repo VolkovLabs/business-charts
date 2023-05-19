@@ -1,6 +1,6 @@
 import { PanelPlugin } from '@grafana/data';
 import { EChartsEditor, EChartsPanel } from './components';
-import { DefaultOptions, FormatOptions, Map, MapOptions, RendererOptions } from './constants';
+import { DefaultOptions, FormatOptions, Map, MapOptions, RendererOptions, Theme, ThemeOptions } from './constants';
 import { PanelOptions } from './types';
 
 /**
@@ -25,6 +25,41 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
           options: MapOptions,
         },
         defaultValue: DefaultOptions.map,
+      });
+
+    /**
+     * Theme
+     */
+    builder
+      .addRadio({
+        path: 'themeEditor.name',
+        name: 'Theme',
+        settings: {
+          options: ThemeOptions,
+        },
+        defaultValue: Theme.DEFAULT,
+        category: ['Theme'],
+      })
+      .addSliderInput({
+        path: 'themeEditor.height',
+        name: 'Height, px',
+        defaultValue: DefaultOptions.themeEditor.height,
+        settings: {
+          min: 100,
+          max: 2000,
+        },
+        category: ['Theme'],
+        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
+      })
+      .addCustomEditor({
+        id: 'themeConfig',
+        path: 'themeEditor.config',
+        name: 'Theme config',
+        description: 'Custom Theme Config',
+        defaultValue: DefaultOptions.themeEditor.config,
+        editor: EChartsEditor,
+        category: ['Theme'],
+        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
       });
 
     /**

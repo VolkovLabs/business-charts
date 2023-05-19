@@ -17,11 +17,13 @@ interface Props extends StandardEditorProps {}
 /**
  * ECharts Editor
  */
-export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => {
+export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
   /**
    * Template Service to get Variables
    */
   const templateSrv = getTemplateSrv();
+
+  const isThemeConfigEditor = item.id === 'themeConfig';
 
   /**
    * Format On Mount
@@ -62,6 +64,30 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
       ? { formatOnPaste: true, formatOnType: true }
       : { formatOnPaste: false, formatOnType: false };
 
+  /**
+   * Get Item Specific Editor props
+   */
+  const getItemSpecificEditorProps = (): Partial<React.ComponentProps<typeof CodeEditor>> => {
+    /**
+     * Theme Config
+     */
+    if (isThemeConfigEditor) {
+      return {
+        language: CodeLanguage.JSON,
+        height: context.options.themeEditor.height,
+      };
+    }
+
+    /**
+     * Get Option
+     */
+    return {
+      language: CodeLanguage.JAVASCRIPT,
+      height: context.options.editor.height,
+      getSuggestions,
+    };
+  };
+
   return (
     <div data-testid="editor">
       <CodeEditor
@@ -69,16 +95,12 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
         showLineNumbers={true}
         showMiniMap={(value && value.length) > 100}
         value={value}
-        height={`${context.options.editor.height}px`}
-        onBlur={(code) => {
-          onChange(code);
-        }}
-        onSave={(code) => {
-          onChange(code);
-        }}
+        height={context.options.editor.height}
+        onBlur={onChange}
+        onSave={onChange}
         monacoOptions={monacoOptions}
         onEditorDidMount={onEditorMount}
-        getSuggestions={getSuggestions}
+        {...getItemSpecificEditorProps()}
       />
     </div>
   );
