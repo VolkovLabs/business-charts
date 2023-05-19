@@ -1,0 +1,44 @@
+name: E2E
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build and test frontend
+        run: yarn dev
+
+      - name: Start Grafana
+        run: docker-compose up -d
+
+      - name: Run e2e tests
+        run: yarn run e2e
+
+      - name: Stop Grafana
+        run: docker-compose down
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          path: |
+            cypress/videos
+            cypress/screenshots/actual

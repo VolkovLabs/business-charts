@@ -10,7 +10,7 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
-import { Map } from '../../constants';
+import { Map, TestIds } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
 import { PanelOptions } from '../../types';
@@ -203,7 +203,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
 
       <div
         ref={echartRef}
-        data-testid="chart"
+        data-testid={TestIds.panel.chart}
         className={cx(
           styles.wrapper,
           css`

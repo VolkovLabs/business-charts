@@ -29,3 +29,8 @@ e2e-results/
 # Editor
 .idea
 .DS_Store
+
+# Cypress
+cypress/report.json
+cypress/videos/
+cypress/screenshots/actual

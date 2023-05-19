@@ -3,7 +3,7 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map } from '../../constants';
+import { Map, TestIds } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
 
@@ -94,29 +94,29 @@ describe('Panel', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component with Done state', async () => {
     render(getComponent({}, LoadingState.Done));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component for Streaming', async () => {
     render(getComponent({}, LoadingState.Streaming));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should call echart.init with appropriated parameters', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
   });
 
   it('Should apply right theme', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
   });
 
   it('Should publish success and errors events with passed payload', () => {
