@@ -3,9 +3,9 @@
  */
 export const TestIds = {
   panel: {
-    chart: 'chart',
+    chart: 'data-testid chart',
   },
   editor: {
-    root: 'editor',
+    root: 'data-testid editor',
   },
 };
