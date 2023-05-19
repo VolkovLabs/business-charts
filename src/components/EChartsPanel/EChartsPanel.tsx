@@ -201,7 +201,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chart, options.getOption, data]);
-  console.log('render');
 
   /**
    * EChart
@@ -209,7 +208,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   return (
     <>
       {error?.message && (
-        <Alert severity="warning" title="ECharts Execution Error">
+        <Alert data-testid="chart-error" severity="warning" title="ECharts Execution Error">
           {error.message}
         </Alert>
       )}

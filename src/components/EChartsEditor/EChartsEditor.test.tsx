@@ -2,7 +2,7 @@ import React from 'react';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
-import { CodeEditorSuggestions, Format } from '../../constants';
+import { CodeEditorSuggestions, Format, CodeLanguage } from '../../constants';
 import { EChartsEditor } from './EChartsEditor';
 
 /**
@@ -41,12 +41,15 @@ describe('Editor', () => {
     return {
       options: {
         editor,
+        themeEditor: {
+          height: 300,
+        },
       },
     };
   };
 
   const getComponent = ({ ...restProps }: any, context = getContext()) => {
-    return <EChartsEditor {...restProps} context={context} />;
+    return <EChartsEditor item={{}} {...restProps} context={context} />;
   };
 
   beforeEach(() => {
@@ -77,7 +80,7 @@ describe('Editor', () => {
       })),
     };
 
-    jest.mocked(CodeEditor).mockImplementation(({ onEditorDidMount }: any) => {
+    jest.mocked(CodeEditor).mockImplementationOnce(({ onEditorDidMount }: any) => {
       onEditorDidMount(editor);
       return null;
     });
@@ -102,7 +105,7 @@ describe('Editor', () => {
     const value = 'some value';
     const onChange = jest.fn();
 
-    jest.mocked(CodeEditor).mockImplementation(({ onBlur }: any) => {
+    jest.mocked(CodeEditor).mockImplementationOnce(({ onBlur }: any) => {
       onBlur(value);
       return null;
     });
@@ -120,7 +123,7 @@ describe('Editor', () => {
     const value = 'some value';
     const onChange = jest.fn();
 
-    jest.mocked(CodeEditor).mockImplementation(({ onSave }: any) => {
+    jest.mocked(CodeEditor).mockImplementationOnce(({ onSave }: any) => {
       onSave(value);
       return null;
     });
@@ -140,11 +143,11 @@ describe('Editor', () => {
     const variableWithoutDescription = { name: 'var2', description: '', label: 'Var 2' };
     const variables = [variableWithDescription, variableWithoutDescription];
 
-    jest.mocked(CodeEditor).mockImplementation(({ getSuggestions }: any) => {
+    jest.mocked(CodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
       suggestionsResult = getSuggestions();
       return null;
     });
-    jest.mocked(getTemplateSrv).mockImplementation(
+    jest.mocked(getTemplateSrv).mockImplementationOnce(
       () =>
         ({
           getVariables: jest.fn().mockImplementation(() => variables),
@@ -171,6 +174,16 @@ describe('Editor', () => {
           detail: variableWithoutDescription.label,
         },
       ])
+    );
+  });
+
+  it('Should use JSON language for themeConfig item', () => {
+    render(getComponent({ item: { id: 'themeConfig' } }));
+    expect(CodeEditor).toHaveBeenCalledWith(
+      expect.objectContaining({
+        language: CodeLanguage.JSON,
+      }),
+      expect.anything()
     );
   });
 });

@@ -5,18 +5,18 @@ import { Theme } from '../constants';
  */
 export interface ThemeEditorOptions {
   /**
-   * Height
-   *
-   * @type {number}
-   */
-  height: number;
-
-  /**
    * Name
    *
    * @type {Theme}
    */
   name: Theme;
+
+  /**
+   * Height
+   *
+   * @type {number}
+   */
+  height: number;
 
   /**
    * Config
