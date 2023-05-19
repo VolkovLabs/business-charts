@@ -3,7 +3,7 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map, Theme } from '../../constants';
+import { Map, Theme, TestIds } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
 
@@ -104,29 +104,29 @@ describe('Panel', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component with Done state', async () => {
     render(getComponent({}, LoadingState.Done));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component for Streaming', async () => {
     render(getComponent({}, LoadingState.Streaming));
-    expect(screen.getByTestId('chart')).toBeInTheDocument();
+    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
   });
 
   it('Should call echart.init with appropriated parameters', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
   });
 
   it('Should apply right theme', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
   });
 
   it('Should publish success and errors events with passed payload', () => {
@@ -177,7 +177,11 @@ describe('Panel', () => {
       render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJSON } } }));
 
       expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJSON));
-      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), Theme.CUSTOM, expect.anything());
+      expect(echarts.init).toHaveBeenCalledWith(
+        screen.getByTestId(TestIds.panel.chart),
+        Theme.CUSTOM,
+        expect.anything()
+      );
     });
 
     it('Should apply default theme if custom theme config has invalid JSON', () => {
@@ -186,8 +190,8 @@ describe('Panel', () => {
       render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } }));
 
       expect(echarts.registerTheme).not.toHaveBeenCalled();
-      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId('chart'), 'dark', expect.anything());
-      expect(screen.getByTestId('chart-error')).toBeInTheDocument();
+      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', expect.anything());
+      expect(screen.getByTestId(TestIds.panel.error)).toBeInTheDocument();
     });
   });
 
