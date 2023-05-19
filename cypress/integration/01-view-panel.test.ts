@@ -33,6 +33,11 @@ describe('Viewing a panel with Apache ECharts', () => {
     chart.should('be.visible');
 
     /**
+     * Wait canvas is visible and animation is finished
+     */
+    chart.find('canvas').should('be.visible').wait(1000);
+
+    /**
      * Screenshot
      */
     chart.screenshot(testedPanel.title);
