@@ -1,6 +1,6 @@
 # Change Log
 
-## 4.4.0 (IN PROGRESS)
+## 4.4.0 (2023-05-25)
 
 ### Features / Enhancements
 
@@ -8,12 +8,14 @@
 - Update to Grafana 9.5.2 (#164)
 - Update Google Maps Extension to 1.6.0 (#164)
 - Add E2E Cypress testing (#165)
+- Add Theming Options to allow Custom Themes (#167)
+- Update documentation (#166, #168)
 
 ## 4.3.1 (2023-04-21)
 
 ### Breaking changes
 
-- Due to security reasons getDataSourceSrv parameter was removed (#156)
+- Due to security reasons, getDataSourceSrv parameter was removed (#156)
 
 ## 4.3.0 (2023-04-16)
 
