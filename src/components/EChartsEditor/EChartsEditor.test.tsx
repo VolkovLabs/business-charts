@@ -2,7 +2,7 @@ import React from 'react';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
-import { CodeEditorSuggestions, Format, CodeLanguage, TestIds } from '../../constants';
+import { CodeEditorSuggestions, CodeLanguage, Editor, Format, TestIds } from '../../constants';
 import { EChartsEditor } from './EChartsEditor';
 
 /**
@@ -178,7 +178,7 @@ describe('Editor', () => {
   });
 
   it('Should use JSON language for themeConfig item', () => {
-    render(getComponent({ item: { id: 'themeConfig' } }));
+    render(getComponent({ item: { id: Editor.THEME } }));
     expect(CodeEditor).toHaveBeenCalledWith(
       expect.objectContaining({
         language: CodeLanguage.JSON,

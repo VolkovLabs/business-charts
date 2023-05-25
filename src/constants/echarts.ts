@@ -10,8 +10,8 @@ export enum Renderer {
  * Theme
  */
 export enum Theme {
-  DEFAULT = 'default',
   CUSTOM = 'custom',
+  DEFAULT = 'default',
 }
 
 /**

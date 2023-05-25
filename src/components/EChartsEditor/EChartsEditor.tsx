@@ -2,7 +2,7 @@ import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { CodeEditorSuggestions, CodeLanguage, Format, TestIds } from '../../constants';
+import { CodeEditorSuggestions, CodeLanguage, Editor, Format, TestIds } from '../../constants';
 
 /**
  * Monaco
@@ -22,8 +22,6 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
    * Template Service to get Variables
    */
   const templateSrv = getTemplateSrv();
-
-  const isThemeConfigEditor = item.id === 'themeConfig';
 
   /**
    * Format On Mount
@@ -71,7 +69,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     /**
      * Theme Config
      */
-    if (isThemeConfigEditor) {
+    if (item.id === Editor.THEME) {
       return {
         language: CodeLanguage.JSON,
         height: context.options.themeEditor.height,

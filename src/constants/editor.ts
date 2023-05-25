@@ -1,6 +1,14 @@
 import { CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
 
 /**
+ * Editors
+ */
+export const enum Editor {
+  CODE = 'getOption',
+  THEME = 'themeEditor',
+}
+
+/**
  * Supported Languages
  */
 export const enum CodeLanguage {
