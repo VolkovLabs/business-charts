@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-9.5.2-orange)](https://www.grafana.com)
+![Grafana](https://img.shields.io/badge/Grafana-9.5.2-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
@@ -35,8 +35,9 @@ grafana-cli plugins install volkovlabs-echarts-panel
 ## Highlights
 
 - Provides Monaco Code Editor for:
-  - Working with Grafana data frames (JavaScript),
+  - Working with Grafana data frames (JavaScript).
   - Updating chart configurations in JSON format.
+  - Custom theme configuration.
 - Supports Code Auto formatting.
 - Executes the `setOption()` function using Monaco Code Editor content.
 - Supports variables and location service to make Charts interactive.
@@ -67,10 +68,13 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 | Section                      | Description                                                                                                        |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [Annotations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/annotations/)         | Demonstrates how to use annotations.                                                                              |
 | [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)  | Demonstrates how to retrieve data from data sources.                                                               |
 | [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
 | [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
 | [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)       | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
+| [Theme Editor](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/theme/)              | Demonstrates how to use the theme editor.                                                                          |
+| [Transformations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/transformations/) | Demonstrates how to work with transformations.                                                                     |
 | [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)       | Demonstrated how to replace Dashboard and Global variables.                                                        |
 
 ### Tutorials

@@ -33,7 +33,7 @@
     "e2e:update": "yarn cypress install && yarn grafana-e2e run --update-screenshots",
     "e2e": "yarn cypress install && yarn grafana-e2e run",
     "levitate": "npx @grafana/levitate@latest is-compatible --path src/module.ts --target @grafana/data,@grafana/runtime,@grafana/ui",
-    "sign": "grafana-toolkit plugin:sign",
+    "sign": "npx --yes @grafana/sign-plugin@latest",
     "start": "docker-compose pull && docker-compose up",
     "stop": "docker-compose down",
     "test": "grafana-toolkit plugin:test",
