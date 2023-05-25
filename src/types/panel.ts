@@ -1,9 +1,9 @@
 import { Map, Renderer } from '../constants';
 import { BaiduOptions } from './baidu';
 import { EditorOptions } from './editor';
-import { ThemeEditorOptions } from './themeEditor';
 import { GaodeOptions } from './gaode';
 import { GoogleOptions } from './google';
+import { ThemeEditorOptions } from './theme-editor';
 
 /**
  * Options
