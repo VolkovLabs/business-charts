@@ -68,6 +68,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 | Section                      | Description                                                                                                        |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [Annotations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/annotations/)         | Demonstrates how to use annotations.                                                                              |
 | [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)  | Demonstrates how to retrieve data from data sources.                                                               |
 | [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
 | [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
