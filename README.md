@@ -72,6 +72,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
 | [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
 | [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)       | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
+| [Theme Editor](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/theme/)              | Demonstrates how to use the theme editor.                                                                          |
+| [Transformations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/transformations/) | Demonstrates how to work with transformations.                                                                     |
 | [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)       | Demonstrated how to replace Dashboard and Global variables.                                                        |
 
 ### Tutorials
