@@ -2,7 +2,7 @@ import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { CodeEditorSuggestions, CodeLanguage, Format, TestIds } from '../../constants';
+import { CodeEditorSuggestions, CodeLanguage, Editor, Format, TestIds } from '../../constants';
 
 /**
  * Monaco
@@ -17,7 +17,7 @@ interface Props extends StandardEditorProps {}
 /**
  * ECharts Editor
  */
-export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => {
+export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
   /**
    * Template Service to get Variables
    */
@@ -62,6 +62,30 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
       ? { formatOnPaste: true, formatOnType: true }
       : { formatOnPaste: false, formatOnType: false };
 
+  /**
+   * Get Item Specific Editor props
+   */
+  const getItemSpecificEditorProps = (): Partial<React.ComponentProps<typeof CodeEditor>> => {
+    /**
+     * Theme Config
+     */
+    if (item.id === Editor.THEME) {
+      return {
+        language: CodeLanguage.JSON,
+        height: context.options.themeEditor.height,
+      };
+    }
+
+    /**
+     * Get Option
+     */
+    return {
+      language: CodeLanguage.JAVASCRIPT,
+      height: context.options.editor.height,
+      getSuggestions,
+    };
+  };
+
   return (
     <div data-testid={TestIds.editor.root}>
       <CodeEditor
@@ -69,16 +93,12 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context }) => 
         showLineNumbers={true}
         showMiniMap={(value && value.length) > 100}
         value={value}
-        height={`${context.options.editor.height}px`}
-        onBlur={(code) => {
-          onChange(code);
-        }}
-        onSave={(code) => {
-          onChange(code);
-        }}
+        height={context.options.editor.height}
+        onBlur={onChange}
+        onSave={onChange}
         monacoOptions={monacoOptions}
         onEditorDidMount={onEditorMount}
-        getSuggestions={getSuggestions}
+        {...getItemSpecificEditorProps()}
       />
     </div>
   );

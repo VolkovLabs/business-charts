@@ -3,7 +3,7 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map, TestIds } from '../../constants';
+import { Map, Theme, TestIds } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
 
@@ -22,6 +22,7 @@ jest.mock('../../maps', () => ({
  */
 jest.mock('echarts', () => ({
   init: jest.fn(),
+  registerTheme: jest.fn(),
 }));
 
 /**
@@ -89,7 +90,16 @@ describe('Panel', () => {
    * Get Tested Component
    */
   const getComponent = ({ options = { name: 'data' }, ...restProps }: any, state?: LoadingState) => {
-    return <EChartsPanel data={getTestData(state)} {...restProps} options={options} />;
+    return (
+      <EChartsPanel
+        data={getTestData(state)}
+        {...restProps}
+        options={{
+          themeEditor: {},
+          ...options,
+        }}
+      />
+    );
   };
 
   it('Should find component', async () => {
@@ -154,6 +164,34 @@ describe('Panel', () => {
     expect(publish).toHaveBeenCalledWith({
       type: AppEvents.alertError.name,
       payload: errorPayload,
+    });
+  });
+
+  /**
+   * Theme
+   */
+  describe('Theme', () => {
+    it('Should apply custom theme', () => {
+      const themeConfigJSON = '123';
+
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJSON } } }));
+
+      expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJSON));
+      expect(echarts.init).toHaveBeenCalledWith(
+        screen.getByTestId(TestIds.panel.chart),
+        Theme.CUSTOM,
+        expect.anything()
+      );
+    });
+
+    it('Should apply default theme if custom theme config has invalid JSON', () => {
+      const invalidThemeConfigJSON = '{';
+
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } }));
+
+      expect(echarts.registerTheme).not.toHaveBeenCalled();
+      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', expect.anything());
+      expect(screen.getByTestId(TestIds.panel.error)).toBeInTheDocument();
     });
   });
 

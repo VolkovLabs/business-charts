@@ -1,6 +1,15 @@
 import { PanelPlugin } from '@grafana/data';
 import { EChartsEditor, EChartsPanel } from './components';
-import { DefaultOptions, FormatOptions, Map, MapOptions, RendererOptions } from './constants';
+import {
+  DefaultOptions,
+  Editor,
+  FormatOptions,
+  Map,
+  MapOptions,
+  RendererOptions,
+  Theme,
+  ThemeOptions,
+} from './constants';
 import { PanelOptions } from './types';
 
 /**
@@ -25,6 +34,14 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
           options: MapOptions,
         },
         defaultValue: DefaultOptions.map,
+      })
+      .addRadio({
+        path: 'themeEditor.name',
+        name: 'Theme',
+        settings: {
+          options: ThemeOptions,
+        },
+        defaultValue: Theme.DEFAULT,
       });
 
     /**
@@ -104,7 +121,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
           min: 100,
           max: 2000,
         },
-        category: ['Editor'],
+        category: ['Code'],
       })
       .addRadio({
         path: 'editor.format',
@@ -113,16 +130,42 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
           options: FormatOptions,
         },
         defaultValue: DefaultOptions.editor.format,
-        category: ['Editor'],
+        category: ['Code'],
       })
       .addCustomEditor({
-        id: 'getOption',
+        id: Editor.CODE,
         path: 'getOption',
         name: 'Function',
         description: 'Should return parameters and data for setOptions().',
         defaultValue: DefaultOptions.getOption,
         editor: EChartsEditor,
-        category: ['Editor'],
+        category: ['Code'],
+      });
+
+    /**
+     * Theme
+     */
+    builder
+      .addSliderInput({
+        path: 'themeEditor.height',
+        name: 'Height, px',
+        defaultValue: DefaultOptions.themeEditor.height,
+        settings: {
+          min: 100,
+          max: 2000,
+        },
+        category: ['Theme'],
+        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
+      })
+      .addCustomEditor({
+        id: Editor.THEME,
+        path: 'themeEditor.config',
+        name: 'Configuration',
+        description: 'Custom Theme from the Theme Builder.',
+        defaultValue: DefaultOptions.themeEditor.config,
+        editor: EChartsEditor,
+        category: ['Theme'],
+        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
       });
 
     return builder;

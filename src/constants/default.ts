@@ -1,5 +1,5 @@
 import { PanelOptions } from '../types';
-import { Renderer } from './echarts';
+import { Renderer, Theme } from './echarts';
 import { Format } from './editor';
 import { Map } from './maps';
 
@@ -90,6 +90,7 @@ return {
 export const DefaultOptions: PanelOptions = {
   getOption,
   renderer: Renderer.CANVAS,
+  themeEditor: { name: Theme.DEFAULT, config: '{}', height: 400 },
   editor: { height: 600, format: Format.AUTO },
   map: Map.NONE,
   baidu: {

@@ -3,6 +3,7 @@ import { BaiduOptions } from './baidu';
 import { EditorOptions } from './editor';
 import { GaodeOptions } from './gaode';
 import { GoogleOptions } from './google';
+import { ThemeEditorOptions } from './theme-editor';
 
 /**
  * Options
@@ -28,6 +29,13 @@ export interface PanelOptions {
    * @type {EditorOptions}
    */
   editor: EditorOptions;
+
+  /**
+   * Theme Editor
+   *
+   * @type {ThemeEditorOptions}
+   */
+  themeEditor: ThemeEditorOptions;
 
   /**
    * Type
