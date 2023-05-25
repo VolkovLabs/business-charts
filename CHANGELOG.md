@@ -8,7 +8,7 @@
 - Update to Grafana 9.5.2 (#164)
 - Update Google Maps Extension to 1.6.0 (#164)
 - Add E2E Cypress testing (#165)
-- Add Theming Options to allow Custom Themes (#167)
+- Add Theme Editor to allow custom themes (#167)
 - Update documentation (#166, #168)
 
 ## 4.3.1 (2023-04-21)
