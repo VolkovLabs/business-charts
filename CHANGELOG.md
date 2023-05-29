@@ -4,7 +4,8 @@
 
 ### Features / Enhancements
 
-- Migrate to Plugin Tools 1.5.0 (#169)
+- Migrate to Plugin Tools 1.5.0 (#171)
+- Update to Node 18 (#172)
 
 ## 4.4.0 (2023-05-25)
 
