@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build and test frontend
-        run: yarn dev
+      - name: Build
+        run: yarn run build
 
       - name: Start Grafana
         run: docker-compose up -d

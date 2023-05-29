@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.5.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Migrate to Plugin Tools 1.5.0 (#169)
+
 ## 4.4.0 (2023-05-25)
 
 ### Features / Enhancements
