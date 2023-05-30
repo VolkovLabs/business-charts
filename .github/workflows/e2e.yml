@@ -19,19 +19,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install --force
 
       - name: Build
-        run: yarn run build
+        run: npm run build
 
       - name: Start Grafana
         run: docker-compose up -d
 
       - name: Run e2e tests
-        run: yarn run e2e
+        run: npm run e2e
 
       - name: Stop Grafana
         run: docker-compose down
