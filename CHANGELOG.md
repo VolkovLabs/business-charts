@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Migrate to Plugin Tools 1.5.0 (#171)
+- Migrate to Plugin Tools 1.5.2 (#171, #176)
 - Update to Node 18 (#172)
 - Update yarn to npm (#173)
 
