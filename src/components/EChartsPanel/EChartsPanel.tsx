@@ -70,6 +70,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       chart.dispose();
     }
 
+    /**
+     * Clear theme error
+     */
     setThemeError(undefined);
 
     /**

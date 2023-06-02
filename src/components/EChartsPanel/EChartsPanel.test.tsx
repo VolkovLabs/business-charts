@@ -3,7 +3,7 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map, Theme, TestIds } from '../../constants';
+import { Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
 

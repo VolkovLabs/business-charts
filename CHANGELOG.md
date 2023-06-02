@@ -5,8 +5,8 @@
 ### Features / Enhancements
 
 - Migrate to Plugin Tools 1.5.2 (#171, #176)
-- Update to Node 18 (#172)
-- Update yarn to npm (#173)
+- Update to Node 18 and npm (#172, #173)
+- Add an alert for theme parsing error (#175)
 
 ## 4.4.0 (2023-05-25)
 
