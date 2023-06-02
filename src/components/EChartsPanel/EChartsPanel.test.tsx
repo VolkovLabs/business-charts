@@ -3,7 +3,7 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map, Theme, TestIds } from '../../constants';
+import { Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
 
@@ -139,7 +139,7 @@ describe('Panel', () => {
     ); // we need only these options
     const successPayload: AlertPayload = ['everything is fine'];
     const errorPayload: AlertErrorPayload = ['something is wrong'];
-    jest.mocked(echarts.init).mockImplementation(
+    jest.mocked(echarts.init).mockImplementationOnce(
       () =>
         ({
           setOption: ({
@@ -191,7 +191,39 @@ describe('Panel', () => {
 
       expect(echarts.registerTheme).not.toHaveBeenCalled();
       expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', expect.anything());
-      expect(screen.getByTestId(TestIds.panel.error)).toBeInTheDocument();
+      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+    });
+
+    it('Should show invalid theme error until it is fixed', () => {
+      const invalidThemeConfigJSON = '{';
+
+      /**
+       * First render
+       */
+      const { rerender } = render(
+        getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } })
+      );
+
+      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+
+      /**
+       * Rerender with chart updates
+       */
+      rerender(
+        getComponent({
+          options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } },
+          getOption: '',
+        })
+      );
+
+      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+
+      /**
+       * Rerender with correct theme config
+       */
+      rerender(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: '{}' } } }));
+
+      expect(screen.queryByTestId(TestIds.panel.themeError)).not.toBeInTheDocument();
     });
   });
 

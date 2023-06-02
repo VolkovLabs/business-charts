@@ -34,6 +34,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    */
   const [chart, setChart] = useState<echarts.ECharts>();
   const [error, setError] = useState<Error | undefined>();
+  const [themeError, setThemeError] = useState<Error | undefined>();
 
   /**
    * Styles and Theme
@@ -70,6 +71,11 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     }
 
     /**
+     * Clear theme error
+     */
+    setThemeError(undefined);
+
+    /**
      * Theme
      */
     let echartsTheme = theme.isDark ? 'dark' : undefined;
@@ -83,7 +89,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         echartsTheme = Theme.CUSTOM;
         echarts.registerTheme(echartsTheme, themeConfig);
       } catch (e: any) {
-        setError(e);
+        setThemeError(e);
       }
     }
 
@@ -213,6 +219,12 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       )}
 
       {error?.stack && <pre>{error.stack}</pre>}
+
+      {themeError?.message && (
+        <Alert data-testid={TestIds.panel.themeError} severity="warning" title="ECharts Custom Theme Error">
+          {themeError.message}
+        </Alert>
+      )}
 
       <div
         ref={echartRef}
