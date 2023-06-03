@@ -1,12 +1,14 @@
 # Change Log
 
-## 4.5.0 (IN PROGRESS)
+## 4.5.0 (2023-06-03)
 
 ### Features / Enhancements
 
 - Migrate to Plugin Tools 1.5.2 (#171, #176)
 - Update to Node 18 and npm (#172, #173)
 - Add an alert for theme parsing error (#175)
+- Update Default Function to support Grafana 10 (#178)
+- Tested with Grafana 10 Preview (#178)
 
 ## 4.4.0 (2023-05-25)
 
