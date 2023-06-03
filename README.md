@@ -38,18 +38,15 @@ grafana-cli plugins install volkovlabs-echarts-panel
   - Working with Grafana data frames (JavaScript).
   - Updating chart configurations in JSON format.
   - Custom theme configuration.
-- Supports Code Auto formatting.
-- Executes the `setOption()` function using Monaco Code Editor content.
 - Supports variables and location service to make Charts interactive.
 - Based on the ECharts 5.4.2.
-- Supports Light and Dark modes synchronized with Grafana Theme.
+- Supports Light and Dark themes synchronized with Grafana Theme.
 - Supports SVG and Canvas renderers.
 - Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which provides 3D plots, globe visualization, and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Parameters and variables.
-- Allows displaying Success and Error notifications.
 - Supports Baidu, Gaode, and Google Maps using API. Requires to provide access key.
 - Supports real-time data updates using streaming Data Sources and Grafana Live.
 - Has 100+ ready-as-is examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
@@ -109,6 +106,7 @@ Three plugins that make Grafana complete. Dynamic Text, Data Manipulation, and A
 We love to hear from you. There are various ways to get in touch with us:
 
 - Ask a question, request a new feature, and file a bug with [GitHub issues](https://github.com/volkovlabs/volkovlabs-echarts-panel/issues/new/choose).
+- Subscribe to our [YouTube Channel](https://www.youtube.com/@volkovlabs) and add a comment.
 - Sponsor our open-source plugins for Grafana with [GitHub Sponsor](https://github.com/sponsors/VolkovLabs).
 - Star the repository to show your support.
 

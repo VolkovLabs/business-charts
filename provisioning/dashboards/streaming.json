@@ -52,13 +52,18 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const series = data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;\n\n  return {\n    name: s.refId,\n    type: 'line',\n    name: 'Live',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n  grid: {\n    left: '2%',\n    right: '2%',\n    top: '2%',\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};",
+        "getOption": "const series = data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;\n\n  return {\n    name: s.refId,\n    type: 'line',\n    name: 'Live',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  animation: false,\n  legend: {\n    left: '0',\n    bottom: '0',\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n  grid: {\n    left: '2%',\n    right: '2%',\n    top: '2%',\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "targets": [
         {
@@ -102,13 +107,18 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const values = {}\nconst series = data.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'amount').values.buffer;\n\n  names.forEach((d, i) => values[d] = amounts[i]);\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  xAxis: {\n    data: Object.keys(values)\n  },\n  yAxis: {},\n  series: [\n    {\n      name: 'Streaming',\n      type: 'bar',\n      data: Object.values(values)\n    }\n  ]\n};\n",
+        "getOption": "const values = {}\nconst series = data.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'name').values.buffer || s.fields.find((f) => f.name === 'name').values;\n  amounts = s.fields.find((f) => f.name === 'amount').values.buffer || s.fields.find((f) => f.name === 'amount').values;\n\n  names.forEach((d, i) => values[d] = amounts[i]);\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  animation: false,\n  tooltip: {},\n  xAxis: {\n    data: Object.keys(values)\n  },\n  yAxis: {},\n  series: [\n    {\n      name: 'Streaming',\n      type: 'bar',\n      data: Object.values(values)\n    }\n  ]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "pluginVersion": "9.3.2",
       "targets": [
@@ -140,7 +150,8 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -154,6 +165,6 @@
   "timezone": "",
   "title": "Streaming (Websocket, Live)",
   "uid": "m7BQe9pVk",
-  "version": 11,
+  "version": 1,
   "weekStart": ""
 }
