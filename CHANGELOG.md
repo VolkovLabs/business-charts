@@ -8,7 +8,7 @@
 - Update to Node 18 and npm (#172, #173)
 - Add an alert for theme parsing error (#175)
 - Update Default Function to support Grafana 10 (#178)
-- Tested with Grafana 10 Preview (#178)
+- Tested with Grafana 10 Preview (#179)
 
 ## 4.4.0 (2023-05-25)
 
