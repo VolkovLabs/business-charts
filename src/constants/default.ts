@@ -7,8 +7,8 @@ import { Map } from './maps';
  * ECharts Example
  */
 const getOption = `const series = data.series.map((s) => {
-  const sData = s.fields.find((f) => f.type === 'number').values.buffer;
-  const sTime = s.fields.find((f) => f.type === 'time').values.buffer;
+  const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;
+  const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;
 
   return {
     name: s.refId,

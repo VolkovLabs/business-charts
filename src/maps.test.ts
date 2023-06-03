@@ -13,6 +13,9 @@ describe('Maps', () => {
     jest.clearAllMocks();
   });
 
+  /**
+   * Baidu
+   */
   describe('Baidu', () => {
     it('Should insert script tag', () => {
       const key = '123';
@@ -45,6 +48,9 @@ describe('Maps', () => {
     });
   });
 
+  /**
+   * Gaode
+   */
   describe('Gaode', () => {
     it('Should insert script tag', () => {
       const key = '123';
@@ -77,6 +83,9 @@ describe('Maps', () => {
     });
   });
 
+  /**
+   * Google
+   */
   describe('Google', () => {
     it('Should insert script tag', () => {
       const key = '123';
