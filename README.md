@@ -5,6 +5,7 @@
 ![Grafana](https://img.shields.io/badge/Grafana-9.5.2-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
+![E2E](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/E2E/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
 [![CodeQL](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml)
 
@@ -59,37 +60,10 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | --------------------------- | ------------------------------------------------------------------- |
 | [ECharts Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function. |
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)        | Explains how to get started with ECharts Examples.                  |
+| [Features](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/features/)        | Demonstrates panel features.                                        |
+| [Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/)                | Demonstrates how to work with different maps.                       |
+| [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/)      | Tutorials for Apache ECharts panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release/)    | Stay up to date with the latest features and updates.               |
-
-### Features
-
-| Section                      | Description                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [Annotations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/annotations/)         | Demonstrates how to use annotations.                                                                              |
-| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)  | Demonstrates how to retrieve data from data sources.                                                               |
-| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
-| [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
-| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)       | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
-| [Theme Editor](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/theme/)              | Demonstrates how to use the theme editor.                                                                          |
-| [Transformations](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/transformations/) | Demonstrates how to work with transformations.                                                                     |
-| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)       | Demonstrated how to replace Dashboard and Global variables.                                                        |
-
-### Tutorials
-
-| Section                                         | Description                                              |
-| ----------------------------------------------- | -------------------------------------------------------- |
-| [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph/)               | Explains how to build and visualize directed graphs.     |
-| [PNG and SVG images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images/)          | Explains how to use images in various formats.           |
-| [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat/) | Explains how to use statistical and data mining library. |
-
-### Maps
-
-| Section                 | Description                                    |
-| ----------------------- | ---------------------------------------------- |
-| [GeoJSON](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/geojson/) | Demonstrates how to work with GeoJSON Maps.    |
-| [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu/)     | Demonstrates how to work with Baidu Maps API.  |
-| [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode/)     | Demonstrates how to work with Gaode Maps API.  |
-| [Google](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google/)   | Demonstrates how to work with Google Maps API. |
 
 ## Tutorials
 
