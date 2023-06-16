@@ -196,7 +196,11 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         notifyError
       );
 
+      /**
+       * Chart option
+       */
       let chartOption = {};
+
       /**
        * Default Option Config with merge disabled
        */
