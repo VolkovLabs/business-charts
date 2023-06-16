@@ -1,3 +1,4 @@
+import { EChartOption, EChartsOptionConfig } from 'echarts';
 import { Format } from '../constants';
 
 /**
@@ -18,3 +19,16 @@ export interface EditorOptions {
    */
   format: Format;
 }
+
+/**
+ * Code Execution Result
+ */
+export type CodeResult =
+  | undefined
+  | EChartOption
+  | {
+      resultVersion: 2;
+      option?: EChartOption;
+      optionConfig?: EChartsOptionConfig;
+      unsubscribeFunction?: unknown;
+    };

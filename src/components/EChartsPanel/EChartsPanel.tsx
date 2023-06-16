@@ -13,7 +13,7 @@ import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import { Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
-import { PanelOptions } from '../../types';
+import { PanelOptions, CodeResult } from '../../types';
 
 /**
  * Properties
@@ -117,11 +117,13 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Execute EChart Function
    */
   useEffect(() => {
+    let unsubscribeFn = () => {};
+
     /**
      * Skip if chart is not defined
      */
     if (!chart) {
-      return;
+      return unsubscribeFn;
     }
 
     /**
@@ -135,14 +137,13 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
      * Wait until Data Source return results
      */
     if (data.state && ![LoadingState.Done, LoadingState.Streaming].includes(data.state)) {
-      return;
+      return unsubscribeFn;
     }
 
     /**
-     * Clear out chart and remove error
+     * Remove error
      */
     setError(undefined);
-    chart.clear();
 
     /**
      * Execution Function
@@ -182,27 +183,67 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
           break;
       }
 
+      const codeResult: CodeResult = func(
+        data,
+        theme,
+        chart,
+        echarts,
+        ecStat,
+        replaceVariables,
+        eventBus,
+        locationService,
+        notifySuccess,
+        notifyError
+      );
+
+      let chartOption = {};
+      /**
+       * Default Option Config with merge disabled
+       */
+      let chartOptionConfig: echarts.EChartsOptionConfig = {
+        notMerge: true,
+      };
+
+      if (codeResult) {
+        if ('resultVersion' in codeResult && codeResult.resultVersion === 2) {
+          /**
+           * Handle result v2
+           */
+          chartOption = codeResult.option || {};
+          chartOptionConfig = codeResult.optionConfig || chartOptionConfig;
+
+          /**
+           * Set Unsubscribe Function
+           */
+          const unsubscribeFunction = codeResult.unsubscribeFunction;
+          if (typeof unsubscribeFunction === 'function') {
+            unsubscribeFn = () => {
+              unsubscribeFunction();
+            };
+          }
+        } else {
+          /**
+           * Handle result v1
+           */
+          chartOption = codeResult;
+        }
+      }
+
       /**
        * Set Options
        */
-      chart.setOption({
-        backgroundColor: 'transparent',
-        ...func(
-          data,
-          theme,
-          chart,
-          echarts,
-          ecStat,
-          replaceVariables,
-          eventBus,
-          locationService,
-          notifySuccess,
-          notifyError
-        ),
-      });
+      chart.setOption(
+        {
+          backgroundColor: 'transparent',
+          ...chartOption,
+        },
+        chartOptionConfig
+      );
     } catch (err) {
       setError(err as any);
     }
+
+    return unsubscribeFn;
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chart, options.getOption, data]);
