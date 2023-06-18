@@ -65,7 +65,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "data.series.map((s) => {\n    categories = s.fields.find((f) => f.name === 'Category').values.buffer;\n    values = s.fields.find((f) => f.name === 'Value').values.buffer;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
+        "getOption": "data.series.map((s) => {\n    categories = s.fields.find((f) => f.name === 'Category').values;\n    values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
