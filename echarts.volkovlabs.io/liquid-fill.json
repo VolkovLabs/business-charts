@@ -67,7 +67,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values.buffer;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [values[0] / 100, values[1] / 100, values[2] / 100]\n  }]\n};",
+        "getOption": "let values = [];\ndata.series.map((s) => {\n  values = s.fields.find((f) => f.type === 'number').values;\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    radius: '90%',\n    data: [values[0] / 100, values[1] / 100, values[2] / 100]\n  }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""

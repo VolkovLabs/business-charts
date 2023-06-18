@@ -24,44 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "links": [
-    {
-      "asDropdown": true,
-      "icon": "external link",
-      "includeVars": false,
-      "keepTime": false,
-      "tags": ["echarts"],
-      "targetBlank": false,
-      "title": "Examples",
-      "tooltip": "",
-      "type": "dashboards",
-      "url": ""
-    },
-    {
-      "asDropdown": false,
-      "icon": "info",
-      "includeVars": false,
-      "keepTime": false,
-      "tags": [],
-      "targetBlank": true,
-      "title": "Volkov Labs",
-      "tooltip": "",
-      "type": "link",
-      "url": "https://volkovlabs.io"
-    },
-    {
-      "asDropdown": false,
-      "icon": "bolt",
-      "includeVars": false,
-      "keepTime": false,
-      "tags": [],
-      "targetBlank": true,
-      "title": "YouTube",
-      "tooltip": "",
-      "type": "link",
-      "url": "https://youtube.com/@volkovlabs"
-    }
-  ],
+  "links": [],
   "liveNow": false,
   "panels": [
     {
@@ -90,13 +53,18 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values.buffer;\n  amounts = s.fields.find((f) => f.name === 'Amount').values.buffer;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
+        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values;\n  amounts = s.fields.find((f) => f.name === 'Amount').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "targets": [
         {
@@ -159,7 +127,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Bar",
       "type": "volkovlabs-echarts-panel"
@@ -195,7 +168,12 @@
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Calendar",
       "type": "volkovlabs-echarts-panel"
@@ -231,7 +209,12 @@
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Candlestick",
       "type": "volkovlabs-echarts-panel"
@@ -267,7 +250,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Gauge",
       "type": "volkovlabs-echarts-panel"
@@ -303,7 +291,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Geo/Map",
       "type": "volkovlabs-echarts-panel"
@@ -339,7 +332,12 @@
           "key": ""
         },
         "map": "none",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Graph",
       "type": "volkovlabs-echarts-panel"
@@ -377,7 +375,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Line",
       "type": "volkovlabs-echarts-panel"
@@ -413,7 +416,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Liquid Fill",
       "type": "volkovlabs-echarts-panel"
@@ -449,7 +457,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Pie",
       "type": "volkovlabs-echarts-panel"
@@ -485,7 +498,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Radar",
       "type": "volkovlabs-echarts-panel"
@@ -521,7 +539,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Sankey",
       "type": "volkovlabs-echarts-panel"
@@ -557,7 +580,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
@@ -593,7 +621,12 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Sunburst",
       "type": "volkovlabs-echarts-panel"
@@ -629,13 +662,19 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
       },
       "title": "Treemap",
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -646,7 +685,7 @@
           "text": "Sales",
           "value": "Sales"
         },
-        "hide": 0,
+        "hide": 2,
         "label": "Variable",
         "name": "var",
         "options": [
