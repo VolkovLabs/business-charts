@@ -65,11 +65,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/)      | Tutorials for Apache ECharts panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release/)    | Stay up to date with the latest features and updates.               |
 
-## Tutorials
-
-How to use Data Source in Apache ECharts in 90 seconds. Data parameter explained.
-
-[![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
+## Tutorial
 
 Three plugins that make Grafana complete. Dynamic Text, Data Manipulation, and Apache ECharts are all you need to create functional real-world web applications.
 
