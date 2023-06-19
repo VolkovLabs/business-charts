@@ -6,6 +6,7 @@
 
 - Update Documentation (#182)
 - Update Examples to Grafana 10 values (#190)
+- Add Result v2 with unsubscribe function (#188)
 
 ## 4.5.0 (2023-06-03)
 
