@@ -5,8 +5,9 @@
 ### Features / Enhancements
 
 - Update Documentation (#182)
-- Update Examples to Grafana 10 values (#190)
+- Update Examples to Grafana 10 (#190)
 - Add Result v2 with unsubscribe function (#188)
+- Update to Grafana 10.0.0 (#189)
 
 ## 4.5.0 (2023-06-03)
 
