@@ -21,14 +21,35 @@ export interface EditorOptions {
 }
 
 /**
+ * Code Result V2
+ */
+export type CodeResultV2 = {
+  /**
+   * Version
+   */
+  version: 2;
+
+  /**
+   * Option
+   *
+   * @type {EChartOption}
+   */
+  option?: EChartOption;
+
+  /**
+   * Option Config
+   *
+   * @type {EChartsOptionConfig}
+   */
+  config?: EChartsOptionConfig;
+
+  /**
+   * Unsubscribe Function
+   */
+  unsubscribe?: unknown;
+};
+
+/**
  * Code Execution Result
  */
-export type CodeResult =
-  | undefined
-  | EChartOption
-  | {
-      resultVersion: 2;
-      option?: EChartOption;
-      optionConfig?: EChartsOptionConfig;
-      unsubscribeFunction?: unknown;
-    };
+export type CodeResult = undefined | EChartOption | CodeResultV2;

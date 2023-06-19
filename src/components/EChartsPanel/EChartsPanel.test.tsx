@@ -387,7 +387,7 @@ describe('Panel', () => {
     it('Should apply result for v2 result', () => {
       const getOption = `
         return {
-          resultVersion: 2,
+          version: 2,
           option: {
             series: []
           }
@@ -414,7 +414,7 @@ describe('Panel', () => {
     it('Should apply empty result for v2 result', () => {
       const getOption = `
         return {
-          resultVersion: 2,
+          version: 2,
           option: null,
         }
       `;
@@ -441,11 +441,11 @@ describe('Panel', () => {
       const getOption = `
         const subscription = eventBus.subscribe();
         return {
-          resultVersion: 2,
+          version: 2,
           option: {
             series: []
           },
-          unsubscribeFunction: () => {
+          unsubscribe: () => {
             subscription.unsubscribe();
           }
         }

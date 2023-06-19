@@ -139,47 +139,6 @@
     },
     {
       "datasource": {
-        "type": "marcusolsson-static-datasource",
-        "uid": "4ytGZmF4k"
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "id": 6,
-      "options": {
-        "baidu": {
-          "callback": "bmapReady",
-          "key": ""
-        },
-        "editor": {
-          "format": "auto",
-          "height": 600
-        },
-        "gaode": {
-          "key": "",
-          "plugin": "AMap.Scale,AMap.ToolBar"
-        },
-        "getOption": "const subscription = eventBus.subscribe({ type: 'data-hover' }, () => {\n  console.log('hello')\n})\n\nreturn {\n  version: 2,\n  unsubscribe: () => {\n    subscription.unsubscribe();\n    console.log('Unsubscribe');\n  }\n}\n",
-        "google": {
-          "callback": "gmapReady",
-          "key": ""
-        },
-        "map": "none",
-        "renderer": "canvas",
-        "themeEditor": {
-          "config": "{}",
-          "height": 400,
-          "name": "default"
-        }
-      },
-      "title": "Panel Title",
-      "type": "volkovlabs-echarts-panel"
-    },
-    {
-      "datasource": {
         "type": "golioth-websocket-datasource",
         "uid": "LWj8ert4k"
       },
@@ -187,7 +146,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 8
       },
       "id": 2,
       "options": {
@@ -261,6 +220,6 @@
   "timezone": "",
   "title": "Streaming (Websocket, Live)",
   "uid": "m7BQe9pVk",
-  "version": 6,
+  "version": 7,
   "weekStart": ""
 }

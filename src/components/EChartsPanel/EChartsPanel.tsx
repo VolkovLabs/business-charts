@@ -117,6 +117,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Execute EChart Function
    */
   useEffect(() => {
+    /**
+     * Unsubscribe Function
+     */
     let unsubscribeFn = () => {};
 
     /**
@@ -183,6 +186,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
           break;
       }
 
+      /**
+       * Code Result
+       */
       const codeResult: CodeResult = func(
         data,
         theme,
@@ -208,29 +214,30 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         notMerge: true,
       };
 
-      if (codeResult) {
-        if ('resultVersion' in codeResult && codeResult.resultVersion === 2) {
-          /**
-           * Handle result v2
-           */
-          chartOption = codeResult.option || {};
-          chartOptionConfig = codeResult.optionConfig || chartOptionConfig;
+      /**
+       * Check version
+       */
+      if (codeResult && 'version' in codeResult && codeResult.version === 2) {
+        /**
+         * Handle result v2
+         */
+        chartOption = codeResult.option || {};
+        chartOptionConfig = codeResult.config || chartOptionConfig;
 
-          /**
-           * Set Unsubscribe Function
-           */
-          const unsubscribeFunction = codeResult.unsubscribeFunction;
-          if (typeof unsubscribeFunction === 'function') {
-            unsubscribeFn = () => {
-              unsubscribeFunction();
-            };
-          }
-        } else {
-          /**
-           * Handle result v1
-           */
-          chartOption = codeResult;
+        /**
+         * Set Unsubscribe Function
+         */
+        const unsubscribeFunction = codeResult.unsubscribe;
+        if (typeof unsubscribeFunction === 'function') {
+          unsubscribeFn = () => {
+            unsubscribeFunction();
+          };
         }
+      } else {
+        /**
+         * Handle result v1
+         */
+        chartOption = codeResult || {};
       }
 
       /**
