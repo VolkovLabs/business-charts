@@ -358,4 +358,103 @@ describe('Panel', () => {
       expect(screen.getByText(error.stack)).toBeInTheDocument();
     });
   });
+
+  describe('Code Execution', () => {
+    it('Should apply result for v1 result', () => {
+      const getOption = `
+        return {
+          series: []
+        }
+      `;
+      const setOptionMock = jest.fn();
+      jest.mocked(echarts.init).mockImplementation(
+        () =>
+          ({
+            setOption: setOptionMock,
+            on: jest.fn(),
+          } as any)
+      );
+      render(getComponent({ options: { getOption } }));
+
+      expect(setOptionMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          series: [],
+        }),
+        { notMerge: true }
+      );
+    });
+
+    it('Should apply result for v2 result', () => {
+      const getOption = `
+        return {
+          version: 2,
+          option: {
+            series: []
+          }
+        }
+      `;
+      const setOptionMock = jest.fn();
+      jest.mocked(echarts.init).mockImplementation(
+        () =>
+          ({
+            setOption: setOptionMock,
+            on: jest.fn(),
+          } as any)
+      );
+      render(getComponent({ options: { getOption } }));
+
+      expect(setOptionMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          series: [],
+        }),
+        { notMerge: true }
+      );
+    });
+
+    it('Should apply empty result for v2 result', () => {
+      const getOption = `
+        return {
+          version: 2,
+          option: null,
+        }
+      `;
+      const setOptionMock = jest.fn();
+      jest.mocked(echarts.init).mockImplementation(
+        () =>
+          ({
+            setOption: setOptionMock,
+            on: jest.fn(),
+          } as any)
+      );
+      render(getComponent({ options: { getOption } }));
+
+      expect(setOptionMock).toHaveBeenCalledWith(expect.objectContaining({}), { notMerge: true });
+    });
+
+    it('Should call unsubscribeFunction for v2 result', () => {
+      const unsubscribe = jest.fn();
+      const eventBus = {
+        subscribe: jest.fn(() => ({
+          unsubscribe,
+        })),
+      };
+      const getOption = `
+        const subscription = eventBus.subscribe();
+        return {
+          version: 2,
+          option: {
+            series: []
+          },
+          unsubscribe: () => {
+            subscription.unsubscribe();
+          }
+        }
+      `;
+      const { rerender } = render(getComponent({ options: { getOption }, eventBus }));
+
+      rerender(getComponent({ options: { getOption }, eventBus }));
+
+      expect(unsubscribe).toHaveBeenCalled();
+    });
+  });
 });

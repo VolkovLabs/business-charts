@@ -136,7 +136,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         id: Editor.CODE,
         path: 'getOption',
         name: 'Function',
-        description: 'Should return parameters and data for setOptions().',
+        description: 'Should return parameters and data for setOptions() or extended result object.',
         defaultValue: DefaultOptions.getOption,
         editor: EChartsEditor,
         category: ['Code'],

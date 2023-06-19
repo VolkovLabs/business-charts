@@ -84,6 +84,61 @@
     },
     {
       "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "let sData = []\nconst series = data.series.map((s) => {\n  sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n});\n\nreturn {\n  version: 2,\n  config: { notMerge: true },\n  option: {\n    tooltip: {\n      formatter: '{a} <br/>{b} : {c}%'\n    },\n    series: [\n      {\n        name: 'Pressure',\n        type: 'gauge',\n        detail: {\n          formatter: '{value}'\n        },\n        data: [\n          {\n            value: Math.round(sData[sData.length - 1] * 100) / 100,\n            name: 'SCORE'\n          }\n        ]\n      }\n    ]\n  },\n  unsubscribe: () => {\n    console.log('unsubscribeFunction')\n  }\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
+      },
+      "targets": [
+        {
+          "channel": "plugin/testdata/random-2s-stream",
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "filter": {
+            "fields": ["Value"]
+          },
+          "queryType": "measurements",
+          "refId": "A"
+        }
+      ],
+      "title": "Real-Time updates",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
         "type": "golioth-websocket-datasource",
         "uid": "LWj8ert4k"
       },
@@ -165,6 +220,6 @@
   "timezone": "",
   "title": "Streaming (Websocket, Live)",
   "uid": "m7BQe9pVk",
-  "version": 1,
+  "version": 7,
   "weekStart": ""
 }
