@@ -21,6 +21,7 @@ Apache ECharts visualization panel offers an easy way of adding intuitive, inter
 
 ### Requirements
 
+- **Grafana 10** is supported by using `values` instead of `values.buffer` for the data source.
 - **Grafana 8.5+, Grafana 9.0+** is required.
 
 ## Getting Started
