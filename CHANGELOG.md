@@ -9,6 +9,7 @@
 - Add Result v2 with unsubscribe function (#188)
 - Update Streaming to redraw charts (#188)
 - Update to Grafana 10.0.0 (#191)
+- Update README and panel options (#192)
 
 ## 4.5.0 (2023-06-03)
 
