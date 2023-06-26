@@ -1,6 +1,10 @@
 # Change Log
 
-## 4.6.0 (IN PROGRESS)
+## 5.0.0 (IN PROGRESS)
+
+### Breaking changes
+
+- Requires Grafana 9 and Grafana 10
 
 ### Features / Enhancements
 
@@ -10,6 +14,7 @@
 - Update Streaming to redraw charts (#188)
 - Update to Grafana 10.0.0 (#191)
 - Update README and panel options (#192)
+- Remove Grafana 8.5 support (#193)
 
 ## 4.5.0 (2023-06-03)
 
