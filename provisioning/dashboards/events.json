@@ -17,7 +17,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -112,6 +112,95 @@
     },
     {
       "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
@@ -135,7 +224,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const subscription = eventBus.subscribe({ type: 'data-hover' }, () => {\n  console.log('React to Data Hover')\n})\n\nreturn {\n  version: 2,\n  unsubscribe: () => {\n    subscription.unsubscribe();\n    console.log('Unsubscribed');\n  }\n}\n",
+        "getOption": "const subscription = eventBus.subscribe({ type: 'data-hover' }, (data) => {\n  console.log('React to Data Hover', data);\n})\n\nreturn {\n  version: 2,\n  unsubscribe: () => {\n    subscription.unsubscribe();\n    console.log('Unsubscribed');\n  }\n}\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -167,6 +256,6 @@
   "timezone": "",
   "title": "Events",
   "uid": "fe7ebc17-cddf-4a1d-8e29-a42cf3eaded1",
-  "version": 7,
+  "version": 2,
   "weekStart": ""
 }
