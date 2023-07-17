@@ -15,7 +15,7 @@
 - Update to Grafana 10.0.0 (#191)
 - Update README and panel options (#192)
 - Remove Grafana 8.5 support (#193)
-- Update to Grafana 10.0.2 dependencies ()
+- Update to Grafana 10.0.2 dependencies (#195)
 
 ## 4.5.0 (2023-06-03)
 
