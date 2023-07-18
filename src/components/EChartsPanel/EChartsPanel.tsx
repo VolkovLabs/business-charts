@@ -13,7 +13,7 @@ import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import { Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
-import { PanelOptions, CodeResult } from '../../types';
+import { CodeResult, PanelOptions } from '../../types';
 
 /**
  * Properties
