@@ -1,3 +1,20 @@
 {
-  "extends": "./.config/.eslintrc"
+  "extends": "./.config/.eslintrc",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": ["deprecation"],
+  "rules": {
+    "deprecation/deprecation": ["error"],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
+  }
 }
