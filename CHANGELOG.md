@@ -17,6 +17,8 @@
 - Remove Grafana 8.5 support (#193)
 - Update to Grafana 10.0.2 dependencies (#195)
 - Update ESLint configuration (#196)
+- Add Wordcloud Extension (#198)
+- Update to Apache ECharts 5.4.3 (#199)
 
 ## 4.5.0 (2023-06-03)
 
