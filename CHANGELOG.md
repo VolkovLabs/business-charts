@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.0.0 (IN PROGRESS)
+## 5.0.0 (2023-07-19)
 
 ### Breaking changes
 
