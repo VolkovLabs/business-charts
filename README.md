@@ -46,6 +46,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Supports SVG and Canvas renderers.
 - Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
+- Includes [WordCloud Chart](https://github.com/ecomfe/echarts-wordcloud), which is usually used to represent data in percentage.
 - Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which provides 3D plots, globe visualization, and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Parameters and variables.
