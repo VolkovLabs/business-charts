@@ -41,7 +41,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
   - Updating chart configurations in JSON format.
   - Custom theme configuration.
 - Supports variables and location service to make Charts interactive.
-- Based on the ECharts 5.4.2.
+- Based on the ECharts 5.4.3.
 - Supports Light and Dark themes synchronized with Grafana Theme.
 - Supports SVG and Canvas renderers.
 - Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
