@@ -40,6 +40,14 @@ jest.mock('echarts-liquidfill', () => ({
 }));
 
 /**
+ * Mock echarts-wordcloud
+ */
+jest.mock('echarts-wordcloud', () => ({
+  extendSeriesModel: jest.fn(),
+}));
+
+
+/**
  * Mock echarts-gl
  */
 jest.mock('echarts-gl', () => ({

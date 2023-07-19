@@ -1,4 +1,5 @@
 import 'echarts-liquidfill';
+import 'echarts-wordcloud';
 import 'echarts-gl';
 import 'echarts/extension/bmap/bmap';
 import 'echarts-extension-amap';
