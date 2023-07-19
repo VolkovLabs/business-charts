@@ -46,7 +46,6 @@ jest.mock('echarts-wordcloud', () => ({
   extendSeriesModel: jest.fn(),
 }));
 
-
 /**
  * Mock echarts-gl
  */

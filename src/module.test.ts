@@ -11,6 +11,13 @@ jest.mock('./maps', () => ({
   },
 }));
 
+/**
+ * Mock echarts-wordcloud
+ */
+jest.mock('echarts-wordcloud', () => ({
+  extendSeriesModel: jest.fn(),
+}));
+
 /*
  Plugin
  */
