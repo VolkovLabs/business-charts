@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Update to Grafana 10.0.3 (#206)
+
 ## 5.0.0 (2023-07-19)
 
 ### Breaking changes
