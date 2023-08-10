@@ -121,11 +121,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     /**
      * Unsubscribe Function
      */
-    let unsubscribeFn = () => {
-      if (chart) {
-        chart.dispose();
-      }
-    };
+    let unsubscribeFn = () => {};
 
     /**
      * Skip if chart is not defined
