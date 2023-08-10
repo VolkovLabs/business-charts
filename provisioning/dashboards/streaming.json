@@ -203,65 +203,6 @@
       "title": "WebSocket API",
       "transformations": [],
       "type": "volkovlabs-echarts-panel"
-    },
-    {
-      "datasource": {
-        "type": "marcusolsson-json-datasource",
-        "uid": "X6tfeT2nz"
-      },
-      "gridPos": {
-        "h": 14,
-        "w": 24,
-        "x": 0,
-        "y": 17
-      },
-      "id": 6,
-      "options": {
-        "baidu": {
-          "callback": "bmapReady",
-          "key": ""
-        },
-        "editor": {
-          "format": "auto",
-          "height": 600
-        },
-        "gaode": {
-          "key": "",
-          "plugin": "AMap.Scale,AMap.ToolBar"
-        },
-        "getOption": "let dataLabels = ['Test']\nlet dataSeriesArray = [];\n\ndataSeriesArray.push(\n  {\n    data: [1, 0, 0, 0, 0],\n    type: 'bar',\n    stack: 'bar',\n  }\n);\n\nreturn {\n  yAxis: {\n    type: 'category',\n    data: dataLabels\n  },\n  xAxis: {\n    type: 'value',\n    minInterval: 1\n  },\n  series: dataSeriesArray,\n}",
-        "google": {
-          "callback": "gmapReady",
-          "key": ""
-        },
-        "map": "none",
-        "renderer": "canvas",
-        "themeEditor": {
-          "config": "{}",
-          "height": 400,
-          "name": "default"
-        }
-      },
-      "targets": [
-        {
-          "cacheDurationSeconds": 300,
-          "datasource": {
-            "type": "marcusolsson-json-datasource",
-            "uid": "X6tfeT2nz"
-          },
-          "fields": [
-            {
-              "jsonPath": "$[*]"
-            }
-          ],
-          "method": "GET",
-          "queryParams": "",
-          "refId": "A",
-          "urlPath": ""
-        }
-      ],
-      "title": "Large File",
-      "type": "volkovlabs-echarts-panel"
     }
   ],
   "refresh": "",
