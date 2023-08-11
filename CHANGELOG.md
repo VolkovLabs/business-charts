@@ -1,10 +1,14 @@
 # Change Log
 
-## 5.1.0 (IN PROGRESS)
+## 5.1.0 (2023-08-11)
 
 ### Features / Enhancements
 
 - Update to Grafana 10.0.3 (#206)
+
+### Bugfixes
+
+- Fix Memory Leak on resubscribing to restore event (#208)
 
 ## 5.0.0 (2023-07-19)
 
