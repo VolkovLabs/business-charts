@@ -253,7 +253,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
         },
         chartOptionConfig
       );
-      console.log(chart)
     } catch (err) {
       setError(err as any);
     }
