@@ -52,7 +52,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let dataLabels = ['Test']\nlet dataSeriesArray = [];\n\ndataSeriesArray.push(\n  {\n    data: [1, 0, 0, 0, 0],\n    type: 'bar',\n    stack: 'bar',\n  }\n);\n\nreturn {\n  version: 2,\n  config: { notMerge: true },\n  option: {\n    yAxis: {\n      type: 'category',\n      data: dataLabels\n    },\n    xAxis: {\n      type: 'value',\n      minInterval: 1\n    },\n    series: dataSeriesArray,\n\n  },\n  unsubscribe: () => {\n    if (echartsInstance) {\n      echartsInstance.dispose();\n    }\n  }\n};",
+        "getOption": "let dataLabels = ['Test']\nlet dataSeriesArray = [];\n\ndataSeriesArray.push(\n  {\n    data: [1, 0, 0, 0, 0],\n    type: 'bar',\n    stack: 'bar',\n  }\n);\n\nreturn {\n  version: 2,\n  config: { notMerge: true },\n  option: {\n    yAxis: {\n      type: 'category',\n      data: dataLabels\n    },\n    xAxis: {\n      type: 'value',\n      minInterval: 1\n    },\n    series: dataSeriesArray,  }};",
         "google": {
           "callback": "gmapReady",
           "key": ""
