@@ -409,6 +409,7 @@ describe('Panel', () => {
           ({
             setOption: setOptionMock,
             on: jest.fn(),
+            off: jest.fn(),
           } as any)
       );
       render(getComponent({ options: { getOption } }));
@@ -434,6 +435,7 @@ describe('Panel', () => {
           ({
             setOption: setOptionMock,
             on: jest.fn(),
+            off: jest.fn(),
           } as any)
       );
       render(getComponent({ options: { getOption } }));
