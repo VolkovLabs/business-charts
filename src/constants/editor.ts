@@ -25,6 +25,22 @@ export enum Format {
 }
 
 /**
+ * Editor Mode
+ */
+export enum EditorMode {
+  CODE = 'code',
+  VISUAL = 'visual',
+}
+
+/**
+ * Editor Mode Options
+ */
+export const EditorModeOptions = [
+  { value: EditorMode.CODE, label: 'Code' },
+  { value: EditorMode.VISUAL, label: 'Visual' },
+];
+
+/**
  * Format Options
  */
 export const FormatOptions = [

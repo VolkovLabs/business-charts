@@ -1,8 +1,10 @@
 import { PanelPlugin } from '@grafana/data';
-import { EChartsEditor, EChartsPanel } from './components';
+import { EChartsEditor, EChartsPanel, VisualEditor } from './components';
 import {
   DefaultOptions,
   Editor,
+  EditorMode,
+  EditorModeOptions,
   FormatOptions,
   Map,
   MapOptions,
@@ -18,6 +20,8 @@ import { PanelOptions } from './types';
 export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
   .setNoPadding()
   .setPanelOptions((builder) => {
+    const isCodeEditor = (config: PanelOptions) => config.editorMode !== EditorMode.VISUAL;
+
     builder
       .addRadio({
         path: 'renderer',
@@ -112,6 +116,32 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
     /**
      * Editor
      */
+    builder.addRadio({
+      path: 'editorMode',
+      name: 'Editor Mode',
+      defaultValue: EditorMode.CODE,
+      settings: {
+        options: EditorModeOptions,
+      },
+      category: ['Editor'],
+    });
+
+    /**
+     * Visual Editor
+     */
+    builder.addCustomEditor({
+      id: 'visualEditor',
+      path: 'visualEditor',
+      name: 'Visual Editor',
+      defaultValue: DefaultOptions.visualEditor,
+      editor: VisualEditor,
+      category: ['Visual Editor'],
+      showIf: (config) => config.editorMode === EditorMode.VISUAL,
+    });
+
+    /**
+     * Code Editor
+     */
     builder
       .addSliderInput({
         path: 'editor.height',
@@ -122,6 +152,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
           max: 2000,
         },
         category: ['Code'],
+        showIf: isCodeEditor,
       })
       .addRadio({
         path: 'editor.format',
@@ -131,6 +162,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         },
         defaultValue: DefaultOptions.editor.format,
         category: ['Code'],
+        showIf: isCodeEditor,
       })
       .addCustomEditor({
         id: Editor.CODE,
@@ -140,6 +172,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         defaultValue: DefaultOptions.getOption,
         editor: EChartsEditor,
         category: ['Code'],
+        showIf: isCodeEditor,
       });
 
     /**

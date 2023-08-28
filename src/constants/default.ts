@@ -105,4 +105,5 @@ export const DefaultOptions: PanelOptions = {
     key: '',
     callback: 'gmapReady',
   },
+  visualEditor: {},
 };
