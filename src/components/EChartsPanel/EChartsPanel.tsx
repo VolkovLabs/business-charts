@@ -152,13 +152,6 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     setError(undefined);
 
     /**
-     * Clear chart when data is loaded
-     */
-    if (data.state === LoadingState.Done) {
-      chart.clear();
-    }
-
-    /**
      * Execution Function
      */
     try {
