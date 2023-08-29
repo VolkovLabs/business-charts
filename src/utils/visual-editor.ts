@@ -29,7 +29,7 @@ export const getDatasetItemUniqueName = (item: DatasetItem) => {
  * @param frames
  * @param items
  */
-export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]) => {
+export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]): [string[], ...unknown[]] => {
   const itemValuesMap = items.reduce((acc: Map<string, any[]>, item) => {
     const frame = frames.find((frame) =>
       item.source ? frame.refId === item.source : frame.fields.some((field) => field.name === item.name)
