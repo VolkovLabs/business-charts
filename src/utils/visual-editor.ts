@@ -1,5 +1,5 @@
 import { DataFrame } from '@grafana/data';
-import { DatasetItem } from '../types';
+import { DatasetItem, SeriesItem, SeriesType } from '../types';
 import { getFieldValues } from './data-frame';
 
 /**
@@ -53,4 +53,11 @@ export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]): [st
   }
 
   return [items.map((item) => getDatasetItemUniqueName(item)), ...rows];
+};
+
+/**
+ * Is Series Type
+ */
+export const isSeriesType = (series: SeriesItem, type: SeriesType): series is SeriesItem & { type: typeof type } => {
+  return series.type === type;
 };

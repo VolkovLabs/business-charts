@@ -10,6 +10,13 @@ export const TestIds = {
   editor: {
     root: 'data-testid editor',
   },
+  seriesEditor: {
+    buttonAddNew: 'data-testid series-editor button-add-new',
+    buttonRemove: 'data-testid series-editor button-remove',
+    item: (name: string) => `data-testid series-editor item-${name}`,
+    newItem: 'data-testid series-editor new-level',
+    newItemName: 'series-editor new-item-name',
+  },
   datasetEditor: {
     buttonAddNew: 'data-testid dataset-editor button-add-new',
     buttonRemove: 'data-testid dataset-editor button-remove',

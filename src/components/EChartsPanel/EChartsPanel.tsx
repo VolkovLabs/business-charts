@@ -164,8 +164,8 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
                 width: 1,
               },
               encode: {
-                x: 'Time',
-                y: 'Value',
+                x: ['Time'],
+                y: ['Value'],
               },
             },
           ],

@@ -107,5 +107,6 @@ export const DefaultOptions: PanelOptions = {
   },
   visualEditor: {
     dataset: [],
+    series: [],
   },
 };
