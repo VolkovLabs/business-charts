@@ -129,15 +129,26 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
     /**
      * Visual Editor
      */
-    builder.addCustomEditor({
-      id: 'visualEditor',
-      path: 'visualEditor',
-      name: 'Visual Editor',
-      defaultValue: DefaultOptions.visualEditor,
-      editor: VisualEditor,
-      category: ['Visual Editor'],
-      showIf: (config) => config.editorMode === EditorMode.VISUAL,
-    });
+    builder
+      .addCustomEditor({
+        id: 'visualEditor',
+        path: 'visualEditor',
+        name: 'Visual Editor',
+        defaultValue: DefaultOptions.visualEditor,
+        editor: VisualEditor,
+        category: ['Visual Editor'],
+        showIf: (config) => config.editorMode === EditorMode.VISUAL,
+      })
+      .addCustomEditor({
+        id: Editor.VISUALCODE,
+        path: 'visualEditor.code',
+        name: 'Function',
+        description: 'Should return parameters and data for setOption() or an extended result object.',
+        defaultValue: DefaultOptions.visualEditor.code,
+        editor: EChartsEditor,
+        category: ['Visual Editor'],
+        showIf: (config) => config.editorMode === EditorMode.VISUAL,
+      });
 
     /**
      * Code Editor

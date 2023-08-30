@@ -84,6 +84,20 @@ return {
   series,
 };`;
 
+const visualEditorCode = `console.log(dataset, series);
+return {
+  dataset,
+  series,
+  xAxis: {
+    type: 'time',
+  },
+  yAxis: {
+    type: 'value',
+    min: 'dataMin',
+  },
+}
+`;
+
 /**
  * Default Options
  */
@@ -108,5 +122,6 @@ export const DefaultOptions: PanelOptions = {
   visualEditor: {
     dataset: [],
     series: [],
+    code: visualEditorCode,
   },
 };

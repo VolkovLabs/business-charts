@@ -1,5 +1,5 @@
 import { DataFrame } from '@grafana/data';
-import { DatasetItem, SeriesItem, SeriesType } from '../types';
+import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../types';
 import { getFieldValues } from './data-frame';
 
 /**
@@ -56,8 +56,35 @@ export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]): [st
 };
 
 /**
- * Is Series Type
+ * Get Series With New Type
+ * @param item
+ * @param newType
  */
-export const isSeriesType = (series: SeriesItem, type: SeriesType): series is SeriesItem & { type: typeof type } => {
-  return series.type === type;
+export const getSeriesWithNewType = (
+  item: SeriesItem,
+  newType: SeriesType
+): SeriesByType<SeriesItem, typeof newType> => {
+  const commonValues = {
+    id: item.id,
+    name: item.name,
+  };
+
+  switch (newType) {
+    case SeriesType.LINE: {
+      return {
+        ...commonValues,
+        encode: {
+          x: [],
+          y: [],
+        },
+        type: newType,
+      };
+    }
+    default: {
+      return {
+        ...commonValues,
+        type: newType,
+      };
+    }
+  }
 };

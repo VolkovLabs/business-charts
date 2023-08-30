@@ -48,14 +48,104 @@ export enum SeriesType {
 }
 
 /**
+ * Base Series Options
+ */
+export interface BaseSeriesOptions {
+  /**
+   * ID
+   *
+   * @type {string}
+   */
+  id: string;
+
+  /**
+   * Name
+   *
+   * @type {name}
+   */
+  name: string;
+}
+
+/**
+ * Line Series Options
+ */
+export interface LineSeriesOptions extends EChartOption.SeriesLine {
+  /**
+   * Encode
+   */
+  encode: {
+    /**
+     * Y
+     *
+     * @type {string[]}
+     */
+    y: string[];
+
+    /**
+     * X
+     *
+     * @type {string[]}
+     */
+    x: string[];
+  };
+}
+
+/**
  * Series Item
  */
-export type SeriesItem = { id: string } & EChartOption.Series;
+export type SeriesItem = BaseSeriesOptions &
+  (
+    | ({ type: SeriesType.LINE } & LineSeriesOptions)
+    | { type: SeriesType.BAR }
+    | { type: SeriesType.LINES }
+    | { type: SeriesType.BOXPLOT }
+    | { type: SeriesType.MAP }
+    | { type: SeriesType.CUSTOM }
+    | { type: SeriesType.HEATMAP }
+    | { type: SeriesType.GRAPH }
+    | { type: SeriesType.GAUGE }
+    | { type: SeriesType.PIE }
+    | { type: SeriesType.SCATTER }
+    | { type: SeriesType.EFFECTSCATTER }
+    | { type: SeriesType.RADAR }
+    | { type: SeriesType.TREE }
+    | { type: SeriesType.TREEMAP }
+    | { type: SeriesType.SUNBURST }
+    | { type: SeriesType.CANDLESTICK }
+    | { type: SeriesType.PARALLEL }
+    | { type: SeriesType.SANKEY }
+    | { type: SeriesType.FUNNEL }
+    | { type: SeriesType.PICTORIALBAR }
+    | { type: SeriesType.THEMERIVER }
+  );
 
 /**
  * Visual Editor Options
  */
 export interface VisualEditorOptions {
+  /**
+   * Dataset
+   *
+   * @type {DatasetItem[]}
+   */
   dataset: DatasetItem[];
+
+  /**
+   * Series
+   *
+   * @type {SeriesItem[]}
+   */
   series: SeriesItem[];
+
+  /**
+   * Code
+   *
+   * @type {string}
+   */
+  code: string;
 }
+
+/**
+ * Series By Type
+ */
+export type SeriesByType<Series, Type> = Extract<Series, { type: Type }>;

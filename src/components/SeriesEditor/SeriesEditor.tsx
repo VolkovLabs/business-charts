@@ -112,7 +112,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
    */
   const onAddNewGroup = useCallback(() => {
     setNewItem('');
-    onChangeItems(items.concat([{ id: newItem }]));
+    onChangeItems(items.concat({ id: newItem, name: '' } as any));
     onToggleGroup(newItem);
   }, [items, newItem, onChangeItems, onToggleGroup]);
 

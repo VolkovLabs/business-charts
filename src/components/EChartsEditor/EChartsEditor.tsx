@@ -77,6 +77,17 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     }
 
     /**
+     * Visual Editor Config
+     */
+    if (item.id === Editor.VISUALCODE) {
+      return {
+        language: CodeLanguage.JAVASCRIPT,
+        height: 300,
+        getSuggestions,
+      };
+    }
+
+    /**
      * Get Option
      */
     return {

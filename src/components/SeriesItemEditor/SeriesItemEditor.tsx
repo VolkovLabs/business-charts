@@ -2,7 +2,7 @@ import React from 'react';
 import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
 import { SeriesTypeOptions } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
-import { isSeriesType } from '../../utils';
+import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
 
 /**
  * Properties
@@ -26,7 +26,7 @@ interface Props {
   dataset: DatasetItem[];
 }
 
-export const SeriesItemEditor: React.FC<Props> = ({ value, onChange }) => (
+export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) => (
   <>
     <InlineFieldRow>
       <InlineField label="Id">
@@ -60,30 +60,62 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange }) => (
           value={value.type}
           options={SeriesTypeOptions}
           onChange={(event) => {
-            onChange({
-              ...value,
-              type: event.value,
-            });
+            if (event.value) {
+              onChange(getSeriesWithNewType(value, event.value));
+            }
           }}
         />
       </InlineField>
     </InlineFieldRow>
     {value.type === SeriesType.LINE && (
-      <InlineFieldRow>
-        <InlineField label="Encode Y">
-          <Select
-            value={value.type}
-            options={SeriesTypeOptions}
-            isMulti={true}
-            isClearable={true}
-            onChange={(event) => {
-              onChange({
-                ...value,
-              });
-            }}
-          />
-        </InlineField>
-      </InlineFieldRow>
+      <>
+        <InlineFieldRow>
+          <InlineField label="Encode Y">
+            <Select
+              value={value.encode?.y}
+              options={dataset.map((item) => ({
+                value: getDatasetItemUniqueName(item),
+                label: getDatasetItemUniqueName(item),
+              }))}
+              isMulti={true}
+              isClearable={true}
+              onChange={(event) => {
+                const values = Array.isArray(event) ? event : [event];
+                onChange({
+                  ...value,
+                  encode: {
+                    ...(value.encode || {}),
+                    y: values.map((item) => item.value),
+                  },
+                });
+              }}
+            />
+          </InlineField>
+        </InlineFieldRow>
+        <InlineFieldRow>
+          <InlineField label="Encode X">
+            <Select
+              value={value.encode?.x}
+              options={dataset.map((item) => ({
+                value: getDatasetItemUniqueName(item),
+                label: getDatasetItemUniqueName(item),
+              }))}
+              isMulti={true}
+              isClearable={true}
+              onChange={(event) => {
+                const values = Array.isArray(event) ? event : [event];
+                onChange({
+                  ...value,
+                  encode: {
+                    ...(value.encode || {}),
+                    x: values.map((item) => item.value),
+                  },
+                });
+              }}
+            />
+          </InlineField>
+        </InlineFieldRow>
+      </>
     )}
   </>
 );

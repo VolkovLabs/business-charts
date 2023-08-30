@@ -6,6 +6,7 @@ import { CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana
 export const enum Editor {
   CODE = 'getOption',
   THEME = 'themeEditor',
+  VISUALCODE = 'visualCode',
 }
 
 /**
