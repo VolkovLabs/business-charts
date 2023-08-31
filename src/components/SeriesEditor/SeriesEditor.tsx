@@ -9,8 +9,8 @@ import {
 } from 'react-beautiful-dnd';
 import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
 import { TestIds } from '../../constants';
-import { DatasetItem, SeriesItem } from '../../types';
-import { reorder } from '../../utils';
+import { DatasetItem, SeriesItem, SeriesType } from '../../types';
+import { getSeriesUniqueId, getSeriesWithNewType, reorder } from '../../utils';
 import { Collapse } from '../Collapse';
 import { SeriesItemEditor } from '../SeriesItemEditor';
 import { Styles } from './SeriesEditor.styles';
@@ -69,8 +69,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   const [collapseState, setCollapseState] = useState<Record<string, boolean>>({});
 
   /**
-   /**
-   * Change groups
+   * Change Items
    */
   const onChangeItems = useCallback(
     (items: SeriesItem[]) => {
@@ -98,30 +97,31 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   );
 
   /**
-   * Toggle collapse state for group
+   * Toggle collapse state for item
    */
-  const onToggleGroup = useCallback((name: string) => {
+  const onToggleItem = useCallback((item: SeriesItem) => {
     setCollapseState((prev) => ({
       ...prev,
-      [name]: !prev[name],
+      [item.uid]: !prev[item.uid],
     }));
   }, []);
 
   /**
-   * Add new group
+   * Add new item
    */
-  const onAddNewGroup = useCallback(() => {
+  const onAddNewItem = useCallback(() => {
     setNewItem('');
-    onChangeItems(items.concat({ id: newItem, name: '' } as any));
-    onToggleGroup(newItem);
-  }, [items, newItem, onChangeItems, onToggleGroup]);
+    const addedItem = getSeriesWithNewType({ id: newItem, name: '', uid: getSeriesUniqueId() } as any, SeriesType.LINE);
+    onChangeItems(items.concat(addedItem));
+    onToggleItem(addedItem);
+  }, [items, newItem, onChangeItems, onToggleItem]);
 
   /**
    * Change Item
    */
   const onChangeItem = useCallback(
     (updatedItem: SeriesItem) => {
-      onChangeItems(items.map((item) => (item.name === updatedItem.name ? updatedItem : item)));
+      onChangeItems(items.map((item) => (item.uid === updatedItem.uid ? updatedItem : item)));
     },
     [items, onChangeItems]
   );
@@ -136,21 +136,24 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="groups-editor">
+        <Droppable droppableId="series-editor">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {items.map((item, index) => (
-                <Draggable key={item.id} draggableId={item.id} index={index}>
+                <Draggable key={item.uid} draggableId={item.uid} index={index}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-                      className={styles.group}
+                      className={styles.item}
                     >
                       <Collapse
-                        key={item.id}
-                        title={<div className={styles.groupHeader}>{item.id}</div>}
+                        title={
+                          <>
+                            {item.name} [{item.id}]
+                          </>
+                        }
                         headerTestId={TestIds.seriesEditor.item(item.id)}
                         actions={
                           <>
@@ -162,17 +165,17 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                               className={styles.removeButton}
                               onClick={() => {
                                 /**
-                                 * Remove group
+                                 * Remove Item
                                  */
-                                onChangeItems(items.filter((series) => series.id !== item.id));
+                                onChangeItems(items.filter((series) => series.uid !== item.uid));
                               }}
                               data-testid={TestIds.seriesEditor.buttonRemove}
                             />
                             <Icon name="draggabledots" {...provided.dragHandleProps} className={styles.dragIcon} />
                           </>
                         }
-                        isOpen={collapseState[item.id]}
-                        onToggle={() => onToggleGroup(item.id)}
+                        isOpen={collapseState[item.uid]}
+                        onToggle={() => onToggleItem(item)}
                       >
                         <SeriesItemEditor value={item} onChange={onChangeItem} dataset={dataset} />
                       </Collapse>
@@ -186,7 +189,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
         </Droppable>
       </DragDropContext>
 
-      <InlineFieldRow className={styles.newGroup} data-testid={TestIds.seriesEditor.newItem}>
+      <InlineFieldRow className={styles.newItem} data-testid={TestIds.seriesEditor.newItem}>
         <InlineField
           label="New Series"
           grow={true}
@@ -204,7 +207,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
           icon="plus"
           title="Add Series"
           disabled={!newItem || isNameExistsError}
-          onClick={onAddNewGroup}
+          onClick={onAddNewItem}
           data-testid={TestIds.seriesEditor.buttonAddNew}
         >
           Add

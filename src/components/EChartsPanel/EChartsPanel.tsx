@@ -152,175 +152,26 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
      */
     setError(undefined);
 
-    if (options.editorMode === EditorMode.VISUAL) {
-      const { dataset, series } = options.visualEditor;
-
-      chart?.setOption(
-        {
-          dataset: {
-            source: getDatasetSource(data.series, dataset),
-          },
-          backgroundColor: 'transparent',
-          tooltip: {
-            trigger: 'axis',
-          },
-          legend: {
-            left: '0',
-            bottom: '0',
-            textStyle: {
-              color: 'rgba(128, 128, 128, .9)',
-            },
-          },
-          xAxis: {
-            type: 'time',
-          },
-          yAxis: {
-            type: 'value',
-            min: 'dataMin',
-          },
-          grid: {
-            left: '2%',
-            right: '2%',
-            top: '2%',
-            bottom: 24,
-            containLabel: true,
-          },
-          series,
-        },
-        { notMerge: true }
-      );
-      /**
-       * Execution Function
-       */
-      try {
-        const func = new Function(
-          'data',
-          'theme',
-          'echartsInstance',
-          'echarts',
-          'ecStat',
-          'replaceVariables',
-          'eventBus',
-          'locationService',
-          'notifySuccess',
-          'notifyError',
-          'dataset',
-          'series',
-          options.visualEditor.code
-        );
-
-        /**
-         * Load Maps
-         */
-        switch (options.map) {
-          case Map.NONE:
-            break;
-          case Map.JSON:
-            registerMaps();
-            break;
-          case Map.GMAP:
-            loadGoogle(options.google);
-            break;
-          case Map.BMAP:
-            loadBaidu(options.baidu);
-            break;
-          case Map.AMAP:
-            loadGaode(options.gaode);
-            break;
-        }
-
-        /**
-         * Code Result
-         */
-        const codeResult: CodeResult = func(
-          data,
-          theme,
-          chart,
-          echarts,
-          ecStat,
-          replaceVariables,
-          eventBus,
-          locationService,
-          notifySuccess,
-          notifyError,
-          {
-            source: getDatasetSource(data.series, dataset),
-          },
-          options.visualEditor.series
-        );
-
-        /**
-         * Chart option
-         */
-        let chartOption = {};
-
-        /**
-         * Default Option Config with merge disabled
-         */
-        let chartOptionConfig: echarts.EChartsOptionConfig = {
-          notMerge: true,
-        };
-
-        /**
-         * Check version
-         */
-        if (codeResult && 'version' in codeResult && codeResult.version === 2) {
-          /**
-           * Handle result v2
-           */
-          chartOption = codeResult.option || {};
-          chartOptionConfig = codeResult.config || chartOptionConfig;
-
-          /**
-           * Set Unsubscribe Function
-           */
-          const unsubscribeFunction = codeResult.unsubscribe;
-          if (typeof unsubscribeFunction === 'function') {
-            unsubscribeFn = () => {
-              unsubscribeFunction();
-            };
-          }
-        } else {
-          /**
-           * Handle result v1
-           */
-          chartOption = codeResult || {};
-        }
-
-        /**
-         * Set Options
-         */
-        chart.setOption(
-          {
-            backgroundColor: 'transparent',
-            ...chartOption,
-          },
-          chartOptionConfig
-        );
-      } catch (err) {
-        setError(err as any);
-      }
-
-      return unsubscribeFn;
-    }
-
     /**
      * Execution Function
      */
     try {
-      const func = new Function(
-        'data',
-        'theme',
-        'echartsInstance',
-        'echarts',
-        'ecStat',
-        'replaceVariables',
-        'eventBus',
-        'locationService',
-        'notifySuccess',
-        'notifyError',
-        options.getOption
-      );
+      const func =
+        options.editorMode === EditorMode.VISUAL
+          ? new Function('context', options.visualEditor.code)
+          : new Function(
+              'data',
+              'theme',
+              'echartsInstance',
+              'echarts',
+              'ecStat',
+              'replaceVariables',
+              'eventBus',
+              'locationService',
+              'notifySuccess',
+              'notifyError',
+              options.getOption
+            );
 
       /**
        * Load Maps
@@ -345,18 +196,42 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       /**
        * Code Result
        */
-      const codeResult: CodeResult = func(
-        data,
-        theme,
-        chart,
-        echarts,
-        ecStat,
-        replaceVariables,
-        eventBus,
-        locationService,
-        notifySuccess,
-        notifyError
-      );
+      const codeResult: CodeResult =
+        options.editorMode === EditorMode.VISUAL
+          ? func({
+              grafana: {
+                theme,
+                replaceVariables,
+                eventBus,
+                locationService,
+                notifySuccess,
+                notifyError,
+              },
+              editor: {
+                dataset: {
+                  source: getDatasetSource(data.series, options.visualEditor.dataset),
+                },
+                series: options.visualEditor.series,
+              },
+              panel: {
+                data,
+                chart,
+              },
+              echarts,
+              ecStat,
+            })
+          : func(
+              data,
+              theme,
+              chart,
+              echarts,
+              ecStat,
+              replaceVariables,
+              eventBus,
+              locationService,
+              notifySuccess,
+              notifyError
+            );
 
       /**
        * Chart option

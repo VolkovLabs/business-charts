@@ -2,7 +2,14 @@ import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { CodeEditorSuggestions, CodeLanguage, Editor, Format, TestIds } from '../../constants';
+import {
+  CodeEditorSuggestions,
+  CodeLanguage,
+  Editor,
+  Format,
+  TestIds,
+  VisualCodeEditorSuggestions,
+} from '../../constants';
 
 /**
  * Monaco
@@ -50,6 +57,10 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
         detail: variable.description ? variable.description : variable.label,
       };
     });
+
+    if (item.id === Editor.VISUALCODE) {
+      return [...VisualCodeEditorSuggestions, ...suggestions];
+    }
 
     return [...CodeEditorSuggestions, ...suggestions];
   };

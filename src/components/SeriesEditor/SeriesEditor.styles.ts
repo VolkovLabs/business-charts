@@ -6,15 +6,11 @@ import { GrafanaTheme2 } from '@grafana/data';
  */
 export const Styles = (theme: GrafanaTheme2) => {
   return {
-    newGroup: css`
+    newItem: css`
       margin: ${theme.spacing(2)} 0;
     `,
-    group: css`
+    item: css`
       margin-bottom: ${theme.spacing(1)};
-    `,
-    groupHeader: css`
-      overflow: hidden;
-      text-overflow: ellipsis;
     `,
     dragIcon: css`
       cursor: grab;

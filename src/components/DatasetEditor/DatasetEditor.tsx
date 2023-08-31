@@ -12,7 +12,7 @@ import { Button, Icon, IconButton, InlineField, InlineFieldRow, Select, useStyle
 import { DataFrame, SelectableValue } from '@grafana/data';
 import { TestIds } from '../../constants';
 import { DatasetItem } from '../../types';
-import { reorder } from '../../utils';
+import { getDatasetItemUniqueName, reorder } from '../../utils';
 import { Styles } from './DatasetEditor.styles';
 
 /**
@@ -133,7 +133,11 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {items.map((item, index) => (
-                <Draggable key={item.name} draggableId={item.name} index={index}>
+                <Draggable
+                  key={getDatasetItemUniqueName(item)}
+                  draggableId={getDatasetItemUniqueName(item)}
+                  index={index}
+                >
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
@@ -141,7 +145,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                       {...provided.dragHandleProps}
                       style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
                       className={styles.item}
-                      data-testid={TestIds.datasetEditor.item(item.name)}
+                      data-testid={TestIds.datasetEditor.item(getDatasetItemUniqueName(item))}
                     >
                       <div className={styles.header}>
                         <div className={styles.column}>
@@ -158,7 +162,13 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                         <div className={styles.column}>
                           <IconButton
                             name="trash-alt"
-                            onClick={() => onChangeItems(items.filter((field) => field.name !== item.name))}
+                            onClick={() =>
+                              onChangeItems(
+                                items.filter(
+                                  (field) => getDatasetItemUniqueName(field) !== getDatasetItemUniqueName(item)
+                                )
+                              )
+                            }
                             data-testid={TestIds.datasetEditor.buttonRemove}
                           />
                           <Icon

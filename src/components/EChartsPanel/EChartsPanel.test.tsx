@@ -3,9 +3,10 @@ import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { Map, TestIds, Theme } from '../../constants';
+import { EditorMode, Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { EChartsPanel } from './EChartsPanel';
+import { SeriesType } from '../../types';
 
 /**
  * Mock Register Maps
@@ -142,7 +143,7 @@ describe('Panel', () => {
       () =>
         ({
           publish,
-        } as any)
+        }) as any
     ); // we need only these options
     const successPayload: AlertPayload = ['everything is fine'];
     const errorPayload: AlertErrorPayload = ['something is wrong'];
@@ -162,7 +163,7 @@ describe('Panel', () => {
           on: jest.fn(),
           off: jest.fn(),
           clear: jest.fn(),
-        } as any)
+        }) as any
     ); // we need only these options
     render(getComponent({ options: { getOption: 'return { notifySuccess, notifyError }' } }));
     expect(publish).toHaveBeenCalledWith({
@@ -252,7 +253,7 @@ describe('Panel', () => {
             clear: clearChart,
             dispose: disposeChart,
             resize: resizeChart,
-          } as any)
+          }) as any
       ); // we need only these options
     });
 
@@ -382,7 +383,7 @@ describe('Panel', () => {
             setOption: setOptionMock,
             on: jest.fn(),
             off: jest.fn(),
-          } as any)
+          }) as any
       );
       render(getComponent({ options: { getOption } }));
 
@@ -410,7 +411,7 @@ describe('Panel', () => {
             setOption: setOptionMock,
             on: jest.fn(),
             off: jest.fn(),
-          } as any)
+          }) as any
       );
       render(getComponent({ options: { getOption } }));
 
@@ -436,7 +437,7 @@ describe('Panel', () => {
             setOption: setOptionMock,
             on: jest.fn(),
             off: jest.fn(),
-          } as any)
+          }) as any
       );
       render(getComponent({ options: { getOption } }));
 
@@ -467,6 +468,74 @@ describe('Panel', () => {
       rerender(getComponent({ options: { getOption }, eventBus }));
 
       expect(unsubscribe).toHaveBeenCalled();
+    });
+
+    it('Should apply result from visual editor code', () => {
+      const getOption = `
+        return {
+          dataset: context.editor.dataset,
+          series: context.editor.series,
+        }
+      `;
+      const setOptionMock = jest.fn();
+      jest.mocked(echarts.init).mockImplementation(
+        () =>
+          ({
+            setOption: setOptionMock,
+            on: jest.fn(),
+            off: jest.fn(),
+          }) as any
+      );
+      const series = [{ id: 'line', name: 'Line', type: SeriesType.LINE, encode: { x: ['Time'], y: ['Value'] } }];
+
+      const data = {
+        series: [
+          toDataFrame({
+            fields: [
+              {
+                name: 'Time',
+                values: [1, 2, 3],
+              },
+              {
+                name: 'Value',
+                values: [10, 20, 30],
+              },
+            ],
+          }),
+        ],
+      };
+
+      /**
+       * Render
+       */
+      render(
+        getComponent({
+          data,
+          options: {
+            editorMode: EditorMode.VISUAL,
+            visualEditor: {
+              code: getOption,
+              dataset: [{ name: 'Time' }, { name: 'Value' }],
+              series,
+            },
+          },
+        })
+      );
+
+      expect(setOptionMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          series,
+          dataset: {
+            source: [
+              ['Time', 'Value'],
+              [1, 10],
+              [2, 20],
+              [3, 30],
+            ],
+          },
+        }),
+        { notMerge: true }
+      );
     });
   });
 });

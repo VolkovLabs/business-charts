@@ -59,6 +59,13 @@ export interface BaseSeriesOptions {
   id: string;
 
   /**
+   * UID
+   *
+   * @type {string}
+   */
+  uid: string;
+
+  /**
    * Name
    *
    * @type {name}

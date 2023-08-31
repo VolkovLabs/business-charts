@@ -104,3 +104,59 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     detail: 'Display error notification.',
   },
 ];
+
+/**
+ * Visual Code Editor Suggestions
+ */
+export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
+  {
+    label: 'context',
+    kind: CodeEditorSuggestionItemKind.Constant,
+    detail: 'All passed possible properties and methods.',
+  },
+  {
+    label: 'context.editor',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Editor properties.',
+  },
+  {
+    label: 'context.editor.dataset',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts dataset.',
+  },
+  {
+    label: 'context.editor.series',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts series.',
+  },
+  {
+    label: 'context.panel',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Panel instance properties.',
+  },
+  {
+    label: 'context.panel.data',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Panel data.',
+  },
+  {
+    label: 'context.panel.chart',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'ECharts instance.',
+  },
+  {
+    label: 'context.grafana',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Grafana properties and methods.',
+  },
+  {
+    label: 'context.echarts',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'ECharts library.',
+  },
+  {
+    label: 'context.ecStat',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'A statistical and data mining tool.',
+  },
+];

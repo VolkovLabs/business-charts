@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { DataFrame } from '@grafana/data';
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../types';
 import { getFieldValues } from './data-frame';
@@ -65,6 +66,7 @@ export const getSeriesWithNewType = (
   newType: SeriesType
 ): SeriesByType<SeriesItem, typeof newType> => {
   const commonValues = {
+    uid: item.uid,
     id: item.id,
     name: item.name,
   };
@@ -88,3 +90,8 @@ export const getSeriesWithNewType = (
     }
   }
 };
+
+/**
+ * Get Series Unique Id
+ */
+export const getSeriesUniqueId = () => uuidv4();

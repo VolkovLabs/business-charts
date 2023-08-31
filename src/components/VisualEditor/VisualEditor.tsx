@@ -16,7 +16,7 @@ interface Props extends StandardEditorProps<VisualEditorOptions> {}
 export const VisualEditor: React.FC<Props> = ({ value, onChange, context }) => {
   return (
     <>
-      <Field label="Dataset Items">
+      <Field label="Dataset Items" description="Fields which values will be used for the dataset.">
         <DatasetEditor
           value={value.dataset}
           onChange={(items) => {

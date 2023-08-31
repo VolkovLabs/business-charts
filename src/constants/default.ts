@@ -84,10 +84,10 @@ return {
   series,
 };`;
 
-const visualEditorCode = `console.log(dataset, series);
+const visualEditorCode = `console.log(context);
 return {
-  dataset,
-  series,
+  dataset: context.editor.dataset,
+  series: context.editor.series,
   xAxis: {
     type: 'time',
   },

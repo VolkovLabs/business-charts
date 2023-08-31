@@ -5,6 +5,11 @@ import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
 
 /**
+ * Label Width
+ */
+const LabelWidth = 10;
+
+/**
  * Properties
  */
 interface Props {
@@ -29,7 +34,7 @@ interface Props {
 export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) => (
   <>
     <InlineFieldRow>
-      <InlineField label="Id">
+      <InlineField label="ID" labelWidth={LabelWidth} grow={true}>
         <Input
           value={value.id}
           onChange={(event) => {
@@ -40,22 +45,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
           }}
         />
       </InlineField>
-    </InlineFieldRow>
-    <InlineFieldRow>
-      <InlineField label="Name">
-        <Input
-          value={value.name}
-          onChange={(event) => {
-            onChange({
-              ...value,
-              name: event.currentTarget.value,
-            });
-          }}
-        />
-      </InlineField>
-    </InlineFieldRow>
-    <InlineFieldRow>
-      <InlineField label="Type">
+      <InlineField label="Type" labelWidth={LabelWidth} grow={true}>
         <Select
           value={value.type}
           options={SeriesTypeOptions}
@@ -67,10 +57,23 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
         />
       </InlineField>
     </InlineFieldRow>
+    <InlineFieldRow>
+      <InlineField label="Name" labelWidth={LabelWidth} grow={true}>
+        <Input
+          value={value.name}
+          onChange={(event) => {
+            onChange({
+              ...value,
+              name: event.currentTarget.value,
+            });
+          }}
+        />
+      </InlineField>
+    </InlineFieldRow>
     {value.type === SeriesType.LINE && (
       <>
         <InlineFieldRow>
-          <InlineField label="Encode Y">
+          <InlineField label="Encode Y" labelWidth={LabelWidth} grow={true}>
             <Select
               value={value.encode?.y}
               options={dataset.map((item) => ({
@@ -93,7 +96,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
           </InlineField>
         </InlineFieldRow>
         <InlineFieldRow>
-          <InlineField label="Encode X">
+          <InlineField label="Encode X" labelWidth={LabelWidth} grow={true}>
             <Select
               value={value.encode?.x}
               options={dataset.map((item) => ({

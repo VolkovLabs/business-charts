@@ -22,7 +22,7 @@ export const TestIds = {
     buttonRemove: 'data-testid dataset-editor button-remove',
     item: (name: string) => `data-testid dataset-editor item-${name}`,
     newItem: 'data-testid dataset-editor new-item',
-    newItemName: 'data-testidd dataset-editor new-item-name',
+    newItemName: 'dataset-editor new-item-name',
     root: 'data-testid dataset-editor',
   },
 };
