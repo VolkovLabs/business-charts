@@ -123,5 +123,6 @@ export const DefaultOptions: PanelOptions = {
     dataset: [],
     series: [],
     code: visualEditorCode,
+    codeHeight: 600,
   },
 };

@@ -150,6 +150,13 @@ export interface VisualEditorOptions {
    * @type {string}
    */
   code: string;
+
+  /**
+   * Code Height
+   *
+   * @type {number}
+   */
+  codeHeight: number;
 }
 
 /**

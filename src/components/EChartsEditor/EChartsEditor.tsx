@@ -10,6 +10,7 @@ import {
   TestIds,
   VisualCodeEditorSuggestions,
 } from '../../constants';
+import { PanelOptions } from '../../types';
 
 /**
  * Monaco
@@ -19,7 +20,7 @@ import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
 /**
  * Properties
  */
-interface Props extends StandardEditorProps {}
+interface Props extends StandardEditorProps<string, unknown, PanelOptions> {}
 
 /**
  * ECharts Editor
@@ -34,7 +35,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
    * Format On Mount
    */
   const onEditorMount = (editor: monacoType.editor.IStandaloneCodeEditor) => {
-    if (context.options.editor.format !== Format.AUTO) {
+    if (context.options?.editor.format !== Format.AUTO) {
       return;
     }
 
@@ -59,7 +60,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     });
 
     if (item.id === Editor.VISUALCODE) {
-      return [...VisualCodeEditorSuggestions, ...suggestions];
+      return [...CodeEditorSuggestions, ...VisualCodeEditorSuggestions, ...suggestions];
     }
 
     return [...CodeEditorSuggestions, ...suggestions];
@@ -69,7 +70,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
    * Format Options
    */
   const monacoOptions =
-    context.options.editor.format === Format.AUTO
+    context.options?.editor.format === Format.AUTO
       ? { formatOnPaste: true, formatOnType: true }
       : { formatOnPaste: false, formatOnType: false };
 
@@ -83,7 +84,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     if (item.id === Editor.THEME) {
       return {
         language: CodeLanguage.JSON,
-        height: context.options.themeEditor.height,
+        height: context.options?.themeEditor.height,
       };
     }
 
@@ -93,7 +94,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     if (item.id === Editor.VISUALCODE) {
       return {
         language: CodeLanguage.JAVASCRIPT,
-        height: 300,
+        height: context.options?.visualEditor.codeHeight,
         getSuggestions,
       };
     }
@@ -103,7 +104,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
      */
     return {
       language: CodeLanguage.JAVASCRIPT,
-      height: context.options.editor.height,
+      height: context.options?.editor.height,
       getSuggestions,
     };
   };
@@ -115,7 +116,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
         showLineNumbers={true}
         showMiniMap={(value && value.length) > 100}
         value={value}
-        height={context.options.editor.height}
+        height={context.options?.editor.height}
         onBlur={onChange}
         onSave={onChange}
         monacoOptions={monacoOptions}

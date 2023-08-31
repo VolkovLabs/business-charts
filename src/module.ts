@@ -21,6 +21,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
   .setNoPadding()
   .setPanelOptions((builder) => {
     const isCodeEditor = (config: PanelOptions) => config.editorMode !== EditorMode.VISUAL;
+    const isVisualEditor = (config: PanelOptions) => config.editorMode === EditorMode.VISUAL;
 
     builder
       .addRadio({
@@ -137,7 +138,18 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         defaultValue: DefaultOptions.visualEditor,
         editor: VisualEditor,
         category: ['Visual Editor'],
-        showIf: (config) => config.editorMode === EditorMode.VISUAL,
+        showIf: isVisualEditor,
+      })
+      .addSliderInput({
+        path: 'visualEditor.codeHeight',
+        name: 'Height, px',
+        defaultValue: DefaultOptions.visualEditor.codeHeight,
+        settings: {
+          min: 100,
+          max: 2000,
+        },
+        category: ['Visual Editor'],
+        showIf: isVisualEditor,
       })
       .addCustomEditor({
         id: Editor.VISUALCODE,
@@ -147,7 +159,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         defaultValue: DefaultOptions.visualEditor.code,
         editor: EChartsEditor,
         category: ['Visual Editor'],
-        showIf: (config) => config.editorMode === EditorMode.VISUAL,
+        showIf: isVisualEditor,
       });
 
     /**

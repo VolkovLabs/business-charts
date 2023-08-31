@@ -2,7 +2,14 @@ import React from 'react';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { render, screen } from '@testing-library/react';
-import { CodeEditorSuggestions, CodeLanguage, Editor, Format, TestIds } from '../../constants';
+import {
+  CodeEditorSuggestions,
+  CodeLanguage,
+  Editor,
+  Format,
+  TestIds,
+  VisualCodeEditorSuggestions,
+} from '../../constants';
 import { EChartsEditor } from './EChartsEditor';
 
 /**
@@ -26,9 +33,9 @@ jest.mock('@grafana/runtime', () => ({
 jest.useFakeTimers();
 
 /**
- * Editor
+ * Echarts Editor
  */
-describe('Editor', () => {
+describe('Echarts Editor', () => {
   const getContext = (modifiers: string[] = []) => {
     const editor = {
       height: 300,
@@ -151,7 +158,7 @@ describe('Editor', () => {
       () =>
         ({
           getVariables: jest.fn().mockImplementation(() => variables),
-        } as any)
+        }) as any
     );
 
     render(getComponent({}));
@@ -175,6 +182,44 @@ describe('Editor', () => {
         },
       ])
     );
+  });
+
+  it('Should make correct suggestions for visual editor', () => {
+    let suggestionsResult;
+    const variableWithDescription = { name: 'var1', description: 'Var description', label: 'Var Label' };
+    const variableWithoutDescription = { name: 'var2', description: '', label: 'Var 2' };
+    const variables = [variableWithDescription, variableWithoutDescription];
+
+    jest.mocked(CodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
+      suggestionsResult = getSuggestions();
+      return null;
+    });
+    jest.mocked(getTemplateSrv).mockImplementationOnce(
+      () =>
+        ({
+          getVariables: jest.fn().mockImplementation(() => variables),
+        }) as any
+    );
+
+    render(
+      getComponent(
+        {
+          item: { id: Editor.VISUALCODE },
+        },
+        {
+          options: {
+            editor: {
+              format: Format.NONE,
+            },
+            visualEditor: {
+              codeHeight: 300,
+            },
+          } as any,
+        }
+      )
+    );
+
+    expect(suggestionsResult).toEqual(expect.arrayContaining(VisualCodeEditorSuggestions));
   });
 
   it('Should use JSON language for themeConfig item', () => {

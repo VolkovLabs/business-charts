@@ -103,31 +103,10 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Display error notification.',
   },
-];
-
-/**
- * Visual Code Editor Suggestions
- */
-export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
   {
     label: 'context',
     kind: CodeEditorSuggestionItemKind.Constant,
     detail: 'All passed possible properties and methods.',
-  },
-  {
-    label: 'context.editor',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Editor properties.',
-  },
-  {
-    label: 'context.editor.dataset',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Echarts dataset.',
-  },
-  {
-    label: 'context.editor.series',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Echarts series.',
   },
   {
     label: 'context.panel',
@@ -158,5 +137,26 @@ export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     label: 'context.ecStat',
     kind: CodeEditorSuggestionItemKind.Property,
     detail: 'A statistical and data mining tool.',
+  },
+];
+
+/**
+ * Visual Code Editor Suggestions
+ */
+export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
+  {
+    label: 'context.editor',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Editor properties.',
+  },
+  {
+    label: 'context.editor.dataset',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts dataset.',
+  },
+  {
+    label: 'context.editor.series',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts series.',
   },
 ];

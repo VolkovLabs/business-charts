@@ -196,29 +196,32 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       /**
        * Code Result
        */
+      const contextPayload = {
+        grafana: {
+          theme,
+          replaceVariables,
+          eventBus,
+          locationService,
+          notifySuccess,
+          notifyError,
+        },
+        panel: {
+          data,
+          chart,
+        },
+        echarts,
+        ecStat,
+      };
       const codeResult: CodeResult =
         options.editorMode === EditorMode.VISUAL
           ? func({
-              grafana: {
-                theme,
-                replaceVariables,
-                eventBus,
-                locationService,
-                notifySuccess,
-                notifyError,
-              },
+              ...contextPayload,
               editor: {
                 dataset: {
                   source: getDatasetSource(data.series, options.visualEditor.dataset),
                 },
                 series: options.visualEditor.series,
               },
-              panel: {
-                data,
-                chart,
-              },
-              echarts,
-              ecStat,
             })
           : func(
               data,
@@ -230,7 +233,8 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
               eventBus,
               locationService,
               notifySuccess,
-              notifyError
+              notifyError,
+              contextPayload
             );
 
       /**
