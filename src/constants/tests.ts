@@ -11,6 +11,7 @@ export const TestIds = {
     root: 'data-testid editor',
   },
   seriesEditor: {
+    root: 'data-testid series-editor',
     buttonAddNew: 'data-testid series-editor button-add-new',
     buttonRemove: 'data-testid series-editor button-remove',
     item: (name: string) => `data-testid series-editor item-${name}`,

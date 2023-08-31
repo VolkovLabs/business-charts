@@ -134,7 +134,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   }, [items, newItem]);
 
   return (
-    <>
+    <div data-testid={TestIds.seriesEditor.root}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="series-editor">
           {(provided) => (
@@ -213,6 +213,6 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
           Add
         </Button>
       </InlineFieldRow>
-    </>
+    </div>
   );
 };
