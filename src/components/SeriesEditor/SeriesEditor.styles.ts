@@ -6,9 +6,6 @@ import { GrafanaTheme2 } from '@grafana/data';
  */
 export const Styles = (theme: GrafanaTheme2) => {
   return {
-    newItem: css`
-      margin: ${theme.spacing(2)} 0;
-    `,
     item: css`
       margin-bottom: ${theme.spacing(1)};
     `,

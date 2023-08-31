@@ -1,6 +1,7 @@
 import React from 'react';
 import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
-import { SeriesTypeOptions } from '../../constants';
+import { SelectableValue } from '@grafana/data';
+import { SeriesTypeOptions, TestIds } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
 
@@ -43,6 +44,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               id: event.currentTarget.value,
             });
           }}
+          data-testid={TestIds.seriesEditor.fieldId}
         />
       </InlineField>
       <InlineField label="Type" labelWidth={LabelWidth} grow={true}>
@@ -54,6 +56,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               onChange(getSeriesWithNewType(value, event.value));
             }
           }}
+          aria-label={TestIds.seriesEditor.fieldType}
         />
       </InlineField>
     </InlineFieldRow>
@@ -67,6 +70,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               name: event.currentTarget.value,
             });
           }}
+          data-testid={TestIds.seriesEditor.fieldName}
         />
       </InlineField>
     </InlineFieldRow>
@@ -83,15 +87,16 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               isMulti={true}
               isClearable={true}
               onChange={(event) => {
-                const values = Array.isArray(event) ? event : [event];
+                const values = event as SelectableValue[];
                 onChange({
                   ...value,
                   encode: {
-                    ...(value.encode || {}),
+                    ...value.encode,
                     y: values.map((item) => item.value),
                   },
                 });
               }}
+              aria-label={TestIds.seriesEditor.fieldEncodeY}
             />
           </InlineField>
         </InlineFieldRow>
@@ -106,15 +111,16 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               isMulti={true}
               isClearable={true}
               onChange={(event) => {
-                const values = Array.isArray(event) ? event : [event];
+                const values = event as SelectableValue[];
                 onChange({
                   ...value,
                   encode: {
-                    ...(value.encode || {}),
+                    ...value.encode,
                     x: values.map((item) => item.value),
                   },
                 });
               }}
+              aria-label={TestIds.seriesEditor.fieldEncodeX}
             />
           </InlineField>
         </InlineFieldRow>

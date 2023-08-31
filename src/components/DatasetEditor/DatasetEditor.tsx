@@ -127,7 +127,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
   }, [items, newItem, onChangeItems]);
 
   return (
-    <div data-testid={TestIds.datasetEditor.root}>
+    <div data-testid={TestIds.datasetEditor.root} className={styles.root}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="dataset">
           {(provided) => (

@@ -154,7 +154,8 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                             {item.name} [{item.id}]
                           </>
                         }
-                        headerTestId={TestIds.seriesEditor.item(item.id)}
+                        headerTestId={TestIds.seriesEditor.itemHeader(item.id)}
+                        contentTestId={TestIds.seriesEditor.itemContent(item.id)}
                         actions={
                           <>
                             <Button
@@ -189,7 +190,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
         </Droppable>
       </DragDropContext>
 
-      <InlineFieldRow className={styles.newItem} data-testid={TestIds.seriesEditor.newItem}>
+      <InlineFieldRow data-testid={TestIds.seriesEditor.newItem}>
         <InlineField
           label="New Series"
           grow={true}
@@ -200,7 +201,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
             placeholder="Unique Id"
             value={newItem}
             onChange={(event) => setNewItem(event.currentTarget.value)}
-            data-testid={TestIds.seriesEditor.newItemName}
+            data-testid={TestIds.seriesEditor.newItemId}
           />
         </InlineField>
         <Button

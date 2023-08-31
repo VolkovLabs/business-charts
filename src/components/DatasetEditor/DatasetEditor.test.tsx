@@ -74,7 +74,7 @@ describe('Dataset Editor', () => {
     expect(selectors.root()).toBeInTheDocument();
   });
 
-  it('Should render items component', () => {
+  it('Should render items', () => {
     render(
       getComponent({
         value: [
@@ -225,7 +225,7 @@ describe('Dataset Editor', () => {
       );
 
       /**
-       * Check if items order is changed
+       * Check if items order is not changed
        */
       const items = screen.getAllByTestId('draggable');
       expect(getSelectors(within(items[0])).item(false, 'A:Time')).toBeInTheDocument();
