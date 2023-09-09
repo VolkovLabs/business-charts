@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Updated README and documentation ()
+- Updated README and documentation (#214)
 
 ## 5.1.0 (2023-08-11)
 
