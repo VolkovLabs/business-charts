@@ -78,5 +78,5 @@
     "test:ci": "jest --maxWorkers 4 --coverage",
     "upgrade": "npm upgrade --save"
   },
-  "version": "5.1.0"
+  "version": "5.2.0"
 }
