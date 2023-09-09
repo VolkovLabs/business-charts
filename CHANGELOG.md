@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Updated README and documentation (#214)
+
 ## 5.1.0 (2023-08-11)
 
 ### Features / Enhancements
