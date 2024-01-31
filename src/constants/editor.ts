@@ -6,6 +6,7 @@ import { CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana
 export const enum Editor {
   CODE = 'getOption',
   THEME = 'themeEditor',
+  VISUALCODE = 'visualCode',
 }
 
 /**
@@ -23,6 +24,22 @@ export enum Format {
   NONE = 'none',
   AUTO = 'auto',
 }
+
+/**
+ * Editor Mode
+ */
+export enum EditorMode {
+  CODE = 'code',
+  VISUAL = 'visual',
+}
+
+/**
+ * Editor Mode Options
+ */
+export const EditorModeOptions = [
+  { value: EditorMode.CODE, label: 'Code' },
+  { value: EditorMode.VISUAL, label: 'Visual' },
+];
 
 /**
  * Format Options
@@ -85,5 +102,61 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
     label: 'notifyError',
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Display error notification.',
+  },
+  {
+    label: 'context',
+    kind: CodeEditorSuggestionItemKind.Constant,
+    detail: 'All passed possible properties and methods.',
+  },
+  {
+    label: 'context.panel',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Panel instance properties.',
+  },
+  {
+    label: 'context.panel.data',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Panel data.',
+  },
+  {
+    label: 'context.panel.chart',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'ECharts instance.',
+  },
+  {
+    label: 'context.grafana',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Grafana properties and methods.',
+  },
+  {
+    label: 'context.echarts',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'ECharts library.',
+  },
+  {
+    label: 'context.ecStat',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'A statistical and data mining tool.',
+  },
+];
+
+/**
+ * Visual Code Editor Suggestions
+ */
+export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
+  {
+    label: 'context.editor',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Editor properties.',
+  },
+  {
+    label: 'context.editor.dataset',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts dataset.',
+  },
+  {
+    label: 'context.editor.series',
+    kind: CodeEditorSuggestionItemKind.Property,
+    detail: 'Echarts series.',
   },
 ];

@@ -15,8 +15,10 @@
     "echarts-stat": "^1.2.0",
     "echarts-wordcloud": "^2.1.0",
     "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
-    "tslib": "^2.6.1"
+    "tslib": "^2.6.1",
+    "uuid": "^9.0.0"
   },
   "description": "Apache ECharts panel for Grafana",
   "devDependencies": {
@@ -33,8 +35,11 @@
     "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.196",
     "@types/node": "^18.17.4",
+    "@types/react-beautiful-dnd": "^13.1.4",
+    "@types/uuid": "^9.0.3",
     "@types/webpack-env": "^1.18.1",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@volkovlabs/jest-selectors": "^1.2.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "eslint-plugin-deprecation": "^1.5.0",

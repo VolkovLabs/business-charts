@@ -11,10 +11,11 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
-import { Map, TestIds, Theme } from '../../constants';
+import { EditorMode, Map, TestIds, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { Styles } from '../../styles';
 import { CodeResult, PanelOptions } from '../../types';
+import { getDatasetSource } from '../../utils';
 
 /**
  * Properties
@@ -155,19 +156,22 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
      * Execution Function
      */
     try {
-      const func = new Function(
-        'data',
-        'theme',
-        'echartsInstance',
-        'echarts',
-        'ecStat',
-        'replaceVariables',
-        'eventBus',
-        'locationService',
-        'notifySuccess',
-        'notifyError',
-        options.getOption
-      );
+      const func =
+        options.editorMode === EditorMode.VISUAL
+          ? new Function('context', options.visualEditor.code)
+          : new Function(
+              'data',
+              'theme',
+              'echartsInstance',
+              'echarts',
+              'ecStat',
+              'replaceVariables',
+              'eventBus',
+              'locationService',
+              'notifySuccess',
+              'notifyError',
+              options.getOption
+            );
 
       /**
        * Load Maps
@@ -192,18 +196,46 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       /**
        * Code Result
        */
-      const codeResult: CodeResult = func(
-        data,
-        theme,
-        chart,
+      const contextPayload = {
+        grafana: {
+          theme,
+          replaceVariables,
+          eventBus,
+          locationService,
+          notifySuccess,
+          notifyError,
+        },
+        panel: {
+          data,
+          chart,
+        },
         echarts,
         ecStat,
-        replaceVariables,
-        eventBus,
-        locationService,
-        notifySuccess,
-        notifyError
-      );
+      };
+      const codeResult: CodeResult =
+        options.editorMode === EditorMode.VISUAL
+          ? func({
+              ...contextPayload,
+              editor: {
+                dataset: {
+                  source: getDatasetSource(data.series, options.visualEditor.dataset),
+                },
+                series: options.visualEditor.series,
+              },
+            })
+          : func(
+              data,
+              theme,
+              chart,
+              echarts,
+              ecStat,
+              replaceVariables,
+              eventBus,
+              locationService,
+              notifySuccess,
+              notifyError,
+              contextPayload
+            );
 
       /**
        * Chart option
@@ -260,7 +292,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     return unsubscribeFn;
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chart, options.getOption, data]);
+  }, [chart, options.getOption, data, options.visualEditor, options.editorMode]);
 
   /**
    * EChart

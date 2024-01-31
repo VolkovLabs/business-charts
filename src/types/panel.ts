@@ -1,9 +1,10 @@
-import { Map, Renderer } from '../constants';
+import { EditorMode, Map, Renderer } from '../constants';
 import { BaiduOptions } from './baidu';
 import { EditorOptions } from './editor';
 import { GaodeOptions } from './gaode';
 import { GoogleOptions } from './google';
 import { ThemeEditorOptions } from './theme-editor';
+import { VisualEditorOptions } from './visual-editor';
 
 /**
  * Options
@@ -64,4 +65,16 @@ export interface PanelOptions {
    * @type {GoogleOptions}
    */
   google: GoogleOptions;
+
+  /**
+   * Editor Mode
+   */
+  editorMode?: EditorMode;
+
+  /**
+   * Visual Editor
+   *
+   * @type {VisualEditorOptions}
+   */
+  visualEditor: VisualEditorOptions;
 }

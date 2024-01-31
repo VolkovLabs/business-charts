@@ -84,6 +84,20 @@ return {
   series,
 };`;
 
+const visualEditorCode = `console.log(context);
+return {
+  dataset: context.editor.dataset,
+  series: context.editor.series,
+  xAxis: {
+    type: 'time',
+  },
+  yAxis: {
+    type: 'value',
+    min: 'dataMin',
+  },
+}
+`;
+
 /**
  * Default Options
  */
@@ -104,5 +118,11 @@ export const DefaultOptions: PanelOptions = {
   google: {
     key: '',
     callback: 'gmapReady',
+  },
+  visualEditor: {
+    dataset: [],
+    series: [],
+    code: visualEditorCode,
+    codeHeight: 600,
   },
 };

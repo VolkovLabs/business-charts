@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Updated README and documentation (#214)
+- Add visual editor for working with data sources (#211)
 
 ## 5.1.0 (2023-08-11)
 
