@@ -1,10 +1,11 @@
-import React from 'react';
+import { toDataFrame } from '@grafana/data';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
+import React from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { TestIds } from '../../constants';
+
+import { TEST_IDS } from '../../constants';
 import { DatasetEditor } from './DatasetEditor';
-import { toDataFrame } from '@grafana/data';
 
 /**
  * Properties
@@ -58,7 +59,7 @@ describe('Dataset Editor', () => {
   /**
    * Selectors
    */
-  const getSelectors = getJestSelectors(TestIds.datasetEditor);
+  const getSelectors = getJestSelectors(TEST_IDS.datasetEditor);
   const selectors = getSelectors(screen);
 
   /**

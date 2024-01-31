@@ -1,6 +1,7 @@
-import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { Label } from '@grafana/ui';
+import React from 'react';
+
 import { VisualEditorOptions } from '../../types';
 import { DatasetEditor } from '../DatasetEditor';
 import { SeriesEditor } from '../SeriesEditor';
@@ -8,7 +9,7 @@ import { SeriesEditor } from '../SeriesEditor';
 /**
  * Properties
  */
-interface Props extends StandardEditorProps<VisualEditorOptions> {}
+type Props = StandardEditorProps<VisualEditorOptions>
 
 /**
  * Visual Editor

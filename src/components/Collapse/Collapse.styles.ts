@@ -4,7 +4,7 @@ import { GrafanaTheme2 } from '@grafana/data';
 /**
  * Styles
  */
-export const Styles = (theme: GrafanaTheme2) => {
+export const getStyles = (theme: GrafanaTheme2) => {
   return {
     root: css`
       border: 1px solid ${theme.colors.border.weak};

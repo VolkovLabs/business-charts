@@ -1,4 +1,5 @@
 import { PanelPlugin } from '@grafana/data';
+
 import { EChartsEditor, EChartsPanel, VisualEditor } from './components';
 import {
   DefaultOptions,
@@ -7,7 +8,7 @@ import {
   EditorModeOptions,
   FormatOptions,
   Map,
-  MapOptions,
+  MAP_OPTIONS,
   RendererOptions,
   Theme,
   ThemeOptions,
@@ -36,7 +37,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EChartsPanel)
         path: 'map',
         name: 'Maps',
         settings: {
-          options: MapOptions,
+          options: MAP_OPTIONS,
         },
         defaultValue: DefaultOptions.map,
       })

@@ -1,4 +1,5 @@
 import { toDataFrame } from '@grafana/data';
+
 import { getDatasetSource } from './visual-editor';
 
 describe('Visual Editor Utils', () => {

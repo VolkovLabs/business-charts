@@ -12,7 +12,7 @@ export enum Map {
 /**
  * Map Extensions Options
  */
-export const MapOptions = [
+export const MAP_OPTIONS = [
   { value: Map.BMAP, label: 'Baidu', description: 'Requires Baidu Maps.' },
   { value: Map.AMAP, label: 'Gaode', description: 'Requires Gaode Maps.' },
   { value: Map.GMAP, label: 'Google', description: 'Requires Google Maps.' },
@@ -23,7 +23,7 @@ export const MapOptions = [
 /**
  * API
  */
-export const MapApi = {
+export const MAP_API = {
   baidu: 'https://api.map.baidu.com/api',
   gaode: 'https://webapi.amap.com/maps',
   google: 'https://maps.googleapis.com/maps/api/js',

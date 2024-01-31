@@ -1,9 +1,10 @@
-import React from 'react';
+import { toDataFrame } from '@grafana/data';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
-import { TestIds } from '../../constants';
+import React from 'react';
+
+import { TEST_IDS } from '../../constants';
 import { VisualEditor } from './VisualEditor';
-import { toDataFrame } from '@grafana/data';
 
 /**
  * Properties
@@ -30,8 +31,8 @@ describe('Visual Editor', () => {
   /**
    * Selectors
    */
-  const seriesEditorSelectors = getJestSelectors(TestIds.seriesEditor)(screen);
-  const datasetEditorSelectors = getJestSelectors(TestIds.datasetEditor)(screen);
+  const seriesEditorSelectors = getJestSelectors(TEST_IDS.seriesEditor)(screen);
+  const datasetEditorSelectors = getJestSelectors(TEST_IDS.datasetEditor)(screen);
 
   /**
    * Data

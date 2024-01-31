@@ -1,7 +1,8 @@
-import React from 'react';
-import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
 import { SelectableValue } from '@grafana/data';
-import { SeriesTypeOptions, TestIds } from '../../constants';
+import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
+import React from 'react';
+
+import { SeriesTypeOptions, TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
 
@@ -44,7 +45,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               id: event.currentTarget.value,
             });
           }}
-          data-testid={TestIds.seriesEditor.fieldId}
+          data-testid={TEST_IDS.seriesEditor.fieldId}
         />
       </InlineField>
       <InlineField label="Type" labelWidth={LabelWidth} grow={true}>
@@ -56,7 +57,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               onChange(getSeriesWithNewType(value, event.value));
             }
           }}
-          aria-label={TestIds.seriesEditor.fieldType}
+          aria-label={TEST_IDS.seriesEditor.fieldType}
         />
       </InlineField>
     </InlineFieldRow>
@@ -70,7 +71,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
               name: event.currentTarget.value,
             });
           }}
-          data-testid={TestIds.seriesEditor.fieldName}
+          data-testid={TEST_IDS.seriesEditor.fieldName}
         />
       </InlineField>
     </InlineFieldRow>
@@ -96,7 +97,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
                   },
                 });
               }}
-              aria-label={TestIds.seriesEditor.fieldEncodeY}
+              aria-label={TEST_IDS.seriesEditor.fieldEncodeY}
             />
           </InlineField>
         </InlineFieldRow>
@@ -120,7 +121,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
                   },
                 });
               }}
-              aria-label={TestIds.seriesEditor.fieldEncodeX}
+              aria-label={TEST_IDS.seriesEditor.fieldEncodeX}
             />
           </InlineField>
         </InlineFieldRow>

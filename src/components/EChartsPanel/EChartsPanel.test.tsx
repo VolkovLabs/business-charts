@@ -1,12 +1,13 @@
-import * as echarts from 'echarts';
-import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { EditorMode, Map, TestIds, Theme } from '../../constants';
+import * as echarts from 'echarts';
+import React from 'react';
+
+import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
-import { EChartsPanel } from './EChartsPanel';
 import { SeriesType } from '../../types';
+import { EChartsPanel } from './EChartsPanel';
 
 /**
  * Mock Register Maps
@@ -112,29 +113,29 @@ describe('Panel', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component with Done state', async () => {
     render(getComponent({}, LoadingState.Done));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component for Streaming', async () => {
     render(getComponent({}, LoadingState.Streaming));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should call echart.init with appropriated parameters', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', { renderer });
   });
 
   it('Should apply right theme', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', { renderer });
   });
 
   it('Should publish success and errors events with passed payload', () => {
@@ -187,7 +188,7 @@ describe('Panel', () => {
 
       expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJSON));
       expect(echarts.init).toHaveBeenCalledWith(
-        screen.getByTestId(TestIds.panel.chart),
+        screen.getByTestId(TEST_IDS.panel.chart),
         Theme.CUSTOM,
         expect.anything()
       );
@@ -199,8 +200,8 @@ describe('Panel', () => {
       render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } }));
 
       expect(echarts.registerTheme).not.toHaveBeenCalled();
-      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', expect.anything());
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', expect.anything());
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
     });
 
     it('Should show invalid theme error until it is fixed', () => {
@@ -213,7 +214,7 @@ describe('Panel', () => {
         getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } })
       );
 
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
 
       /**
        * Rerender with chart updates
@@ -225,14 +226,14 @@ describe('Panel', () => {
         })
       );
 
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
 
       /**
        * Rerender with correct theme config
        */
       rerender(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: '{}' } } }));
 
-      expect(screen.queryByTestId(TestIds.panel.themeError)).not.toBeInTheDocument();
+      expect(screen.queryByTestId(TEST_IDS.panel.themeError)).not.toBeInTheDocument();
     });
   });
 

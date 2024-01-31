@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
 import { DataFrame } from '@grafana/data';
+import { v4 as uuidv4 } from 'uuid';
+
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../types';
 import { getFieldValues } from './data-frame';
 

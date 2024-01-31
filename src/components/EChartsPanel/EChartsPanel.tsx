@@ -4,23 +4,25 @@ import 'echarts-gl';
 import 'echarts/extension/bmap/bmap';
 import 'echarts-extension-amap';
 import 'echarts-extension-gmap';
-import * as echarts from 'echarts';
-import echartsStat from 'echarts-stat';
-import React, { useEffect, useRef, useState } from 'react';
+
 import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
-import { EditorMode, Map, TestIds, Theme } from '../../constants';
+import * as echarts from 'echarts';
+import echartsStat from 'echarts-stat';
+import React, { useEffect, useRef, useState } from 'react';
+
+import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
-import { Styles } from '../../styles';
 import { CodeResult, PanelOptions } from '../../types';
 import { getDatasetSource } from '../../utils';
+import { getStyles } from './EChartsPanel.styles';
 
 /**
  * Properties
  */
-interface Props extends PanelProps<PanelOptions> {}
+type Props = PanelProps<PanelOptions>;
 
 /**
  * Panel
@@ -42,7 +44,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Styles and Theme
    */
   const theme = useTheme2();
-  const styles = useStyles2(Styles);
+  const styles = useStyles2(getStyles);
 
   /**
    * Events
@@ -300,7 +302,7 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
   return (
     <>
       {error?.message && (
-        <Alert data-testid={TestIds.panel.error} severity="warning" title="ECharts Execution Error">
+        <Alert data-testid={TEST_IDS.panel.error} severity="warning" title="ECharts Execution Error">
           {error.message}
         </Alert>
       )}
@@ -308,14 +310,14 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
       {error?.stack && <pre>{error.stack}</pre>}
 
       {themeError?.message && (
-        <Alert data-testid={TestIds.panel.themeError} severity="warning" title="ECharts Custom Theme Error">
+        <Alert data-testid={TEST_IDS.panel.themeError} severity="warning" title="ECharts Custom Theme Error">
           {themeError.message}
         </Alert>
       )}
 
       <div
         ref={echartRef}
-        data-testid={TestIds.panel.chart}
+        data-testid={TEST_IDS.panel.chart}
         className={cx(
           styles.wrapper,
           css`

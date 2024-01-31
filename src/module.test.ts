@@ -1,4 +1,5 @@
 import { PanelPlugin } from '@grafana/data';
+
 import { Map, Theme } from './constants';
 import { plugin } from './module';
 

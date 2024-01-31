@@ -1,10 +1,11 @@
-import React from 'react';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
+import React from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { TestIds } from '../../constants';
-import { SeriesEditor } from './SeriesEditor';
+
+import { TEST_IDS } from '../../constants';
 import { SeriesType } from '../../types';
+import { SeriesEditor } from './SeriesEditor';
 
 /**
  * Properties
@@ -45,7 +46,7 @@ describe('Series Editor', () => {
   /**
    * Selectors
    */
-  const getSelectors = getJestSelectors(TestIds.seriesEditor);
+  const getSelectors = getJestSelectors(TEST_IDS.seriesEditor);
   const selectors = getSelectors(screen);
 
   /**
