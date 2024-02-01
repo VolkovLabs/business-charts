@@ -7,7 +7,7 @@ import React from 'react';
 import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { SeriesType } from '../../types';
-import { EChartsPanel } from './EChartsPanel';
+import { EchartsPanel } from './EchartsPanel';
 
 /**
  * Mock Register Maps
@@ -100,7 +100,7 @@ describe('Panel', () => {
    */
   const getComponent = ({ options = { name: 'data' }, ...restProps }: any, state?: LoadingState) => {
     return (
-      <EChartsPanel
+      <EchartsPanel
         data={getTestData(state)}
         {...restProps}
         options={{

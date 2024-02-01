@@ -2,7 +2,7 @@ import { SelectableValue } from '@grafana/data';
 import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
 import React from 'react';
 
-import { SeriesTypeOptions, TEST_IDS } from '../../constants';
+import { SERIES_TYPE_OPTIONS, TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
 
@@ -51,7 +51,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
       <InlineField label="Type" labelWidth={LabelWidth} grow={true}>
         <Select
           value={value.type}
-          options={SeriesTypeOptions}
+          options={SERIES_TYPE_OPTIONS}
           onChange={(event) => {
             if (event.value) {
               onChange(getSeriesWithNewType(value, event.value));

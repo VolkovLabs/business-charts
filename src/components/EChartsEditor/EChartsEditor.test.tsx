@@ -4,14 +4,14 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 
 import {
-  CodeEditorSuggestions,
+  CODE_EDITOR_SUGGESTIONS,
   CodeLanguage,
   Editor,
   Format,
   TEST_IDS,
-  VisualCodeEditorSuggestions,
+  VISUAL_CODE_EDITOR_SUGGESTIONS,
 } from '../../constants';
-import { EChartsEditor } from './EChartsEditor';
+import { EchartsEditor } from './EchartsEditor';
 
 /**
  * Mock @grafana/ui
@@ -57,7 +57,7 @@ describe('Echarts Editor', () => {
   };
 
   const getComponent = ({ ...restProps }: any, context = getContext()) => {
-    return <EChartsEditor item={{}} {...restProps} context={context} />;
+    return <EchartsEditor item={{}} {...restProps} context={context} />;
   };
 
   beforeEach(() => {
@@ -164,7 +164,7 @@ describe('Echarts Editor', () => {
 
     render(getComponent({}));
 
-    expect(suggestionsResult).toEqual(expect.arrayContaining(CodeEditorSuggestions));
+    expect(suggestionsResult).toEqual(expect.arrayContaining(CODE_EDITOR_SUGGESTIONS));
     expect(suggestionsResult).toEqual(
       expect.arrayContaining([
         {
@@ -220,7 +220,7 @@ describe('Echarts Editor', () => {
       )
     );
 
-    expect(suggestionsResult).toEqual(expect.arrayContaining(VisualCodeEditorSuggestions));
+    expect(suggestionsResult).toEqual(expect.arrayContaining(VISUAL_CODE_EDITOR_SUGGESTIONS));
   });
 
   it('Should use JSON language for themeConfig item', () => {

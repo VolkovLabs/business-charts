@@ -6,10 +6,10 @@ import { Map } from './maps';
 /**
  * ECharts Example
  */
-const getOption = `const series = data.series.map((s) => {
+const GET_OPTION = `const series = data.series.map((s) => {
   const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;
   const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;
-
+  
   return {
     name: s.refId,
     type: 'line',
@@ -84,7 +84,7 @@ return {
   series,
 };`;
 
-const visualEditorCode = `console.log(context);
+const VISUAL_EDITOR_CODE = `console.log(context);
 return {
   dataset: context.editor.dataset,
   series: context.editor.series,
@@ -101,8 +101,8 @@ return {
 /**
  * Default Options
  */
-export const DefaultOptions: PanelOptions = {
-  getOption,
+export const DEFAULT_OPTIONS: PanelOptions = {
+  getOption:GET_OPTION,
   renderer: Renderer.CANVAS,
   themeEditor: { name: Theme.DEFAULT, config: '{}', height: 400 },
   editor: { height: 600, format: Format.AUTO },
@@ -122,7 +122,7 @@ export const DefaultOptions: PanelOptions = {
   visualEditor: {
     dataset: [],
     series: [],
-    code: visualEditorCode,
+    code:VISUAL_EDITOR_CODE,
     codeHeight: 600,
   },
 };

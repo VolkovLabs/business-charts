@@ -5,12 +5,12 @@ import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
 import React from 'react';
 
 import {
-  CodeEditorSuggestions,
+  CODE_EDITOR_SUGGESTIONS,
   CodeLanguage,
   Editor,
   Format,
   TEST_IDS,
-  VisualCodeEditorSuggestions,
+  VISUAL_CODE_EDITOR_SUGGESTIONS,
 } from '../../constants';
 import { PanelOptions } from '../../types';
 
@@ -22,7 +22,7 @@ type Props = StandardEditorProps<string, unknown, PanelOptions>;
 /**
  * ECharts Editor
  */
-export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
+export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
   /**
    * Template Service to get Variables
    */
@@ -57,10 +57,10 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     });
 
     if (item.id === Editor.VISUALCODE) {
-      return [...CodeEditorSuggestions, ...VisualCodeEditorSuggestions, ...suggestions];
+      return [...CODE_EDITOR_SUGGESTIONS, ...VISUAL_CODE_EDITOR_SUGGESTIONS, ...suggestions];
     }
 
-    return [...CodeEditorSuggestions, ...suggestions];
+    return [...CODE_EDITOR_SUGGESTIONS, ...suggestions];
   };
 
   /**

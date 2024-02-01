@@ -36,7 +36,7 @@ export enum EditorMode {
 /**
  * Editor Mode Options
  */
-export const EditorModeOptions = [
+export const EDITOR_MODE_OPTIONS = [
   { value: EditorMode.CODE, label: 'Code' },
   { value: EditorMode.VISUAL, label: 'Visual' },
 ];
@@ -44,7 +44,7 @@ export const EditorModeOptions = [
 /**
  * Format Options
  */
-export const FormatOptions = [
+export const FORMAT_OPTIONS = [
   { value: Format.AUTO, label: 'Auto' },
   { value: Format.NONE, label: 'Disabled' },
 ];
@@ -52,7 +52,7 @@ export const FormatOptions = [
 /**
  * Suggestions
  */
-export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
+export const CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = [
   {
     label: 'data',
     kind: CodeEditorSuggestionItemKind.Property,
@@ -143,7 +143,7 @@ export const CodeEditorSuggestions: CodeEditorSuggestionItem[] = [
 /**
  * Visual Code Editor Suggestions
  */
-export const VisualCodeEditorSuggestions: CodeEditorSuggestionItem[] = [
+export const VISUAL_CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = [
   {
     label: 'context.editor',
     kind: CodeEditorSuggestionItemKind.Property,

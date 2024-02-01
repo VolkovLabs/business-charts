@@ -17,7 +17,7 @@ import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { CodeResult, PanelOptions } from '../../types';
 import { getDatasetSource } from '../../utils';
-import { getStyles } from './EChartsPanel.styles';
+import { getStyles } from './EchartsPanel.styles';
 
 /**
  * Properties
@@ -27,7 +27,7 @@ type Props = PanelProps<PanelOptions>;
 /**
  * Panel
  */
-export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables, eventBus }) => {
+export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, replaceVariables, eventBus }) => {
   /**
    * Reference
    */
@@ -124,7 +124,9 @@ export const EChartsPanel: React.FC<Props> = ({ options, data, width, height, re
     /**
      * Unsubscribe Function
      */
-    let unsubscribeFn = () => {};
+    let unsubscribeFn = () => {
+      // Placeholder
+    };
 
     /**
      * Skip if chart is not defined
