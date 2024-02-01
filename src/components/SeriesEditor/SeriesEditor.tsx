@@ -1,4 +1,5 @@
 import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
+import { Collapse } from '@volkovlabs/components';
 import React, { useCallback, useMemo, useState } from 'react';
 import {
   DragDropContext,
@@ -12,7 +13,6 @@ import {
 import { TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getSeriesUniqueId, getSeriesWithNewType, reorder } from '../../utils';
-import { Collapse } from '../Collapse';
 import { SeriesItemEditor } from '../SeriesItemEditor';
 import { getStyles } from './SeriesEditor.styles';
 
@@ -150,13 +150,15 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                       className={styles.item}
                     >
                       <Collapse
+                        headerTestId={TEST_IDS.seriesEditor.itemHeader(item.id)}
+                        contentTestId={TEST_IDS.seriesEditor.itemContent(item.id)}
+                        isOpen={collapseState[item.uid]}
+                        onToggle={() => onToggleItem(item)}
                         title={
                           <>
                             {item.name} [{item.id}]
                           </>
                         }
-                        headerTestId={TEST_IDS.seriesEditor.itemHeader(item.id)}
-                        contentTestId={TEST_IDS.seriesEditor.itemContent(item.id)}
                         actions={
                           <>
                             <Button
@@ -176,8 +178,6 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                             <Icon name="draggabledots" {...provided.dragHandleProps} className={styles.dragIcon} />
                           </>
                         }
-                        isOpen={collapseState[item.uid]}
-                        onToggle={() => onToggleItem(item)}
                       >
                         <SeriesItemEditor value={item} onChange={onChangeItem} dataset={dataset} />
                       </Collapse>
