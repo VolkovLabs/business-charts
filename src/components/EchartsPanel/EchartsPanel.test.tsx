@@ -365,28 +365,15 @@ describe('Panel', () => {
     });
 
     it('Should show errors if unable to register maps', () => {
-      jest.mocked(registerMaps).mockImplementationOnce(() => {
-        throw error;
-      });
-
       render(
         getComponent({
-          options: {
-            map: Map.JSON,
-            getOption: `return {
-              series: []
-            }`,
-          },
+          options: { map: Map.JSON },
         })
       );
       expect(screen.getByText(error.message)).toBeInTheDocument();
     });
 
     it('Should show stack if unable to register maps', () => {
-      jest.mocked(registerMaps).mockImplementationOnce(() => {
-        throw error;
-      });
-
       render(getComponent({ options: { map: Map.JSON } }));
       expect(screen.getByText(error.stack)).toBeInTheDocument();
     });
