@@ -182,11 +182,11 @@ describe('Panel', () => {
    */
   describe('Theme', () => {
     it('Should apply custom theme', () => {
-      const themeConfigJSON = '123';
+      const themeConfigJson = '123';
 
-      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJSON } } }));
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJson } } }));
 
-      expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJSON));
+      expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJson));
       expect(echarts.init).toHaveBeenCalledWith(
         screen.getByTestId(TEST_IDS.panel.chart),
         Theme.CUSTOM,
@@ -195,9 +195,9 @@ describe('Panel', () => {
     });
 
     it('Should apply default theme if custom theme config has invalid JSON', () => {
-      const invalidThemeConfigJSON = '{';
+      const invalidThemeConfigJson = '{';
 
-      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } }));
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } } }));
 
       expect(echarts.registerTheme).not.toHaveBeenCalled();
       expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', expect.anything());
@@ -205,13 +205,13 @@ describe('Panel', () => {
     });
 
     it('Should show invalid theme error until it is fixed', () => {
-      const invalidThemeConfigJSON = '{';
+      const invalidThemeConfigJson = '{';
 
       /**
        * First render
        */
       const { rerender } = render(
-        getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } })
+        getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } } })
       );
 
       expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
@@ -221,7 +221,7 @@ describe('Panel', () => {
        */
       rerender(
         getComponent({
-          options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } },
+          options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } },
           getOption: '',
         })
       );

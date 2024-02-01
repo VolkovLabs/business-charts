@@ -164,7 +164,7 @@ describe('Dataset Editor', () => {
    */
   describe('Items order', () => {
     it('Should reorder items', async () => {
-      let onDragEndHandler: (result: DropResult) => void = () => {};
+      let onDragEndHandler: (result: DropResult) => void = () => null;
       jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
         onDragEndHandler = onDragEnd;
         return children;
@@ -201,7 +201,7 @@ describe('Dataset Editor', () => {
     });
 
     it('Should not reorder items if drop outside the list', async () => {
-      let onDragEndHandler: (result: DropResult) => void = () => {};
+      let onDragEndHandler: (result: DropResult) => void = () => null;
       jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
         onDragEndHandler = onDragEnd;
         return children;
