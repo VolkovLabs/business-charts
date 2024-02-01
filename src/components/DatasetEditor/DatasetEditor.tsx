@@ -1,5 +1,7 @@
-import React, { useCallback, useMemo, useState } from 'react';
 import { cx } from '@emotion/css';
+import { DataFrame, SelectableValue } from '@grafana/data';
+import { Button, Icon, IconButton, InlineField, InlineFieldRow, Select, useStyles2 } from '@grafana/ui';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   DragDropContext,
   Draggable,
@@ -8,12 +10,11 @@ import {
   DropResult,
   NotDraggingStyle,
 } from 'react-beautiful-dnd';
-import { Button, Icon, IconButton, InlineField, InlineFieldRow, Select, useStyles2 } from '@grafana/ui';
-import { DataFrame, SelectableValue } from '@grafana/data';
-import { TestIds } from '../../constants';
+
+import { TEST_IDS } from '../../constants';
 import { DatasetItem } from '../../types';
 import { getDatasetItemUniqueName, reorder } from '../../utils';
-import { Styles } from './DatasetEditor.styles';
+import { getStyles } from './DatasetEditor.styles';
 
 /**
  * Get Item Style
@@ -58,7 +59,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
   /**
    * Styles and Theme
    */
-  const styles = useStyles2(Styles);
+  const styles = useStyles2(getStyles);
 
   /**
    * States
@@ -127,7 +128,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
   }, [items, newItem, onChangeItems]);
 
   return (
-    <div data-testid={TestIds.datasetEditor.root} className={styles.root}>
+    <div data-testid={TEST_IDS.datasetEditor.root} className={styles.root}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="dataset">
           {(provided) => (
@@ -145,7 +146,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                       {...provided.dragHandleProps}
                       style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
                       className={styles.item}
-                      data-testid={TestIds.datasetEditor.item(getDatasetItemUniqueName(item))}
+                      data-testid={TEST_IDS.datasetEditor.item(getDatasetItemUniqueName(item))}
                     >
                       <div className={styles.header}>
                         <div className={styles.column}>
@@ -169,7 +170,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                                 )
                               )
                             }
-                            data-testid={TestIds.datasetEditor.buttonRemove}
+                            data-testid={TEST_IDS.datasetEditor.buttonRemove}
                           />
                           <Icon
                             title="Drag and drop to reorder"
@@ -190,12 +191,12 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
         </Droppable>
       </DragDropContext>
 
-      <InlineFieldRow data-testid={TestIds.datasetEditor.newItem}>
+      <InlineFieldRow data-testid={TEST_IDS.datasetEditor.newItem}>
         <InlineField label="New Item" grow={true}>
           <Select
             options={availableFieldOptions}
             value={newItem?.value || null}
-            aria-label={TestIds.datasetEditor.newItemName}
+            aria-label={TEST_IDS.datasetEditor.newItemName}
             onChange={(event) => {
               setNewItem({
                 value: event.value,
@@ -210,7 +211,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
           title="Add Item"
           disabled={!newItem}
           onClick={onAddNewItem}
-          data-testid={TestIds.datasetEditor.buttonAddNew}
+          data-testid={TEST_IDS.datasetEditor.buttonAddNew}
         >
           Add
         </Button>

@@ -1,12 +1,13 @@
-import * as echarts from 'echarts';
-import React from 'react';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { render, screen } from '@testing-library/react';
-import { EditorMode, Map, TestIds, Theme } from '../../constants';
+import * as echarts from 'echarts';
+import React from 'react';
+
+import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
-import { EChartsPanel } from './EChartsPanel';
 import { SeriesType } from '../../types';
+import { EchartsPanel } from './EchartsPanel';
 
 /**
  * Mock Register Maps
@@ -99,7 +100,7 @@ describe('Panel', () => {
    */
   const getComponent = ({ options = { name: 'data' }, ...restProps }: any, state?: LoadingState) => {
     return (
-      <EChartsPanel
+      <EchartsPanel
         data={getTestData(state)}
         {...restProps}
         options={{
@@ -112,29 +113,29 @@ describe('Panel', () => {
 
   it('Should find component', async () => {
     render(getComponent({}));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component with Done state', async () => {
     render(getComponent({}, LoadingState.Done));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should find component for Streaming', async () => {
     render(getComponent({}, LoadingState.Streaming));
-    expect(screen.getByTestId(TestIds.panel.chart)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_IDS.panel.chart)).toBeInTheDocument();
   });
 
   it('Should call echart.init with appropriated parameters', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', { renderer });
   });
 
   it('Should apply right theme', () => {
     const renderer = jest.fn();
     render(getComponent({ options: { renderer } }));
-    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', { renderer });
+    expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', { renderer });
   });
 
   it('Should publish success and errors events with passed payload', () => {
@@ -181,58 +182,58 @@ describe('Panel', () => {
    */
   describe('Theme', () => {
     it('Should apply custom theme', () => {
-      const themeConfigJSON = '123';
+      const themeConfigJson = '123';
 
-      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJSON } } }));
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: themeConfigJson } } }));
 
-      expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJSON));
+      expect(echarts.registerTheme).toHaveBeenCalledWith(Theme.CUSTOM, JSON.parse(themeConfigJson));
       expect(echarts.init).toHaveBeenCalledWith(
-        screen.getByTestId(TestIds.panel.chart),
+        screen.getByTestId(TEST_IDS.panel.chart),
         Theme.CUSTOM,
         expect.anything()
       );
     });
 
     it('Should apply default theme if custom theme config has invalid JSON', () => {
-      const invalidThemeConfigJSON = '{';
+      const invalidThemeConfigJson = '{';
 
-      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } }));
+      render(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } } }));
 
       expect(echarts.registerTheme).not.toHaveBeenCalled();
-      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TestIds.panel.chart), 'dark', expect.anything());
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), 'dark', expect.anything());
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
     });
 
     it('Should show invalid theme error until it is fixed', () => {
-      const invalidThemeConfigJSON = '{';
+      const invalidThemeConfigJson = '{';
 
       /**
        * First render
        */
       const { rerender } = render(
-        getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } } })
+        getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } } })
       );
 
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
 
       /**
        * Rerender with chart updates
        */
       rerender(
         getComponent({
-          options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJSON } },
+          options: { themeEditor: { name: Theme.CUSTOM, config: invalidThemeConfigJson } },
           getOption: '',
         })
       );
 
-      expect(screen.getByTestId(TestIds.panel.themeError)).toBeInTheDocument();
+      expect(screen.getByTestId(TEST_IDS.panel.themeError)).toBeInTheDocument();
 
       /**
        * Rerender with correct theme config
        */
       rerender(getComponent({ options: { themeEditor: { name: Theme.CUSTOM, config: '{}' } } }));
 
-      expect(screen.queryByTestId(TestIds.panel.themeError)).not.toBeInTheDocument();
+      expect(screen.queryByTestId(TEST_IDS.panel.themeError)).not.toBeInTheDocument();
     });
   });
 
@@ -347,10 +348,15 @@ describe('Panel', () => {
    * Error handling section
    */
   describe('Error handling', () => {
-    const error = {
-      message: 'some error',
-      stack: 'some stack',
-    };
+    class CustomError extends Error {
+      constructor(
+        public name: string,
+        public stack: string
+      ) {
+        super(name);
+      }
+    }
+    const error = new CustomError('some error', 'stack');
 
     beforeEach(() => {
       jest.mocked(registerMaps).mockImplementationOnce(() => {
@@ -359,7 +365,11 @@ describe('Panel', () => {
     });
 
     it('Should show errors if unable to register maps', () => {
-      render(getComponent({ options: { map: Map.JSON } }));
+      render(
+        getComponent({
+          options: { map: Map.JSON },
+        })
+      );
       expect(screen.getByText(error.message)).toBeInTheDocument();
     });
 

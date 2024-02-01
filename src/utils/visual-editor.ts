@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
 import { DataFrame } from '@grafana/data';
+import { v4 as uuidv4 } from 'uuid';
+
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../types';
 import { getFieldValues } from './data-frame';
 
@@ -31,7 +32,7 @@ export const getDatasetItemUniqueName = (item: DatasetItem) => {
  * @param items
  */
 export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]): [string[], ...unknown[]] => {
-  const itemValuesMap = items.reduce((acc: Map<string, any[]>, item) => {
+  const itemValuesMap = items.reduce((acc: Map<string, unknown[]>, item) => {
     const frame = frames.find((frame) =>
       item.source ? frame.refId === item.source : frame.fields.some((field) => field.name === item.name)
     );
@@ -61,8 +62,8 @@ export const getDatasetSource = (frames: DataFrame[], items: DatasetItem[]): [st
  * @param item
  * @param newType
  */
-export const getSeriesWithNewType = (
-  item: SeriesItem,
+export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name' | 'uid'>>(
+  item: TItem,
   newType: SeriesType
 ): SeriesByType<SeriesItem, typeof newType> => {
   const commonValues = {

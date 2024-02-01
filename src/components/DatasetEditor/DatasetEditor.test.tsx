@@ -1,10 +1,11 @@
-import React from 'react';
+import { toDataFrame } from '@grafana/data';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
+import React from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { TestIds } from '../../constants';
+
+import { TEST_IDS } from '../../constants';
 import { DatasetEditor } from './DatasetEditor';
-import { toDataFrame } from '@grafana/data';
 
 /**
  * Properties
@@ -58,7 +59,7 @@ describe('Dataset Editor', () => {
   /**
    * Selectors
    */
-  const getSelectors = getJestSelectors(TestIds.datasetEditor);
+  const getSelectors = getJestSelectors(TEST_IDS.datasetEditor);
   const selectors = getSelectors(screen);
 
   /**
@@ -163,7 +164,7 @@ describe('Dataset Editor', () => {
    */
   describe('Items order', () => {
     it('Should reorder items', async () => {
-      let onDragEndHandler: (result: DropResult) => void = () => {};
+      let onDragEndHandler: (result: DropResult) => void = () => null;
       jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
         onDragEndHandler = onDragEnd;
         return children;
@@ -200,7 +201,7 @@ describe('Dataset Editor', () => {
     });
 
     it('Should not reorder items if drop outside the list', async () => {
-      let onDragEndHandler: (result: DropResult) => void = () => {};
+      let onDragEndHandler: (result: DropResult) => void = () => null;
       jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
         onDragEndHandler = onDragEnd;
         return children;

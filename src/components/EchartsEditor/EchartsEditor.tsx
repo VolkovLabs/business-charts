@@ -1,31 +1,28 @@
-import React from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
+import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
+import React from 'react';
+
 import {
-  CodeEditorSuggestions,
+  CODE_EDITOR_SUGGESTIONS,
   CodeLanguage,
   Editor,
   Format,
-  TestIds,
-  VisualCodeEditorSuggestions,
+  TEST_IDS,
+  VISUAL_CODE_EDITOR_SUGGESTIONS,
 } from '../../constants';
 import { PanelOptions } from '../../types';
 
 /**
- * Monaco
- */
-import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
-
-/**
  * Properties
  */
-interface Props extends StandardEditorProps<string, unknown, PanelOptions> {}
+type Props = StandardEditorProps<string, unknown, PanelOptions>;
 
 /**
  * ECharts Editor
  */
-export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
+export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item }) => {
   /**
    * Template Service to get Variables
    */
@@ -60,10 +57,10 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     });
 
     if (item.id === Editor.VISUALCODE) {
-      return [...CodeEditorSuggestions, ...VisualCodeEditorSuggestions, ...suggestions];
+      return [...CODE_EDITOR_SUGGESTIONS, ...VISUAL_CODE_EDITOR_SUGGESTIONS, ...suggestions];
     }
 
-    return [...CodeEditorSuggestions, ...suggestions];
+    return [...CODE_EDITOR_SUGGESTIONS, ...suggestions];
   };
 
   /**
@@ -110,7 +107,7 @@ export const EChartsEditor: React.FC<Props> = ({ value, onChange, context, item 
   };
 
   return (
-    <div data-testid={TestIds.editor.root}>
+    <div data-testid={TEST_IDS.editor.root}>
       <CodeEditor
         language={CodeLanguage.JAVASCRIPT}
         showLineNumbers={true}

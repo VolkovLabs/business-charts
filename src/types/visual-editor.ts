@@ -162,4 +162,4 @@ export interface VisualEditorOptions {
 /**
  * Series By Type
  */
-export type SeriesByType<Series, Type> = Extract<Series, { type: Type }>;
+export type SeriesByType<TSeries, TType> = Extract<TSeries, { type: TType }>;

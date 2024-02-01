@@ -1,11 +1,11 @@
 import { e2e } from '@grafana/e2e';
-import { TestIds } from '../../src/constants';
+import { TEST_IDS } from '../../src/constants';
 
 /**
  * Dashboard
  */
-const json = require('../../provisioning/dashboards/e2e.json');
-const testedPanel = json.panels[0];
+const testedPanelTitle = 'Bar Chart';
+const uid = 'fdd5dbe3-794c-4441-9d1c-024a537bbe99';
 
 /**
  * Selector
@@ -18,18 +18,18 @@ const getTestIdSelector = (testId: string) => `[data-testid="${testId}"]`;
 describe('Viewing a panel with Apache ECharts', () => {
   beforeEach(() => {
     e2e.flows.openDashboard({
-      uid: json.uid,
+      uid: uid,
     });
   });
 
   it('Should display a Bar Chart', () => {
-    const currentPanel = e2e.components.Panels.Panel.title(testedPanel.title);
+    const currentPanel = e2e.components.Panels.Panel.title(testedPanelTitle);
     currentPanel.should('be.visible');
 
     /**
      * Chart
      */
-    const chart = currentPanel.find(getTestIdSelector(TestIds.panel.chart));
+    const chart = currentPanel.find(getTestIdSelector(TEST_IDS.panel.chart));
     chart.should('be.visible');
 
     /**
@@ -40,7 +40,7 @@ describe('Viewing a panel with Apache ECharts', () => {
     /**
      * Screenshot
      */
-    chart.screenshot(testedPanel.title);
-    e2e().compareScreenshots({ name: testedPanel.title, threshold: 0.05 });
+    chart.screenshot(testedPanelTitle);
+    e2e().compareScreenshots({ name: testedPanelTitle, threshold: 0.05 });
   });
 });

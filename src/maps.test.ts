@@ -1,4 +1,4 @@
-import { MapApi } from './constants';
+import { MAP_API } from './constants';
 import { loadBaidu, loadGaode, loadGoogle } from './maps';
 
 /**
@@ -25,7 +25,7 @@ describe('Maps', () => {
 
       expect(document.body.appendChild).toBeCalledWith(
         expect.objectContaining({
-          src: expect.stringContaining(MapApi.baidu),
+          src: expect.stringContaining(MAP_API.baidu),
         })
       );
       expect(document.body.appendChild).toBeCalledWith(
@@ -60,7 +60,7 @@ describe('Maps', () => {
 
       expect(document.body.appendChild).toBeCalledWith(
         expect.objectContaining({
-          src: expect.stringContaining(MapApi.gaode),
+          src: expect.stringContaining(MAP_API.gaode),
         })
       );
       expect(document.body.appendChild).toBeCalledWith(
@@ -95,7 +95,7 @@ describe('Maps', () => {
 
       expect(document.body.appendChild).toBeCalledWith(
         expect.objectContaining({
-          src: expect.stringContaining(MapApi.google),
+          src: expect.stringContaining(MAP_API.google),
         })
       );
       expect(document.body.appendChild).toBeCalledWith(

@@ -1,5 +1,6 @@
 import * as echarts from 'echarts';
-import { MapApi } from './constants';
+
+import { MAP_API } from './constants';
 import { BaiduOptions, GaodeOptions, GoogleOptions } from './types';
 
 /**
@@ -21,13 +22,13 @@ export const registerMaps = () => {
  * Load Baidu Maps
  */
 export const loadBaidu = (options: BaiduOptions) => {
-  if ((window as any).BMap) {
+  if (window.BMap) {
     return;
   }
 
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = `${MapApi.baidu}?v=3.0&ak=${options.key}&callback=${options.callback}`;
+  script.src = `${MAP_API.baidu}?v=3.0&ak=${options.key}&callback=${options.callback}`;
 
   document.body.appendChild(script);
 };
@@ -36,13 +37,13 @@ export const loadBaidu = (options: BaiduOptions) => {
  * Load Gaode Maps
  */
 export const loadGaode = (options: GaodeOptions) => {
-  if ((window as any).AMap) {
+  if (window.AMap) {
     return;
   }
 
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = `${MapApi.gaode}?v=1.4.15&ak=${options.key}&plugin=${options.plugin}`;
+  script.src = `${MAP_API.gaode}?v=1.4.15&ak=${options.key}&plugin=${options.plugin}`;
 
   document.body.appendChild(script);
 };
@@ -57,7 +58,7 @@ export const loadGoogle = (options: GoogleOptions) => {
 
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = `${MapApi.google}?key=${options.key}&callback=${options.callback}`;
+  script.src = `${MAP_API.google}?key=${options.key}&callback=${options.callback}`;
 
   document.body.appendChild(script);
 };

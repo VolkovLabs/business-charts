@@ -1,20 +1,17 @@
 {
-  "extends": "./.config/.eslintrc",
+  "extends": ["./.config/.eslintrc", "@volkovlabs/eslint-config"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["deprecation"],
-  "rules": {
-    "deprecation/deprecation": ["error"],
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true
+  "overrides": [
+    {
+      "files": ["**/*.test.tsx", "**/*.test.ts", "src/__testUtils__/**/*", "**/__mocks__/**/*"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
       }
-    ]
-  }
+    }
+  ]
 }

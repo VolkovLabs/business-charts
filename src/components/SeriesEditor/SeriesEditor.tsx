@@ -1,3 +1,5 @@
+import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
+import { Collapse } from '@volkovlabs/components';
 import React, { useCallback, useMemo, useState } from 'react';
 import {
   DragDropContext,
@@ -7,13 +9,12 @@ import {
   DropResult,
   NotDraggingStyle,
 } from 'react-beautiful-dnd';
-import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
-import { TestIds } from '../../constants';
+
+import { TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getSeriesUniqueId, getSeriesWithNewType, reorder } from '../../utils';
-import { Collapse } from '../Collapse';
 import { SeriesItemEditor } from '../SeriesItemEditor';
-import { Styles } from './SeriesEditor.styles';
+import { getStyles } from './SeriesEditor.styles';
 
 /**
  * Properties
@@ -59,7 +60,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
    * Styles and Theme
    */
   const theme = useTheme2();
-  const styles = Styles(theme);
+  const styles = getStyles(theme);
 
   /**
    * States
@@ -111,7 +112,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
    */
   const onAddNewItem = useCallback(() => {
     setNewItem('');
-    const addedItem = getSeriesWithNewType({ id: newItem, name: '', uid: getSeriesUniqueId() } as any, SeriesType.LINE);
+    const addedItem = getSeriesWithNewType({ id: newItem, name: '', uid: getSeriesUniqueId() }, SeriesType.LINE);
     onChangeItems(items.concat(addedItem));
     onToggleItem(addedItem);
   }, [items, newItem, onChangeItems, onToggleItem]);
@@ -134,7 +135,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   }, [items, newItem]);
 
   return (
-    <div data-testid={TestIds.seriesEditor.root}>
+    <div data-testid={TEST_IDS.seriesEditor.root}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="series-editor">
           {(provided) => (
@@ -149,13 +150,15 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                       className={styles.item}
                     >
                       <Collapse
+                        headerTestId={TEST_IDS.seriesEditor.itemHeader(item.id)}
+                        contentTestId={TEST_IDS.seriesEditor.itemContent(item.id)}
+                        isOpen={collapseState[item.uid]}
+                        onToggle={() => onToggleItem(item)}
                         title={
                           <>
                             {item.name} [{item.id}]
                           </>
                         }
-                        headerTestId={TestIds.seriesEditor.itemHeader(item.id)}
-                        contentTestId={TestIds.seriesEditor.itemContent(item.id)}
                         actions={
                           <>
                             <Button
@@ -170,13 +173,11 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                                  */
                                 onChangeItems(items.filter((series) => series.uid !== item.uid));
                               }}
-                              data-testid={TestIds.seriesEditor.buttonRemove}
+                              data-testid={TEST_IDS.seriesEditor.buttonRemove}
                             />
                             <Icon name="draggabledots" {...provided.dragHandleProps} className={styles.dragIcon} />
                           </>
                         }
-                        isOpen={collapseState[item.uid]}
-                        onToggle={() => onToggleItem(item)}
                       >
                         <SeriesItemEditor value={item} onChange={onChangeItem} dataset={dataset} />
                       </Collapse>
@@ -190,7 +191,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
         </Droppable>
       </DragDropContext>
 
-      <InlineFieldRow data-testid={TestIds.seriesEditor.newItem}>
+      <InlineFieldRow data-testid={TEST_IDS.seriesEditor.newItem}>
         <InlineField
           label="New Series"
           grow={true}
@@ -201,7 +202,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
             placeholder="Unique Id"
             value={newItem}
             onChange={(event) => setNewItem(event.currentTarget.value)}
-            data-testid={TestIds.seriesEditor.newItemId}
+            data-testid={TEST_IDS.seriesEditor.newItemId}
           />
         </InlineField>
         <Button
@@ -209,7 +210,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
           title="Add Series"
           disabled={!newItem || isNameExistsError}
           onClick={onAddNewItem}
-          data-testid={TestIds.seriesEditor.buttonAddNew}
+          data-testid={TEST_IDS.seriesEditor.buttonAddNew}
         >
           Add
         </Button>

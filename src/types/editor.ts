@@ -1,4 +1,5 @@
 import { EChartOption, EChartsOptionConfig } from 'echarts';
+
 import { Format } from '../constants';
 
 /**
