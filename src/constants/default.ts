@@ -102,7 +102,7 @@ return {
  * Default Options
  */
 export const DEFAULT_OPTIONS: PanelOptions = {
-  getOption:GET_OPTION,
+  getOption: GET_OPTION,
   renderer: Renderer.CANVAS,
   themeEditor: { name: Theme.DEFAULT, config: '{}', height: 400 },
   editor: { height: 600, format: Format.AUTO },
@@ -122,7 +122,7 @@ export const DEFAULT_OPTIONS: PanelOptions = {
   visualEditor: {
     dataset: [],
     series: [],
-    code:VISUAL_EDITOR_CODE,
+    code: VISUAL_EDITOR_CODE,
     codeHeight: 600,
   },
 };
