@@ -4,9 +4,9 @@ import { TEST_IDS } from '../../src/constants';
 /**
  * Dashboard
  */
-
 const testedPanelTitle = 'Bar Chart';
 const uid = 'fdd5dbe3-794c-4441-9d1c-024a537bbe99';
+
 /**
  * Selector
  */
