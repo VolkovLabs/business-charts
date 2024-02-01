@@ -8,7 +8,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.test.tsx", "**/*.test.ts"],
+      "files": ["**/*.test.tsx", "**/*.test.ts", "src/__testUtils__/**/*", "**/__mocks__/**/*"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       }

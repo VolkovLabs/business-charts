@@ -112,7 +112,7 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
    */
   const onAddNewItem = useCallback(() => {
     setNewItem('');
-    const addedItem = getSeriesWithNewType({ id: newItem, name: '', uid: getSeriesUniqueId() } as any, SeriesType.LINE);
+    const addedItem = getSeriesWithNewType({ id: newItem, name: '', uid: getSeriesUniqueId() }, SeriesType.LINE);
     onChangeItems(items.concat(addedItem));
     onToggleItem(addedItem);
   }, [items, newItem, onChangeItems, onToggleItem]);

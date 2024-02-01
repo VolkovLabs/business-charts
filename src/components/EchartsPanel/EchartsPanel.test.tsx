@@ -348,10 +348,15 @@ describe('Panel', () => {
    * Error handling section
    */
   describe('Error handling', () => {
-    const error = {
-      message: 'some error',
-      stack: 'some stack',
-    };
+    class CustomError extends Error {
+      constructor(
+        public name: string,
+        public stack: string
+      ) {
+        super(name);
+      }
+    }
+    const error = new CustomError('some error', 'stack');
 
     beforeEach(() => {
       jest.mocked(registerMaps).mockImplementationOnce(() => {
@@ -360,11 +365,28 @@ describe('Panel', () => {
     });
 
     it('Should show errors if unable to register maps', () => {
-      render(getComponent({ options: { map: Map.JSON } }));
+      jest.mocked(registerMaps).mockImplementationOnce(() => {
+        throw error;
+      });
+
+      render(
+        getComponent({
+          options: {
+            map: Map.JSON,
+            getOption: `return {
+              series: []
+            }`,
+          },
+        })
+      );
       expect(screen.getByText(error.message)).toBeInTheDocument();
     });
 
     it('Should show stack if unable to register maps', () => {
+      jest.mocked(registerMaps).mockImplementationOnce(() => {
+        throw error;
+      });
+
       render(getComponent({ options: { map: Map.JSON } }));
       expect(screen.getByText(error.stack)).toBeInTheDocument();
     });

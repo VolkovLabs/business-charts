@@ -56,7 +56,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
   /**
    * Transformations
    */
-  const ecStat: any = echartsStat;
+  const ecStat = echartsStat;
 
   /**
    * Initialize Chart
@@ -92,8 +92,8 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
         const themeConfig = JSON.parse(options.themeEditor.config);
         echartsTheme = Theme.CUSTOM;
         echarts.registerTheme(echartsTheme, themeConfig);
-      } catch (e: any) {
-        setThemeError(e);
+      } catch (e: unknown) {
+        setThemeError(e instanceof Error ? e : new Error(`${e}`));
       }
     }
 
@@ -244,7 +244,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
       /**
        * Chart option
        */
-      let chartOption = {};
+      let chartOption;
 
       /**
        * Default Option Config with merge disabled
@@ -290,7 +290,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
         chartOptionConfig
       );
     } catch (err) {
-      setError(err as any);
+      setError(err instanceof Error ? err : new Error(`${err}`));
     }
 
     return unsubscribeFn;

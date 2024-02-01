@@ -22,7 +22,7 @@ export const registerMaps = () => {
  * Load Baidu Maps
  */
 export const loadBaidu = (options: BaiduOptions) => {
-  if ((window as any).BMap) {
+  if (window.BMap) {
     return;
   }
 
@@ -37,7 +37,7 @@ export const loadBaidu = (options: BaiduOptions) => {
  * Load Gaode Maps
  */
 export const loadGaode = (options: GaodeOptions) => {
-  if ((window as any).AMap) {
+  if (window.AMap) {
     return;
   }
 
