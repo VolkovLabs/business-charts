@@ -26,7 +26,7 @@ export const TEST_IDS = {
   },
   datasetEditor: {
     buttonAddNew: 'data-testid dataset-editor button-add-new',
-    buttonRemove: 'data-testid dataset-editor button-remove',
+    buttonRemove: 'dataset-editor button-remove',
     item: (name: string) => `data-testid dataset-editor item-${name}`,
     newItem: 'data-testid dataset-editor new-item',
     newItemName: 'dataset-editor new-item-name',

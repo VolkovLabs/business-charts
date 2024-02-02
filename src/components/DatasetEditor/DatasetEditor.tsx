@@ -163,7 +163,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                         <div className={styles.column}>
                           <IconButton
                             name="trash-alt"
-                            aria-label="Remove"
+                            aria-label={TEST_IDS.datasetEditor.buttonRemove}
                             onClick={() =>
                               onChangeItems(
                                 items.filter(
@@ -171,7 +171,6 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                                 )
                               )
                             }
-                            data-testid={TEST_IDS.datasetEditor.buttonRemove}
                           />
                           <Icon
                             title="Drag and drop to reorder"

@@ -57,7 +57,7 @@ describe('Echarts Editor', () => {
   };
 
   const getComponent = ({ ...restProps }: any, context = getContext()) => {
-    return <EchartsEditor item={{}} {...restProps} context={context} />;
+    return <EchartsEditor item={{}} value={''} {...restProps} context={context} />;
   };
 
   beforeEach(() => {

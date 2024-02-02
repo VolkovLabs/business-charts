@@ -111,7 +111,7 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
       <CodeEditor
         language={CodeLanguage.JAVASCRIPT}
         showLineNumbers={true}
-        showMiniMap={!!value && value.length > 100}
+        showMiniMap={value.length > 100}
         value={value}
         height={context.options?.editor.height}
         onBlur={onChange}
