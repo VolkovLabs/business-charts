@@ -121,7 +121,7 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
     builder.addRadio({
       path: 'editorMode',
       name: 'Editor Mode',
-      defaultValue: EditorMode.CODE,
+      defaultValue: EditorMode.VISUAL,
       settings: {
         options: EDITOR_MODE_OPTIONS,
       },
