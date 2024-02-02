@@ -163,6 +163,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                         <div className={styles.column}>
                           <IconButton
                             name="trash-alt"
+                            aria-label="Remove"
                             onClick={() =>
                               onChangeItems(
                                 items.filter(
