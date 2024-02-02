@@ -7,6 +7,7 @@
 - Updated README and documentation (#214)
 - Add visual editor for working with data sources (#211)
 - Update ESLint configuration and refactoring (#237)
+- Update dependencies and Actions (#238)
 
 ## 5.1.0 (2023-08-11)
 
