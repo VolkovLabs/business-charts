@@ -42,6 +42,7 @@
           "format": "auto",
           "height": 669
         },
+        "editorMode": "code",
         "followTheme": true,
         "gaode": {
           "key": "",

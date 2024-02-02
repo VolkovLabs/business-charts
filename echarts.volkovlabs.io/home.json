@@ -48,6 +48,7 @@
           "format": "auto",
           "height": 669
         },
+        "editorMode": "code",
         "followTheme": true,
         "gaode": {
           "key": "",
@@ -117,6 +118,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -158,6 +160,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -199,6 +202,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -240,6 +244,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -281,6 +286,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -322,6 +328,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -365,6 +372,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -406,6 +414,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -447,6 +456,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -488,6 +498,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -529,6 +540,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -570,6 +582,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -611,6 +624,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -652,6 +666,7 @@
           "format": "auto",
           "height": 600
         },
+        "editorMode": "code",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
