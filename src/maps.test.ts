@@ -23,17 +23,17 @@ describe('Maps', () => {
 
       loadBaidu({ key, callback });
 
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(MAP_API.baidu),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(key),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(callback),
         })
@@ -43,7 +43,7 @@ describe('Maps', () => {
     it('Should not re-initialize files twice', () => {
       (window as any).BMap = true;
       loadBaidu({} as any);
-      expect(document.body.appendChild).not.toBeCalled();
+      expect(document.body.appendChild).not.toHaveBeenCalled();
       delete (window as any).BMap;
     });
   });
@@ -58,17 +58,17 @@ describe('Maps', () => {
 
       loadGaode({ key, plugin });
 
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(MAP_API.gaode),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(key),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(plugin),
         })
@@ -78,7 +78,7 @@ describe('Maps', () => {
     it('Should not re-initialize files twice', () => {
       (window as any).AMap = true;
       loadGaode({} as any);
-      expect(document.body.appendChild).not.toBeCalled();
+      expect(document.body.appendChild).not.toHaveBeenCalled();
       delete (window as any).AMap;
     });
   });
@@ -93,17 +93,17 @@ describe('Maps', () => {
 
       loadGoogle({ key, callback });
 
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(MAP_API.google),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(key),
         })
       );
-      expect(document.body.appendChild).toBeCalledWith(
+      expect(document.body.appendChild).toHaveBeenCalledWith(
         expect.objectContaining({
           src: expect.stringContaining(callback),
         })
@@ -115,7 +115,7 @@ describe('Maps', () => {
         maps: {},
       };
       loadGoogle({} as any);
-      expect(document.body.appendChild).not.toBeCalled();
+      expect(document.body.appendChild).not.toHaveBeenCalled();
       delete (window as any).google;
     });
   });

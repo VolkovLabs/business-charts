@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-![Grafana](https://img.shields.io/badge/Grafana-10.0-orange)
+![Grafana](https://img.shields.io/badge/Grafana-10.3-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
 ![E2E](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/E2E/badge.svg)
@@ -57,8 +57,8 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Documentation
 
-| Section                     | Description                                                         |
-| --------------------------- | ------------------------------------------------------------------- |
+| Section                                                                             | Description                                                         |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [ECharts Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function. |
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)        | Explains how to get started with ECharts Examples.                  |
 | [Features](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/features/)        | Demonstrates panel features.                                        |
