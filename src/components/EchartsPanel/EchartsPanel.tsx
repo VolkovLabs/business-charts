@@ -174,6 +174,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
               'locationService',
               'notifySuccess',
               'notifyError',
+              'context',
               options.getOption
             );
 
