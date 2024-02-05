@@ -13,6 +13,7 @@ import {
   Theme,
   THEME_OPTIONS,
 } from './constants';
+import { getMigratedOptions } from './migration';
 import { PanelOptions } from './types';
 
 /**
@@ -20,6 +21,7 @@ import { PanelOptions } from './types';
  */
 export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
   .setNoPadding()
+  .setMigrationHandler(getMigratedOptions)
   .setPanelOptions((builder) => {
     const isCodeEditor = (config: PanelOptions) => config.editorMode !== EditorMode.VISUAL;
     const isVisualEditor = (config: PanelOptions) => config.editorMode === EditorMode.VISUAL;
