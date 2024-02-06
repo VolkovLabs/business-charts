@@ -57,7 +57,7 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     });
 
     if (item.id === Editor.VISUALCODE) {
-      return [...CODE_EDITOR_SUGGESTIONS, ...VISUAL_CODE_EDITOR_SUGGESTIONS, ...suggestions];
+      return [...VISUAL_CODE_EDITOR_SUGGESTIONS, ...suggestions];
     }
 
     return [...CODE_EDITOR_SUGGESTIONS, ...suggestions];

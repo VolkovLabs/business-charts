@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.2.0 (IN PROGRESS)
+## 5.2.0 (2024-02-05)
 
 ### Features / Enhancements
 
@@ -8,6 +8,7 @@
 - Add visual editor for working with data sources (#211)
 - Update ESLint configuration and refactoring (#237)
 - Update dependencies and Actions (#238)
+- Add context parameter to non-visual mode (#245)
 
 ## 5.1.0 (2023-08-11)
 
