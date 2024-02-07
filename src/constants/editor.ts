@@ -119,7 +119,7 @@ const EDITOR_BASE_CONTEXT_SUGGESTIONS: CodeEditorSuggestionItem[] = [
   {
     label: 'context.grafana.refresh',
     kind: CodeEditorSuggestionItemKind.Method,
-    detail: 'Interpolate all variables.',
+    detail: 'Refresh dashboard.',
   },
 
   /**
