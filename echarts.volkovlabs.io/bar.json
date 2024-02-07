@@ -62,11 +62,38 @@
           "height": 600
         },
         "editorMode": "code",
+        "visualEditor": {
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "uid": "f86dc46d-1364-4d2b-8d5f-834633903124",
+              "id": "A",
+              "name": "Bar",
+              "type": "bar"
+            }
+          ],
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n    // min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600
+        },
+        "themeEditor": {
+          "name": "default",
+          "height": 400,
+          "config": "{}"
+        },
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {\n    type: 'category',\n    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n  },\n  yAxis: {\n    type: 'value'\n  },\n  series: [\n    {\n      data: [120, 200, 150, 80, 70, 110, 130],\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {\n    type: 'category',\n    data: categories\n  },\n  yAxis: {\n    type: 'value'\n  },\n  series: [\n    {\n      data: values,\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -74,6 +101,33 @@
         "map": "json",
         "renderer": "canvas"
       },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "refId": "A",
+          "frame": {
+            "fields": [
+              {
+                "name": "Category",
+                "type": "string",
+                "config": {},
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "config": {},
+                "values": ["120", "200", "150", "80", "70", "110", "130"]
+              }
+            ],
+            "meta": {},
+            "name": "Bar"
+          }
+        }
+      ],
       "title": "Bar with Background",
       "type": "volkovlabs-echarts-panel"
     },
@@ -140,7 +194,29 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    top: '4%',\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  xAxis: [\n    {\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],\n      axisTick: {\n        alignWithLabel: true\n      }\n    }\n  ],\n  yAxis: [\n    {\n      type: 'value'\n    }\n  ],\n  series: [\n    {\n      name: 'Direct',\n      type: 'bar',\n      barWidth: '60%',\n      data: [10, 52, 200, 334, 390, 330, 220]\n    }\n  ]\n};",
+        "visualEditor": {
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "uid": "483a05db-596a-46d2-9566-6242ff0e30e4",
+              "id": "A",
+              "name": "Bar",
+              "type": "bar"
+            }
+          ],
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    type: 'value'\n  },\n}\n",
+          "codeHeight": 600
+        },
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    top: '4%',\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  xAxis: [\n    {\n      type: 'category',\n      axisTick: {\n        alignWithLabel: true\n      }\n    }\n  ],\n  yAxis: [\n    {\n      type: 'value'\n    }\n  ],\n  series: [\n    {\n      name: 'Direct',\n      type: 'bar',\n      barWidth: '60%',\n      data: values\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -148,6 +224,33 @@
         "map": "json",
         "renderer": "canvas"
       },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "refId": "A",
+          "frame": {
+            "fields": [
+              {
+                "name": "Category",
+                "type": "string",
+                "config": {},
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "config": {},
+                "values": ["10", "52", "200", "334", "390", "330", "220"]
+              }
+            ],
+            "meta": {},
+            "name": "Bar"
+          }
+        }
+      ],
       "title": "Axis Align with Tick",
       "type": "volkovlabs-echarts-panel"
     },
@@ -357,6 +460,25 @@
           "format": "auto",
           "height": 600
         },
+        "visualEditor": {
+          "dataset": [
+            {
+              "name": "Name",
+              "source": "A"
+            },
+            {
+              "name": "2011",
+              "source": "A"
+            },
+            {
+              "name": "2012",
+              "source": "A"
+            }
+          ],
+          "series": [],
+          "code": "return {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  legend: {},\n  grid: {\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  dataset: {\n    dimensions: ['Name', '2011', '2012'],\n    source: context.editor.dataset.source\n  },\n  xAxis: { boundaryGap: [0, 0.01]},\n  yAxis: { boundaryGap: [0, 0.01], type: 'category' },\n  series: [{ type: 'bar' }, { type: 'bar' }]\n}\n",
+          "codeHeight": 600
+        },
         "editorMode": "code",
         "gaode": {
           "key": "",
@@ -370,6 +492,39 @@
         "map": "json",
         "renderer": "canvas"
       },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "refId": "A",
+          "frame": {
+            "fields": [
+              {
+                "name": "Name",
+                "type": "string",
+                "config": {},
+                "values": ["Brazil", "Indonezia", "USA", "India", "China", "World"]
+              },
+              {
+                "name": "2011",
+                "type": "string",
+                "config": {},
+                "values": ["18203", "19325", "29034", "104970", "131744", "630230"]
+              },
+              {
+                "name": "2012",
+                "type": "string",
+                "config": {},
+                "values": ["23489", "23438", "31000", "121594", "134141", "681807"]
+              }
+            ],
+            "meta": {},
+            "name": "Bars"
+          }
+        }
+      ],
       "title": "World Population",
       "type": "volkovlabs-echarts-panel"
     },

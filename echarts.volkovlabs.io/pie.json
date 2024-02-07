@@ -66,7 +66,22 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      data: [\n        { value: 1048, name: 'Search Engine' },\n        { value: 735, name: 'Direct' },\n        { value: 580, name: 'Email' },\n        { value: 484, name: 'Union Ads' },\n        { value: 300, name: 'Video Ads' }\n      ],\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
+        "visualEditor": {
+          "dataset": [
+            {
+              "name": "name",
+              "source": "A"
+            },
+            {
+              "name": "value",
+              "source": "A"
+            }
+          ],
+          "series": [],
+          "code": "console.log(context);\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n}\n",
+          "codeHeight": 600
+        },
+        "getOption": "let values = data.series[0].fields.find(field => field.name === 'value').values\nlet names = data.series[0].fields.find(field => field.name === 'name').values\nlet parts = values.map((value, index) => ({ name: names[index],value }));\nreturn {\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      data: parts,\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -74,6 +89,34 @@
         "map": "json",
         "renderer": "canvas"
       },
+      "targets": [
+        {
+          "datasource": {
+            "uid": "4ytGZmF4k",
+            "type": "marcusolsson-static-datasource"
+          },
+          "refId": "A",
+          "hide": false,
+          "frame": {
+            "fields": [
+              {
+                "name": "name",
+                "type": "string",
+                "config": {},
+                "values": ["Search Engine", "Direct", "Email", "Union Ads", "Video Ads"]
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "config": {},
+                "values": ["1048", "735", "580", "484", "300"]
+              }
+            ],
+            "meta": {},
+            "name": "Pie"
+          }
+        }
+      ],
       "title": "Referer of a Website",
       "type": "volkovlabs-echarts-panel"
     },
