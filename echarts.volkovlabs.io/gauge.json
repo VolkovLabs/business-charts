@@ -244,9 +244,9 @@
             "fields": [
               {
                 "name": "value",
-                "type": "string",
+                "type": "number",
                 "config": {},
-                "values": ["75"]
+                "values": [75]
               }
             ],
             "meta": {},

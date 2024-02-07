@@ -107,9 +107,9 @@
               },
               {
                 "name": "value",
-                "type": "string",
+                "type": "number",
                 "config": {},
-                "values": ["1048", "735", "580", "484", "300"]
+                "values": [1048, 735, 580, 484, 300]
               }
             ],
             "meta": {},
