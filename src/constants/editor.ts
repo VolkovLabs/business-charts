@@ -116,6 +116,11 @@ const EDITOR_BASE_CONTEXT_SUGGESTIONS: CodeEditorSuggestionItem[] = [
     kind: CodeEditorSuggestionItemKind.Method,
     detail: 'Show error notification.',
   },
+  {
+    label: 'context.grafana.refresh',
+    kind: CodeEditorSuggestionItemKind.Method,
+    detail: 'Interpolate all variables.',
+  },
 
   /**
    * Echarts
