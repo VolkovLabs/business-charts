@@ -111,7 +111,7 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
         );
       }, [])
       .filter((field) => {
-        return !items.find((item) => item.name === field.fieldName && item.source === field.source);
+        return !items.some((item) => item.name === field.fieldName && item.source === field.source);
       });
   }, [items, data]);
 
