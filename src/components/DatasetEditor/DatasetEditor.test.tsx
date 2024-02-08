@@ -172,14 +172,10 @@ describe('Dataset Editor', () => {
       })
     );
 
-    const newItemNameInput = selectors.newItemName();
-
     /**
      * Simulate select option doesn't exist
      */
-
-    fireEvent.change(newItemNameInput, { target: { value: 'A:Time' } });
-
+    fireEvent.change(selectors.newItemName(), { target: { value: 'A:Time' } });
     expect(selectors.buttonAddNew()).toBeDisabled();
   });
 
