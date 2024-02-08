@@ -209,6 +209,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
           locationService,
           notifySuccess,
           notifyError,
+          refresh: () => appEvents.publish({ type: 'variables-changed', payload: { refreshAll: true } }),
         },
         panel: {
           data,

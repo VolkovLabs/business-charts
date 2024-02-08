@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.2.0 (2024-02-05)
+## 5.2.0 (2024-02-07)
 
 ### Features / Enhancements
 
@@ -9,6 +9,7 @@
 - Update ESLint configuration and refactoring (#237)
 - Update dependencies and Actions (#238)
 - Add context parameter to non-visual mode (#245)
+- Add refresh function using Application Event Bus (#247)
 
 ## 5.1.0 (2023-08-11)
 
