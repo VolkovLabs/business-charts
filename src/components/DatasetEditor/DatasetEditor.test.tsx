@@ -159,6 +159,30 @@ describe('Dataset Editor', () => {
     expect(selectors.item(true, 'A:Value')).not.toBeInTheDocument();
   });
 
+  it('Should not allow selecting already selected fields', () => {
+    const { value, onChange } = createOnChangeHandler([{ name: 'Time', source: 'A' }]);
+
+    /**
+     * Render
+     */
+    render(
+      getComponent({
+        value,
+        onChange,
+      })
+    );
+
+    const newItemNameInput = selectors.newItemName();
+
+    /**
+     * Simulate select option doesn't exist
+     */
+
+    fireEvent.change(newItemNameInput, { target: { value: 'A:Time' } });
+
+    expect(selectors.buttonAddNew()).toBeDisabled();
+  });
+
   /**
    * Items order
    */
