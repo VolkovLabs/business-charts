@@ -99,17 +99,21 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
    * Available Field Options
    */
   const availableFieldOptions = useMemo(() => {
-    return data.reduce((acc: SelectableValue[], dataFrame) => {
-      return acc.concat(
-        dataFrame.fields.map((field) => ({
-          value: `${dataFrame.refId}:${field.name}`,
-          fieldName: field.name,
-          label: `${dataFrame.refId ? `${dataFrame.refId}:` : ''}${field.name}`,
-          source: dataFrame.refId,
-        }))
-      );
-    }, []);
-  }, [data]);
+    return data
+      .reduce((acc: SelectableValue[], dataFrame) => {
+        return acc.concat(
+          dataFrame.fields.map((field) => ({
+            value: `${dataFrame.refId}:${field.name}`,
+            fieldName: field.name,
+            label: `${dataFrame.refId ? `${dataFrame.refId}:` : ''}${field.name}`,
+            source: dataFrame.refId,
+          }))
+        );
+      }, [])
+      .filter((field) => {
+        return !items.some((item) => item.name === field.fieldName && item.source === field.source);
+      });
+  }, [items, data]);
 
   /**
    * Add New Item
