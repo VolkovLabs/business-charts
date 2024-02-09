@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.2.0 (2024-02-07)
+## 5.2.0 (2024-02-08)
 
 ### Features / Enhancements
 
@@ -10,6 +10,7 @@
 - Update dependencies and Actions (#238)
 - Add context parameter to non-visual mode (#245)
 - Add refresh function using Application Event Bus (#247)
+- Update to disallow to choose already selected fields (#251)
 
 ## 5.1.0 (2023-08-11)
 
