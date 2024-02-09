@@ -11,6 +11,7 @@
 - Add context parameter to non-visual mode (#245)
 - Add refresh function using Application Event Bus (#247)
 - Update to disallow to choose already selected fields (#251)
+- Migrate echarts.volkovlabs.io to use visual editor and data sources (#248)
 
 ## 5.1.0 (2023-08-11)
 
