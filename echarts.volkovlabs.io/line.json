@@ -45,6 +45,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -61,19 +62,51 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "data.series.map((s) => {\n    categories = s.fields.find((f) => f.name === 'Category').values;\n    values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  xAxis: {\n    type: \"category\"\n  },\n  yAxis: {\n    type: 'value',\n  },\n}\n\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:Category"],
+                "y": ["A:Value"]
+              },
+              "id": "A",
+              "name": "Line",
+              "type": "line",
+              "uid": "5918873e-de00-4e8f-814d-f2ca62612b33"
+            }
+          ]
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
@@ -91,8 +124,8 @@
               {
                 "config": {},
                 "name": "Value",
-                "type": "string",
-                "values": ["150", "230", "224", "218", "135", "147", "260"]
+                "type": "number",
+                "values": [150, 230, 224, 218, 135, 147, 260]
               }
             ],
             "meta": {},
@@ -101,7 +134,7 @@
           "refId": "A"
         }
       ],
-      "title": "Basic Line Chart (Data Source)",
+      "title": "Basic Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -109,6 +142,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -136,8 +170,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Smoothed Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -146,6 +192,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -162,19 +209,78 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: [\n        820,\n        932,\n        901,\n        934,\n        1290,\n        1330,\n        1320\n      ],\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    boundaryGap: false,\n    data: [\n      \"Mon\",\n      \"Tue\",\n      \"Wed\",\n      \"Thu\",\n      \"Fri\",\n      \"Sat\",\n      \"Sun\"\n    ],\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    boundaryGap: false,\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: {\n    source: context.editor.dataset.source\n  },\n  series: [{ type: 'line', areaStyle: {} }],\n  xAxis: {\n    boundaryGap: false,\n    type: \"category\"\n  },\n  yAxis: {\n    type: 'value'\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:Category"],
+                "y": ["A:Value"]
+              },
+              "id": "A",
+              "name": "Line",
+              "type": "line",
+              "uid": "c49ee2de-463a-4854-a80c-f741eb316b07"
+            }
+          ]
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Category",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [820, 932, 901, 934, 1290, 1330, 1320]
+              }
+            ],
+            "meta": {},
+            "name": "Line"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Basic area chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -210,8 +316,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Stacked Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -220,7 +338,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
-      "description": "",
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -238,19 +356,177 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n  },\n  legend: {\n    data: [\n      \"Email\",\n      \"Union Ads\",\n      \"Video Ads\",\n      \"Direct\",\n      \"Search Engine\"\n    ]\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: [\n        120,\n        132,\n        101,\n        134,\n        90,\n        230,\n        210\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        220,\n        182,\n        191,\n        234,\n        290,\n        330,\n        310\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        150,\n        232,\n        201,\n        154,\n        190,\n        330,\n        410\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        320,\n        332,\n        301,\n        334,\n        390,\n        330,\n        320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        820,\n        932,\n        901,\n        934,\n        1290,\n        1330,\n        1320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  toolbox: {\n    orient: 'vertical',\n    left: 'right',\n    top: 'center',\n    feature: {\n      saveAsImage: {}\n    }\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: [\n        \"Mon\",\n        \"Tue\",\n        \"Wed\",\n        \"Thu\",\n        \"Fri\",\n        \"Sat\",\n        \"Sun\"\n      ],\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ]\n};",
+        "getOption": "console.log('console Data >> ', data)\n\nlet emails = data.series.find(s => s.name === 'Email').fields[0].values\nlet unionAds = data.series.find(s => s.name === 'Union Ads').fields[0].values\nlet videoAds = data.series.find(s => s.name === 'Video Ads').fields[0].values\nlet direct = data.series.find(s => s.name === 'Direct').fields[0].values\nlet searchEngine = data.series.find(s => s.name === 'Search Engine').fields[0].values\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n  },\n  legend: {},\n  series: [\n    {\n      areaStyle: {},\n      data: emails,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: unionAds,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: videoAds,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: direct,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: searchEngine,\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  toolbox: {\n    orient: 'vertical',\n    left: 'right',\n    top: 'center',\n    feature: {\n      saveAsImage: {}\n    }\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: [\n        \"Mon\",\n        \"Tue\",\n        \"Wed\",\n        \"Thu\",\n        \"Fri\",\n        \"Sat\",\n        \"Sun\"\n      ],\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n  },\n  legend: {},\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      label: {\n        position: \"top\",\n        show: true\n      },\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n    },\n  ],\n  toolbox: {\n    orient: 'vertical',\n    left: 'right',\n    top: 'center',\n    feature: {\n      saveAsImage: {}\n    }\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: {\n    boundaryGap: false,\n    type: 'category'\n  },\n  yAxis: { type: 'value' },\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "B"
+            },
+            {
+              "name": "Value",
+              "source": "C"
+            },
+            {
+              "name": "value",
+              "source": "D"
+            },
+            {
+              "name": "Value",
+              "source": "E"
+            },
+            {
+              "name": "value",
+              "source": "F"
+            }
+          ],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              }
+            ],
+            "meta": {},
+            "name": "Days"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [120, 132, 101, 134, 90, 230, 210]
+              }
+            ],
+            "meta": {},
+            "name": "Email"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [220, 182, 191, 234, 290, 330, 310]
+              }
+            ],
+            "meta": {},
+            "name": "Union Ads"
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "number",
+                "values": [150, 232, 201, 154, 190, 330, 410]
+              }
+            ],
+            "meta": {},
+            "name": "Video Ads"
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [320, 332, 301, 334, 390, 330, 320]
+              }
+            ],
+            "meta": {},
+            "name": "Direct"
+          },
+          "hide": false,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "number",
+                "values": [820, 932, 901, 934, 1290, 1330, 1320]
+              }
+            ],
+            "meta": {},
+            "name": "Search Engine"
+          },
+          "hide": false,
+          "refId": "F"
+        }
+      ],
       "title": "Stacked Area Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -286,8 +562,141 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              }
+            ],
+            "meta": {},
+            "name": "Months"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["120", "132", "101", "134", "90", "230", "210"]
+              }
+            ],
+            "meta": {},
+            "name": "Email"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["220", "182", "191", "234", "290", "330", "310"]
+              }
+            ],
+            "meta": {},
+            "name": "Union Ads"
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "string",
+                "values": ["150", "232", "201", "154", "190", "330", "410"]
+              }
+            ],
+            "meta": {},
+            "name": "Video Ads"
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": ["320", "332", "301", "334", "390", "330", "320"]
+              }
+            ],
+            "meta": {},
+            "name": "Direct"
+          },
+          "hide": false,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "string",
+                "values": ["820", "932", "901", "934", "1290", "1330", "1320"]
+              }
+            ],
+            "meta": {},
+            "name": "Search Engine"
+          },
+          "hide": false,
+          "refId": "F"
+        }
+      ],
       "title": "Gradient Stacked Area Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -323,8 +732,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Temperature Change in the Coming Week",
       "type": "volkovlabs-echarts-panel"
     },
@@ -360,8 +781,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Area Pieces",
       "type": "volkovlabs-echarts-panel"
     },
@@ -397,8 +830,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Data Transform Filter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -434,8 +879,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
@@ -1703,8 +2160,8 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []
@@ -1719,6 +2176,6 @@
   "timezone": "",
   "title": "Line",
   "uid": "tg6gWiKVk",
-  "version": 1,
+  "version": 3,
   "weekStart": ""
 }

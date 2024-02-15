@@ -32,6 +32,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 10,
         "w": 8,
@@ -54,7 +55,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values;\n  amounts = s.fields.find((f) => f.name === 'Amount').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ]\n};\n",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/E9NLNnFVz/bar?orgId=1');\n});\n\nlet names = [];\nlet amounts = [];\ndata.series.map((s) => {\n  names = s.fields.find((f) => f.name === 'Name').values;\n  amounts = s.fields.find((f) => f.name === 'Amount').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {},\n  legend: {\n    data: [replaceVariables('$var')]\n  },\n  xAxis: {\n    data: names\n  },\n  yAxis: {},\n  toolbox: { feature: { restore: {} } },\n  series: [\n    {\n      name: replaceVariables('$var'),\n      type: 'bar',\n      data: amounts\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -67,7 +68,7 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n    min: 0,\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/E9NLNnFVz/bar?orgId=1');\n});\n\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n    min: 0,\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
           "dataset": [
             {
@@ -89,6 +90,7 @@
           ]
         }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
@@ -116,7 +118,7 @@
           "refId": "A"
         }
       ],
-      "title": "Getting Started using Data Source",
+      "title": "Getting Started",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -124,6 +126,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 10,
         "w": 8,
@@ -140,12 +143,12 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/E9NLNnFVz/bar?orgId=1');\n});\n\nconst labelRight = {\n  position: 'right'\n};\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  xAxis: {\n    type: 'value',\n    position: 'top',\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    type: 'category',\n    axisLine: { show: false },\n    axisLabel: { show: false },\n    axisTick: { show: false },\n    splitLine: { show: false },\n    data: [\n      'ten',\n      'nine',\n      'eight',\n      'seven',\n      'six',\n      'five',\n      'four',\n      'three',\n      'two',\n      'one'\n    ]\n  },\n  series: [\n    {\n      name: 'Cost',\n      type: 'bar',\n      stack: 'Total',\n      label: {\n        show: true,\n        formatter: '{b}'\n      },\n      data: [\n        { value: -0.07, label: labelRight },\n        { value: -0.09, label: labelRight },\n        0.2,\n        0.44,\n        { value: -0.23, label: labelRight },\n        0.08,\n        { value: -0.17, label: labelRight },\n        0.47,\n        { value: -0.36, label: labelRight },\n        0.18\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/E9NLNnFVz/bar?orgId=1');\n});\n\nlet values = data.series[0].fields.find(f => f.name === 'Value').values\nlet labels = data.series[0].fields.find(f => f.name === 'Label').values\n\nconst labelRight = {\n  position: 'right'\n};\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  xAxis: {\n    type: 'value',\n    position: 'top',\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    type: 'category',\n    axisLine: { show: false },\n    axisLabel: { show: false },\n    axisTick: { show: false },\n    splitLine: { show: false },\n    data: labels\n  },\n  series: [\n    {\n      name: 'Cost',\n      type: 'bar',\n      stack: 'Total',\n      label: {\n        show: true,\n        formatter: '{b}'\n      },\n      data: values\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -158,12 +161,54 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/E9NLNnFVz/bar?orgId=1');\n});\n\nconst labelRight = {\n  position: 'right'\n};\n\nreturn {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\",\n  },\n  dataset: {\n    source: context.editor.dataset.source\n  },\n  xAxis: {\n    type: 'value',\n    position: 'top',\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    type: 'category',\n    axisLine: { show: false },\n    axisLabel: { show: false },\n    axisTick: { show: false },\n    splitLine: { show: false }\n  },\n  series: [\n    {\n      name: 'Cost',\n      type: 'bar',\n      stack: 'Total',\n      label: {\n        show: true,\n        formatter: '{b}'\n      },\n      encode: {\n        y: 'label',\n        x: 'value'\n      }\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
           "codeHeight": 600,
-          "dataset": [],
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            },
+            {
+              "name": "Label",
+              "source": "A"
+            }
+          ],
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [0]
+              },
+              {
+                "config": {},
+                "name": "Label",
+                "type": "string",
+                "values": [""]
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => {\n    if (field.name === 'Value') {\n      return ({\n        ...field,\n        values: [-0.07, -0.09, 0.2, 0.44, -0.23, 0.08, -0.17, 0.47, -0.36, 0.18]\n      })\n    }\n    return ({\n      ...field,\n      values: ['ten', 'nine', 'eight', 'seeven', 'six', 'five', 'four', 'three', 'two', 'one']\n    })\n  }\n  )\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Bars"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -212,6 +257,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Calendar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -260,6 +306,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Candlestick",
       "type": "volkovlabs-echarts-panel"
     },
@@ -268,6 +315,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 10,
         "w": 8,
@@ -284,12 +332,12 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/PQeH9VFVk/gauge?orgId=1');\n});\n\nreturn {\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 180,\n      endAngle: 0,\n      center: ['50%', '75%'],\n      radius: '90%',\n      min: 0,\n      max: 1,\n      splitNumber: 8,\n      axisLine: {\n        lineStyle: {\n          width: 6,\n          color: [\n            [0.25, '#FF6E76'],\n            [0.5, '#FDDD60'],\n            [0.75, '#58D9F9'],\n            [1, '#7CFFB2']\n          ]\n        }\n      },\n      pointer: {\n        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',\n        length: '12%',\n        width: 20,\n        offsetCenter: [0, '-60%'],\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        length: 12,\n        lineStyle: {\n          color: 'auto',\n          width: 2\n        }\n      },\n      splitLine: {\n        length: 20,\n        lineStyle: {\n          color: 'auto',\n          width: 5\n        }\n      },\n      axisLabel: {\n        color: '#464646',\n        fontSize: 20,\n        distance: -60,\n        rotate: 'tangential',\n        formatter: function (value) {\n          if (value === 0.875) {\n            return 'Grade A';\n          } else if (value === 0.625) {\n            return 'Grade B';\n          } else if (value === 0.375) {\n            return 'Grade C';\n          } else if (value === 0.125) {\n            return 'Grade D';\n          }\n          return '';\n        }\n      },\n      title: {\n        offsetCenter: [0, '-10%'],\n        fontSize: 20\n      },\n      detail: {\n        fontSize: 30,\n        offsetCenter: [0, '-35%'],\n        valueAnimation: true,\n        formatter: function (value) {\n          return Math.round(value * 100) + '';\n        },\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 0.7,\n          name: 'Grade Rating'\n        }\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/PQeH9VFVk/gauge?orgId=1');\n});\n\nlet value = data.series[0].fields[0].values[0]\n\nreturn {\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 180,\n      endAngle: 0,\n      center: ['50%', '75%'],\n      radius: '90%',\n      min: 0,\n      max: 1,\n      splitNumber: 8,\n      axisLine: {\n        lineStyle: {\n          width: 6,\n          color: [\n            [0.25, '#FF6E76'],\n            [0.5, '#FDDD60'],\n            [0.75, '#58D9F9'],\n            [1, '#7CFFB2']\n          ]\n        }\n      },\n      pointer: {\n        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',\n        length: '12%',\n        width: 20,\n        offsetCenter: [0, '-60%'],\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        length: 12,\n        lineStyle: {\n          color: 'auto',\n          width: 2\n        }\n      },\n      splitLine: {\n        length: 20,\n        lineStyle: {\n          color: 'auto',\n          width: 5\n        }\n      },\n      axisLabel: {\n        color: '#464646',\n        fontSize: 20,\n        distance: -60,\n        rotate: 'tangential',\n        formatter: function (value) {\n          if (value === 0.875) {\n            return 'Grade A';\n          } else if (value === 0.625) {\n            return 'Grade B';\n          } else if (value === 0.375) {\n            return 'Grade C';\n          } else if (value === 0.125) {\n            return 'Grade D';\n          }\n          return '';\n        }\n      },\n      title: {\n        offsetCenter: [0, '-10%'],\n        fontSize: 20\n      },\n      detail: {\n        fontSize: 30,\n        offsetCenter: [0, '-35%'],\n        valueAnimation: true,\n        formatter: function (value) {\n          return Math.round(value * 100) + '';\n        },\n        color: 'auto'\n      },\n      data: [\n        {\n          value: value,\n          name: 'Grade Rating'\n        },\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -302,12 +350,39 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/PQeH9VFVk/gauge?orgId=1');\n});\n\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'gauge',\n      startAngle: 180,\n      endAngle: 0,\n      center: ['50%', '75%'],\n      radius: '90%',\n      min: 0,\n      max: 1,\n      splitNumber: 8,\n      axisLine: {\n        lineStyle: {\n          width: 6,\n          color: [\n            [0.25, '#FF6E76'],\n            [0.5, '#FDDD60'],\n            [0.75, '#58D9F9'],\n            [1, '#7CFFB2']\n          ]\n        }\n      },\n      pointer: {\n        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',\n        length: '12%',\n        width: 20,\n        offsetCenter: [0, '-60%'],\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        length: 12,\n        lineStyle: {\n          color: 'auto',\n          width: 2\n        }\n      },\n      splitLine: {\n        length: 20,\n        lineStyle: {\n          color: 'auto',\n          width: 5\n        }\n      },\n      axisLabel: {\n        color: '#464646',\n        fontSize: 20,\n        distance: -60,\n        rotate: 'tangential',\n        formatter: function (value) {\n          if (value === 0.875) {\n            return 'Grade A';\n          } else if (value === 0.625) {\n            return 'Grade B';\n          } else if (value === 0.375) {\n            return 'Grade C';\n          } else if (value === 0.125) {\n            return 'Grade D';\n          }\n          return '';\n        }\n      },\n      title: {\n        offsetCenter: [0, '-10%'],\n        fontSize: 20\n      },\n      detail: {\n        fontSize: 30,\n        offsetCenter: [0, '-35%'],\n        valueAnimation: true,\n        formatter: function (value) {\n          return Math.round(value * 100) + '';\n        },\n        color: 'auto'\n      }\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
-          "dataset": [],
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [0.6]
+              }
+            ],
+            "meta": {},
+            "name": "Speed"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -356,6 +431,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Geo/Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -404,6 +480,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Graph",
       "type": "volkovlabs-echarts-panel"
     },
@@ -412,7 +489,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
-      "description": "",
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 10,
         "w": 8,
@@ -430,12 +507,12 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/tg6gWiKVk/line?orgId=1');\n});\n\nreturn {\n  grid: {\n    top: '4%',\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: [\n        120,\n        132,\n        101,\n        134,\n        90,\n        230,\n        210\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        220,\n        182,\n        191,\n        234,\n        290,\n        330,\n        310\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        150,\n        232,\n        201,\n        154,\n        190,\n        330,\n        410\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        320,\n        332,\n        301,\n        334,\n        390,\n        330,\n        320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: [\n        820,\n        932,\n        901,\n        934,\n        1290,\n        1330,\n        1320\n      ],\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: [\n        \"Mon\",\n        \"Tue\",\n        \"Wed\",\n        \"Thu\",\n        \"Fri\",\n        \"Sat\",\n        \"Sun\"\n      ],\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/tg6gWiKVk/line?orgId=1');\n});\n\nlet emails = data.series.find(s => s.name === 'Email').fields[0].values\nlet unionAds = data.series.find(s => s.name === 'Union Ads').fields[0].values\nlet videoAds = data.series.find(s => s.name === 'Video Ads').fields[0].values\nlet direct = data.series.find(s => s.name === 'Direct').fields[0].values\nlet searchEngine = data.series.find(s => s.name === 'Search Engine').fields[0].values\nlet days = data.series.find(s => s.name === 'Days').fields[0].values\n\n\nreturn {\n  grid: {\n    top: '4%',\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\"\n  },\n  series: [\n    {\n      areaStyle: {},\n      data: emails,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: unionAds,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: videoAds,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: direct,\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n      type: \"line\"\n    },\n    {\n      areaStyle: {},\n      data: searchEngine,\n      emphasis: {\n        focus: \"series\"\n      },\n      label: {\n        position: \"top\",\n        show: true\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n      type: \"line\"\n    }\n  ],\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: [\n    {\n      boundaryGap: false,\n      data: days,\n      type: \"category\"\n    }\n  ],\n  yAxis: [\n    {\n      type: \"value\"\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -448,12 +525,189 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/tg6gWiKVk/line?orgId=1');\n});\n\nreturn {\n  grid: {\n    top: '4%',\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\"\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: {\n    boundaryGap: false,\n    type: 'category'\n  },\n  yAxis: { type: 'value' },\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      label: {\n        position: \"top\",\n        show: true\n      },\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n    },\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
-          "dataset": [],
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "B"
+            },
+            {
+              "name": "Value",
+              "source": "C"
+            },
+            {
+              "name": "Value",
+              "source": "D"
+            },
+            {
+              "name": "Value",
+              "source": "E"
+            },
+            {
+              "name": "Value",
+              "source": "F"
+            }
+          ],
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      \"Mon\",\n      \"Tue\",\n      \"Wed\",\n      \"Thu\",\n      \"Fri\",\n      \"Sat\",\n      \"Sun\"\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Days"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      120,\n      132,\n      101,\n      134,\n      90,\n      230,\n      210\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Email"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      220,\n      182,\n      191,\n      234,\n      290,\n      330,\n      310\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Union Ads"
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      150,\n      232,\n      201,\n      154,\n      190,\n      330,\n      410\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Video Ads"
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      320,\n      332,\n      301,\n      334,\n      390,\n      330,\n      320\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Direct"
+          },
+          "hide": false,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [\n      820,\n      932,\n      901,\n      934,\n      1290,\n      1330,\n      1320\n    ]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Search Engine"
+          },
+          "hide": false,
+          "refId": "F"
+        }
+      ],
       "title": "Line",
       "type": "volkovlabs-echarts-panel"
     },
@@ -483,7 +737,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/6zyVsZ54z/sankey?orgId=1');\n});\n\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: [0.6, 0.55, 0.4, 0.25],\n    radius: '90%',\n    outline: {\n      show: false\n    },\n    backgroundStyle: {\n      borderColor: '#156ACF',\n      borderWidth: 1,\n      shadowColor: 'rgba(0, 0, 0, 0.4)',\n      shadowBlur: 20\n    },\n    shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',\n    label: {\n      position: ['38%', '40%'],\n      formatter: function () {\n        return 'ECharts\\nLiquid Fill';\n      },\n      fontSize: 40,\n      color: '#D94854'\n    }\n  }],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/6zyVsZ54z/sankey?orgId=1');\n});\nlet waves = data.series[0].fields[0].values\nreturn {\n  series: [{\n    type: 'liquidFill',\n    data: waves,\n    radius: '90%',\n    outline: {\n      show: false\n    },\n    backgroundStyle: {\n      borderColor: '#156ACF',\n      borderWidth: 1,\n      shadowColor: 'rgba(0, 0, 0, 0.4)',\n      shadowBlur: 20\n    },\n    shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',\n    label: {\n      position: ['38%', '40%'],\n      formatter: function () {\n        return 'ECharts\\nLiquid Fill';\n      },\n      fontSize: 40,\n      color: '#D94854'\n    }\n  }],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -496,12 +750,44 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: [{\n    type: 'liquidFill',\n    // data: [0.6, 0.55, 0.4, 0.25],\n    radius: '90%',\n    outline: {\n      show: false\n    },\n    backgroundStyle: {\n      borderColor: '#156ACF',\n      borderWidth: 1,\n      shadowColor: 'rgba(0, 0, 0, 0.4)',\n      shadowBlur: 20\n    },\n    shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',\n    // label: {\n    //   position: ['38%', '40%'],\n    //   formatter: function () {\n    //     return 'ECharts\\nLiquid Fill';\n    //   },\n    //   fontSize: 40,\n    //   color: '#D94854'\n    // }\n  }],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
-          "dataset": [],
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => ({\n    ...field,\n    values: [0.6, 0.55, 0.4, 0.25]\n  }))\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Waves"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Liquid Fill",
       "type": "volkovlabs-echarts-panel"
     },
@@ -510,6 +796,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 10,
         "w": 8,
@@ -526,12 +813,12 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/0b5-q7K4k/pie?orgId=1');\n});\n\nreturn {\n  series: [\n    {\n      name: 'Nightingale Chart',\n      type: 'pie',\n      radius: ['20%', '75%'],\n      center: ['50%', '50%'],\n      roseType: 'area',\n      itemStyle: {\n        borderRadius: 8\n      },\n      data: [\n        { value: 40, name: 'rose 1' },\n        { value: 38, name: 'rose 2' },\n        { value: 32, name: 'rose 3' },\n        { value: 30, name: 'rose 4' },\n        { value: 28, name: 'rose 5' },\n        { value: 26, name: 'rose 6' },\n        { value: 22, name: 'rose 7' },\n        { value: 18, name: 'rose 8' }\n      ]\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
+        "getOption": "echartsInstance.on('click', (params) => {\n  locationService.replace('/d/0b5-q7K4k/pie?orgId=1');\n});\n\nlet values = data.series[0].fields.find(field => field.name === 'Value').values\nlet names = data.series[0].fields.find(field => field.name === 'Name').values\nlet parts = values.map((value, index) => ({ name: names[index], value }));\n\nreturn {\n  series: [\n    {\n      name: 'Nightingale Chart',\n      type: 'pie',\n      radius: ['20%', '75%'],\n      center: ['50%', '50%'],\n      roseType: 'area',\n      itemStyle: {\n        borderRadius: 8\n      },\n      data: parts\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -544,12 +831,54 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/0b5-q7K4k/pie?orgId=1');\n});\n\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Nightingale Chart',\n      type: 'pie',\n      radius: ['20%', '75%'],\n      center: ['50%', '50%'],\n      roseType: 'area',\n      itemStyle: {\n        borderRadius: 8\n      },\n    }\n  ],\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
-          "dataset": [],
+          "dataset": [
+            {
+              "name": "Value",
+              "source": "A"
+            },
+            {
+              "name": "Name",
+              "source": "A"
+            }
+          ],
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": []
+              },
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const result = {\n  ...frame,\n  fields: frame.fields.map((field) => {\n    if (field.name === 'Name') {\n      return ({\n        ...field,\n        values: ['rose 1', 'rose 2', 'rose 3', 'rose 4', 'rose 5', 'rose 6', 'rose 7', 'rose 8']\n      })\n    }\n    return ({\n      ...field,\n      values: [40, 38, 36, 32, 30, 28, 22, 18]\n    })\n  }\n  )\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            },
+            "name": "Pie"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Pie",
       "type": "volkovlabs-echarts-panel"
     },
@@ -598,6 +927,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Radar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -646,6 +976,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Sankey",
       "type": "volkovlabs-echarts-panel"
     },
@@ -694,6 +1025,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -742,6 +1074,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Sunburst",
       "type": "volkovlabs-echarts-panel"
     },
@@ -790,6 +1123,7 @@
           "series": []
         }
       },
+      "pluginVersion": "5.2.0",
       "title": "Treemap",
       "type": "volkovlabs-echarts-panel"
     }

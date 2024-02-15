@@ -45,6 +45,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -61,19 +62,74 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {\n    type: 'category',\n    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n  },\n  yAxis: {\n    type: 'value'\n  },\n  series: [\n    {\n      data: [120, 200, 150, 80, 70, 110, 130],\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {\n    type: 'category',\n    data: categories\n  },\n  yAxis: {\n    type: 'value'\n  },\n  series: [\n    {\n      data: values,\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  series: [\n    {\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "id": "A",
+              "name": "Bar",
+              "type": "bar",
+              "uid": "f86dc46d-1364-4d2b-8d5f-834633903124"
+            }
+          ]
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Category",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [120, 200, 150, 80, 70, 110, 130]
+              }
+            ],
+            "meta": {},
+            "name": "Bar"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Bar with Background",
       "type": "volkovlabs-echarts-panel"
     },
@@ -109,8 +165,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Basic Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -119,6 +187,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -135,19 +204,74 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    top: '4%',\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  xAxis: [\n    {\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],\n      axisTick: {\n        alignWithLabel: true\n      }\n    }\n  ],\n  yAxis: [\n    {\n      type: 'value'\n    }\n  ],\n  series: [\n    {\n      name: 'Direct',\n      type: 'bar',\n      barWidth: '60%',\n      data: [10, 52, 200, 334, 390, 330, 220]\n    }\n  ]\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    top: '4%',\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  xAxis: [\n    {\n      type: 'category',\n      axisTick: {\n        alignWithLabel: true\n      }\n    }\n  ],\n  yAxis: [\n    {\n      type: 'value'\n    }\n  ],\n  series: [\n    {\n      name: 'Direct',\n      type: 'bar',\n      barWidth: '60%',\n      data: values\n    }\n  ]\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    type: 'value'\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  grid: {\n    top: '4%',\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Category",
+              "source": "A"
+            },
+            {
+              "name": "Value",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "id": "Bar",
+              "name": "Bar",
+              "type": "bar",
+              "uid": "4fb6e263-71e4-46ce-ae33-8dedb8dc077e"
+            }
+          ]
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Category",
+                "type": "string",
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [120, 52, 200, 334, 390, 330, 220]
+              }
+            ],
+            "meta": {},
+            "name": "Bar"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Axis Align with Tick",
       "type": "volkovlabs-echarts-panel"
     },
@@ -183,8 +307,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Set Style of Single Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -220,8 +356,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Waterfall Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -257,8 +405,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Bar Chart with Negative Value",
       "type": "volkovlabs-echarts-panel"
     },
@@ -294,8 +454,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Radial Polar Bar Label Position (middle)",
       "type": "volkovlabs-echarts-panel"
     },
@@ -331,8 +503,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Tangential Polar Bar Label Position (middle)",
       "type": "volkovlabs-echarts-panel"
     },
@@ -341,6 +525,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -357,7 +542,7 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -368,8 +553,66 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'shadow'\n    }\n  },\n  legend: {},\n  grid: {\n    left: '3%',\n    right: '4%',\n    bottom: '3%',\n    containLabel: true\n  },\n  dataset: {\n    dimensions: ['Name', '2011', '2012'],\n    source: context.editor.dataset.source\n  },\n  xAxis: { boundaryGap: [0, 0.01] },\n  yAxis: { boundaryGap: [0, 0.01], type: 'category' },\n  series: [{ type: 'bar' }, { type: 'bar' }]\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "Name",
+              "source": "A"
+            },
+            {
+              "name": "2011",
+              "source": "A"
+            },
+            {
+              "name": "2012",
+              "source": "A"
+            }
+          ],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": ["Brazil", "Indonezia", "USA", "India", "China", "World"]
+              },
+              {
+                "config": {},
+                "name": "2011",
+                "type": "number",
+                "values": [18203, 19325, 29034, 104970, 131744, 630230]
+              },
+              {
+                "config": {},
+                "name": "2012",
+                "type": "number",
+                "values": [23489, 23438, 31000, 121594, 134141, 681807]
+              }
+            ],
+            "meta": {},
+            "name": "Bars"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "World Population",
       "type": "volkovlabs-echarts-panel"
     },
@@ -405,8 +648,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Clickable Column Chart with Gradient",
       "type": "volkovlabs-echarts-panel"
     },
@@ -442,8 +697,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Bar Label Rotation",
       "type": "volkovlabs-echarts-panel"
     },
@@ -479,8 +746,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Stacked Column Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -516,8 +795,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Waterfall Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -553,8 +844,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Stacked Horizontal Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -596,8 +899,8 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []

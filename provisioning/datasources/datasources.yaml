@@ -9,6 +9,8 @@ datasources:
     orgId: 1
     version: 1
     editable: true
+    jsonData:
+      codeEditorEnabled: true
   - name: Websocket
     type: golioth-websocket-datasource
     uid: LWj8ert4k
