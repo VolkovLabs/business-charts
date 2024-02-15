@@ -1,6 +1,6 @@
 import React from 'react';
 
-const actual = jest.requireActual('@grafana/ui');
+const actual = jest.requireActual('@hello-pangea/dnd');
 
 /**
  * Mock DragDropContext
