@@ -45,6 +45,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -61,12 +62,26 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
+        "getOption": "let values = data.series[0].fields.find(field => field.name === 'value').values\nlet names = data.series[0].fields.find(field => field.name === 'name').values\nlet parts = values.map((value, index) => ({ name: names[index],value }));\nreturn {\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      data: parts,\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
         "visualEditor": {
+          "code": "return {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n}\n",
+          "codeHeight": 600,
           "dataset": [
             {
               "name": "name",
@@ -77,44 +92,36 @@
               "source": "A"
             }
           ],
-          "series": [],
-          "code": "console.log(context);\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n}\n",
-          "codeHeight": 600
-        },
-        "getOption": "let values = data.series[0].fields.find(field => field.name === 'value').values\nlet names = data.series[0].fields.find(field => field.name === 'name').values\nlet parts = values.map((value, index) => ({ name: names[index],value }));\nreturn {\n  tooltip: {\n    trigger: 'item'\n  },\n  series: [\n    {\n      name: 'Access From',\n      type: 'pie',\n      radius: '80%',\n      data: parts,\n      emphasis: {\n        itemStyle: {\n          shadowBlur: 10,\n          shadowOffsetX: 0,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        }\n      }\n    }\n  ]\n};",
-        "google": {
-          "callback": "gmapReady",
-          "key": ""
-        },
-        "map": "json",
-        "renderer": "canvas"
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
-            "uid": "4ytGZmF4k",
-            "type": "marcusolsson-static-datasource"
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
           },
-          "refId": "A",
-          "hide": false,
           "frame": {
             "fields": [
               {
+                "config": {},
                 "name": "name",
                 "type": "string",
-                "config": {},
                 "values": ["Search Engine", "Direct", "Email", "Union Ads", "Video Ads"]
               },
               {
+                "config": {},
                 "name": "value",
                 "type": "number",
-                "config": {},
                 "values": [1048, 735, 580, 484, 300]
               }
             ],
             "meta": {},
             "name": "Pie"
-          }
+          },
+          "hide": false,
+          "refId": "A"
         }
       ],
       "title": "Referer of a Website",
@@ -152,8 +159,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Doughnut Chart with Rounded Corners",
       "type": "volkovlabs-echarts-panel"
     },
@@ -189,8 +208,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Doughnut Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -226,8 +257,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Customized Pie",
       "type": "volkovlabs-echarts-panel"
     },
@@ -263,8 +306,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
@@ -330,8 +385,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Nightingale Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -756,8 +823,8 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []

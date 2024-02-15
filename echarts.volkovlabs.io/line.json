@@ -338,7 +338,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
-      "description": "",
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -374,7 +374,7 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n  },\n  legend: {},\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      label: {\n        position: \"top\",\n        show: true\n      },\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n    },\n  ],\n  toolbox: {\n    orient: 'vertical',\n    left: 'right',\n    top: 'center',\n    feature: {\n      saveAsImage: {}\n    }\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: {\n    boundaryGap: false,\n    type: 'category'\n  },\n  yAxis: { type: 'value' },\n}\n",
+          "code": "return {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n  },\n  legend: {},\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Email\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Union Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Video Ads\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Direct\",\n      stack: \"Total\",\n    },\n    {\n      type: 'line',\n      areaStyle: {},\n      label: {\n        position: \"top\",\n        show: true\n      },\n      emphasis: {\n        focus: \"series\"\n      },\n      name: \"Search Engine\",\n      stack: \"Total\",\n    },\n  ],\n  toolbox: {\n    orient: 'vertical',\n    left: 'right',\n    top: 'center',\n    feature: {\n      saveAsImage: {}\n    }\n  },\n  tooltip: {\n    axisPointer: {\n      label: {\n        backgroundColor: \"#6a7985\"\n      },\n      type: \"cross\"\n    },\n    trigger: \"axis\"\n  },\n  xAxis: {\n    boundaryGap: false,\n    type: 'category'\n  },\n  yAxis: { type: 'value' },\n}\n",
           "codeHeight": 600,
           "dataset": [
             {
@@ -830,8 +830,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Data Transform Filter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -867,8 +879,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
@@ -2152,6 +2176,6 @@
   "timezone": "",
   "title": "Line",
   "uid": "tg6gWiKVk",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
