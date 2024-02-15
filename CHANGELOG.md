@@ -2,6 +2,10 @@
 
 ## 5.2.0 (2024-02-14)
 
+### Breaking changes
+
+- Requires Grafana 9.2 and Grafana 10
+
 ### Features / Enhancements
 
 - Updated README and documentation (#214)

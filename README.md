@@ -21,12 +21,12 @@ The Apache ECharts plugin offers an easy way of adding intuitive, interactive, a
 
 ## Requirements
 
-- Apache ECharts Panel 5.X requires **Grafana 9** or **Grafana 10**.
+- Apache ECharts Panel 5.X requires **Grafana 9.2** or **Grafana 10**.
 - Apache ECharts Panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
 ## Getting Started
 
-You can install Apache ECharts Panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or using the Grafana command line tool.
+You can install the Apache ECharts Panel from the [Grafana Plugins [catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or use the Grafana command line tool.
 
 For the latter, please use the following command.
 
