@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 14,
   "links": [
     {
       "asDropdown": false,
@@ -72,8 +73,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Gauge Basic chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -109,8 +122,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Simple Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -146,8 +171,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Speed Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -183,8 +220,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Progress Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -193,6 +242,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -214,44 +264,50 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "visualEditor": {
-          "dataset": [
-            {
-              "name": "value",
-              "source": "A"
-            }
-          ],
-          "series": [],
-          "code": "console.log(context);\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n    }\n  ]\n}\n",
-          "codeHeight": 600
-        },
         "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 70\n        }\n      ]\n    }\n  ]\n};\n\nsetInterval(function () {\n  echartsInstance.setOption({\n    series: [\n      {\n        data: [\n          {\n            value: +(Math.random() * 100).toFixed(2)\n          }\n        ]\n      }\n    ]\n  });\n}, 2000);",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: {\n    source: context.editor.dataset.source,\n  },\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n    }\n  ]\n}\n",
+          "codeHeight": 600,
+          "dataset": [
+            {
+              "name": "value",
+              "source": "A"
+            }
+          ],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "targets": [
         {
           "datasource": {
             "type": "marcusolsson-static-datasource",
             "uid": "4ytGZmF4k"
           },
-          "refId": "A",
           "frame": {
             "fields": [
               {
+                "config": {},
                 "name": "value",
                 "type": "number",
-                "config": {},
                 "values": [75]
               }
             ],
             "meta": {},
             "name": "Speed"
-          }
+          },
+          "refId": "A"
         }
       ],
       "title": "Stage Speed Gauge",
@@ -289,8 +345,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Grade Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -326,8 +394,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Multi Title Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -363,8 +443,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Temperature",
       "type": "volkovlabs-echarts-panel"
     },
@@ -400,8 +492,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Ring Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -437,8 +541,20 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "codeHeight": 600,
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "5.2.0",
       "title": "Gauge Barometer",
       "type": "volkovlabs-echarts-panel"
     },
@@ -517,8 +633,8 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []

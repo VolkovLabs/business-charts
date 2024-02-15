@@ -80,7 +80,7 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n}\n",
+          "code": "return {\n  dataset: context.editor.dataset,\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  series: [\n    {\n      type: 'bar',\n      showBackground: true,\n      backgroundStyle: {\n        color: 'rgba(180, 180, 180, 0.2)'\n      }\n    }\n  ]\n}\n",
           "codeHeight": 600,
           "dataset": [
             {
@@ -915,6 +915,6 @@
   "timezone": "",
   "title": "Bar",
   "uid": "E9NLNnFVz",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }
