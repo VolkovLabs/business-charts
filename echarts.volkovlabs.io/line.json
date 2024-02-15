@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 24,
   "links": [
     {
       "asDropdown": false,
@@ -46,6 +45,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -62,12 +62,12 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "data.series.map((s) => {\n    categories = s.fields.find((f) => f.name === 'Category').values;\n    values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
+        "getOption": "data.series.map((s) => {\n  categories = s.fields.find((f) => f.name === 'Category').values;\n  values = s.fields.find((f) => f.name === 'Value').values;\n});\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  series: [\n    {\n      data: values,\n      type: \"line\"\n    }\n  ],\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  }\n};",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -80,7 +80,7 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\n\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    data: categories,\n    type: \"category\"\n  },\n  yAxis: {\n    type: 'value',\n  },\n}\n\n",
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  toolbox: {\n    left: 'center',\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {}\n    }\n  },\n  xAxis: {\n    type: \"category\"\n  },\n  yAxis: {\n    type: 'value',\n  },\n}\n\n",
           "codeHeight": 600,
           "dataset": [
             {
@@ -134,7 +134,7 @@
           "refId": "A"
         }
       ],
-      "title": "Basic Line Chart (Data Source)",
+      "title": "Basic Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -142,6 +142,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -191,6 +192,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "Visual Editor with Data Source",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -207,7 +209,7 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -2150,6 +2152,6 @@
   "timezone": "",
   "title": "Line",
   "uid": "tg6gWiKVk",
-  "version": 20,
+  "version": 2,
   "weekStart": ""
 }
