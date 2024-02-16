@@ -1,14 +1,7 @@
 import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
+import { DragDropContext, Draggable, DraggingStyle, Droppable, DropResult, NotDraggingStyle } from '@hello-pangea/dnd';
 import { Collapse } from '@volkovlabs/components';
 import React, { useCallback, useMemo, useState } from 'react';
-import {
-  DragDropContext,
-  Draggable,
-  DraggingStyle,
-  Droppable,
-  DropResult,
-  NotDraggingStyle,
-} from 'react-beautiful-dnd';
 
 import { TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
@@ -175,7 +168,9 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                               }}
                               data-testid={TEST_IDS.seriesEditor.buttonRemove}
                             />
-                            <Icon name="draggabledots" {...provided.dragHandleProps} className={styles.dragIcon} />
+                            <div {...provided.dragHandleProps}>
+                              <Icon name="draggabledots" className={styles.dragIcon} />
+                            </div>
                           </>
                         }
                       >

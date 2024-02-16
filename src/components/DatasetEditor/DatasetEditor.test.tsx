@@ -1,8 +1,8 @@
 import { toDataFrame } from '@grafana/data';
+import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
-import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import { TEST_IDS } from '../../constants';
 import { DatasetEditor } from './DatasetEditor';

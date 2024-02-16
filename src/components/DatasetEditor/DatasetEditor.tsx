@@ -1,15 +1,8 @@
 import { cx } from '@emotion/css';
 import { DataFrame, SelectableValue } from '@grafana/data';
 import { Button, Icon, IconButton, InlineField, InlineFieldRow, Select, useStyles2 } from '@grafana/ui';
+import { DragDropContext, Draggable, DraggingStyle, Droppable, DropResult, NotDraggingStyle } from '@hello-pangea/dnd';
 import React, { useCallback, useMemo, useState } from 'react';
-import {
-  DragDropContext,
-  Draggable,
-  DraggingStyle,
-  Droppable,
-  DropResult,
-  NotDraggingStyle,
-} from 'react-beautiful-dnd';
 
 import { TEST_IDS } from '../../constants';
 import { DatasetItem } from '../../types';
@@ -176,13 +169,14 @@ export const DatasetEditor: React.FC<Props> = ({ value, onChange, data }) => {
                               )
                             }
                           />
-                          <Icon
-                            title="Drag and drop to reorder"
-                            name="draggabledots"
-                            size="lg"
-                            className={styles.dragIcon}
-                            {...provided.dragHandleProps}
-                          />
+                          <div {...provided.dragHandleProps}>
+                            <Icon
+                              title="Drag and drop to reorder"
+                              name="draggabledots"
+                              size="lg"
+                              className={styles.dragIcon}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
