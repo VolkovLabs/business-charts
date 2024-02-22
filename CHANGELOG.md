@@ -4,7 +4,7 @@
 
 ### Features / Enhancements
 
-- Update to Apache ECharts 5.5.0
+- Update to Apache ECharts 5.5.0 (#257)
 
 ## 5.2.0 (2024-02-15)
 
