@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Update to Apache ECharts 5.5.0 (#257)
+
 ## 5.2.0 (2024-02-15)
 
 ### Breaking changes
