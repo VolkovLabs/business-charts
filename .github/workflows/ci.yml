@@ -69,6 +69,7 @@ jobs:
           directory: ./coverage/
           files: ./coverage/lcov.info
           env_vars: OS,PYTHON
+          token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
 
       - name: Upload artifact
