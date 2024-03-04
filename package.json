@@ -8,7 +8,7 @@
     "@hello-pangea/dnd": "^16.5.0",
     "@types/echarts": "^4.9.22",
     "@types/googlemaps": "^3.43.3",
-    "@volkovlabs/components": "^1.4.1",
+    "@volkovlabs/components": "^1.6.0",
     "echarts": "^5.5.0",
     "echarts-extension-amap": "^1.12.0",
     "echarts-extension-gmap": "^1.6.0",
