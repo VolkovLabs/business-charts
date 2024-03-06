@@ -12,13 +12,6 @@ export interface ThemeEditorOptions {
   name: Theme;
 
   /**
-   * Height
-   *
-   * @type {number}
-   */
-  height: number;
-
-  /**
    * Config
    *
    * @type {string}

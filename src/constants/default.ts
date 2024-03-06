@@ -104,8 +104,8 @@ return {
 export const DEFAULT_OPTIONS: PanelOptions = {
   getOption: GET_OPTION,
   renderer: Renderer.CANVAS,
-  themeEditor: { name: Theme.DEFAULT, config: '{}', height: 400 },
-  editor: { height: 600, format: Format.AUTO },
+  themeEditor: { name: Theme.DEFAULT, config: '{}' },
+  editor: { format: Format.AUTO },
   map: Map.NONE,
   baidu: {
     key: '',
@@ -123,6 +123,5 @@ export const DEFAULT_OPTIONS: PanelOptions = {
     dataset: [],
     series: [],
     code: VISUAL_EDITOR_CODE,
-    codeHeight: 600,
   },
 };

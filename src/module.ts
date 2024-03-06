@@ -143,17 +143,6 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
         category: ['Visual Editor'],
         showIf: isVisualEditor,
       })
-      .addSliderInput({
-        path: 'visualEditor.codeHeight',
-        name: 'Height, px',
-        defaultValue: DEFAULT_OPTIONS.visualEditor.codeHeight,
-        settings: {
-          min: 100,
-          max: 2000,
-        },
-        category: ['Visual Editor'],
-        showIf: isVisualEditor,
-      })
       .addCustomEditor({
         id: Editor.VISUALCODE,
         path: 'visualEditor.code',
@@ -169,17 +158,6 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
      * Code Editor
      */
     builder
-      .addSliderInput({
-        path: 'editor.height',
-        name: 'Height, px',
-        defaultValue: DEFAULT_OPTIONS.editor.height,
-        settings: {
-          min: 100,
-          max: 2000,
-        },
-        category: ['Code'],
-        showIf: isCodeEditor,
-      })
       .addRadio({
         path: 'editor.format',
         name: 'Formatting',
@@ -204,28 +182,16 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
     /**
      * Theme
      */
-    builder
-      .addSliderInput({
-        path: 'themeEditor.height',
-        name: 'Height, px',
-        defaultValue: DEFAULT_OPTIONS.themeEditor.height,
-        settings: {
-          min: 100,
-          max: 2000,
-        },
-        category: ['Theme'],
-        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
-      })
-      .addCustomEditor({
-        id: Editor.THEME,
-        path: 'themeEditor.config',
-        name: 'Configuration',
-        description: 'Custom Theme from the Theme Builder.',
-        defaultValue: DEFAULT_OPTIONS.themeEditor.config,
-        editor: EchartsEditor,
-        category: ['Theme'],
-        showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
-      });
+    builder.addCustomEditor({
+      id: Editor.THEME,
+      path: 'themeEditor.config',
+      name: 'Configuration',
+      description: 'Custom Theme from the Theme Builder.',
+      defaultValue: DEFAULT_OPTIONS.themeEditor.config,
+      editor: EchartsEditor,
+      category: ['Theme'],
+      showIf: (config) => config.themeEditor.name === Theme.CUSTOM,
+    });
 
     return builder;
   })
