@@ -1,10 +1,11 @@
 # Change Log
 
-## 5.3.0 (IN PROGRESS)
+## 5.3.0 (2024-03-06)
 
 ### Features / Enhancements
 
-- Update to Apache ECharts 5.5.0 (#257)
+- Updated to Apache ECharts 5.5.0 (#257)
+- Updated code parameters with Code Parameters Builder (#261)
 
 ## 5.2.0 (2024-02-15)
 

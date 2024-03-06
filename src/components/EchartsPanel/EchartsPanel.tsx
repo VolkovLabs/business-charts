@@ -16,7 +16,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { CodeResult, PanelOptions } from '../../types';
-import { getDatasetSource } from '../../utils';
+import { codeParameters, getDatasetSource, visualCodeParameters } from '../../utils';
 import { getStyles } from './EchartsPanel.styles';
 
 /**
@@ -220,15 +220,17 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
       };
       const codeResult: CodeResult =
         options.editorMode === EditorMode.VISUAL
-          ? func({
-              ...contextPayload,
-              editor: {
-                dataset: {
-                  source: getDatasetSource(data.series, options.visualEditor.dataset),
+          ? func(
+              visualCodeParameters.create({
+                ...contextPayload,
+                editor: {
+                  dataset: {
+                    source: getDatasetSource(data.series, options.visualEditor.dataset),
+                  },
+                  series: options.visualEditor.series,
                 },
-                series: options.visualEditor.series,
-              },
-            })
+              })
+            )
           : func(
               data,
               theme,
@@ -240,7 +242,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
               locationService,
               notifySuccess,
               notifyError,
-              contextPayload
+              codeParameters.create(contextPayload)
             );
 
       /**

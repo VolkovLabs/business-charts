@@ -1,5 +1,7 @@
 import { CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
 
+import { codeParameters, visualCodeParameters } from '../utils';
+
 /**
  * Editors
  */
@@ -47,94 +49,6 @@ export const EDITOR_MODE_OPTIONS = [
 export const FORMAT_OPTIONS = [
   { value: Format.AUTO, label: 'Auto' },
   { value: Format.NONE, label: 'Disabled' },
-];
-
-/**
- * Editor Base Context Suggestions
- */
-const EDITOR_BASE_CONTEXT_SUGGESTIONS: CodeEditorSuggestionItem[] = [
-  {
-    label: 'context',
-    kind: CodeEditorSuggestionItemKind.Constant,
-    detail: 'All passed possible properties and methods.',
-  },
-
-  /**
-   * Panel
-   */
-  {
-    label: 'context.panel',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Panel instance properties.',
-  },
-  {
-    label: 'context.panel.data',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Panel data.',
-  },
-  {
-    label: 'context.panel.chart',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'ECharts instance.',
-  },
-
-  /**
-   * Grafana
-   */
-  {
-    label: 'context.grafana',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Grafana properties and methods.',
-  },
-  {
-    label: 'context.grafana.theme',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Grafana theme.',
-  },
-  {
-    label: 'context.grafana.replaceVariables',
-    kind: CodeEditorSuggestionItemKind.Method,
-    detail: 'Interpolate variables.',
-  },
-  {
-    label: 'context.grafana.eventBus',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Panels events.',
-  },
-  {
-    label: 'context.grafana.locationService',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Location service.',
-  },
-  {
-    label: 'context.grafana.notifySuccess',
-    kind: CodeEditorSuggestionItemKind.Method,
-    detail: 'Show success notification.',
-  },
-  {
-    label: 'context.grafana.notifyError',
-    kind: CodeEditorSuggestionItemKind.Method,
-    detail: 'Show error notification.',
-  },
-  {
-    label: 'context.grafana.refresh',
-    kind: CodeEditorSuggestionItemKind.Method,
-    detail: 'Refresh dashboard.',
-  },
-
-  /**
-   * Echarts
-   */
-  {
-    label: 'context.echarts',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'ECharts library.',
-  },
-  {
-    label: 'context.ecStat',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'A statistical and data mining tool.',
-  },
 ];
 
 /**
@@ -195,34 +109,10 @@ export const CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = [
   /**
    * Context
    */
-  ...EDITOR_BASE_CONTEXT_SUGGESTIONS,
+  ...codeParameters.suggestions,
 ];
 
 /**
  * Visual Code Editor Suggestions
  */
-export const VISUAL_CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = [
-  /**
-   * Context
-   */
-  ...EDITOR_BASE_CONTEXT_SUGGESTIONS,
-
-  /**
-   * Visual Editor
-   */
-  {
-    label: 'context.editor',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Editor properties.',
-  },
-  {
-    label: 'context.editor.dataset',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Echarts dataset.',
-  },
-  {
-    label: 'context.editor.series',
-    kind: CodeEditorSuggestionItemKind.Property,
-    detail: 'Echarts series.',
-  },
-];
+export const VISUAL_CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = visualCodeParameters.suggestions;
