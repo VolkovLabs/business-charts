@@ -1,6 +1,7 @@
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
+import { AutosizeCodeEditor } from '@volkovlabs/components';
 import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
 import React from 'react';
 
@@ -81,7 +82,6 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     if (item.id === Editor.THEME) {
       return {
         language: CodeLanguage.JSON,
-        height: context.options?.themeEditor.height,
       };
     }
 
@@ -91,7 +91,6 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
     if (item.id === Editor.VISUALCODE) {
       return {
         language: CodeLanguage.JAVASCRIPT,
-        height: context.options?.visualEditor.codeHeight,
         getSuggestions,
       };
     }
@@ -101,19 +100,17 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
      */
     return {
       language: CodeLanguage.JAVASCRIPT,
-      height: context.options?.editor.height,
       getSuggestions,
     };
   };
 
   return (
     <div data-testid={TEST_IDS.editor.root}>
-      <CodeEditor
+      <AutosizeCodeEditor
         language={CodeLanguage.JAVASCRIPT}
         showLineNumbers={true}
         showMiniMap={value.length > 100}
         value={value}
-        height={context.options?.editor.height}
         onBlur={onChange}
         onSave={onChange}
         monacoOptions={monacoOptions}
