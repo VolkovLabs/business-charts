@@ -6,6 +6,7 @@
 
 - Updated to Apache ECharts 5.5.0 (#257)
 - Updated code parameters with Code Parameters Builder (#261)
+- Updated auto size code editor (#263)
 
 ## 5.2.0 (2024-02-15)
 
@@ -16,24 +17,24 @@
 ### Features / Enhancements
 
 - Updated README and documentation (#214)
-- Add visual editor for working with data sources (#211)
-- Update ESLint configuration and refactoring (#237)
-- Update dependencies and Actions (#238)
-- Add context parameter to non-visual mode (#245)
-- Add refresh function using Application Event Bus (#247)
-- Update to disallow to choose already selected fields (#251)
-- Update echarts.volkovlabs.io to use visual editor and data sources (#248)
-- Update draggable handler in Visual editor (#256)
+- Added visual editor for working with data sources (#211)
+- Updated ESLint configuration and refactoring (#237)
+- Updated dependencies and Actions (#238)
+- Added context parameter to non-visual mode (#245)
+- Added refresh function using Application Event Bus (#247)
+- Updated to disallow to choose already selected fields (#251)
+- Updated echarts.volkovlabs.io to use visual editor and data sources (#248)
+- Updated draggable handler in Visual editor (#256)
 
 ## 5.1.0 (2023-08-11)
 
 ### Features / Enhancements
 
-- Update to Grafana 10.0.3 (#206)
+- Updated to Grafana 10.0.3 (#206)
 
 ### Bugfixes
 
-- Fix Memory Leak on resubscribing to restore event (#208)
+- Fixed Memory Leak on resubscribing to restore event (#208)
 
 ## 5.0.0 (2023-07-19)
 
@@ -43,17 +44,17 @@
 
 ### Features / Enhancements
 
-- Update Documentation (#182)
-- Update Examples to Grafana 10 (#190)
-- Add Result v2 with unsubscribe function (#188)
-- Update Streaming to redraw charts (#188)
-- Update to Grafana 10.0.0 (#191)
-- Update README and panel options (#192)
-- Remove Grafana 8.5 support (#193)
-- Update to Grafana 10.0.2 dependencies (#195)
-- Update ESLint configuration (#196)
-- Add Wordcloud Extension (#198)
-- Update to Apache ECharts 5.4.3 (#199)
+- Updated Documentation (#182)
+- Updated Examples to Grafana 10 (#190)
+- Added Result v2 with unsubscribe function (#188)
+- Updated Streaming to redraw charts (#188)
+- Updated to Grafana 10.0.0 (#191)
+- Updated README and panel options (#192)
+- Removed Grafana 8.5 support (#193)
+- Updated to Grafana 10.0.2 dependencies (#195)
+- Updated ESLint configuration (#196)
+- Added Wordcloud Extension (#198)
+- Updated to Apache ECharts 5.4.3 (#199)
 
 ## 4.5.0 (2023-06-03)
 
