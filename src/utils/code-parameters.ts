@@ -1,10 +1,34 @@
-import { AlertPayload, EventBus, GrafanaTheme2, InterpolateFunction, PanelData } from '@grafana/data';
+import { AlertPayload, EventBus, InterpolateFunction, PanelData } from '@grafana/data';
 import { LocationService } from '@grafana/runtime';
-import { CodeEditorSuggestionItemKind } from '@grafana/ui';
+import { CodeEditorSuggestionItemKind, getTheme } from '@grafana/ui';
 import { CodeParameterItem, CodeParametersBuilder } from '@volkovlabs/components';
 import { ECharts } from 'echarts';
 
 import { SeriesItem } from '../types';
+
+/**
+ * Get theme params
+ * @param theme
+ * @param detail
+ */
+const getThemeParams = <TObject extends object>(theme: TObject, detail: string): any => ({
+  detail,
+  items: {
+    ...Object.entries(theme).reduce((acc, [key, value]) => {
+      if (typeof value === 'object' && !Array.isArray(value)) {
+        return {
+          ...acc,
+          [key]: getThemeParams(value, key),
+        };
+      }
+
+      return {
+        ...acc,
+        [key]: new CodeParameterItem<typeof value>(key),
+      };
+    }, {}),
+  },
+});
 
 /**
  * Base Code Parameters Config
@@ -28,7 +52,7 @@ const baseParametersConfig = {
           'Interpolate variables.',
           CodeEditorSuggestionItemKind.Method
         ),
-        theme: new CodeParameterItem<GrafanaTheme2>('Location service.'),
+        theme: getThemeParams(getTheme(), 'Theme object'),
         notifySuccess: new CodeParameterItem<(payload: AlertPayload) => void>(
           'Display successful notification.',
           CodeEditorSuggestionItemKind.Method
