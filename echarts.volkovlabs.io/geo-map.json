@@ -30,7 +30,9 @@
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": ["echarts"],
+      "tags": [
+        "echarts"
+      ],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -66,15 +68,25 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let svgs = [];\n\ndata.series.map((s) => {\n  svgs = s.fields.find((f) => f.name === 'svg').values;\n});\n\ncontext.echarts.registerMap('Beef_cuts_France', { svg: svgs[0] });\n\nreturn {\n  tooltip: {},\n  visualMap: {\n    left: 'center',\n    bottom: '1%',\n    min: 5,\n    max: 100,\n    orient: 'horizontal',\n    text: ['', 'Price'],\n    realtime: true,\n    calculable: true,\n    inRange: {\n      color: ['#dbac00', '#db6e00', '#cf0000']\n    }\n  },\n  series: [\n    {\n      name: 'French Beef Cuts',\n      type: 'map',\n      map: 'Beef_cuts_France',\n      roam: true,\n      emphasis: {\n        label: {\n          show: false\n        }\n      },\n      selectedMode: false,\n      data: [\n        { name: 'Queue', value: 15 },\n        { name: 'Langue', value: 35 },\n        { name: 'Plat de joue', value: 15 },\n        { name: 'Gros bout de poitrine', value: 25 },\n        { name: 'Jumeau à pot-au-feu', value: 45 },\n        { name: 'Onglet', value: 85 },\n        { name: 'Plat de tranche', value: 25 },\n        { name: 'Araignée', value: 15 },\n        { name: 'Gîte à la noix', value: 55 },\n        { name: \"Bavette d'aloyau\", value: 25 },\n        { name: 'Tende de tranche', value: 65 },\n        { name: 'Rond de gîte', value: 45 },\n        { name: 'Bavettede de flanchet', value: 85 },\n        { name: 'Flanchet', value: 35 },\n        { name: 'Hampe', value: 75 },\n        { name: 'Plat de côtes', value: 65 },\n        { name: 'Tendron Milieu de poitrine', value: 65 },\n        { name: 'Macreuse à pot-au-feu', value: 85 },\n        { name: 'Rumsteck', value: 75 },\n        { name: 'Faux-filet', value: 65 },\n        { name: 'Côtes Entrecôtes', value: 55 },\n        { name: 'Basses côtes', value: 45 },\n        { name: 'Collier', value: 85 },\n        { name: 'Jumeau à biftek', value: 15 },\n        { name: 'Paleron', value: 65 },\n        { name: 'Macreuse à bifteck', value: 45 },\n        { name: 'Gîte', value: 85 },\n        { name: 'Aiguillette baronne', value: 65 },\n        { name: 'Filet', value: 95 }\n      ]\n    }\n  ]\n};\n",
+        "getOption": "let svgs = [];\n\ncontext.panel.data.series.map((s) => {\n  svgs = s.fields.find((f) => f.name === 'svg').values;\n});\n\ncontext.echarts.registerMap('Beef_cuts_France', { svg: svgs[0] });\n\nreturn {\n  tooltip: {},\n  visualMap: {\n    left: 'center',\n    bottom: '1%',\n    min: 5,\n    max: 100,\n    orient: 'horizontal',\n    text: ['', 'Price'],\n    realtime: true,\n    calculable: true,\n    inRange: {\n      color: ['#dbac00', '#db6e00', '#cf0000']\n    }\n  },\n  series: [\n    {\n      name: 'French Beef Cuts',\n      type: 'map',\n      map: 'Beef_cuts_France',\n      roam: true,\n      emphasis: {\n        label: {\n          show: false\n        }\n      },\n      selectedMode: false,\n      data: [\n        { name: 'Queue', value: 15 },\n        { name: 'Langue', value: 35 },\n        { name: 'Plat de joue', value: 15 },\n        { name: 'Gros bout de poitrine', value: 25 },\n        { name: 'Jumeau à pot-au-feu', value: 45 },\n        { name: 'Onglet', value: 85 },\n        { name: 'Plat de tranche', value: 25 },\n        { name: 'Araignée', value: 15 },\n        { name: 'Gîte à la noix', value: 55 },\n        { name: \"Bavette d'aloyau\", value: 25 },\n        { name: 'Tende de tranche', value: 65 },\n        { name: 'Rond de gîte', value: 45 },\n        { name: 'Bavettede de flanchet', value: 85 },\n        { name: 'Flanchet', value: 35 },\n        { name: 'Hampe', value: 75 },\n        { name: 'Plat de côtes', value: 65 },\n        { name: 'Tendron Milieu de poitrine', value: 65 },\n        { name: 'Macreuse à pot-au-feu', value: 85 },\n        { name: 'Rumsteck', value: 75 },\n        { name: 'Faux-filet', value: 65 },\n        { name: 'Côtes Entrecôtes', value: 55 },\n        { name: 'Basses côtes', value: 45 },\n        { name: 'Collier', value: 85 },\n        { name: 'Jumeau à biftek', value: 15 },\n        { name: 'Paleron', value: 65 },\n        { name: 'Macreuse à bifteck', value: 45 },\n        { name: 'Gîte', value: 85 },\n        { name: 'Aiguillette baronne', value: 65 },\n        { name: 'Filet', value: 95 }\n      ]\n    }\n  ]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -133,8 +145,18 @@
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -180,8 +202,18 @@
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -226,8 +258,18 @@
           "key": ""
         },
         "map": "gmap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Google Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -264,8 +306,18 @@
           "key": ""
         },
         "map": "bmap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Baidu",
       "type": "volkovlabs-echarts-panel"
     },
@@ -301,15 +353,27 @@
           "key": ""
         },
         "map": "amap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Gaode Map",
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
-  "tags": ["echarts"],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [
+    "echarts"
+  ],
   "templating": {
     "list": []
   },
@@ -323,6 +387,6 @@
   "timezone": "",
   "title": "Geo/Map",
   "uid": "X1mkMIFVz",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
