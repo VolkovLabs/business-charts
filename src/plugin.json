@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "dependencies": {
-    "grafanaDependency": ">=9.2.0",
+    "grafanaDependency": ">=10.0.0",
     "plugins": []
   },
   "id": "volkovlabs-echarts-panel",
@@ -10,8 +10,8 @@
       "name": "Volkov Labs",
       "url": "https://volkovlabs.io"
     },
-    "description": "Powerful charting and visualization library Apache ECharts",
-    "keywords": ["echarts"],
+    "description": "Powerful visualizations powered by Apache ECharts.",
+    "keywords": ["business", "echarts"],
     "links": [
       {
         "name": "Documentation",
@@ -43,6 +43,6 @@
     "updated": "%TODAY%",
     "version": "%VERSION%"
   },
-  "name": "Apache ECharts",
+  "name": "Business Charts",
   "type": "panel"
 }
