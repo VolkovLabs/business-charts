@@ -21,7 +21,7 @@
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
-  "description": "Apache ECharts panel for Grafana",
+  "description": "Business Charts panel for Grafana",
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@grafana/e2e": "^10.3.3",
@@ -85,5 +85,5 @@
     "test:ci": "jest --maxWorkers 4 --coverage",
     "upgrade": "npm upgrade --save"
   },
-  "version": "5.3.0"
+  "version": "6.0.0"
 }

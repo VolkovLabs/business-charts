@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.0.0 (2024-03-22)
+
+### Breaking changes
+
+- Requires Grafana 10 and Grafana 11
+
+### Features / Enhancements
+
+- Updated name to Business Charts Panel (#268)
+- Added Apache Acknowledgment and update description (#268)
+
 ## 5.3.0 (2024-03-06)
 
 ### Features / Enhancements
