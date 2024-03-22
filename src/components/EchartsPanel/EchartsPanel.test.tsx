@@ -166,7 +166,14 @@ describe('Panel', () => {
           clear: jest.fn(),
         }) as any
     ); // we need only these options
-    render(getComponent({ options: { getOption: 'return { notifySuccess, notifyError }' } }));
+    render(
+      getComponent({
+        options: {
+          getOption:
+            'return { notifySuccess: context.grafana.notifySuccess, notifyError: context.grafana.notifyError }',
+        },
+      })
+    );
     expect(publish).toHaveBeenCalledWith({
       type: AppEvents.alertSuccess.name,
       payload: successPayload,
@@ -462,7 +469,7 @@ describe('Panel', () => {
         })),
       };
       const getOption = `
-        const subscription = eventBus.subscribe();
+        const subscription = context.grafana.eventBus.subscribe();
         return {
           version: 2,
           option: {

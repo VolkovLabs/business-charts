@@ -225,7 +225,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const subscription = eventBus.subscribe({ type: 'data-hover' }, (data) => {\n  console.log('React to Data Hover', data);\n})\n\nreturn {\n  version: 2,\n  unsubscribe: () => {\n    subscription.unsubscribe();\n    console.log('Unsubscribed');\n  }\n}\n",
+        "getOption": "const subscription = context.grafana.eventBus.subscribe({ type: 'data-hover' }, (data) => {\n  console.log('React to Data Hover', data);\n})\n\nreturn {\n  version: 2,\n  unsubscribe: () => {\n    subscription.unsubscribe();\n    console.log('Unsubscribed');\n  }\n}\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
