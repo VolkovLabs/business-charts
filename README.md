@@ -17,7 +17,7 @@ The Business Charts Panel allows you to integrate charts and graphs created by t
 
 Apache ECharts is a powerful and versatile data visualization library providing a wide range of chart types including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 
-[![Apache ECharts panel for Grafana | Explore possibilities](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/overview.png)](https://youtu.be/S3PiL1p1v5U)
+[![Business Charts panel for Grafana | Explore possibilities](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/overview.png)](https://youtu.be/S3PiL1p1v5U)
 
 The Business Charts plugin offers an easy way of adding intuitive, interactive, and highly customizable charts to your Grafana dashboard.
 

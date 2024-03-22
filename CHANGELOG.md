@@ -10,6 +10,7 @@
 
 - Updated name to Business Charts Panel (#268)
 - Added Apache Acknowledgment and update description (#268)
+- Updated to Grafana 10.4.1 (#269)
 
 ## 5.3.0 (2024-03-06)
 
