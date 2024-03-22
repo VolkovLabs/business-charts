@@ -5,6 +5,5 @@ import { Field } from '@grafana/data';
  * @param field
  */
 export const getFieldValues = (field?: Field): unknown[] => {
-  // eslint-disable-next-line deprecation/deprecation
-  return field?.values.toArray() || [];
+  return field?.values || [];
 };
