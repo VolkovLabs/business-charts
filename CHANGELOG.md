@@ -1,16 +1,32 @@
 # Change Log
 
-## 6.0.0 (2024-03-22)
+## 6.0.0 (2024-03-24)
 
 ### Breaking changes
 
 - Requires Grafana 10 and Grafana 11
+- Removed non-context code parameters. Please update parameters to use `context` in the Function.
+
+### Code parameters migration guide
+
+- data -> context.panel.data
+- theme -> context.grafana.theme
+- chart -> context.panel.chart
+- echarts -> context.echarts
+- ecStat -> context.ecStat
+- replaceVariables -> context.grafana.replaceVariables
+- eventBus -> context.grafana.eventBus
+- locationService -> context.grafana.locationService
+- notifySuccess -> context.grafana.notifySuccess
+- notifyError -> context.grafana.notifyError
 
 ### Features / Enhancements
 
 - Updated name to Business Charts Panel (#268)
 - Added Apache Acknowledgment and update description (#268)
 - Updated to Grafana 10.4.1 (#270)
+- Removed ArrayVector deprecated in Grafana 11 (#272)
+- Updated Apache ECharts deprecation warnings (#272)
 
 ## 5.3.0 (2024-03-06)
 

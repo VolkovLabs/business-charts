@@ -163,20 +163,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
       const func =
         options.editorMode === EditorMode.VISUAL
           ? new Function('context', options.visualEditor.code)
-          : new Function(
-              'data',
-              'theme',
-              'echartsInstance',
-              'echarts',
-              'ecStat',
-              'replaceVariables',
-              'eventBus',
-              'locationService',
-              'notifySuccess',
-              'notifyError',
-              'context',
-              options.getOption
-            );
+          : new Function('context', options.getOption);
 
       /**
        * Load Maps
@@ -231,19 +218,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
                 },
               })
             )
-          : func(
-              data,
-              theme,
-              chart,
-              echarts,
-              ecStat,
-              replaceVariables,
-              eventBus,
-              locationService,
-              notifySuccess,
-              notifyError,
-              codeParameters.create(contextPayload)
-            );
+          : func(codeParameters.create(contextPayload));
 
       /**
        * Chart option

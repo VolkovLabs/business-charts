@@ -30,7 +30,9 @@
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": ["echarts"],
+      "tags": [
+        "echarts"
+      ],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -66,15 +68,25 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "let svgs = [];\n\ndata.series.map((s) => {\n  svgs = s.fields.find((f) => f.name === 'svg').values;\n});\n\necharts.registerMap('Beef_cuts_France', { svg: svgs[0] });\n\nreturn {\n  tooltip: {},\n  visualMap: {\n    left: 'center',\n    bottom: '1%',\n    min: 5,\n    max: 100,\n    orient: 'horizontal',\n    text: ['', 'Price'],\n    realtime: true,\n    calculable: true,\n    inRange: {\n      color: ['#dbac00', '#db6e00', '#cf0000']\n    }\n  },\n  series: [\n    {\n      name: 'French Beef Cuts',\n      type: 'map',\n      map: 'Beef_cuts_France',\n      roam: true,\n      emphasis: {\n        label: {\n          show: false\n        }\n      },\n      selectedMode: false,\n      data: [\n        { name: 'Queue', value: 15 },\n        { name: 'Langue', value: 35 },\n        { name: 'Plat de joue', value: 15 },\n        { name: 'Gros bout de poitrine', value: 25 },\n        { name: 'Jumeau à pot-au-feu', value: 45 },\n        { name: 'Onglet', value: 85 },\n        { name: 'Plat de tranche', value: 25 },\n        { name: 'Araignée', value: 15 },\n        { name: 'Gîte à la noix', value: 55 },\n        { name: \"Bavette d'aloyau\", value: 25 },\n        { name: 'Tende de tranche', value: 65 },\n        { name: 'Rond de gîte', value: 45 },\n        { name: 'Bavettede de flanchet', value: 85 },\n        { name: 'Flanchet', value: 35 },\n        { name: 'Hampe', value: 75 },\n        { name: 'Plat de côtes', value: 65 },\n        { name: 'Tendron Milieu de poitrine', value: 65 },\n        { name: 'Macreuse à pot-au-feu', value: 85 },\n        { name: 'Rumsteck', value: 75 },\n        { name: 'Faux-filet', value: 65 },\n        { name: 'Côtes Entrecôtes', value: 55 },\n        { name: 'Basses côtes', value: 45 },\n        { name: 'Collier', value: 85 },\n        { name: 'Jumeau à biftek', value: 15 },\n        { name: 'Paleron', value: 65 },\n        { name: 'Macreuse à bifteck', value: 45 },\n        { name: 'Gîte', value: 85 },\n        { name: 'Aiguillette baronne', value: 65 },\n        { name: 'Filet', value: 95 }\n      ]\n    }\n  ]\n};\n",
+        "getOption": "let svgs = [];\n\ncontext.panel.data.series.map((s) => {\n  svgs = s.fields.find((f) => f.name === 'svg').values;\n});\n\ncontext.echarts.registerMap('Beef_cuts_France', { svg: svgs[0] });\n\nreturn {\n  tooltip: {},\n  visualMap: {\n    left: 'center',\n    bottom: '1%',\n    min: 5,\n    max: 100,\n    orient: 'horizontal',\n    text: ['', 'Price'],\n    realtime: true,\n    calculable: true,\n    inRange: {\n      color: ['#dbac00', '#db6e00', '#cf0000']\n    }\n  },\n  series: [\n    {\n      name: 'French Beef Cuts',\n      type: 'map',\n      map: 'Beef_cuts_France',\n      roam: true,\n      emphasis: {\n        label: {\n          show: false\n        }\n      },\n      selectedMode: false,\n      data: [\n        { name: 'Queue', value: 15 },\n        { name: 'Langue', value: 35 },\n        { name: 'Plat de joue', value: 15 },\n        { name: 'Gros bout de poitrine', value: 25 },\n        { name: 'Jumeau à pot-au-feu', value: 45 },\n        { name: 'Onglet', value: 85 },\n        { name: 'Plat de tranche', value: 25 },\n        { name: 'Araignée', value: 15 },\n        { name: 'Gîte à la noix', value: 55 },\n        { name: \"Bavette d'aloyau\", value: 25 },\n        { name: 'Tende de tranche', value: 65 },\n        { name: 'Rond de gîte', value: 45 },\n        { name: 'Bavettede de flanchet', value: 85 },\n        { name: 'Flanchet', value: 35 },\n        { name: 'Hampe', value: 75 },\n        { name: 'Plat de côtes', value: 65 },\n        { name: 'Tendron Milieu de poitrine', value: 65 },\n        { name: 'Macreuse à pot-au-feu', value: 85 },\n        { name: 'Rumsteck', value: 75 },\n        { name: 'Faux-filet', value: 65 },\n        { name: 'Côtes Entrecôtes', value: 55 },\n        { name: 'Basses côtes', value: 45 },\n        { name: 'Collier', value: 85 },\n        { name: 'Jumeau à biftek', value: 15 },\n        { name: 'Paleron', value: 65 },\n        { name: 'Macreuse à bifteck', value: 45 },\n        { name: 'Gîte', value: 85 },\n        { name: 'Aiguillette baronne', value: 65 },\n        { name: 'Filet', value: 95 }\n      ]\n    }\n  ]\n};\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -133,8 +145,18 @@
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -180,8 +202,18 @@
         },
         "map": "json",
         "renderer": "canvas",
-        "resize": true
+        "resize": true,
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -220,14 +252,24 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const gmap = {\n  gmap: {\n    /**\n     * Center and Zoom\n     */\n    center: { lng: -81.76, lat: 27.99 },\n    zoom: 4,\n\n    // whether echarts layer should be rendered when the map is moving. `true` by default.\n    // if false, it will only be re-rendered after the map `moveend`.\n    // It's better to set this option to false if data is large.\n    renderOnMoving: true,\n  },\n  series: [\n    {\n      type: 'scatter',\n      coordinateSystem: 'gmap',\n      // data items [[lng, lat, value], [lng, lat, value], ...]\n      data: [[-81.76, 27.99, 100]],\n      encode: {\n        // encode the third element of data item as the `value` dimension\n        value: 2,\n        lng: 0,\n        lat: 1\n      }\n    }\n  ]\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\nwindow.gmapReady = () => {\n  notifySuccess(['Google Maps', 'Loaded...']);\n  echartsInstance.setOption(gmap, notmerge = true);\n}\n\nreturn typeof google === 'object' && typeof google.maps === 'object' ? gmap : loading;",
+        "getOption": "const gmap = {\n  gmap: {\n    /**\n     * Center and Zoom\n     */\n    center: { lng: -81.76, lat: 27.99 },\n    zoom: 4,\n\n    // whether echarts layer should be rendered when the map is moving. `true` by default.\n    // if false, it will only be re-rendered after the map `moveend`.\n    // It's better to set this option to false if data is large.\n    renderOnMoving: true,\n  },\n  series: [\n    {\n      type: 'scatter',\n      coordinateSystem: 'gmap',\n      // data items [[lng, lat, value], [lng, lat, value], ...]\n      data: [[-81.76, 27.99, 100]],\n      encode: {\n        // encode the third element of data item as the `value` dimension\n        value: 2,\n        lng: 0,\n        lat: 1\n      }\n    }\n  ]\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\nwindow.gmapReady = () => {\n  context.grafana.notifySuccess(['Google Maps', 'Loaded...']);\n  context.panel.chart.setOption(gmap, notmerge = true);\n}\n\nreturn typeof google === 'object' && typeof google.maps === 'object' ? gmap : loading;",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "gmap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Google Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -258,14 +300,24 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "/**\n * Baidu Maps\n */\nconst bmap = {\n  tooltip: {\n    trigger: \"item\",\n  },\n  bmap: {\n    zoom: 5,\n    roam: true,\n  },\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\nwindow.bmapReady = () => {\n  notifySuccess(['Baidu Maps', 'Loaded...']);\n  echartsInstance.setOption(bmap, notmerge = true);\n}\n\nreturn window.BMap ? bmap : loading;",
+        "getOption": "/**\n * Baidu Maps\n */\nconst bmap = {\n  tooltip: {\n    trigger: \"item\",\n  },\n  bmap: {\n    zoom: 5,\n    roam: true,\n  },\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\nwindow.bmapReady = () => {\n  context.grafana.notifySuccess(['Baidu Maps', 'Loaded...']);\n  context.panel.chart.setOption(bmap, notmerge = true);\n}\n\nreturn window.BMap ? bmap : loading;",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "bmap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Baidu",
       "type": "volkovlabs-echarts-panel"
     },
@@ -295,21 +347,33 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const amap = {\n  backgroundColor: 'transparent',\n  // 加载 amap 组件\n  amap: {\n    // 3D模式，无论你使用的是1.x版本还是2.x版本，都建议开启此项以获得更好的渲染体验\n    viewMode: '3D',\n    // 高德地图支持的初始化地图配置\n    // 高德地图初始中心经纬度\n    center: [108.39, 39.9],\n    // 高德地图初始缩放级别\n    zoom: 4,\n    // 是否开启resize\n    resizeEnable: true,\n    // 自定义地图样式主题\n    mapStyle: 'amap://styles/dark',\n    // 移动过程中实时渲染 默认为true 如数据量较大 建议置为false\n    renderOnMoving: true,\n    // ECharts 图层的 zIndex 默认 2000\n    // 从 v1.9.0 起 此配置项已被弃用 请使用 `echartsLayerInteractive` 代替\n    echartsLayerZIndex: 2019,\n    // 设置 ECharts 图层是否可交互 默认为 true\n    // 设置为 false 可实现高德地图自身图层交互\n    // 此配置项从 v1.9.0 起开始支持\n    echartsLayerInteractive: true,\n    // 是否启用大数据模式 默认为 false\n    // 此配置项从 v1.9.0 起开始支持\n    largeMode: false\n    // 说明：如果想要添加卫星、路网等图层\n    // 暂时先不要使用layers配置，因为存在Bug\n    // 建议使用amap.add的方式，使用方式参见最下方代码\n  },\n  series: [\n    {\n      type: 'scatter',\n      // 使用高德地图坐标系\n      coordinateSystem: 'amap',\n      // 数据格式跟在 geo 坐标系上一样，每一项都是 [经度，纬度，数值大小，其它维度...]\n      data: [[120, 30, 8], [120.1, 30.2, 20]],\n      encode: {\n        value: 2\n      }\n    }\n  ]\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\namapReady = () => {\n  if (!window.AMap) {\n    return setTimeout(() => {\n      amapReady();\n    }, 100)\n  }\n\n  notifySuccess(['Gaode Maps', 'Loaded...']);\n  echartsInstance.setOption(amap, notmerge = true);\n\n  /**\n   * Get AMap extension component\n   */\n  const amapComponent = echartsInstance.getModel().getComponent('amap');\n  const amapInstance = amapComponent.getAMap();\n  amapInstance.addControl(new AMap.Scale());\n  amapInstance.addControl(new AMap.ToolBar());\n\n  /**\n   * Add SatelliteLayer and RoadNetLayer to map\n   */\n  const satelliteLayer = new AMap.TileLayer.Satellite();\n  const roadNetLayer = new AMap.TileLayer.RoadNet();\n  amapInstance.add([satelliteLayer, roadNetLayer]);\n\n  return;\n}\n\nsetTimeout(() => {\n  amapReady();\n}, 100)\n\nreturn loading;",
+        "getOption": "const amap = {\n  backgroundColor: 'transparent',\n  // 加载 amap 组件\n  amap: {\n    // 3D模式，无论你使用的是1.x版本还是2.x版本，都建议开启此项以获得更好的渲染体验\n    viewMode: '3D',\n    // 高德地图支持的初始化地图配置\n    // 高德地图初始中心经纬度\n    center: [108.39, 39.9],\n    // 高德地图初始缩放级别\n    zoom: 4,\n    // 是否开启resize\n    resizeEnable: true,\n    // 自定义地图样式主题\n    mapStyle: 'amap://styles/dark',\n    // 移动过程中实时渲染 默认为true 如数据量较大 建议置为false\n    renderOnMoving: true,\n    // ECharts 图层的 zIndex 默认 2000\n    // 从 v1.9.0 起 此配置项已被弃用 请使用 `echartsLayerInteractive` 代替\n    echartsLayerZIndex: 2019,\n    // 设置 ECharts 图层是否可交互 默认为 true\n    // 设置为 false 可实现高德地图自身图层交互\n    // 此配置项从 v1.9.0 起开始支持\n    echartsLayerInteractive: true,\n    // 是否启用大数据模式 默认为 false\n    // 此配置项从 v1.9.0 起开始支持\n    largeMode: false\n    // 说明：如果想要添加卫星、路网等图层\n    // 暂时先不要使用layers配置，因为存在Bug\n    // 建议使用amap.add的方式，使用方式参见最下方代码\n  },\n  series: [\n    {\n      type: 'scatter',\n      // 使用高德地图坐标系\n      coordinateSystem: 'amap',\n      // 数据格式跟在 geo 坐标系上一样，每一项都是 [经度，纬度，数值大小，其它维度...]\n      data: [[120, 30, 8], [120.1, 30.2, 20]],\n      encode: {\n        value: 2\n      }\n    }\n  ]\n};\n\n/**\n * Loading\n */\nconst loading = {\n  graphic: {\n    elements: [\n      {\n        type: 'group',\n        left: 'center',\n        top: 'center',\n        children: new Array(7).fill(0).map((val, i) => ({\n          type: 'rect',\n          x: i * 20,\n          shape: {\n            x: 0,\n            y: -40,\n            width: 10,\n            height: 80\n          },\n          style: {\n            fill: '#5470c6'\n          },\n          keyframeAnimation: {\n            duration: 1000,\n            delay: i * 200,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.5,\n                scaleY: 0.3,\n                easing: 'cubicIn'\n              },\n              {\n                percent: 1,\n                scaleY: 1,\n                easing: 'cubicOut'\n              }\n            ]\n          }\n        }))\n      }\n    ]\n  }\n}\n\n/**\n * Maps are Ready\n */\namapReady = () => {\n  if (!window.AMap) {\n    return setTimeout(() => {\n      amapReady();\n    }, 100)\n  }\n\n  context.grafana.notifySuccess(['Gaode Maps', 'Loaded...']);\n  context.panel.chart.setOption(amap, notmerge = true);\n\n  /**\n   * Get AMap extension component\n   */\n  const amapComponent = context.panel.chart.getModel().getComponent('amap');\n  const amapInstance = amapComponent.getAMap();\n  amapInstance.addControl(new AMap.Scale());\n  amapInstance.addControl(new AMap.ToolBar());\n\n  /**\n   * Add SatelliteLayer and RoadNetLayer to map\n   */\n  const satelliteLayer = new AMap.TileLayer.Satellite();\n  const roadNetLayer = new AMap.TileLayer.RoadNet();\n  amapInstance.add([satelliteLayer, roadNetLayer]);\n\n  return;\n}\n\nsetTimeout(() => {\n  amapReady();\n}, 100)\n\nreturn loading;",
         "google": {
           "callback": "gmapReady",
           "key": ""
         },
         "map": "amap",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.0.0",
       "title": "Gaode Map",
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
-  "tags": ["echarts"],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [
+    "echarts"
+  ],
   "templating": {
     "list": []
   },
@@ -323,6 +387,6 @@
   "timezone": "",
   "title": "Geo/Map",
   "uid": "X1mkMIFVz",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
