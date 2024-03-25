@@ -11,7 +11,7 @@
 
 - data -> context.panel.data
 - theme -> context.grafana.theme
-- chart -> context.panel.chart
+- echartsInstance -> context.panel.chart
 - echarts -> context.echarts
 - ecStat -> context.ecStat
 - replaceVariables -> context.grafana.replaceVariables
