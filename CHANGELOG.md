@@ -4,8 +4,8 @@
 
 ### Breaking changes
 
-- Requires Grafana 10 and Grafana 11
-- Removed non-context code parameters. Please update parameters to use `context` in the Function.
+- Requires Grafana 10 and Grafana 11.
+- Removed non-context code parameters. Please update parameters to use `context`.
 
 ### Code parameters migration guide
 
