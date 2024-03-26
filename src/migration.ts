@@ -19,7 +19,7 @@ interface OutdatedPanelOptions extends Omit<PanelOptions, 'editorMode'> {
  */
 const normalizeGetOption = (code: string): string => {
   const search =
-    /(data.series|replaceVariables\(|theme.|echartsInstance.|echarts.|ecStat.|eventBus|locationService|notifySuccess\(|notifyError\()/gm;
+    /(data.series|replaceVariables\(|theme\.|echartsInstance\.|echarts\.|ecStat\.|eventBus|locationService|notifySuccess\(|notifyError\()/gm;
 
   return code.replace(search, (value) => {
     switch (value) {
