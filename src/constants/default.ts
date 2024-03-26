@@ -87,8 +87,7 @@ return {
 /**
  * ECharts Initial Visual Function
  */
-const VISUAL_EDITOR_CODE = `console.log(context);
-return {
+const VISUAL_EDITOR_CODE = `return {
   dataset: context.editor.dataset,
   series: context.editor.series,
   xAxis: {
