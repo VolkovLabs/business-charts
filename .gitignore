@@ -28,7 +28,9 @@ e2e-results/
 .idea
 .DS_Store
 
-# Cypress
-cypress/report.json
-cypress/videos/
-cypress/screenshots/actual
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
