@@ -25,8 +25,6 @@ test.describe('Business Charts Panel', () => {
     await expect(page.getByRole('heading', { name: 'Bar Chart' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Empty Chart' })).toBeVisible();
 
-    await page.screenshot({ path: 'screenshot.png' });
-
     /**
      * Check screenshot
      */

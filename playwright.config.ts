@@ -1,12 +1,13 @@
 import { dirname } from 'path';
 import { defineConfig, devices } from '@playwright/test';
+import { PluginOptions } from '@grafana/plugin-e2e';
 
 const pluginE2eAuth = `${dirname(require.resolve('@grafana/plugin-e2e'))}/auth`;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export default defineConfig<PluginOptions>({
   testDir: './test',
   /**
    * Run tests in files in parallel
