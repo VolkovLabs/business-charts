@@ -73,8 +73,8 @@
   "name": "volkovlabs-echarts-panel",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
-    "e2e": "npx playwright test",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
+    "e2e": "npx playwright test",
     "levitate": "npx @grafana/levitate@latest is-compatible --path src/module.ts --target @grafana/data,@grafana/runtime,@grafana/ui",
     "lint": "eslint --ignore-path ./.eslintignore --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint --fix --ignore-path ./.eslintignore --ext .js,.jsx,.ts,.tsx .",
