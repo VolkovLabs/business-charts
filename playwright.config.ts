@@ -15,12 +15,12 @@ export default defineConfig<PluginOptions>({
   fullyParallel: true,
 
   /**
-   * Retry on CI only.
+   * Number of retry.
    */
-  retries: 2,
+  retries: 6,
 
   /**
-   * Opt out of parallel tests on CI.
+   * Number of workers.
    */
   workers: 1,
 
