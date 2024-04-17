@@ -1025,7 +1025,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
     },
