@@ -661,7 +661,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Clickable Column Chart with Gradient",
       "type": "volkovlabs-echarts-panel"
     },
@@ -710,7 +710,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Bar Label Rotation",
       "type": "volkovlabs-echarts-panel"
     },
@@ -759,7 +759,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Stacked Column Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -808,7 +808,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Waterfall Chart",
       "type": "volkovlabs-echarts-panel"
     },

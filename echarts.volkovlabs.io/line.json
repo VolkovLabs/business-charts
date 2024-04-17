@@ -106,7 +106,7 @@
           ]
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -183,7 +183,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Smoothed Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -253,7 +253,7 @@
           ]
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -329,7 +329,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Stacked Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -405,7 +405,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -575,7 +575,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -745,7 +745,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Temperature Change in the Coming Week",
       "type": "volkovlabs-echarts-panel"
     },
@@ -794,7 +794,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Area Pieces",
       "type": "volkovlabs-echarts-panel"
     },
@@ -843,7 +843,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Data Transform Filter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -892,7 +892,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {

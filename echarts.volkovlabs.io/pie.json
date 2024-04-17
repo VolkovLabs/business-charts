@@ -95,7 +95,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -172,7 +172,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Doughnut Chart with Rounded Corners",
       "type": "volkovlabs-echarts-panel"
     },
@@ -221,7 +221,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Doughnut Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -270,7 +270,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Customized Pie",
       "type": "volkovlabs-echarts-panel"
     },
@@ -319,7 +319,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "targets": [
         {
           "datasource": {
@@ -398,7 +398,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.0.0",
       "title": "Nightingale Chart",
       "type": "volkovlabs-echarts-panel"
     },
