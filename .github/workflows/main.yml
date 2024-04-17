@@ -1,7 +1,10 @@
-name: Daily E2E using Grafana Main
+name: E2E Main
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
