@@ -1,38 +1,25 @@
 import { test, expect } from '@grafana/plugin-e2e';
+import { TEST_IDS } from '../src/constants/tests';
 
 test.describe('Business Charts Panel', () => {
-  test('should display empty chart without data and Bar Chart', async ({
-    readProvisionedDashboard,
-    gotoDashboardPage,
-    page,
-  }) => {
+  test('should display empty chart without data and Bar Chart', async ({ gotoDashboardPage, dashboardPage }) => {
     /**
-     * Use e2e.json dashboard
+     * Go To E2E dashboard
+     * return dashboardPage
      */
-    const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+    await gotoDashboardPage({ uid: 'fdd5dbe3-794c-4441-9d1c-024a537bbe99' });
 
     /**
-     * Go to e2e dashboard
+     * Find panel by title with chart
+     * Should be visible
      */
-    await gotoDashboardPage(dashboard);
+    await expect(dashboardPage.getPanelByTitle('Bar Chart').locator).toBeVisible();
 
     /**
-     * Wait canvas is visible and animation is finished
+     * Check and compare image
      */
-    await page.waitForTimeout(3000);
-
-    await expect(page.getByTestId('data-testid Panel header Bar Chart').locator('canvas')).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Bar Chart' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Empty Chart' })).toBeVisible();
-
-    /**
-     * Check screenshot
-     */
-    // await expect(page).toHaveScreenshot('actual-screenshot.png');
-
-    /**
-     * Compare screenshot actual
-     */
-    // await expect(await page.screenshot()).toMatchSnapshot('actual-screenshot.png', { threshold: 0.3 });
+    await expect(dashboardPage.getPanelByTitle('Bar Chart').locator.getByTestId(TEST_IDS.panel.chart)).toHaveScreenshot(
+      'actual-screenshot.png'
+    );
   });
 });

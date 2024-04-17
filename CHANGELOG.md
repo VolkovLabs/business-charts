@@ -4,7 +4,8 @@
 
 ### Features / Enhancements
 
-- Add plugin e2e tests and remove cypress (#281)
+- Add plugin e2e tests and remove cypress (#281, #283)
+- Update context parameters in Examples (#282)
 
 ## 6.0.0 (2024-03-24)
 
