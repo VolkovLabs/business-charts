@@ -74,16 +74,18 @@
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
-    "e2e": "npx playwright test",
     "levitate": "npx @grafana/levitate@latest is-compatible --path src/module.ts --target @grafana/data,@grafana/runtime,@grafana/ui",
     "lint": "eslint --ignore-path ./.eslintignore --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint --fix --ignore-path ./.eslintignore --ext .js,.jsx,.ts,.tsx .",
     "sign": "npx --yes @grafana/sign-plugin@latest",
     "start": "docker-compose pull && docker-compose up",
+    "start:e2e": "docker-compose -f test/docker-compose.yml up",
     "stop": "docker-compose down",
+    "stop:e2e": "docker-compose -f test/docker-compose.yml down",
     "test": "jest --watch --onlyChanged",
     "test:ci": "jest --maxWorkers 4 --coverage",
+    "test:e2e": "npx playwright test",
     "upgrade": "npm upgrade --save"
   },
-  "version": "6.0.0"
+  "version": "6.1.0"
 }
