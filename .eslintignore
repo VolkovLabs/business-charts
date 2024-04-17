@@ -8,3 +8,7 @@ coverage/
 cypress/
 dist/
 websocket/
+
+# Playwright tests
+playwright.config.ts
+test/panel.spec.ts

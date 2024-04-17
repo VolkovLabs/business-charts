@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:main
+    ports:
+      - 3000:3000/tcp
+    environment:
+      - GF_USERS_DEFAULT_THEME=light
+      - GF_INSTALL_PLUGINS=marcusolsson-static-datasource
+    volumes:
+      - ../dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
+      - ../provisioning:/etc/grafana/provisioning

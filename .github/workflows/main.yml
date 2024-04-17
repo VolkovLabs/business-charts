@@ -1,12 +1,14 @@
-name: E2E
+name: Daily E2E using Grafana Main
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+
+  schedule:
+    - cron: '0 0 * * *'
+
+  workflow_dispatch:
 
 jobs:
   tests:
@@ -27,11 +29,16 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Sign plugin
+        run: npm run sign
+        env:
+          GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+
       - name: Setup playwright browser
         run: npx playwright install --with-deps chromium
 
       - name: Start Grafana
-        run: docker-compose up -d
+        run: docker-compose -f test/docker-compose.yml up -d
 
       - name: Run e2e tests
         run: npm run test:e2e
