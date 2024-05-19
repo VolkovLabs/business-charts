@@ -15,9 +15,9 @@ export enum Map {
 export const MAP_OPTIONS = [
   { value: Map.BMAP, label: 'Baidu', description: 'Requires Baidu Maps.' },
   { value: Map.AMAP, label: 'Gaode', description: 'Requires Gaode Maps.' },
-  { value: Map.GMAP, label: 'Google', description: 'Requires Google Maps.' },
-  { value: Map.JSON, label: 'JSON', description: 'Includes World and USA maps.' },
-  { value: Map.NONE, label: 'None' },
+  { value: Map.GMAP, label: 'Google', description: 'Requires Google Maps.', icon: 'google' },
+  { value: Map.JSON, label: 'JSON', description: 'Includes World and USA maps.', icon: 'map-marker' },
+  { value: Map.NONE, label: 'None', icon: 'minus-circle' },
 ];
 
 /**

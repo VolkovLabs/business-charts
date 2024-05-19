@@ -39,16 +39,16 @@ export enum EditorMode {
  * Editor Mode Options
  */
 export const EDITOR_MODE_OPTIONS = [
-  { value: EditorMode.CODE, label: 'Code' },
-  { value: EditorMode.VISUAL, label: 'Visual' },
+  { value: EditorMode.CODE, label: 'Code', icon: 'keyboard' },
+  { value: EditorMode.VISUAL, label: 'Visual', icon: 'chart-line' },
 ];
 
 /**
  * Format Options
  */
 export const FORMAT_OPTIONS = [
-  { value: Format.AUTO, label: 'Auto' },
-  { value: Format.NONE, label: 'Disabled' },
+  { value: Format.AUTO, label: 'Auto', icon: 'thumbs-up' },
+  { value: Format.NONE, label: 'Disabled', icon: 'toggle-off' },
 ];
 
 /**
