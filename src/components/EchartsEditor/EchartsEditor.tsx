@@ -113,7 +113,7 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
         value={value}
         onBlur={onChange}
         onSave={onChange}
-        monacoOptions={monacoOptions}
+        monacoOptions={{ ...monacoOptions, scrollBeyondLastLine: false }}
         onEditorDidMount={onEditorMount}
         {...getItemSpecificEditorProps()}
       />

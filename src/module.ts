@@ -120,15 +120,25 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
     /**
      * Editor
      */
-    builder.addRadio({
-      path: 'editorMode',
-      name: 'Editor Mode',
-      defaultValue: EditorMode.VISUAL,
-      settings: {
-        options: EDITOR_MODE_OPTIONS,
-      },
-      category: ['Editor'],
-    });
+    builder
+      .addRadio({
+        path: 'editorMode',
+        name: 'Editor Mode',
+        defaultValue: EditorMode.VISUAL,
+        settings: {
+          options: EDITOR_MODE_OPTIONS,
+        },
+        category: ['Editor'],
+      })
+      .addRadio({
+        path: 'editor.format',
+        name: 'Formatting',
+        settings: {
+          options: FORMAT_OPTIONS,
+        },
+        defaultValue: DEFAULT_OPTIONS.editor.format,
+        category: ['Editor'],
+      });
 
     /**
      * Visual Editor
@@ -157,27 +167,16 @@ export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
     /**
      * Code Editor
      */
-    builder
-      .addRadio({
-        path: 'editor.format',
-        name: 'Formatting',
-        settings: {
-          options: FORMAT_OPTIONS,
-        },
-        defaultValue: DEFAULT_OPTIONS.editor.format,
-        category: ['Code'],
-        showIf: isCodeEditor,
-      })
-      .addCustomEditor({
-        id: Editor.CODE,
-        path: 'getOption',
-        name: 'Function',
-        description: 'Should return parameters and data for setOption() or an extended result object.',
-        defaultValue: DEFAULT_OPTIONS.getOption,
-        editor: EchartsEditor,
-        category: ['Code'],
-        showIf: isCodeEditor,
-      });
+    builder.addCustomEditor({
+      id: Editor.CODE,
+      path: 'getOption',
+      name: 'Function',
+      description: 'Should return parameters and data for setOption() or an extended result object.',
+      defaultValue: DEFAULT_OPTIONS.getOption,
+      editor: EchartsEditor,
+      category: ['Code'],
+      showIf: isCodeEditor,
+    });
 
     /**
      * Theme
