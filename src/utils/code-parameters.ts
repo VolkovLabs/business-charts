@@ -3,6 +3,7 @@ import { LocationService } from '@grafana/runtime';
 import { CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { CodeParameterItem, CodeParametersBuilder } from '@volkovlabs/components';
 import { ECharts } from 'echarts';
+import echartsStat from 'echarts-stat';
 
 import { SeriesItem } from '../types';
 
@@ -40,6 +41,8 @@ const baseParametersConfig = {
         refresh: new CodeParameterItem<() => void>('Refresh dashboard.', CodeEditorSuggestionItemKind.Method),
       },
     },
+    echarts: new CodeParameterItem<typeof echarts>('ECharts library.'),
+    ecStat: new CodeParameterItem<typeof echartsStat>('ECharts statistical.'),
   },
 };
 
