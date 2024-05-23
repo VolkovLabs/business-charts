@@ -29,7 +29,7 @@ const baseParametersConfig = {
           'Interpolate variables.',
           CodeEditorSuggestionItemKind.Method
         ),
-        theme: new CodeParameterItem<GrafanaTheme2>('Location service.'),
+        theme: new CodeParameterItem<GrafanaTheme2>('Theme object.'),
         notifySuccess: new CodeParameterItem<(payload: AlertPayload) => void>(
           'Display successful notification.',
           CodeEditorSuggestionItemKind.Method
@@ -38,11 +38,11 @@ const baseParametersConfig = {
           'Display error notification.',
           CodeEditorSuggestionItemKind.Method
         ),
-        refresh: new CodeParameterItem<() => void>('Refresh dashboard.', CodeEditorSuggestionItemKind.Method),
+        refresh: new CodeParameterItem<() => void>('Refresh dashboard panels using application events.', CodeEditorSuggestionItemKind.Method),
       },
     },
-    echarts: new CodeParameterItem<typeof echarts>('ECharts library.'),
-    ecStat: new CodeParameterItem<typeof echartsStat>('ECharts statistical.'),
+    echarts: new CodeParameterItem<typeof echarts>('Apache ECharts library.'),
+    ecStat: new CodeParameterItem<typeof echartsStat>('A statistical and data mining tool for Apache ECharts.'),
   },
 };
 
@@ -61,8 +61,8 @@ export const visualCodeParameters = new CodeParametersBuilder({
     editor: {
       detail: 'Editor properties.',
       items: {
-        dataset: new CodeParameterItem<{ source: [string[], ...unknown[]] }>('Echarts dataset.'),
-        series: new CodeParameterItem<SeriesItem[]>('Echarts series.'),
+        dataset: new CodeParameterItem<{ source: [string[], ...unknown[]] }>('ECharts dataset.'),
+        series: new CodeParameterItem<SeriesItem[]>('ECharts series.'),
       },
     },
   },

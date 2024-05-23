@@ -52,14 +52,9 @@ export const FORMAT_OPTIONS = [
 ];
 
 /**
- * Suggestions
+ * Code Suggestions
  */
-export const CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = [
-  /**
-   * Context
-   */
-  ...codeParameters.suggestions,
-];
+export const CODE_EDITOR_SUGGESTIONS: CodeEditorSuggestionItem[] = codeParameters.suggestions;
 
 /**
  * Visual Code Editor Suggestions
