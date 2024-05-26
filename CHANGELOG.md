@@ -10,7 +10,7 @@
 - Updated provisioning for events (#289)
 - Updated panel options (#289)
 - Updated Code suggestions (#293)
-- Updated to Grafana 11.0 and dependencies ()
+- Updated to Grafana 11.0 and dependencies (#294)
 
 ## 6.0.0 (2024-03-24)
 
