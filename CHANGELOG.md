@@ -1,15 +1,16 @@
 # Change Log
 
-## 6.1.0 (IN PROGRESS)
+## 6.1.0 (2024-05-26)
 
 ### Features / Enhancements
 
-- Add plugin e2e tests and remove cypress (#281, #283)
-- Update context parameters in Examples (#282)
-- Add Business Charts video tutorial (#291)
-- Provisioning for events updated (#289)
-- Update panel options (#289)
-- Update Code suggestions (#293)
+- Added plugin e2e tests and remove cypress (#281, #283)
+- Updated context parameters in Examples (#282)
+- Added Business Charts video tutorial (#291)
+- Updated provisioning for events (#289)
+- Updated panel options (#289)
+- Updated Code suggestions (#293)
+- Updated to Grafana 11.0 and dependencies ()
 
 ## 6.0.0 (2024-03-24)
 
