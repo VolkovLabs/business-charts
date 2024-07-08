@@ -27,17 +27,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup playwright browser
-        run: npx playwright install --with-deps chromium
-
       - name: Start Grafana
-        run: docker-compose up -d
+        run: docker compose --profile dev up -d
 
       - name: Run e2e tests
-        run: npm run test:e2e
+        run: npm run test:e2e:docker
 
       - name: Stop Grafana
-        run: docker-compose down
+        run: docker compose down
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
