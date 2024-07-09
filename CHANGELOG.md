@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Updated to Apache ECharts 5.5.1 (#309)
+- Updated E2E workflow using Docker (#310)
 
 ## 6.1.0 (2024-05-26)
 

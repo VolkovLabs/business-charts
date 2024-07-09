@@ -12,6 +12,7 @@ export default defineConfig<PluginOptions>({
    * Directory with tests
    */
   testDir: './test',
+
   /**
    * Run tests in files in parallel
    */
