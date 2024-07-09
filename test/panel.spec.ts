@@ -2,6 +2,11 @@ import { test, expect } from '@grafana/plugin-e2e';
 import { TEST_IDS } from '../src/constants/tests';
 
 test.describe('Business Charts Panel', () => {
+  test('Check grafana version', async ({ grafanaVersion }) => {
+    console.log('Grafana version: ', grafanaVersion);
+    expect(grafanaVersion).toEqual(grafanaVersion);
+  });
+
   test('should display empty chart without data and Bar Chart', async ({ gotoDashboardPage, dashboardPage }) => {
     /**
      * Go To E2E dashboard
