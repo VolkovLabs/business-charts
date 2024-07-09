@@ -2,9 +2,9 @@
   "author": "Volkov Labs",
   "dependencies": {
     "@emotion/css": "^11.11.2",
-    "@grafana/data": "^11.0.0",
+    "@grafana/data": "^11.1.0",
     "@grafana/runtime": "^11.1.0",
-    "@grafana/ui": "^11.0.0",
+    "@grafana/ui": "^11.1.0",
     "@hello-pangea/dnd": "^16.6.0",
     "@types/echarts": "^4.9.22",
     "@types/googlemaps": "^3.43.3",
