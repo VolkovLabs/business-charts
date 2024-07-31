@@ -486,5 +486,289 @@ describe('Series Editor', () => {
         expect(item.fieldEncodeX()).toHaveValue(['A:Value']);
       });
     });
+
+    describe('Radar', () => {
+      const radarItem = {
+        uid: 'radar',
+        id: 'radar',
+        name: 'Radar',
+        type: SeriesType.RADAR,
+        radarDimensions: [
+          {
+            name: 'Test',
+            uid: 'Dimension-Test',
+            value: 'A:Value',
+          },
+        ],
+      };
+      const radarItems = [
+        radarItem,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+
+      it('Should add new dimension', async () => {
+        const { value, onChange } = createOnChangeHandler(radarItems);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        const item = openItem(radarItem.id);
+
+        /**
+         * Initial state
+         */
+        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
+        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
+        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+
+        fireEvent.change(item.radarDimensionNewItemId(), { target: { value: 'Test-2' } });
+
+        expect(item.radarDimensionButtonAddNew()).not.toBeDisabled();
+
+        await act(async () => {
+          fireEvent.click(item.radarDimensionButtonAddNew());
+        });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        /**
+         * Should add new dimensioon for radar
+         */
+        expect(item.radarDimensionName(false, 'Test-2')).toBeInTheDocument();
+
+        /**
+         * Should clean new item id field
+         */
+        expect(item.radarDimensionNewItemId()).toHaveValue('');
+      });
+
+      it('Should add new dimension if initial dimensions is empty', async () => {
+        const radarItem = {
+          uid: 'radar',
+          id: 'radar',
+          name: 'Radar',
+          type: SeriesType.RADAR,
+        };
+        const radarItems = [
+          radarItem,
+          {
+            uid: 'other',
+            id: 'other',
+            name: 'Other',
+          },
+        ];
+
+        const { value, onChange } = createOnChangeHandler(radarItems);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        const item = openItem(radarItem.id);
+
+        /**
+         * Initial state
+         */
+        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
+        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
+        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+
+        fireEvent.change(item.radarDimensionNewItemId(), { target: { value: 'Test-2' } });
+
+        expect(item.radarDimensionButtonAddNew()).not.toBeDisabled();
+
+        await act(async () => {
+          fireEvent.click(item.radarDimensionButtonAddNew());
+        });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        /**
+         * Should add new dimensioon for radar
+         */
+        expect(item.radarDimensionName(false, 'Test-2')).toBeInTheDocument();
+
+        /**
+         * Should clean new item id field
+         */
+        expect(item.radarDimensionNewItemId()).toHaveValue('');
+      });
+
+      it('Should update dimension name', async () => {
+        const { value, onChange } = createOnChangeHandler(radarItems);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        const item = openItem(radarItem.id);
+
+        /**
+         * Initial state
+         */
+        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
+        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
+        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(item.radarDimensionName(false, 'Test')).toBeInTheDocument();
+
+        fireEvent.change(item.radarDimensionName(false, 'Test'), { target: { value: 'Test-New' } });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        /**
+         * Changes
+         */
+        expect(item.radarDimensionName(true, 'Test')).not.toBeInTheDocument();
+        expect(item.radarDimensionName(false, 'Test-New')).toBeInTheDocument();
+        expect(item.radarDimensionName(false, 'Test-New')).toHaveValue('Test-New');
+      });
+
+      it('Should update dimension value', async () => {
+        const { value, onChange } = createOnChangeHandler(radarItems);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        const item = openItem(radarItem.id);
+
+        /**
+         * Initial state
+         */
+        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
+        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
+        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(item.radarDimensionValue(false, 'A:Value')).toBeInTheDocument();
+
+        fireEvent.change(item.radarDimensionValue(false, 'A:Value'), { target: { value: 'A:Time' } });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        /**
+         * Changes
+         */
+        expect(item.radarDimensionName(true, 'A:Value')).not.toBeInTheDocument();
+        expect(item.radarDimensionValue(false, 'A:Time')).toBeInTheDocument();
+      });
+
+      it('Should remove dimension', async () => {
+        const radarItem = {
+          uid: 'radar-2',
+          id: 'radar-2',
+          name: 'Radar-2',
+          type: SeriesType.RADAR,
+          radarDimensions: [
+            {
+              name: 'Test',
+              uid: 'Dimension-Test',
+              value: 'A:Value',
+            },
+            {
+              name: 'Test-2',
+              uid: 'Dimension-Test-2',
+              value: 'A:Value',
+            },
+          ],
+        };
+
+        const radarItemsTest = [
+          radarItem,
+          {
+            uid: 'other',
+            id: 'other',
+            name: 'Other',
+          },
+        ];
+
+        const { value, onChange } = createOnChangeHandler(radarItemsTest);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        const item = openItem(radarItem.id);
+
+        /**
+         * Initial state
+         */
+        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
+        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
+        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test-2')).toBeInTheDocument();
+        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+
+        await act(async () => {
+          fireEvent.click(item.radarDimensionButtonRemove(false, 'Dimension-Test-2'));
+        });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        /**
+         * Changes
+         */
+        expect(item.radarDimensionButtonRemove(true, 'Dimension-Test-2')).not.toBeInTheDocument();
+        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+      });
+    });
   });
 });

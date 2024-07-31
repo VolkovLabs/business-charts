@@ -1,4 +1,4 @@
-import { PanelPlugin } from '@grafana/data';
+import { FieldConfigProperty, PanelPlugin } from '@grafana/data';
 
 import { EchartsEditor, EchartsPanel, VisualEditor } from './components';
 import {
@@ -22,6 +22,20 @@ import { PanelOptions } from './types';
 export const plugin = new PanelPlugin<PanelOptions>(EchartsPanel)
   .setNoPadding()
   .setMigrationHandler(getMigratedOptions)
+  .useFieldConfig({
+    disableStandardOptions: [
+      FieldConfigProperty.Color,
+      FieldConfigProperty.Decimals,
+      FieldConfigProperty.DisplayName,
+      FieldConfigProperty.Filterable,
+      FieldConfigProperty.Mappings,
+      FieldConfigProperty.NoValue,
+      FieldConfigProperty.Thresholds,
+      FieldConfigProperty.Links,
+      FieldConfigProperty.Unit,
+      'unitScale' as never,
+    ],
+  })
   .setPanelOptions((builder) => {
     const isCodeEditor = (config: PanelOptions) => config.editorMode !== EditorMode.VISUAL;
     const isVisualEditor = (config: PanelOptions) => config.editorMode === EditorMode.VISUAL;
