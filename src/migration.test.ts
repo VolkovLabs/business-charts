@@ -35,10 +35,14 @@ describe('Migrations', () => {
           initial: `
           const data = [];
           data.series.forEach();
+          context.panel.data.series.forEach();
+          if (data.series[0] && context.panel.data.series[]) {}
           `,
           expected: `
           const data = [];
           context.panel.data.series.forEach();
+          context.panel.data.series.forEach();
+          if (context.panel.data.series[0] && context.panel.data.series[]) {}
           `,
         },
         {
@@ -46,10 +50,12 @@ describe('Migrations', () => {
           initial: `
           const replaceVariables = () => {};
           replaceVariables('123')
+          context.grafana.replaceVariables('1234')
           `,
           expected: `
           const replaceVariables = () => {};
           context.grafana.replaceVariables('123')
+          context.grafana.replaceVariables('1234')
           `,
         },
         {
@@ -57,9 +63,11 @@ describe('Migrations', () => {
           initial: `
           const theme = {};
           theme.color;
+          context.grafana.theme.color;
           `,
           expected: `
           const theme = {};
+          context.grafana.theme.color;
           context.grafana.theme.color;
           `,
         },
@@ -68,9 +76,11 @@ describe('Migrations', () => {
           initial: `
           const echartsInstance = {};
           echartsInstance.color;
+          context.panel.chart.color;
           `,
           expected: `
           const echartsInstance = {};
+          context.panel.chart.color;
           context.panel.chart.color;
           `,
         },
@@ -79,9 +89,11 @@ describe('Migrations', () => {
           initial: `
           const echarts = {};
           echarts.color;
+          context.echarts.color;
           `,
           expected: `
           const echarts = {};
+          context.echarts.color;
           context.echarts.color;
           `,
         },
@@ -90,9 +102,11 @@ describe('Migrations', () => {
           initial: `
           const ecStat = {};
           ecStat.color;
+          context.ecStat.color;
           `,
           expected: `
           const ecStat = {};
+          context.ecStat.color;
           context.ecStat.color;
           `,
         },
@@ -100,8 +114,10 @@ describe('Migrations', () => {
           name: 'grafana.eventBus',
           initial: `
           eventBus.subscribe();
+          context.grafana.eventBus.subscribe();
           `,
           expected: `
+          context.grafana.eventBus.subscribe();
           context.grafana.eventBus.subscribe();
           `,
         },
