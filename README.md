@@ -1,4 +1,4 @@
-# Business Charts Panel for Grafana
+# Business Charts panel for Grafana
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
@@ -68,6 +68,14 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps)               | Demonstrates how to work with different maps.                            |
 | [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials)     | Tutorials for the Business Charts Panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release)   | Stay up to date with the latest features and updates.                    |
+
+## Business Suite for Grafana
+
+The Business Suite is a collection of open source plugins created and actively maintained by Volkov Labs.
+
+The collection aims to solve the most frequent business tasks by providing an intuitive interface with detailed written documentation, examples, and video tutorials.
+
+[![Business Suite for Grafana](https://raw.githubusercontent.com/VolkovLabs/.github/main/business.png)](https://volkovlabs.io/plugins/)
 
 ## Feedback
 

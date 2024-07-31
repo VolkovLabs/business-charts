@@ -7,6 +7,7 @@
 - Updated to Apache ECharts 5.5.1 (#309)
 - Updated E2E workflow using Docker (#310)
 - Updated migration for context parameters (#317)
+- Added Radar to visual editor (#316)
 
 ## 6.1.0 (2024-05-26)
 
