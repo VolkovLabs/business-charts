@@ -19,45 +19,54 @@ interface OutdatedPanelOptions extends Omit<PanelOptions, 'editorMode'> {
  */
 const normalizeGetOption = (code: string): string => {
   const search =
-    /(data.series|replaceVariables\(|theme\.|echartsInstance\.|echarts\.|ecStat\.|eventBus|locationService|notifySuccess\(|notifyError\()/gm;
+    /^(?!.*context\.)(?:.*)(data.series|replaceVariables\(|theme\.|echartsInstance\.|echarts\.|ecStat\.|eventBus|locationService|notifySuccess\(|notifyError\()/gm;
 
-  return code.replace(search, (value) => {
-    switch (value) {
-      case 'data.series': {
-        return 'context.panel.data.series';
-      }
-      case 'replaceVariables(': {
-        return 'context.grafana.replaceVariables(';
-      }
-      case 'theme.': {
-        return 'context.grafana.theme.';
-      }
-      case 'echartsInstance.': {
-        return 'context.panel.chart.';
-      }
-      case 'echarts.': {
-        return 'context.echarts.';
-      }
-      case 'ecStat.': {
-        return 'context.ecStat.';
-      }
-      case 'eventBus': {
-        return 'context.grafana.eventBus';
-      }
-      case 'locationService': {
-        return 'context.grafana.locationService';
-      }
-      case 'notifySuccess(': {
-        return 'context.grafana.notifySuccess(';
-      }
-      case 'notifyError(': {
-        return 'context.grafana.notifyError(';
-      }
-      default: {
-        return value;
-      }
-    }
-  });
+  return code
+    .split(' ')
+    .map((part) => {
+      return part.replace(search, (value, ...args) => {
+        const searchTerm = args[0] || value;
+
+        return value.replace(searchTerm, (valueToReplace) => {
+          switch (valueToReplace) {
+            case 'data.series': {
+              return 'context.panel.data.series';
+            }
+            case 'replaceVariables(': {
+              return 'context.grafana.replaceVariables(';
+            }
+            case 'theme.': {
+              return 'context.grafana.theme.';
+            }
+            case 'echartsInstance.': {
+              return 'context.panel.chart.';
+            }
+            case 'echarts.': {
+              return 'context.echarts.';
+            }
+            case 'ecStat.': {
+              return 'context.ecStat.';
+            }
+            case 'eventBus': {
+              return 'context.grafana.eventBus';
+            }
+            case 'locationService': {
+              return 'context.grafana.locationService';
+            }
+            case 'notifySuccess(': {
+              return 'context.grafana.notifySuccess(';
+            }
+            case 'notifyError(': {
+              return 'context.grafana.notifyError(';
+            }
+            default: {
+              return value;
+            }
+          }
+        });
+      });
+    })
+    .join(' ');
 };
 
 /**
