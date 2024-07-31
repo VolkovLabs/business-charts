@@ -1,9 +1,9 @@
 import { DataFrame, FieldType } from '@grafana/data';
-import { InlineField, InlineFieldRow, Select, useStyles2 } from '@grafana/ui';
-import { Collapse, NumberInput } from '@volkovlabs/components';
+import { InlineField, InlineFieldRow, Input, Select, useStyles2 } from '@grafana/ui';
+import { Collapse } from '@volkovlabs/components';
 import React, { useMemo, useState } from 'react';
 
-import { RADAR_OPTIONS, TEST_IDS } from '../../../constants';
+import { RADAR_SHAPE_OPTIONS, TEST_IDS } from '../../../constants';
 import { VisualEditorOptions } from '../../../types';
 import { multipleQueriesFields } from '../../../utils';
 import { getStyles } from './RadarOptions.styles';
@@ -65,14 +65,14 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
             <InlineField label="Shape" labelWidth={20} grow={true}>
               <Select
                 value={value.radar?.shape}
-                options={RADAR_OPTIONS}
+                options={RADAR_SHAPE_OPTIONS}
                 isClearable
                 onChange={(event) => {
                   onChange({
                     ...value,
                     radar: {
                       ...value.radar,
-                      shape: event?.value || '',
+                      shape: event?.value,
                     },
                   });
                 }}
@@ -87,14 +87,23 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
               labelWidth={20}
               grow={true}
             >
-              <NumberInput
-                value={value.radar?.radius || ''}
-                onChange={(radiusValue) => {
+              <Input
+                value={value.radar?.radius ?? ''}
+                onChange={(event) => {
+                  let inputValue = event.currentTarget.value;
+
+                  /**
+                   * Normalize value if no 10 or 10% format
+                   */
+                  if (!/^\d*%?$/g.test(inputValue)) {
+                    inputValue = '0';
+                  }
+
                   onChange({
                     ...value,
                     radar: {
                       ...value.radar,
-                      radius: radiusValue,
+                      radius: inputValue,
                     },
                   });
                 }}

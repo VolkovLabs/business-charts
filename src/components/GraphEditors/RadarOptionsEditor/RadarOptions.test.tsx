@@ -4,7 +4,7 @@ import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
 
 import { TEST_IDS } from '../../../constants';
-import { RadarShapeOptions } from '../../../types';
+import { RadarShapeType } from '../../../types';
 import { RadarOptionsEditor } from './RadarOptionsEditor';
 
 /**
@@ -102,7 +102,7 @@ describe('Radar options', () => {
       radar: {
         indicator: 'A:Value',
         radius: 0,
-        shape: RadarShapeOptions.CIRCLE,
+        shape: RadarShapeType.CIRCLE,
       },
     } as any;
 
@@ -121,8 +121,8 @@ describe('Radar options', () => {
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
     const item = openItem();
-    expect(item.radarOptionsShape()).toHaveValue(RadarShapeOptions.CIRCLE);
-    fireEvent.change(item.radarOptionsShape(), { target: { value: RadarShapeOptions.POLYGON } });
+    expect(item.radarOptionsShape()).toHaveValue(RadarShapeType.CIRCLE);
+    fireEvent.change(item.radarOptionsShape(), { target: { value: RadarShapeType.POLYGON } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -139,7 +139,7 @@ describe('Radar options', () => {
       radar: {
         indicator: 'A:Value',
         radius: 0,
-        shape: RadarShapeOptions.CIRCLE,
+        shape: RadarShapeType.CIRCLE,
       },
     } as any;
 
@@ -169,7 +169,7 @@ describe('Radar options', () => {
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
         radar: expect.objectContaining({
-          shape: '',
+          shape: undefined,
         }),
       })
     );
@@ -181,7 +181,7 @@ describe('Radar options', () => {
       radar: {
         indicator: 'A:Value',
         radius: 0,
-        shape: RadarShapeOptions.CIRCLE,
+        shape: RadarShapeType.CIRCLE,
       },
     } as any;
 
@@ -218,7 +218,7 @@ describe('Radar options', () => {
       radar: {
         indicator: 'A:Value',
         radius: 0,
-        shape: RadarShapeOptions.CIRCLE,
+        shape: RadarShapeType.CIRCLE,
       },
     } as any;
 
@@ -259,7 +259,7 @@ describe('Radar options', () => {
       radar: {
         indicator: 'A:Value',
         radius: 0,
-        shape: RadarShapeOptions.CIRCLE,
+        shape: RadarShapeType.CIRCLE,
       },
     } as any;
 
@@ -278,14 +278,14 @@ describe('Radar options', () => {
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
     const item = openItem();
-    expect(item.radarOptionsRadius()).toHaveValue(0);
+    expect(item.radarOptionsRadius()).toHaveValue('0');
 
     fireEvent.change(item.radarOptionsRadius(), { target: { value: 50 } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
         radar: expect.objectContaining({
-          radius: 50,
+          radius: '50',
         }),
       })
     );

@@ -1,9 +1,9 @@
-import { RadarShapeOptions } from '../types';
+import { RadarShapeType } from '../types';
 
 /**
- * Radar options
+ * Radar shape options
  */
-export const RADAR_OPTIONS = [
-  { value: RadarShapeOptions.CIRCLE, label: 'Circle' },
-  { value: RadarShapeOptions.POLYGON, label: 'Polygon' },
+export const RADAR_SHAPE_OPTIONS = [
+  { value: RadarShapeType.CIRCLE, label: 'Circle' },
+  { value: RadarShapeType.POLYGON, label: 'Polygon' },
 ];

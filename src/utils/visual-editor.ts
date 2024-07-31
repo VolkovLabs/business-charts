@@ -12,14 +12,13 @@ import { getFieldValues } from './data-frame';
  */
 export const getFieldBasedOptionValue = <TValue>(fieldName: string, series: DataFrame[]) => {
   const valueFields = fieldName.split(':');
-  const field = findField<TValue>(series, (field, frame) => {
+
+  return findField<TValue>(series, (field, frame) => {
     if (frame?.refId === valueFields[0]) {
       return field.name === valueFields[1];
     }
     return false;
   });
-
-  return field;
 };
 
 /**
@@ -167,10 +166,9 @@ export const getSeriesUniqueId = () => uuidv4();
  * @param series
  */
 export const getDataSeries = (visualEditorSeries: SeriesItem[], series: DataFrame[]) => {
-  const newVisualEditorSeries = visualEditorSeries.map((item) => {
+  return visualEditorSeries.map((item) => {
     return convertSeriesToChartOption(item, series);
   });
-  return newVisualEditorSeries;
 };
 
 /**
@@ -178,20 +176,21 @@ export const getDataSeries = (visualEditorSeries: SeriesItem[], series: DataFram
  * @param series
  * @param type
  */
-export const isTypeExistInSeries = (series: SeriesItem[], type: string) => {
+export const isTypeExistInSeries = (series: SeriesItem[], type: SeriesType) => {
   return series.some((value) => value.type === type);
 };
 
 /**
  * Get Radar Chart Options
  * @param visualEditor
+ * @param series
  */
 export const getRadarOptions = (visualEditor: VisualEditorOptions, series: DataFrame[]): RadarChartOptions => {
   /**
    * Default radar options
    */
   const radarOptions: RadarChartOptions = {
-    shape: visualEditor.radar?.shape || '',
+    shape: visualEditor.radar?.shape,
     indicator: [],
   };
 

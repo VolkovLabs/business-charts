@@ -1,6 +1,6 @@
 import { EChartOption } from 'echarts';
 
-import { RadarOptions, RadarSeriesOptions } from './radar';
+import { RadarConfigOptions, RadarSeriesOptions } from './radar';
 
 /**
  * Dataset Item
@@ -156,9 +156,9 @@ export interface VisualEditorOptions {
   /**
    * Radar options
    *
-   * @type {RadarOptions}
+   * @type {RadarConfigOptions}
    */
-  radar?: RadarOptions;
+  radar?: RadarConfigOptions;
 }
 
 /**
