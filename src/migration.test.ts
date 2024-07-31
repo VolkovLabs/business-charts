@@ -36,11 +36,13 @@ describe('Migrations', () => {
           const data = [];
           data.series.forEach();
           context.panel.data.series.forEach();
+          if (data.series[0] && context.panel.data.series[]) {}
           `,
           expected: `
           const data = [];
           context.panel.data.series.forEach();
           context.panel.data.series.forEach();
+          if (context.panel.data.series[0] && context.panel.data.series[]) {}
           `,
         },
         {
