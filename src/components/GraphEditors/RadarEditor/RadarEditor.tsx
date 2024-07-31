@@ -71,7 +71,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
       {value.radarDimensions?.map((dimension) => {
         return (
           <InlineFieldRow key={dimension.uid}>
-            <InlineField label="Dimension Name" grow={true}>
+            <InlineField label="Dimension Name" labelWidth={25}>
               <Input
                 placeholder="Name"
                 value={dimension.name}
@@ -91,7 +91,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                 data-testid={TEST_IDS.seriesEditor.radarDimensionName(dimension.name)}
               />
             </InlineField>
-            <InlineField label="Dimension value" grow={true}>
+            <InlineField label="Dimension value" labelWidth={25} grow>
               <Select
                 value={dimension.value}
                 options={dataset.map((item) => ({
