@@ -43,7 +43,7 @@
 
 ### Features / Enhancements
 
-- Updated name to Business Charts Panel (#268)
+- Updated name to Business Charts panel (#268)
 - Added Apache Acknowledgment and update description (#268)
 - Updated to Grafana 10.4.1 (#270)
 - Removed ArrayVector deprecated in Grafana 11 (#272)
