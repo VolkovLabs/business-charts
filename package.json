@@ -23,7 +23,7 @@
     "tslib": "^2.6.2",
     "uuid": "^10.0.0"
   },
-  "description": "Business Charts panel for Grafana",
+  "description": "Powerful visualizations powered by Apache ECharts",
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@grafana/eslint-config": "^7.0.0",
@@ -71,7 +71,7 @@
     "node": ">=20"
   },
   "license": "Apache-2.0",
-  "name": "volkovlabs-echarts-panel",
+  "name": "business-charts",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",

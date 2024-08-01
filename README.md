@@ -1,13 +1,13 @@
 # Business Charts for Grafana
 
-![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
+![ECharts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
 ![Grafana](https://img.shields.io/badge/Grafana-11.1-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
-![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
-![E2E](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/E2E/badge.svg)
-[![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
-[![CodeQL](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml)
+![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)
+![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)
+[![codecov](https://codecov.io/gh/VolkovLabs/business-charts/branch/main/graph/badge.svg)](https://codecov.io/gh/VolkovLabs/business-charts)
+[![CodeQL](https://github.com/VolkovLabs/business-charts/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/business-charts/actions/workflows/codeql-analysis.yml)
 
 ## Introduction
 
@@ -17,7 +17,7 @@ The Business Charts Panel allows you to integrate charts and graphs created by t
 
 Apache ECharts is a powerful and versatile data visualization library providing a wide range of chart types including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 
-[![Business Charts panel for Grafana 6.0.0 powered by Apache ECharts library | Visual Editor tutorial](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/business-charts.png)](https://youtu.be/adOjUxrfysc)
+[![Business Charts panel for Grafana 6.0.0 powered by Apache ECharts library | Visual Editor tutorial](https://raw.githubusercontent.com/volkovlabs/business-charts/main/img/business-charts.png)](https://youtu.be/adOjUxrfysc)
 
 The Business Charts plugin offers an easy way of adding intuitive, interactive, and highly customizable charts to your Grafana dashboard.
 
@@ -56,7 +56,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Based on [Apache ECharts 5.5.0](https://github.com/apache/echarts/releases/tag/5.5.0).
 - Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
-[![Examples](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
+[![Examples](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
 
 ## Documentation
 
@@ -81,7 +81,7 @@ The collection aims to solve the most frequent business tasks by providing an in
 
 We're looking forward to hearing from you. You can use different ways to get in touch with us.
 
-- Ask a question, request a new feature, or report an issue at [GitHub issues](https://github.com/volkovlabs/volkovlabs-echarts-panel/issues).
+- Ask a question, request a new feature, or report an issue at [GitHub issues](https://github.com/volkovlabs/business-charts/issues).
 - Subscribe to our [YouTube Channel](https://www.youtube.com/@volkovlabs) and leave your comments.
 - Sponsor our open-source plugins for Grafana at [GitHub Sponsor](https://github.com/sponsors/VolkovLabs).
 - Support our project by starring the repository.
@@ -92,4 +92,4 @@ The Apache Software Foundation Apache ECharts, ECharts, Apache, the Apache feath
 
 ## License
 
-Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/volkovlabs-echarts-panel/blob/main/LICENSE).
+Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/business-charts/blob/main/LICENSE).
