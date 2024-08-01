@@ -12,6 +12,12 @@ const Select = jest.fn(({ options, onChange, value, isMulti, isClearable, ...res
         if (isMulti) {
           onChange(options.filter((option: any) => event.target.values.includes(option.value)));
         } else {
+          /**
+           * Mock Select clear call
+           */
+          if (event.target.value === 'clear') {
+            onChange('');
+          }
           const option = options.find((option: any) => option.value === event.target.value);
           option && onChange(option);
         }
@@ -26,7 +32,7 @@ const Select = jest.fn(({ options, onChange, value, isMulti, isClearable, ...res
     {...restProps}
   >
     {isClearable && (
-      <option key="clear" value="">
+      <option key="clear" value="clear">
         Clear
       </option>
     )}

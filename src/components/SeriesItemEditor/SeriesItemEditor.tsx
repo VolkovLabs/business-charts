@@ -1,10 +1,11 @@
-import { SelectableValue } from '@grafana/data';
 import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
 import React from 'react';
 
 import { SERIES_TYPE_OPTIONS, TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
-import { getDatasetItemUniqueName, getSeriesWithNewType } from '../../utils';
+import { getSeriesWithNewType } from '../../utils';
+import { LineEditor } from './../GraphEditors/LineEditor';
+import { RadarEditor } from './../GraphEditors/RadarEditor';
 
 /**
  * Label Width
@@ -75,57 +76,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
         />
       </InlineField>
     </InlineFieldRow>
-    {value.type === SeriesType.LINE && (
-      <>
-        <InlineFieldRow>
-          <InlineField label="Encode Y" labelWidth={LabelWidth} grow={true}>
-            <Select
-              value={value.encode?.y}
-              options={dataset.map((item) => ({
-                value: getDatasetItemUniqueName(item),
-                label: getDatasetItemUniqueName(item),
-              }))}
-              isMulti={true}
-              isClearable={true}
-              onChange={(event) => {
-                const values = event as SelectableValue[];
-                onChange({
-                  ...value,
-                  encode: {
-                    ...value.encode,
-                    y: values.map((item) => item.value),
-                  },
-                });
-              }}
-              aria-label={TEST_IDS.seriesEditor.fieldEncodeY}
-            />
-          </InlineField>
-        </InlineFieldRow>
-        <InlineFieldRow>
-          <InlineField label="Encode X" labelWidth={LabelWidth} grow={true}>
-            <Select
-              value={value.encode?.x}
-              options={dataset.map((item) => ({
-                value: getDatasetItemUniqueName(item),
-                label: getDatasetItemUniqueName(item),
-              }))}
-              isMulti={true}
-              isClearable={true}
-              onChange={(event) => {
-                const values = event as SelectableValue[];
-                onChange({
-                  ...value,
-                  encode: {
-                    ...value.encode,
-                    x: values.map((item) => item.value),
-                  },
-                });
-              }}
-              aria-label={TEST_IDS.seriesEditor.fieldEncodeX}
-            />
-          </InlineField>
-        </InlineFieldRow>
-      </>
-    )}
+    {value.type === SeriesType.LINE && <LineEditor value={value} onChange={onChange} dataset={dataset} />}
+    {value.type === SeriesType.RADAR && <RadarEditor value={value} onChange={onChange} dataset={dataset} />}
   </>
 );

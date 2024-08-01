@@ -24,14 +24,15 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
   "links": [
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": ["echarts"],
+      "tags": [
+        "echarts"
+      ],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -45,6 +46,12 @@
       "datasource": {
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "max": 55000
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 12,
@@ -62,12 +69,117 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  legend: {\n    data: ['Allocated Budget', 'Actual Spending'],\n    left: 'left',\n  },\n  radar: {\n    // shape: 'circle',\n    indicator: [\n      { name: 'Sales', max: 6500 },\n      { name: 'Administration', max: 16000 },\n      { name: 'Information Technology', max: 30000 },\n      { name: 'Customer Support', max: 38000 },\n      { name: 'Development', max: 52000 },\n      { name: 'Marketing', max: 25000 }\n    ]\n  },\n  series: [\n    {\n      name: 'Budget vs spending',\n      type: 'radar',\n      data: [\n        {\n          value: [4200, 3000, 20000, 35000, 50000, 18000],\n          name: 'Allocated Budget'\n        },\n        {\n          value: [5000, 14000, 28000, 26000, 42000, 21000],\n          name: 'Actual Spending'\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  legend: {\n    data: ['Allocated Budget', 'Actual Spending']\n  },\n  radar: context.editor.radar,\n  series: context.editor.series\n}\n",
+          "dataset": [
+            {
+              "name": "Allocated Budget",
+              "source": "A"
+            },
+            {
+              "name": "Actual Spending",
+              "source": "A"
+            }
+          ],
+          "radar": {
+            "indicator": "A:Indicator Names",
+            "radius": 65,
+            "shape": "polygon"
+          },
+          "series": [
+            {
+              "data": [],
+              "id": "Radar",
+              "name": "Radar",
+              "radarDimensions": [
+                {
+                  "name": "Allocated Budget",
+                  "uid": "77354c8a-c290-4b1d-816d-9dea1e46f2d1",
+                  "value": "A:Allocated Budget"
+                },
+                {
+                  "name": "Actual Spending",
+                  "uid": "0efc68f6-3a12-49c7-a930-eda71e84fe8f",
+                  "value": "A:Actual Spending"
+                }
+              ],
+              "type": "radar",
+              "uid": "3207aea5-b7cc-4f9a-8ea3-463051880143"
+            }
+          ]
+        }
       },
-      "title": "Basic Radar Chart",
+      "pluginVersion": "6.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Indicator Names",
+                "type": "string",
+                "values": [
+                  "Sales",
+                  "Administration",
+                  "Information Technology",
+                  "Customer Support",
+                  "Development",
+                  "Marketing"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Allocated Budget",
+                "type": "number",
+                "values": [
+                  4200,
+                  3000,
+                  20000,
+                  35000,
+                  50000,
+                  18000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual Spending",
+                "type": "number",
+                "values": [
+                  5000,
+                  14000,
+                  28000,
+                  26000,
+                  42000,
+                  21000
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": " Basic Radar Chart Visual Editor",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -75,13 +187,19 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "fieldConfig": {
+        "defaults": {
+          "max": 55000
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 12,
         "w": 12,
         "x": 12,
         "y": 0
       },
-      "id": 2,
+      "id": 8,
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -91,12 +209,117 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
-        "getOption": "// Schema:\n// date,AQIindex,PM2.5,PM10,CO,NO2,SO2\nconst dataBJ = [\n  [55, 9, 56, 0.46, 18, 6, 1],\n  [25, 11, 21, 0.65, 34, 9, 2],\n  [56, 7, 63, 0.3, 14, 5, 3],\n  [33, 7, 29, 0.33, 16, 6, 4],\n  [42, 24, 44, 0.76, 40, 16, 5],\n  [82, 58, 90, 1.77, 68, 33, 6],\n  [74, 49, 77, 1.46, 48, 27, 7],\n  [78, 55, 80, 1.29, 59, 29, 8],\n  [267, 216, 280, 4.8, 108, 64, 9],\n  [185, 127, 216, 2.52, 61, 27, 10],\n  [39, 19, 38, 0.57, 31, 15, 11],\n  [41, 11, 40, 0.43, 21, 7, 12],\n  [64, 38, 74, 1.04, 46, 22, 13],\n  [108, 79, 120, 1.7, 75, 41, 14],\n  [108, 63, 116, 1.48, 44, 26, 15],\n  [33, 6, 29, 0.34, 13, 5, 16],\n  [94, 66, 110, 1.54, 62, 31, 17],\n  [186, 142, 192, 3.88, 93, 79, 18],\n  [57, 31, 54, 0.96, 32, 14, 19],\n  [22, 8, 17, 0.48, 23, 10, 20],\n  [39, 15, 36, 0.61, 29, 13, 21],\n  [94, 69, 114, 2.08, 73, 39, 22],\n  [99, 73, 110, 2.43, 76, 48, 23],\n  [31, 12, 30, 0.5, 32, 16, 24],\n  [42, 27, 43, 1, 53, 22, 25],\n  [154, 117, 157, 3.05, 92, 58, 26],\n  [234, 185, 230, 4.09, 123, 69, 27],\n  [160, 120, 186, 2.77, 91, 50, 28],\n  [134, 96, 165, 2.76, 83, 41, 29],\n  [52, 24, 60, 1.03, 50, 21, 30],\n  [46, 5, 49, 0.28, 10, 6, 31]\n];\nconst dataGZ = [\n  [26, 37, 27, 1.163, 27, 13, 1],\n  [85, 62, 71, 1.195, 60, 8, 2],\n  [78, 38, 74, 1.363, 37, 7, 3],\n  [21, 21, 36, 0.634, 40, 9, 4],\n  [41, 42, 46, 0.915, 81, 13, 5],\n  [56, 52, 69, 1.067, 92, 16, 6],\n  [64, 30, 28, 0.924, 51, 2, 7],\n  [55, 48, 74, 1.236, 75, 26, 8],\n  [76, 85, 113, 1.237, 114, 27, 9],\n  [91, 81, 104, 1.041, 56, 40, 10],\n  [84, 39, 60, 0.964, 25, 11, 11],\n  [64, 51, 101, 0.862, 58, 23, 12],\n  [70, 69, 120, 1.198, 65, 36, 13],\n  [77, 105, 178, 2.549, 64, 16, 14],\n  [109, 68, 87, 0.996, 74, 29, 15],\n  [73, 68, 97, 0.905, 51, 34, 16],\n  [54, 27, 47, 0.592, 53, 12, 17],\n  [51, 61, 97, 0.811, 65, 19, 18],\n  [91, 71, 121, 1.374, 43, 18, 19],\n  [73, 102, 182, 2.787, 44, 19, 20],\n  [73, 50, 76, 0.717, 31, 20, 21],\n  [84, 94, 140, 2.238, 68, 18, 22],\n  [93, 77, 104, 1.165, 53, 7, 23],\n  [99, 130, 227, 3.97, 55, 15, 24],\n  [146, 84, 139, 1.094, 40, 17, 25],\n  [113, 108, 137, 1.481, 48, 15, 26],\n  [81, 48, 62, 1.619, 26, 3, 27],\n  [56, 48, 68, 1.336, 37, 9, 28],\n  [82, 92, 174, 3.29, 0, 13, 29],\n  [106, 116, 188, 3.628, 101, 16, 30],\n  [118, 50, 0, 1.383, 76, 11, 31]\n];\nconst dataSH = [\n  [91, 45, 125, 0.82, 34, 23, 1],\n  [65, 27, 78, 0.86, 45, 29, 2],\n  [83, 60, 84, 1.09, 73, 27, 3],\n  [109, 81, 121, 1.28, 68, 51, 4],\n  [106, 77, 114, 1.07, 55, 51, 5],\n  [109, 81, 121, 1.28, 68, 51, 6],\n  [106, 77, 114, 1.07, 55, 51, 7],\n  [89, 65, 78, 0.86, 51, 26, 8],\n  [53, 33, 47, 0.64, 50, 17, 9],\n  [80, 55, 80, 1.01, 75, 24, 10],\n  [117, 81, 124, 1.03, 45, 24, 11],\n  [99, 71, 142, 1.1, 62, 42, 12],\n  [95, 69, 130, 1.28, 74, 50, 13],\n  [116, 87, 131, 1.47, 84, 40, 14],\n  [108, 80, 121, 1.3, 85, 37, 15],\n  [134, 83, 167, 1.16, 57, 43, 16],\n  [79, 43, 107, 1.05, 59, 37, 17],\n  [71, 46, 89, 0.86, 64, 25, 18],\n  [97, 71, 113, 1.17, 88, 31, 19],\n  [84, 57, 91, 0.85, 55, 31, 20],\n  [87, 63, 101, 0.9, 56, 41, 21],\n  [104, 77, 119, 1.09, 73, 48, 22],\n  [87, 62, 100, 1, 72, 28, 23],\n  [168, 128, 172, 1.49, 97, 56, 24],\n  [65, 45, 51, 0.74, 39, 17, 25],\n  [39, 24, 38, 0.61, 47, 17, 26],\n  [39, 24, 39, 0.59, 50, 19, 27],\n  [93, 68, 96, 1.05, 79, 29, 28],\n  [188, 143, 197, 1.66, 99, 51, 29],\n  [174, 131, 174, 1.55, 108, 50, 30],\n  [187, 143, 201, 1.39, 89, 53, 31]\n];\nconst lineStyle = {\n  width: 1,\n  opacity: 0.5\n};\n\nreturn {\n  backgroundColor: '#161627',\n  legend: {\n    bottom: 5,\n    data: ['Beijing', 'Shanghai', 'Guangzhou'],\n    itemGap: 20,\n    textStyle: {\n      color: '#fff',\n      fontSize: 14\n    },\n    selectedMode: 'single'\n  },\n  radar: {\n    indicator: [\n      { name: 'AQI', max: 300 },\n      { name: 'PM2.5', max: 250 },\n      { name: 'PM10', max: 300 },\n      { name: 'CO', max: 5 },\n      { name: 'NO2', max: 200 },\n      { name: 'SO2', max: 100 }\n    ],\n    shape: 'circle',\n    splitNumber: 5,\n    axisName: {\n      color: 'rgb(238, 197, 102)'\n    },\n    splitLine: {\n      lineStyle: {\n        color: [\n          'rgba(238, 197, 102, 0.1)',\n          'rgba(238, 197, 102, 0.2)',\n          'rgba(238, 197, 102, 0.4)',\n          'rgba(238, 197, 102, 0.6)',\n          'rgba(238, 197, 102, 0.8)',\n          'rgba(238, 197, 102, 1)'\n        ].reverse()\n      }\n    },\n    splitArea: {\n      show: false\n    },\n    axisLine: {\n      lineStyle: {\n        color: 'rgba(238, 197, 102, 0.5)'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'Beijing',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataBJ,\n      symbol: 'none',\n      itemStyle: {\n        color: '#F9713C'\n      },\n      areaStyle: {\n        opacity: 0.1\n      }\n    },\n    {\n      name: 'Shanghai',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataSH,\n      symbol: 'none',\n      itemStyle: {\n        color: '#B3E4A1'\n      },\n      areaStyle: {\n        opacity: 0.05\n      }\n    },\n    {\n      name: 'Guangzhou',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataGZ,\n      symbol: 'none',\n      itemStyle: {\n        color: 'rgb(238, 197, 102)'\n      },\n      areaStyle: {\n        opacity: 0.05\n      }\n    }\n  ]\n};",
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  legend: {\n    data: ['Allocated Budget', 'Actual Spending'],\n    left: 'left',\n  },\n  radar: {\n    // shape: 'circle',\n    indicator: [\n      { name: 'Sales', max: 6500 },\n      { name: 'Administration', max: 16000 },\n      { name: 'Information Technology', max: 30000 },\n      { name: 'Customer Support', max: 38000 },\n      { name: 'Development', max: 52000 },\n      { name: 'Marketing', max: 25000 }\n    ]\n  },\n  series: [\n    {\n      name: 'Budget vs spending',\n      type: 'radar',\n      data: [\n        {\n          value: [4200, 3000, 20000, 35000, 50000, 18000],\n          name: 'Allocated Budget'\n        },\n        {\n          value: [5000, 14000, 28000, 26000, 42000, 21000],\n          name: 'Actual Spending'\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "/**\n * Modified radar Indicator\n */\nconst radarOptionsIndicator = context.editor.radar.indicator.map(item => ({\n  ...item,\n  /**\n   * Random Color\n   */\n  color: `#${Math.floor(Math.random() * 16777215).toString(16)}`\n}))\n\n/**\n * Radar Options\n */\nconst radarOptions = {\n  ...context.editor.radar,\n  indicator: radarOptionsIndicator\n}\n\nreturn {\n  legend: {\n    data: ['Allocated Budget', 'Actual Spending']\n  },\n  radar: radarOptions,\n  series: context.editor.series\n}\n",
+          "dataset": [
+            {
+              "name": "Allocated Budget",
+              "source": "A"
+            },
+            {
+              "name": "Actual Spending",
+              "source": "A"
+            }
+          ],
+          "radar": {
+            "indicator": "A:Indicator Names",
+            "radius": 65,
+            "shape": "polygon"
+          },
+          "series": [
+            {
+              "data": [],
+              "id": "Radar",
+              "name": "Radar",
+              "radarDimensions": [
+                {
+                  "name": "Allocated Budget",
+                  "uid": "77354c8a-c290-4b1d-816d-9dea1e46f2d1",
+                  "value": "A:Allocated Budget"
+                },
+                {
+                  "name": "Actual Spending",
+                  "uid": "0efc68f6-3a12-49c7-a930-eda71e84fe8f",
+                  "value": "A:Actual Spending"
+                }
+              ],
+              "type": "radar",
+              "uid": "3207aea5-b7cc-4f9a-8ea3-463051880143"
+            }
+          ]
+        }
       },
-      "title": "AQI - Radar",
+      "pluginVersion": "6.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Indicator Names",
+                "type": "string",
+                "values": [
+                  "Sales",
+                  "Administration",
+                  "Information Technology",
+                  "Customer Support",
+                  "Development",
+                  "Marketing"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Allocated Budget",
+                "type": "number",
+                "values": [
+                  4200,
+                  3000,
+                  20000,
+                  35000,
+                  50000,
+                  18000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual Spending",
+                "type": "number",
+                "values": [
+                  5000,
+                  14000,
+                  28000,
+                  26000,
+                  42000,
+                  21000
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": " Basic Radar Chart Visual Editor Combine Radar Options",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -121,10 +344,28 @@
           "height": 600
         },
         "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  color: ['#67F9D8', '#FFE434', '#56A3F1', '#FF917C'],\n  legend: {},\n  radar: [\n    {\n      indicator: [\n        { text: 'Indicator1' },\n        { text: 'Indicator2' },\n        { text: 'Indicator3' },\n        { text: 'Indicator4' },\n        { text: 'Indicator5' }\n      ],\n      center: ['25%', '50%'],\n      radius: '30%',\n      startAngle: 90,\n      splitNumber: 4,\n      shape: 'circle',\n      axisName: {\n        formatter: '【{value}】',\n        color: '#428BD4'\n      },\n      splitArea: {\n        areaStyle: {\n          color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],\n          shadowColor: 'rgba(0, 0, 0, 0.2)',\n          shadowBlur: 10\n        }\n      },\n      axisLine: {\n        lineStyle: {\n          color: 'rgba(211, 253, 250, 0.8)'\n        }\n      },\n      splitLine: {\n        lineStyle: {\n          color: 'rgba(211, 253, 250, 0.8)'\n        }\n      }\n    },\n    {\n      indicator: [\n        { text: 'Indicator1', max: 150 },\n        { text: 'Indicator2', max: 150 },\n        { text: 'Indicator3', max: 150 },\n        { text: 'Indicator4', max: 120 },\n        { text: 'Indicator5', max: 108 },\n        { text: 'Indicator6', max: 72 }\n      ],\n      center: ['75%', '50%'],\n      radius: '30%',\n      axisName: {\n        color: '#fff',\n        backgroundColor: '#666',\n        borderRadius: 3,\n        padding: [3, 5]\n      }\n    }\n  ],\n  series: [\n    {\n      type: 'radar',\n      emphasis: {\n        lineStyle: {\n          width: 4\n        }\n      },\n      data: [\n        {\n          value: [100, 8, 0.4, -80, 2000],\n          name: 'Data A'\n        },\n        {\n          value: [60, 5, 0.3, -100, 1500],\n          name: 'Data B',\n          areaStyle: {\n            color: 'rgba(255, 228, 52, 0.6)'\n          }\n        }\n      ]\n    },\n    {\n      type: 'radar',\n      radarIndex: 1,\n      data: [\n        {\n          value: [120, 118, 130, 100, 99, 70],\n          name: 'Data C',\n          symbol: 'rect',\n          symbolSize: 12,\n          lineStyle: {\n            type: 'dashed'\n          },\n          label: {\n            show: true,\n            formatter: function (params) {\n              return params.value;\n            }\n          }\n        },\n        {\n          value: [100, 93, 50, 90, 70, 60],\n          name: 'Data D',\n          areaStyle: {\n            color: new context.echarts.graphic.RadialGradient(0.1, 0.6, 1, [\n              {\n                color: 'rgba(255, 145, 124, 0.1)',\n                offset: 0\n              },\n              {\n                color: 'rgba(255, 145, 124, 0.9)',\n                offset: 1\n              }\n            ])\n          }\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.2.0",
       "title": "Customized Radar Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -139,7 +380,7 @@
         "x": 12,
         "y": 12
       },
-      "id": 6,
+      "id": 2,
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -150,11 +391,29 @@
           "height": 600
         },
         "editorMode": "code",
-        "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  legend: {\n    type: 'scroll',\n    bottom: 10,\n    data: (function () {\n      var list = [];\n      for (var i = 1; i <= 28; i++) {\n        list.push(i + 2000 + '');\n      }\n      return list;\n    })()\n  },\n  visualMap: {\n    top: 'middle',\n    right: 10,\n    color: ['red', 'yellow'],\n    calculable: true\n  },\n  radar: {\n    indicator: [\n      { text: 'IE8-', max: 400 },\n      { text: 'IE9+', max: 400 },\n      { text: 'Safari', max: 400 },\n      { text: 'Firefox', max: 400 },\n      { text: 'Chrome', max: 400 }\n    ]\n  },\n  series: (function () {\n    var series = [];\n    for (var i = 1; i <= 28; i++) {\n      series.push({\n        type: 'radar',\n        symbol: 'none',\n        lineStyle: {\n          width: 1\n        },\n        emphasis: {\n          areaStyle: {\n            color: 'rgba(0,250,0,0.3)'\n          }\n        },\n        data: [\n          {\n            value: [\n              (40 - i) * 10,\n              (38 - i) * 4 + 60,\n              i * 5 + 10,\n              i * 9,\n              (i * i) / 2\n            ],\n            name: i + 2000 + ''\n          }\n        ]\n      });\n    }\n    return series;\n  })()\n};",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "// Schema:\n// date,AQIindex,PM2.5,PM10,CO,NO2,SO2\nconst dataBJ = [\n  [55, 9, 56, 0.46, 18, 6, 1],\n  [25, 11, 21, 0.65, 34, 9, 2],\n  [56, 7, 63, 0.3, 14, 5, 3],\n  [33, 7, 29, 0.33, 16, 6, 4],\n  [42, 24, 44, 0.76, 40, 16, 5],\n  [82, 58, 90, 1.77, 68, 33, 6],\n  [74, 49, 77, 1.46, 48, 27, 7],\n  [78, 55, 80, 1.29, 59, 29, 8],\n  [267, 216, 280, 4.8, 108, 64, 9],\n  [185, 127, 216, 2.52, 61, 27, 10],\n  [39, 19, 38, 0.57, 31, 15, 11],\n  [41, 11, 40, 0.43, 21, 7, 12],\n  [64, 38, 74, 1.04, 46, 22, 13],\n  [108, 79, 120, 1.7, 75, 41, 14],\n  [108, 63, 116, 1.48, 44, 26, 15],\n  [33, 6, 29, 0.34, 13, 5, 16],\n  [94, 66, 110, 1.54, 62, 31, 17],\n  [186, 142, 192, 3.88, 93, 79, 18],\n  [57, 31, 54, 0.96, 32, 14, 19],\n  [22, 8, 17, 0.48, 23, 10, 20],\n  [39, 15, 36, 0.61, 29, 13, 21],\n  [94, 69, 114, 2.08, 73, 39, 22],\n  [99, 73, 110, 2.43, 76, 48, 23],\n  [31, 12, 30, 0.5, 32, 16, 24],\n  [42, 27, 43, 1, 53, 22, 25],\n  [154, 117, 157, 3.05, 92, 58, 26],\n  [234, 185, 230, 4.09, 123, 69, 27],\n  [160, 120, 186, 2.77, 91, 50, 28],\n  [134, 96, 165, 2.76, 83, 41, 29],\n  [52, 24, 60, 1.03, 50, 21, 30],\n  [46, 5, 49, 0.28, 10, 6, 31]\n];\nconst dataGZ = [\n  [26, 37, 27, 1.163, 27, 13, 1],\n  [85, 62, 71, 1.195, 60, 8, 2],\n  [78, 38, 74, 1.363, 37, 7, 3],\n  [21, 21, 36, 0.634, 40, 9, 4],\n  [41, 42, 46, 0.915, 81, 13, 5],\n  [56, 52, 69, 1.067, 92, 16, 6],\n  [64, 30, 28, 0.924, 51, 2, 7],\n  [55, 48, 74, 1.236, 75, 26, 8],\n  [76, 85, 113, 1.237, 114, 27, 9],\n  [91, 81, 104, 1.041, 56, 40, 10],\n  [84, 39, 60, 0.964, 25, 11, 11],\n  [64, 51, 101, 0.862, 58, 23, 12],\n  [70, 69, 120, 1.198, 65, 36, 13],\n  [77, 105, 178, 2.549, 64, 16, 14],\n  [109, 68, 87, 0.996, 74, 29, 15],\n  [73, 68, 97, 0.905, 51, 34, 16],\n  [54, 27, 47, 0.592, 53, 12, 17],\n  [51, 61, 97, 0.811, 65, 19, 18],\n  [91, 71, 121, 1.374, 43, 18, 19],\n  [73, 102, 182, 2.787, 44, 19, 20],\n  [73, 50, 76, 0.717, 31, 20, 21],\n  [84, 94, 140, 2.238, 68, 18, 22],\n  [93, 77, 104, 1.165, 53, 7, 23],\n  [99, 130, 227, 3.97, 55, 15, 24],\n  [146, 84, 139, 1.094, 40, 17, 25],\n  [113, 108, 137, 1.481, 48, 15, 26],\n  [81, 48, 62, 1.619, 26, 3, 27],\n  [56, 48, 68, 1.336, 37, 9, 28],\n  [82, 92, 174, 3.29, 0, 13, 29],\n  [106, 116, 188, 3.628, 101, 16, 30],\n  [118, 50, 0, 1.383, 76, 11, 31]\n];\nconst dataSH = [\n  [91, 45, 125, 0.82, 34, 23, 1],\n  [65, 27, 78, 0.86, 45, 29, 2],\n  [83, 60, 84, 1.09, 73, 27, 3],\n  [109, 81, 121, 1.28, 68, 51, 4],\n  [106, 77, 114, 1.07, 55, 51, 5],\n  [109, 81, 121, 1.28, 68, 51, 6],\n  [106, 77, 114, 1.07, 55, 51, 7],\n  [89, 65, 78, 0.86, 51, 26, 8],\n  [53, 33, 47, 0.64, 50, 17, 9],\n  [80, 55, 80, 1.01, 75, 24, 10],\n  [117, 81, 124, 1.03, 45, 24, 11],\n  [99, 71, 142, 1.1, 62, 42, 12],\n  [95, 69, 130, 1.28, 74, 50, 13],\n  [116, 87, 131, 1.47, 84, 40, 14],\n  [108, 80, 121, 1.3, 85, 37, 15],\n  [134, 83, 167, 1.16, 57, 43, 16],\n  [79, 43, 107, 1.05, 59, 37, 17],\n  [71, 46, 89, 0.86, 64, 25, 18],\n  [97, 71, 113, 1.17, 88, 31, 19],\n  [84, 57, 91, 0.85, 55, 31, 20],\n  [87, 63, 101, 0.9, 56, 41, 21],\n  [104, 77, 119, 1.09, 73, 48, 22],\n  [87, 62, 100, 1, 72, 28, 23],\n  [168, 128, 172, 1.49, 97, 56, 24],\n  [65, 45, 51, 0.74, 39, 17, 25],\n  [39, 24, 38, 0.61, 47, 17, 26],\n  [39, 24, 39, 0.59, 50, 19, 27],\n  [93, 68, 96, 1.05, 79, 29, 28],\n  [188, 143, 197, 1.66, 99, 51, 29],\n  [174, 131, 174, 1.55, 108, 50, 30],\n  [187, 143, 201, 1.39, 89, 53, 31]\n];\nconst lineStyle = {\n  width: 1,\n  opacity: 0.5\n};\n\nreturn {\n  backgroundColor: '#161627',\n  legend: {\n    bottom: 5,\n    data: ['Beijing', 'Shanghai', 'Guangzhou'],\n    itemGap: 20,\n    textStyle: {\n      color: '#fff',\n      fontSize: 14\n    },\n    selectedMode: 'single'\n  },\n  radar: {\n    indicator: [\n      { name: 'AQI', max: 300 },\n      { name: 'PM2.5', max: 250 },\n      { name: 'PM10', max: 300 },\n      { name: 'CO', max: 5 },\n      { name: 'NO2', max: 200 },\n      { name: 'SO2', max: 100 }\n    ],\n    shape: 'circle',\n    splitNumber: 5,\n    axisName: {\n      color: 'rgb(238, 197, 102)'\n    },\n    splitLine: {\n      lineStyle: {\n        color: [\n          'rgba(238, 197, 102, 0.1)',\n          'rgba(238, 197, 102, 0.2)',\n          'rgba(238, 197, 102, 0.4)',\n          'rgba(238, 197, 102, 0.6)',\n          'rgba(238, 197, 102, 0.8)',\n          'rgba(238, 197, 102, 1)'\n        ].reverse()\n      }\n    },\n    splitArea: {\n      show: false\n    },\n    axisLine: {\n      lineStyle: {\n        color: 'rgba(238, 197, 102, 0.5)'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'Beijing',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataBJ,\n      symbol: 'none',\n      itemStyle: {\n        color: '#F9713C'\n      },\n      areaStyle: {\n        opacity: 0.1\n      }\n    },\n    {\n      name: 'Shanghai',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataSH,\n      symbol: 'none',\n      itemStyle: {\n        color: '#B3E4A1'\n      },\n      areaStyle: {\n        opacity: 0.05\n      }\n    },\n    {\n      name: 'Guangzhou',\n      type: 'radar',\n      lineStyle: lineStyle,\n      data: dataGZ,\n      symbol: 'none',\n      itemStyle: {\n        color: 'rgb(238, 197, 102)'\n      },\n      areaStyle: {\n        opacity: 0.05\n      }\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
-      "title": "Proportion of Browsers",
+      "pluginVersion": "6.2.0",
+      "title": "AQI - Radar",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -179,17 +438,83 @@
           "height": 600
         },
         "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
         "getOption": "return {\n  tooltip: {\n    trigger: 'axis'\n  },\n  legend: {\n    left: 'center',\n    data: [\n      'A Software',\n      'A Phone',\n      'Another Phone',\n      'Precipitation',\n      'Evaporation'\n    ]\n  },\n  radar: [\n    {\n      indicator: [\n        { text: 'Brand', max: 100 },\n        { text: 'Content', max: 100 },\n        { text: 'Usability', max: 100 },\n        { text: 'Function', max: 100 }\n      ],\n      center: ['25%', '40%'],\n      radius: '30%'\n    },\n    {\n      indicator: [\n        { text: 'Look', max: 100 },\n        { text: 'Photo', max: 100 },\n        { text: 'System', max: 100 },\n        { text: 'Performance', max: 100 },\n        { text: 'Screen', max: 100 }\n      ],\n      radius: '30%',\n      center: ['50%', '60%']\n    },\n    {\n      indicator: (function () {\n        var res = [];\n        for (var i = 1; i <= 12; i++) {\n          res.push({ text: i + '月', max: 100 });\n        }\n        return res;\n      })(),\n      center: ['75%', '40%'],\n      radius: '30%'\n    }\n  ],\n  series: [\n    {\n      type: 'radar',\n      tooltip: {\n        trigger: 'item'\n      },\n      areaStyle: {},\n      data: [\n        {\n          value: [60, 73, 85, 40],\n          name: 'A Software'\n        }\n      ]\n    },\n    {\n      type: 'radar',\n      radarIndex: 1,\n      areaStyle: {},\n      data: [\n        {\n          value: [85, 90, 90, 95, 95],\n          name: 'A Phone'\n        },\n        {\n          value: [95, 80, 95, 90, 93],\n          name: 'Another Phone'\n        }\n      ]\n    },\n    {\n      type: 'radar',\n      radarIndex: 2,\n      areaStyle: {},\n      data: [\n        {\n          name: 'Precipitation',\n          value: [\n            2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 75.6, 82.2, 48.7, 18.8, 6.0, 2.3\n          ]\n        },\n        {\n          name: 'Evaporation',\n          value: [\n            2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 35.6, 62.2, 32.6, 20.0, 6.4, 3.3\n          ]\n        }\n      ]\n    }\n  ]\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.2.0",
       "title": "Multiple Radar",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 6,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  tooltip: {\n    trigger: 'item'\n  },\n  legend: {\n    type: 'scroll',\n    bottom: 10,\n    data: (function () {\n      var list = [];\n      for (var i = 1; i <= 28; i++) {\n        list.push(i + 2000 + '');\n      }\n      return list;\n    })()\n  },\n  visualMap: {\n    top: 'middle',\n    right: 10,\n    color: ['red', 'yellow'],\n    calculable: true\n  },\n  radar: {\n    indicator: [\n      { text: 'IE8-', max: 400 },\n      { text: 'IE9+', max: 400 },\n      { text: 'Safari', max: 400 },\n      { text: 'Firefox', max: 400 },\n      { text: 'Chrome', max: 400 }\n    ]\n  },\n  series: (function () {\n    var series = [];\n    for (var i = 1; i <= 28; i++) {\n      series.push({\n        type: 'radar',\n        symbol: 'none',\n        lineStyle: {\n          width: 1\n        },\n        emphasis: {\n          areaStyle: {\n            color: 'rgba(0,250,0,0.3)'\n          }\n        },\n        data: [\n          {\n            value: [\n              (40 - i) * 10,\n              (38 - i) * 4 + 60,\n              i * 5 + 10,\n              i * 9,\n              (i * i) / 2\n            ],\n            name: i + 2000 + ''\n          }\n        ]\n      });\n    }\n    return series;\n  })()\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.2.0",
+      "title": "Proportion of Browsers",
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
-  "tags": ["echarts"],
+  "schemaVersion": 39,
+  "tags": [
+    "echarts"
+  ],
   "templating": {
     "list": []
   },
@@ -203,6 +528,6 @@
   "timezone": "",
   "title": "Radar",
   "uid": "J06Bi4F4k",
-  "version": 11,
+  "version": 3,
   "weekStart": ""
 }

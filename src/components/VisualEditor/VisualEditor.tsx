@@ -1,15 +1,17 @@
 import { StandardEditorProps } from '@grafana/data';
 import { Label } from '@grafana/ui';
+import { RadarOptionsEditor } from 'components/GraphEditors/RadarOptionsEditor';
 import React from 'react';
 
-import { VisualEditorOptions } from '../../types';
+import { SeriesType, VisualEditorOptions } from '../../types';
+import { isTypeExistInSeries } from '../../utils';
 import { DatasetEditor } from '../DatasetEditor';
 import { SeriesEditor } from '../SeriesEditor';
 
 /**
  * Properties
  */
-type Props = StandardEditorProps<VisualEditorOptions>
+type Props = StandardEditorProps<VisualEditorOptions>;
 
 /**
  * Visual Editor
@@ -39,6 +41,9 @@ export const VisualEditor: React.FC<Props> = ({ value, onChange, context }) => {
         }}
         dataset={value.dataset}
       />
+      {isTypeExistInSeries(value.series, SeriesType.RADAR) && (
+        <RadarOptionsEditor value={value} onChange={onChange} data={context.data} />
+      )}
     </>
   );
 };

@@ -16,7 +16,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { CodeResult, PanelOptions } from '../../types';
-import { codeParameters, getDatasetSource, visualCodeParameters } from '../../utils';
+import { codeParameters, getDataSeries, getDatasetSource, getRadarOptions, visualCodeParameters } from '../../utils';
 import { getStyles } from './EchartsPanel.styles';
 
 /**
@@ -214,7 +214,8 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
                   dataset: {
                     source: getDatasetSource(data.series, options.visualEditor.dataset),
                   },
-                  series: options.visualEditor.series,
+                  series: getDataSeries(options.visualEditor.series, data.series),
+                  radar: getRadarOptions(options.visualEditor, data.series),
                 },
               })
             )

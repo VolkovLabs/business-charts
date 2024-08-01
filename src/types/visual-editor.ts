@@ -1,5 +1,7 @@
 import { EChartOption } from 'echarts';
 
+import { RadarConfigOptions, RadarSeriesOptions } from './radar';
+
 /**
  * Dataset Item
  */
@@ -114,7 +116,7 @@ export type SeriesItem = BaseSeriesOptions &
     | { type: SeriesType.PIE }
     | { type: SeriesType.SCATTER }
     | { type: SeriesType.EFFECTSCATTER }
-    | { type: SeriesType.RADAR }
+    | ({ type: SeriesType.RADAR } & RadarSeriesOptions)
     | { type: SeriesType.TREE }
     | { type: SeriesType.TREEMAP }
     | { type: SeriesType.SUNBURST }
@@ -150,6 +152,13 @@ export interface VisualEditorOptions {
    * @type {string}
    */
   code: string;
+
+  /**
+   * Radar options
+   *
+   * @type {RadarConfigOptions}
+   */
+  radar?: RadarConfigOptions;
 }
 
 /**

@@ -9,6 +9,7 @@
     "@types/echarts": "^4.9.22",
     "@types/googlemaps": "^3.43.3",
     "@volkovlabs/components": "^2.6.0",
+    "@volkovlabs/grafana-utils": "^1.4.4",
     "echarts": "^5.5.1",
     "echarts-extension-amap": "^1.12.0",
     "echarts-extension-gmap": "^1.6.0",

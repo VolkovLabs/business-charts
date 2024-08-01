@@ -5,7 +5,7 @@ import { CodeParameterItem, CodeParametersBuilder } from '@volkovlabs/components
 import { ECharts } from 'echarts';
 import echartsStat from 'echarts-stat';
 
-import { SeriesItem } from '../types';
+import { RadarChartOptions, SeriesItem } from '../types';
 
 /**
  * Base Code Parameters Config
@@ -38,7 +38,10 @@ const baseParametersConfig = {
           'Display error notification.',
           CodeEditorSuggestionItemKind.Method
         ),
-        refresh: new CodeParameterItem<() => void>('Refresh dashboard panels using application events.', CodeEditorSuggestionItemKind.Method),
+        refresh: new CodeParameterItem<() => void>(
+          'Refresh dashboard panels using application events.',
+          CodeEditorSuggestionItemKind.Method
+        ),
       },
     },
     echarts: new CodeParameterItem<typeof echarts>('Apache ECharts library.'),
@@ -63,6 +66,7 @@ export const visualCodeParameters = new CodeParametersBuilder({
       items: {
         dataset: new CodeParameterItem<{ source: [string[], ...unknown[]] }>('ECharts dataset.'),
         series: new CodeParameterItem<SeriesItem[]>('ECharts series.'),
+        radar: new CodeParameterItem<RadarChartOptions>('ECharts radar.'),
       },
     },
   },
