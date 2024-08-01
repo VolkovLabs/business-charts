@@ -11,9 +11,7 @@
 
 ## Introduction
 
-The Business Charts Panel plugin is a visualization extension for Grafana powered by the Apache ECharts library.
-
-The Business Charts Panel allows you to integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
+The Business Charts panel allows you to integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
 
 Apache ECharts is a powerful and versatile data visualization library providing a wide range of chart types including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 
@@ -23,13 +21,13 @@ The Business Charts plugin offers an easy way of adding intuitive, interactive, 
 
 ## Requirements
 
-- Business Charts Panel 6.X requires **Grafana 10** or **Grafana 11**.
-- Apache ECharts Panel 5.X requires **Grafana 9** or **Grafana 10**.
-- Apache ECharts Panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
+- Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
+- Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
+- Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
 ## Getting Started
 
-You can install the Business Charts Panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or using the Grafana command line tool.
+You can install the Business Charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or using the Grafana command line tool.
 
 For the latter, please use the following command.
 
@@ -53,7 +51,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill) to represent data in percentage.
 - Supports real-time data updates using streaming data sources and Grafana Live.
 - Supports light and dark themes adjusted to the Grafana theme.
-- Based on [Apache ECharts 5.5.0](https://github.com/apache/echarts/releases/tag/5.5.0).
+- Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
 - Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
 [![Examples](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
@@ -66,7 +64,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples)       | Explains how to get started with the Apache ECharts Examples in Grafana. |
 | [Features](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/features)       | Demonstrates the Business Charts panel features.                         |
 | [Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps)               | Demonstrates how to work with different maps.                            |
-| [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials)     | Tutorials for the Business Charts Panel.                                 |
+| [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials)     | Tutorials for the Business Charts panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release)   | Stay up to date with the latest features and updates.                    |
 
 ## Business Suite for Grafana
