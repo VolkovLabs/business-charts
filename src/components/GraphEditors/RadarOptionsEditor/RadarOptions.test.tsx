@@ -290,4 +290,42 @@ describe('Radar options', () => {
       })
     );
   });
+
+  it('Should change radius option correctly if type wrong format', async () => {
+    const values = {
+      dataset: [],
+      radar: {
+        indicator: 'A:Value',
+        radius: 0,
+        shape: RadarShapeType.CIRCLE,
+      },
+    } as any;
+
+    const { value, onChange } = createOnChangeHandler(values);
+
+    render(
+      getComponent({
+        value,
+        onChange,
+      })
+    );
+
+    /**
+     * Initial
+     */
+    expect(selectors.radarOptionsRoot()).toBeInTheDocument();
+
+    const item = openItem();
+    expect(item.radarOptionsRadius()).toHaveValue('0');
+
+    fireEvent.change(item.radarOptionsRadius(), { target: { value: 'abc' } });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        radar: expect.objectContaining({
+          radius: '0',
+        }),
+      })
+    );
+  });
 });

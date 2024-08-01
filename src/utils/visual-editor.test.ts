@@ -413,7 +413,7 @@ describe('Visual Editor Utils', () => {
           { max: 350, min: 10, name: 'Test 2' },
         ],
         shape: 'circle',
-        radius: '50%',
+        radius: 50,
       });
     });
 
@@ -422,7 +422,7 @@ describe('Visual Editor Utils', () => {
         code: 'console.log()',
         radar: {
           indicator: 'A:Category2',
-          radius: 50,
+          radius: '50%',
           shape: 'circle',
         },
         series: [

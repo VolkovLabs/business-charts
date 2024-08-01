@@ -83,7 +83,7 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
           <InlineFieldRow>
             <InlineField
               label="Radius"
-              tooltip="Set radar radius in percentage. For example, '20' it is equal '20%', means that the outside radius is 20% of the viewport size (the little one between width and height of the chart container). Set to 0 to reset option."
+              tooltip="Set radar radius. For example, 20 is the directly set radius.. '20%' means that the outside radius is 20% of the viewport size (the little one between width and height of the chart container)."
               labelWidth={20}
               grow={true}
             >

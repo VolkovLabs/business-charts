@@ -240,7 +240,7 @@ export const getRadarOptions = (visualEditor: VisualEditorOptions, series: DataF
    * Set radar option in percentage
    */
   if (visualEditor.radar?.radius) {
-    radarOptions.radius = `${visualEditor.radar?.radius}%`;
+    radarOptions.radius = visualEditor.radar?.radius;
   }
 
   return radarOptions;
