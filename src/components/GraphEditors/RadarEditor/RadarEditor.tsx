@@ -91,7 +91,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                 data-testid={TEST_IDS.seriesEditor.radarDimensionName(dimension.name)}
               />
             </InlineField>
-            <InlineField label="Dimension value" labelWidth={25} grow>
+            <InlineField label="Dimension Value" labelWidth={25} grow>
               <Select
                 value={dimension.value}
                 options={dataset.map((item) => ({

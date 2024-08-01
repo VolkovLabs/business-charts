@@ -6,7 +6,7 @@ import { DatasetItem, RadarChartOptions, SeriesByType, SeriesItem, SeriesType, V
 import { getFieldValues } from './data-frame';
 
 /**
- * get Field based on option value
+ * Get field based on option value
  * @param fieldName
  * @param series
  */

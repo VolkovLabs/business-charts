@@ -1,4 +1,4 @@
-# Business Charts panel for Grafana
+# Business Charts for Grafana
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
