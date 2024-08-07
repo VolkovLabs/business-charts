@@ -150,6 +150,23 @@ describe('Visual Editor Utils', () => {
       });
     });
 
+    it('Should return a Bar series', () => {
+      const item = { id: 1, name: 'Bar Series', uid: 'bar-1' } as any;
+      const newType = SeriesType.BAR;
+      const result = getSeriesWithNewType(item, newType);
+
+      expect(result).toEqual({
+        id: 1,
+        name: 'Bar Series',
+        uid: 'bar-1',
+        type: SeriesType.BAR,
+        encode: {
+          x: [],
+          y: [],
+        },
+      });
+    });
+
     it('Should return a series with a custom type (default)', () => {
       const item = { id: 3, name: 'Custom Series', uid: 'custom-3' } as any;
       const newType = 'custom' as SeriesType;

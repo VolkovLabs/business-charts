@@ -1,5 +1,6 @@
 import { EChartOption } from 'echarts';
 
+import { BarSeriesOptions } from './bar';
 import { RadarConfigOptions, RadarSeriesOptions } from './radar';
 
 /**
@@ -105,7 +106,7 @@ export interface LineSeriesOptions extends EChartOption.SeriesLine {
 export type SeriesItem = BaseSeriesOptions &
   (
     | ({ type: SeriesType.LINE } & LineSeriesOptions)
-    | { type: SeriesType.BAR }
+    | ({ type: SeriesType.BAR } & BarSeriesOptions)
     | { type: SeriesType.LINES }
     | { type: SeriesType.BOXPLOT }
     | { type: SeriesType.MAP }

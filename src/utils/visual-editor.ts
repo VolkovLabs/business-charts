@@ -108,6 +108,16 @@ export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name
         type: newType,
       };
     }
+    case SeriesType.BAR: {
+      return {
+        ...commonValues,
+        encode: {
+          x: [],
+          y: [],
+        },
+        type: newType,
+      };
+    }
     default: {
       return {
         ...commonValues,

@@ -12,9 +12,9 @@ import { getDatasetItemUniqueName } from '../../../utils';
 const LabelWidth = 10;
 
 /**
- * Line Item
+ * Bar Item
  */
-type LineSeriesItem = SeriesByType<SeriesItem, SeriesType.LINE>;
+type BarSeriesItem = SeriesByType<SeriesItem, SeriesType.BAR>;
 
 /**
  * Properties
@@ -23,9 +23,9 @@ interface Props {
   /**
    * Value
    *
-   * @type {LineSeriesItem}
+   * @type {BarSeriesItem}
    */
-  value: LineSeriesItem;
+  value: BarSeriesItem;
 
   /**
    * On Change
@@ -38,7 +38,7 @@ interface Props {
   dataset: DatasetItem[];
 }
 
-export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+export const BarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   return (
     <>
       <InlineFieldRow>

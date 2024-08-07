@@ -2,14 +2,14 @@ import { Button, IconButton, InlineField, InlineFieldRow, Input, Label, Select, 
 import React, { useCallback, useState } from 'react';
 
 import { TEST_IDS } from '../../../constants';
-import { DatasetItem, SeriesItem, SeriesType } from '../../../types';
+import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../../../types';
 import { getDatasetItemUniqueName, getSeriesUniqueId } from '../../../utils';
 import { getStyles } from './RadarEditor.styles';
 
 /**
  * Radar Series Item
  */
-type RadarSeriesItem = Extract<SeriesItem, { type: SeriesType.RADAR }>;
+type RadarSeriesItem = SeriesByType<SeriesItem, SeriesType.RADAR>;
 
 /**
  * Properties

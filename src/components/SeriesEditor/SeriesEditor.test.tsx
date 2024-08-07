@@ -487,6 +487,114 @@ describe('Series Editor', () => {
       });
     });
 
+    describe('Bar', () => {
+      const barItem = {
+        uid: 'bar',
+        id: 'bar',
+        name: 'BAR',
+        type: SeriesType.BAR,
+        encode: {
+          x: ['A:Time'],
+          y: ['A:Value'],
+        },
+      };
+      const items = [
+        barItem,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+
+      it('Should update encode Y', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(barItem.id);
+
+        fireEvent.change(item.fieldEncodeY(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.fieldEncodeY()).toHaveValue(['A:Value']);
+      });
+
+      it('Should update encode X', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(barItem.id);
+
+        fireEvent.change(item.fieldEncodeX(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.fieldEncodeX()).toHaveValue(['A:Value']);
+      });
+    });
+
+    /**
+     * Cover 100% test for series item editor
+     */
+    describe('Default', () => {
+      const defaultItem = {
+        uid: 'default',
+        id: 'default',
+        name: 'Default',
+        type: 'Other',
+      };
+      const items = [
+        defaultItem,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+
+      it('Should render editor', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(defaultItem.id);
+
+        expect(item.fieldId()).toBeInTheDocument();
+        expect(item.fieldId()).toHaveValue('default');
+      });
+    });
+
     describe('Radar', () => {
       const radarItem = {
         uid: 'radar',
