@@ -3,7 +3,13 @@ import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
 
-import { TEST_IDS } from '../../constants';
+import {
+  SUNBURST_DEFAULT,
+  SunburstEmphasisFocusOption,
+  SunburstLabelRotate,
+  SunburstSortOption,
+  TEST_IDS,
+} from '../../constants';
 import { SeriesType } from '../../types';
 import { SeriesEditor } from './SeriesEditor';
 
@@ -555,6 +561,470 @@ describe('Series Editor', () => {
         );
 
         expect(item.fieldEncodeX()).toHaveValue(['A:Value']);
+      });
+    });
+
+    describe('Sunburst', () => {
+      const sunburstItem = {
+        ...SUNBURST_DEFAULT,
+        uid: 'sunburst',
+        id: 'sunburst',
+        name: 'Sunburst',
+        type: SeriesType.SUNBURST,
+        groups: [
+          {
+            name: 'Level 0',
+            source: 'A',
+            value: 'A:Level 0',
+          },
+          {
+            name: 'Level 1',
+            source: 'A',
+            value: 'A:Level 1',
+          },
+          {
+            name: 'Level 2',
+            source: 'A',
+            value: 'A:Level 2',
+          },
+        ],
+      };
+      const items = [
+        sunburstItem,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+      const dataSetSunburst = [
+        {
+          name: 'Level 0',
+          source: 'A',
+        },
+        {
+          name: 'Level 1',
+          source: 'A',
+        },
+        {
+          name: 'Level 2',
+          source: 'A',
+        },
+        {
+          name: 'Level 3',
+          source: 'A',
+        },
+        {
+          name: 'Level 4',
+          source: 'A',
+        },
+      ] as any;
+
+      it('Should render sunburst editor', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        expect(item.sunburstLevelField()).toBeInTheDocument();
+      });
+
+      it('Should change value level', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        expect(item.sunburstLevelField()).toBeInTheDocument();
+        expect(item.sunburstLevelField()).toHaveValue('1');
+
+        fireEvent.change(item.sunburstLevelField(), { target: { value: 10 } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.sunburstLevelField()).toHaveValue('10');
+      });
+
+      it('Should change inner radius', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        expect(item.sunburstInnerRadius()).toBeInTheDocument();
+        expect(item.sunburstInnerRadius()).toHaveValue('0');
+
+        fireEvent.change(item.sunburstInnerRadius(), { target: { value: 10 } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.sunburstInnerRadius()).toHaveValue('10');
+      });
+
+      it('Should change outer radius', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        expect(item.sunburstOuterRadius()).toBeInTheDocument();
+        expect(item.sunburstOuterRadius()).toHaveValue('100%');
+
+        fireEvent.change(item.sunburstOuterRadius(), { target: { value: 10 } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.sunburstOuterRadius()).toHaveValue('10');
+      });
+
+      it('Should add New Level', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        expect(item.sunburstNewLevelButtonAddNew()).toBeInTheDocument();
+        expect(item.sunburstNewLevelName()).toBeInTheDocument();
+        expect(item.sunburstNewLevelButtonAddNew()).toBeDisabled();
+
+        fireEvent.change(item.sunburstNewLevelName(), { target: { value: 'A:Level 3' } });
+
+        expect(item.sunburstNewLevelButtonAddNew()).not.toBeDisabled();
+
+        await act(async () => {
+          fireEvent.click(item.sunburstNewLevelButtonAddNew());
+        });
+
+        /**
+         * Rerender
+         */
+        rerender(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        expect(item.sunburstNewLevelButtonAddNew()).toBeDisabled();
+
+        expect(item.sunburstLevelItem(false, 'Level 3')).toBeInTheDocument();
+      });
+
+      it('Should remove Level', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+        const field2 = item.sunburstLevelItem(false, 'Level 2');
+
+        expect(field2).toBeInTheDocument();
+
+        /**
+         * Remove
+         */
+        await act(() =>
+          fireEvent.click(within(field2).getByTestId(TEST_IDS.seriesEditor.sunburstLevelItemRemoveButton))
+        );
+
+        expect(onChange).toHaveBeenCalledWith([
+          {
+            emphasis: { focus: 'none' },
+            groups: [
+              { name: 'Level 0', source: 'A', value: 'A:Level 0' },
+              { name: 'Level 1', source: 'A', value: 'A:Level 1' },
+              { name: 'Level 3', source: 'A', value: 'A:Level 3' },
+            ],
+            id: 'sunburst',
+            innerRadius: '0',
+            label: { rotate: 'radial', show: true },
+            levelValue: '1',
+            name: 'Sunburst',
+            outerRadius: '100%',
+            sort: 'desc',
+            type: 'sunburst',
+            uid: 'sunburst',
+          },
+          { id: 'other', name: 'Other', uid: 'other' },
+        ]);
+      });
+
+      it('Should not reorder items if drop outside the list', async () => {
+        let onDragEndHandler: (result: DropResult) => void = () => {};
+        jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
+          onDragEndHandler = onDragEnd;
+          return children;
+        });
+
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+        const field2 = item.sunburstLevelItem(false, 'Level 2');
+
+        expect(field2).toBeInTheDocument();
+
+        /**
+         * Simulate drop element 1 to index 0
+         */
+        await act(async () =>
+          onDragEndHandler({
+            destination: null,
+            source: {
+              index: 1,
+            },
+          } as any)
+        );
+
+        expect(onChange).not.toHaveBeenCalledWith([]);
+      });
+
+      it('Should reorder items', async () => {
+        let onDragEndHandler: (result: DropResult) => void = () => {};
+        jest.mocked(DragDropContext).mockImplementation(({ children, onDragEnd }: any) => {
+          onDragEndHandler = onDragEnd;
+          return children;
+        });
+
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+        const field2 = item.sunburstLevelItem(false, 'Level 2');
+
+        expect(field2).toBeInTheDocument();
+
+        /**
+         * Simulate drop element 1 to outside
+         */
+        await act(async () =>
+          onDragEndHandler({
+            destination: {
+              index: 0,
+            },
+            source: {
+              index: 1,
+            },
+          } as any)
+        );
+
+        expect(onChange).toHaveBeenCalledWith([
+          {
+            emphasis: {
+              focus: 'none',
+            },
+            groups: [
+              { name: 'Level 1', source: 'A', value: 'A:Level 1' },
+              {
+                name: 'Level 0',
+                source: 'A',
+                value: 'A:Level 0',
+              },
+              {
+                name: 'Level 2',
+                source: 'A',
+                value: 'A:Level 2',
+              },
+              {
+                name: 'Level 3',
+                source: 'A',
+                value: 'A:Level 3',
+              },
+            ],
+            id: 'sunburst',
+            innerRadius: '0',
+            label: {
+              rotate: 'radial',
+              show: true,
+            },
+            levelValue: '1',
+            name: 'Sunburst',
+            outerRadius: '100%',
+            sort: 'desc',
+            type: 'sunburst',
+            uid: 'sunburst',
+          },
+          {
+            id: 'other',
+            name: 'Other',
+            uid: 'other',
+          },
+        ]);
+      });
+
+      it('Should change sort', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        const radiusField = item.sunburstSort();
+
+        expect(radiusField).toBeInTheDocument();
+        expect(item.sortOption(false, SunburstSortOption.DESC)).toBeChecked();
+
+        /**
+         * Change target
+         */
+        await act(() => fireEvent.click(item.sortOption(false, SunburstSortOption.ASC)));
+
+        expect(item.sortOption(false, SunburstSortOption.ASC)).toBeChecked();
+      });
+
+      it('Should Emphasis Focus', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        const focusField = item.sunburstEmphasisFocus();
+
+        expect(focusField).toBeInTheDocument();
+        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.NONE)).toBeChecked();
+
+        /**
+         * Change target
+         */
+        await act(() => fireEvent.click(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)));
+
+        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)).toBeChecked();
+      });
+
+      it('Should change Show Label', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        const showLabelField = item.sunburstShowLabel();
+
+        expect(showLabelField).toBeInTheDocument();
+        expect(item.showLabelOption(false, true)).toBeChecked();
+
+        /**
+         * Change target
+         */
+        await act(() => fireEvent.click(item.showLabelOption(false, false)));
+
+        expect(item.showLabelOption(false, false)).toBeChecked();
+      });
+
+      it('Should change rotate option Label', async () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        render(
+          getComponent({
+            value,
+            onChange,
+            dataset: dataSetSunburst,
+          })
+        );
+
+        const item = openItem(sunburstItem.id);
+
+        const rotateField = item.sunburstLabelRotate();
+
+        expect(rotateField).toBeInTheDocument();
+        expect(item.labelRotateOption(false, SunburstLabelRotate.RADIAL)).toBeChecked();
+
+        /**
+         * Change target
+         */
+        await act(() => fireEvent.click(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)));
+
+        expect(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)).toBeChecked();
       });
     });
 

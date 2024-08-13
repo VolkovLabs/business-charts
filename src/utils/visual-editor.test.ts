@@ -1,5 +1,6 @@
 import { FieldType, toDataFrame } from '@grafana/data';
 
+import { SunburstEmphasisFocusOption, SunburstLabelRotate, SunburstSortOption } from '../constants';
 import { SeriesType } from '../types';
 import {
   convertSeriesToChartOption,
@@ -167,6 +168,31 @@ describe('Visual Editor Utils', () => {
       });
     });
 
+    it('Should return a Sunburst series', () => {
+      const item = { id: 1, name: 'Sunburst Series', uid: 'sunburst-1' } as any;
+      const newType = SeriesType.SUNBURST;
+      const result = getSeriesWithNewType(item, newType);
+
+      expect(result).toEqual({
+        id: 1,
+        name: 'Sunburst Series',
+        uid: 'sunburst-1',
+        type: SeriesType.SUNBURST,
+        emphasis: {
+          focus: SunburstEmphasisFocusOption.NONE,
+        },
+        label: {
+          show: true,
+          rotate: SunburstLabelRotate.RADIAL,
+        },
+        groups: [],
+        innerRadius: '0',
+        levelValue: '1',
+        outerRadius: '100%',
+        sort: SunburstSortOption.DESC,
+      });
+    });
+
     it('Should return a series with a custom type (default)', () => {
       const item = { id: 3, name: 'Custom Series', uid: 'custom-3' } as any;
       const newType = 'custom' as SeriesType;
@@ -231,6 +257,68 @@ describe('Visual Editor Utils', () => {
           { name: 'Dimension 1', value: [10, 20, 30] },
           { name: 'Dimension 2', value: [40, 50, 60] },
         ],
+      });
+    });
+
+    it('Should convert a Sunburst series to chart option', () => {
+      const item = {
+        id: 1,
+        name: 'Sunburst Series',
+        uid: 'sunburst-1',
+        type: SeriesType.SUNBURST,
+        emphasis: {
+          focus: SunburstEmphasisFocusOption.NONE,
+        },
+        label: {
+          show: true,
+          rotate: SunburstLabelRotate.RADIAL,
+        },
+        groups: [],
+        innerRadius: '0',
+        levelValue: '1',
+        outerRadius: '100%',
+        sort: SunburstSortOption.DESC,
+      } as any;
+
+      const series = [
+        {
+          refId: 'A',
+          fields: [
+            { name: 'Value 0', type: FieldType.string, values: ['Grandpa', 'Grandpa', 'Nancy'] },
+            { name: 'Value 1', type: FieldType.string, values: ['Father', 'Uncle', 'Mike'] },
+            { name: 'Value 2', type: FieldType.string, values: ['Test', 'Test', 'Test'] },
+          ],
+        },
+        {
+          refId: 'B',
+          fields: [
+            { name: 'Value', type: FieldType.number, values: [70, 80, 90] },
+            { name: 'Value2', type: FieldType.number, values: [100, 110, 120] },
+          ],
+        },
+      ] as any;
+
+      const result = convertSeriesToChartOption(item, series);
+
+      expect(result).toEqual({
+        id: 1,
+        name: 'Sunburst Series',
+        uid: 'sunburst-1',
+        type: SeriesType.SUNBURST,
+        emphasis: {
+          focus: SunburstEmphasisFocusOption.NONE,
+        },
+        label: {
+          show: true,
+          rotate: SunburstLabelRotate.RADIAL,
+        },
+        groups: [],
+        data: [],
+        radius: ['0', '100%'],
+        innerRadius: '0',
+        levelValue: '1',
+        outerRadius: '100%',
+        sort: SunburstSortOption.DESC,
       });
     });
 

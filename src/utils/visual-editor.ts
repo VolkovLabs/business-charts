@@ -2,7 +2,9 @@ import { DataFrame, FieldType, SelectableValue } from '@grafana/data';
 import { findField } from '@volkovlabs/grafana-utils';
 import { v4 as uuidv4 } from 'uuid';
 
+import { SUNBURST_DEFAULT } from '../constants';
 import { DatasetItem, RadarChartOptions, SeriesByType, SeriesItem, SeriesType, VisualEditorOptions } from '../types';
+import { convertSunburstOptions } from './convert-sunburst-options';
 import { getFieldValues } from './data-frame';
 
 /**
@@ -118,6 +120,13 @@ export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name
         type: newType,
       };
     }
+    case SeriesType.SUNBURST: {
+      return {
+        ...commonValues,
+        ...SUNBURST_DEFAULT,
+        type: newType,
+      };
+    }
     default: {
       return {
         ...commonValues,
@@ -158,6 +167,9 @@ export const convertSeriesToChartOption = (item: SeriesItem, series: DataFrame[]
         ...item,
         data: currentData,
       };
+    }
+    case SeriesType.SUNBURST: {
+      return convertSunburstOptions(item, series);
     }
     default: {
       return item;
