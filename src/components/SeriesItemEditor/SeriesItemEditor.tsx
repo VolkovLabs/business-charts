@@ -8,7 +8,7 @@ import { BarEditor, LineEditor, RadarEditor, SunburstEditor } from '../GraphEdit
 /**
  * Label Width
  */
-const LabelWidth = 10;
+const labelWidth = 10;
 
 /**
  * Properties
@@ -59,7 +59,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
   return (
     <>
       <InlineFieldRow>
-        <InlineField label="ID" labelWidth={LabelWidth} grow={true}>
+        <InlineField label="ID" labelWidth={labelWidth} grow={true}>
           <Input
             value={value.id}
             onChange={(event) => {
@@ -71,7 +71,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
             data-testid={TEST_IDS.seriesEditor.fieldId}
           />
         </InlineField>
-        <InlineField label="Type" labelWidth={LabelWidth} grow={true}>
+        <InlineField label="Type" labelWidth={labelWidth} grow={true}>
           <Select
             value={value.type}
             options={SERIES_TYPE_OPTIONS}
@@ -85,7 +85,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
         </InlineField>
       </InlineFieldRow>
       <InlineFieldRow>
-        <InlineField label="Name" labelWidth={LabelWidth} grow={true}>
+        <InlineField label="Name" labelWidth={labelWidth} grow={true}>
           <Input
             value={value.name}
             onChange={(event) => {

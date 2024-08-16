@@ -9,7 +9,7 @@ import { getDatasetItemUniqueName } from '../../../utils';
 /**
  * Label Width
  */
-const LabelWidth = 10;
+const labelWidth = 10;
 
 /**
  * Line Item
@@ -42,7 +42,7 @@ export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   return (
     <>
       <InlineFieldRow>
-        <InlineField label="Encode Y" labelWidth={LabelWidth} grow={true}>
+        <InlineField label="Encode Y" labelWidth={labelWidth} grow={true}>
           <Select
             value={value.encode?.y}
             options={dataset.map((item) => ({
@@ -66,7 +66,7 @@ export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
         </InlineField>
       </InlineFieldRow>
       <InlineFieldRow>
-        <InlineField label="Encode X" labelWidth={LabelWidth} grow={true}>
+        <InlineField label="Encode X" labelWidth={labelWidth} grow={true}>
           <Select
             value={value.encode?.x}
             options={dataset.map((item) => ({
