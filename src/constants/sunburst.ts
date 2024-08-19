@@ -67,7 +67,7 @@ export const SUNBURST_SORT_OPTIONS: SelectableValue[] = [
   },
   {
     ariaLabel: TEST_IDS.seriesEditor.sortOption(SunburstSortOption.NONE),
-    description: 'Not sorting,',
+    description: 'Sorting disabled.',
     label: 'None',
     value: SunburstSortOption.NONE,
   },
