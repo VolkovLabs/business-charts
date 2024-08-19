@@ -1,6 +1,8 @@
 import { EChartOption } from 'echarts';
 
+import { BarSeriesOptions } from './bar';
 import { RadarConfigOptions, RadarSeriesOptions } from './radar';
+import { SunburstSeriesOptions } from './sunburst';
 
 /**
  * Dataset Item
@@ -105,7 +107,7 @@ export interface LineSeriesOptions extends EChartOption.SeriesLine {
 export type SeriesItem = BaseSeriesOptions &
   (
     | ({ type: SeriesType.LINE } & LineSeriesOptions)
-    | { type: SeriesType.BAR }
+    | ({ type: SeriesType.BAR } & BarSeriesOptions)
     | { type: SeriesType.LINES }
     | { type: SeriesType.BOXPLOT }
     | { type: SeriesType.MAP }
@@ -119,7 +121,7 @@ export type SeriesItem = BaseSeriesOptions &
     | ({ type: SeriesType.RADAR } & RadarSeriesOptions)
     | { type: SeriesType.TREE }
     | { type: SeriesType.TREEMAP }
-    | { type: SeriesType.SUNBURST }
+    | ({ type: SeriesType.SUNBURST } & SunburstSeriesOptions)
     | { type: SeriesType.CANDLESTICK }
     | { type: SeriesType.PARALLEL }
     | { type: SeriesType.SANKEY }
