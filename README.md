@@ -58,14 +58,14 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 ## Documentation
 
-| Section                                                                           | Description                                                              |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Charts Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options) | Explains how to configure the main Apache ECharts library function.      |
-| [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples)       | Explains how to get started with the Apache ECharts Examples in Grafana. |
-| [Features](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/features)       | Demonstrates the Business Charts panel features.                         |
-| [Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps)               | Demonstrates how to work with different maps.                            |
-| [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials)     | Tutorials for the Business Charts panel.                                 |
-| [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release)   | Stay up to date with the latest features and updates.                    |
+| Section                                                                  | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| [Charts Function](https://volkovlabs.io/plugins/business-charts/options) | Explains how to configure the main Apache ECharts library function.      |
+| [Examples](https://volkovlabs.io/plugins/business-charts/examples)       | Explains how to get started with the Apache ECharts Examples in Grafana. |
+| [Features](https://volkovlabs.io/plugins/business-charts/features)       | Demonstrates the Business Charts panel features.                         |
+| [Maps](https://volkovlabs.io/plugins/business-charts/maps)               | Demonstrates how to work with different maps.                            |
+| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials)     | Tutorials for the Business Charts panel.                                 |
+| [Release Notes](https://volkovlabs.io/plugins/business-charts/release)   | Stay up to date with the latest features and updates.                    |
 
 ## Business Suite for Grafana
 
