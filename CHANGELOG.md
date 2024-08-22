@@ -4,7 +4,8 @@
 
 ### Features / Enhancements
 
-- Add visual editor for bar and sunburst (#322)
+- Added visual editor for bar and sunburst (#322)
+- Added Expandable Editors (#324)
 
 ## 6.2.0 (2024-08-01)
 
