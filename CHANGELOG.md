@@ -1,11 +1,12 @@
 # Change Log
 
-## 6.3.0 (IN PROGRESS)
+## 6.3.0 (2024-08-26)
 
 ### Features / Enhancements
 
 - Added visual editor for bar and sunburst (#322)
 - Added Expandable Editors (#324)
+- Updated Examples dashboards (#325)
 
 ## 6.2.0 (2024-08-01)
 
