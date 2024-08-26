@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 7,
   "links": [
     {
       "asDropdown": false,
@@ -72,8 +73,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Basic Scatter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -109,8 +120,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Anscombe's quartet",
       "type": "volkovlabs-echarts-panel"
     },
@@ -146,8 +167,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Clustering Process",
       "type": "volkovlabs-echarts-panel"
     },
@@ -183,8 +214,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Clustering Process",
       "type": "volkovlabs-echarts-panel"
     },
@@ -220,8 +261,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Exponential Regression",
       "type": "volkovlabs-echarts-panel"
     },
@@ -257,8 +308,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Effect Scatter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -374,8 +435,7 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []

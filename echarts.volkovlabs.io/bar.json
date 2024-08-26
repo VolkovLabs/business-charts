@@ -24,15 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 4,
   "links": [
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": [
-        "echarts"
-      ],
+      "tags": ["echarts"],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -104,7 +103,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -117,29 +116,13 @@
                 "config": {},
                 "name": "Category",
                 "type": "string",
-                "values": [
-                  "Mon",
-                  "Tue",
-                  "Wed",
-                  "Thu",
-                  "Fri",
-                  "Sat",
-                  "Sun"
-                ]
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
               },
               {
                 "config": {},
                 "name": "Value",
                 "type": "number",
-                "values": [
-                  120,
-                  200,
-                  150,
-                  80,
-                  70,
-                  110,
-                  130
-                ]
+                "values": [120, 200, 150, 80, 70, 110, 130]
               }
             ],
             "meta": {},
@@ -196,7 +179,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Basic Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -262,7 +245,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -275,29 +258,13 @@
                 "config": {},
                 "name": "Category",
                 "type": "string",
-                "values": [
-                  "Mon",
-                  "Tue",
-                  "Wed",
-                  "Thu",
-                  "Fri",
-                  "Sat",
-                  "Sun"
-                ]
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
               },
               {
                 "config": {},
                 "name": "Value",
                 "type": "number",
-                "values": [
-                  120,
-                  52,
-                  200,
-                  334,
-                  390,
-                  330,
-                  220
-                ]
+                "values": [120, 52, 200, 334, 390, 330, 220]
               }
             ],
             "meta": {},
@@ -363,12 +330,8 @@
           "series": [
             {
               "encode": {
-                "x": [
-                  "A:day"
-                ],
-                "y": [
-                  "A:value"
-                ]
+                "x": ["A:day"],
+                "y": ["A:value"]
               },
               "id": "Bar",
               "name": "",
@@ -378,7 +341,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -391,29 +354,13 @@
                 "config": {},
                 "name": "day",
                 "type": "string",
-                "values": [
-                  "Mon",
-                  "Tue",
-                  "Wed",
-                  "Thu",
-                  "Fri",
-                  "Sat",
-                  "Sun"
-                ]
+                "values": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
               },
               {
                 "config": {},
                 "name": "value",
                 "type": "number",
-                "values": [
-                  120,
-                  200,
-                  150,
-                  80,
-                  67,
-                  110,
-                  130
-                ]
+                "values": [120, 200, 150, 80, 67, 110, 130]
               }
             ],
             "meta": {}
@@ -469,7 +416,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Waterfall Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -518,7 +465,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Set Style of Single Bar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -692,40 +639,19 @@
                 "config": {},
                 "name": "Name",
                 "type": "string",
-                "values": [
-                  "Brazil",
-                  "Indonezia",
-                  "USA",
-                  "India",
-                  "China",
-                  "World"
-                ]
+                "values": ["Brazil", "Indonezia", "USA", "India", "China", "World"]
               },
               {
                 "config": {},
                 "name": "2011",
                 "type": "number",
-                "values": [
-                  18203,
-                  19325,
-                  29034,
-                  104970,
-                  131744,
-                  630230
-                ]
+                "values": [18203, 19325, 29034, 104970, 131744, 630230]
               },
               {
                 "config": {},
                 "name": "2012",
                 "type": "number",
-                "values": [
-                  23489,
-                  23438,
-                  31000,
-                  121594,
-                  134141,
-                  681807
-                ]
+                "values": [23489, 23438, 31000, 121594, 134141, 681807]
               }
             ],
             "meta": {},
@@ -1081,9 +1007,7 @@
   ],
   "refresh": "",
   "schemaVersion": 39,
-  "tags": [
-    "echarts"
-  ],
+  "tags": ["echarts"],
   "templating": {
     "list": []
   },

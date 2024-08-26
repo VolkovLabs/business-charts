@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
+  "id": 6,
   "links": [
     {
       "asDropdown": false,
@@ -86,7 +86,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Gauge Basic chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -135,7 +135,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Simple Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -184,7 +184,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Speed Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -233,7 +233,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Progress Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -288,7 +288,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -358,7 +358,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Grade Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -407,7 +407,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Multi Title Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -456,7 +456,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Temperature",
       "type": "volkovlabs-echarts-panel"
     },
@@ -505,7 +505,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Ring Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -554,7 +554,7 @@
           "series": []
         }
       },
-      "pluginVersion": "5.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Gauge Barometer",
       "type": "volkovlabs-echarts-panel"
     },
@@ -590,8 +590,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Clock",
       "type": "volkovlabs-echarts-panel"
     },
@@ -627,8 +637,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Gauge Car [TODO]",
       "type": "volkovlabs-echarts-panel"
     }

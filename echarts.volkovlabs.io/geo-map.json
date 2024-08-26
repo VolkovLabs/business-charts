@@ -24,15 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 19,
   "links": [
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": [
-        "echarts"
-      ],
+      "tags": ["echarts"],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -86,7 +85,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -156,7 +155,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -213,7 +212,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -269,7 +268,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "title": "Google Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -317,7 +316,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "title": "Baidu",
       "type": "volkovlabs-echarts-panel"
     },
@@ -364,16 +363,14 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "title": "Gaode Map",
       "type": "volkovlabs-echarts-panel"
     }
   ],
   "refresh": "",
   "schemaVersion": 39,
-  "tags": [
-    "echarts"
-  ],
+  "tags": ["echarts"],
   "templating": {
     "list": []
   },
@@ -387,6 +384,6 @@
   "timezone": "",
   "title": "Geo/Map",
   "uid": "X1mkMIFVz",
-  "version": 4,
+  "version": 1,
   "weekStart": ""
 }

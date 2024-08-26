@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 16,
+  "id": 20,
   "links": [
     {
       "asDropdown": false,
@@ -74,8 +74,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -120,8 +130,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Color and Opacity",
       "type": "volkovlabs-echarts-panel"
     },
@@ -157,8 +177,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Run",
       "type": "volkovlabs-echarts-panel"
     },
@@ -194,8 +224,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Run",
       "type": "volkovlabs-echarts-panel"
     },
@@ -231,8 +271,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Still Water",
       "type": "volkovlabs-echarts-panel"
     },
@@ -268,8 +318,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.3.0",
       "title": "Static Waves",
       "type": "volkovlabs-echarts-panel"
     },
@@ -533,8 +593,7 @@
       "type": "volkovlabs-echarts-panel"
     }
   ],
-  "schemaVersion": 37,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": ["echarts"],
   "templating": {
     "list": []
@@ -549,6 +608,6 @@
   "timezone": "",
   "title": "Liquid Fill",
   "uid": "6zyVsZ54z",
-  "version": 22,
+  "version": 1,
   "weekStart": ""
 }
