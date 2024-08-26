@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 12,
+  "id": 8,
   "links": [
     {
       "asDropdown": false,
@@ -84,7 +84,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Basic Sunburst",
       "type": "volkovlabs-echarts-panel"
     },
@@ -188,7 +188,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -291,7 +291,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Sunburst Label Rotate",
       "type": "volkovlabs-echarts-panel"
     },
@@ -338,7 +338,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Sunburst with Rounded Corners",
       "type": "volkovlabs-echarts-panel"
     },
@@ -385,7 +385,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Sunburst Visualmap",
       "type": "volkovlabs-echarts-panel"
     },
@@ -432,7 +432,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Monochrome Sunburst",
       "type": "volkovlabs-echarts-panel"
     },

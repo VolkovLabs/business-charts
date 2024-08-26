@@ -24,15 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 2,
   "links": [
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
-      "tags": [
-        "echarts"
-      ],
+      "tags": ["echarts"],
       "targetBlank": false,
       "title": "Apache ECharts",
       "tooltip": "",
@@ -125,7 +124,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -151,27 +150,13 @@
                 "config": {},
                 "name": "Allocated Budget",
                 "type": "number",
-                "values": [
-                  4200,
-                  3000,
-                  20000,
-                  35000,
-                  50000,
-                  18000
-                ]
+                "values": [4200, 3000, 20000, 35000, 50000, 18000]
               },
               {
                 "config": {},
                 "name": "Actual Spending",
                 "type": "number",
-                "values": [
-                  5000,
-                  14000,
-                  28000,
-                  26000,
-                  42000,
-                  21000
-                ]
+                "values": [5000, 14000, 28000, 26000, 42000, 21000]
               }
             ],
             "meta": {}
@@ -265,7 +250,7 @@
           ]
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -291,27 +276,13 @@
                 "config": {},
                 "name": "Allocated Budget",
                 "type": "number",
-                "values": [
-                  4200,
-                  3000,
-                  20000,
-                  35000,
-                  50000,
-                  18000
-                ]
+                "values": [4200, 3000, 20000, 35000, 50000, 18000]
               },
               {
                 "config": {},
                 "name": "Actual Spending",
                 "type": "number",
-                "values": [
-                  5000,
-                  14000,
-                  28000,
-                  26000,
-                  42000,
-                  21000
-                ]
+                "values": [5000, 14000, 28000, 26000, 42000, 21000]
               }
             ],
             "meta": {}
@@ -365,7 +336,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Customized Radar Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -412,7 +383,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "AQI - Radar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -459,7 +430,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Multiple Radar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -506,15 +477,13 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.3.0",
       "title": "Proportion of Browsers",
       "type": "volkovlabs-echarts-panel"
     }
   ],
   "schemaVersion": 39,
-  "tags": [
-    "echarts"
-  ],
+  "tags": ["echarts"],
   "templating": {
     "list": []
   },
@@ -528,6 +497,6 @@
   "timezone": "",
   "title": "Radar",
   "uid": "J06Bi4F4k",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }

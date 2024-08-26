@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 14,
   "links": [
     {
       "asDropdown": false,
@@ -106,7 +107,7 @@
           ]
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -183,7 +184,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "title": "Smoothed Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -253,7 +254,7 @@
           ]
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -329,7 +330,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "title": "Stacked Line Chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -346,7 +347,6 @@
         "y": 24
       },
       "id": 10,
-      "links": [],
       "options": {
         "baidu": {
           "callback": "bmapReady",
@@ -405,7 +405,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -575,7 +575,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.0.0",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -2176,6 +2176,6 @@
   "timezone": "",
   "title": "Line",
   "uid": "tg6gWiKVk",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }

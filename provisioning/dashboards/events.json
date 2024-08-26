@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 22,
+  "id": 17,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -79,8 +79,7 @@
               }
             ]
           },
-          "unit": "none",
-          "unitScale": true
+          "unit": "none"
         },
         "overrides": []
       },
@@ -172,8 +171,7 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
         },
         "overrides": []
       },
@@ -251,7 +249,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.1.0",
+      "pluginVersion": "6.3.0",
       "title": "Random Walk 1",
       "type": "volkovlabs-echarts-panel"
     },
@@ -297,7 +295,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.1.0",
+      "pluginVersion": "6.3.0",
       "title": "Random Walk 2",
       "type": "volkovlabs-echarts-panel"
     }
@@ -316,6 +314,6 @@
   "timezone": "",
   "title": "Events",
   "uid": "fe7ebc17-cddf-4a1d-8e29-a42cf3eaded1",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

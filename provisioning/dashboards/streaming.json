@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 18,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -64,8 +65,14 @@
           "config": "{}",
           "height": 400,
           "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
         }
       },
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "channel": "plugin/testdata/random-2s-stream",
@@ -120,8 +127,14 @@
           "config": "{}",
           "height": 400,
           "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
         }
       },
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "channel": "plugin/testdata/random-2s-stream",
@@ -176,9 +189,14 @@
           "config": "{}",
           "height": 400,
           "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "6.3.0",
       "targets": [
         {
           "datasource": {
@@ -204,13 +222,11 @@
         }
       ],
       "title": "WebSocket API",
-      "transformations": [],
       "type": "volkovlabs-echarts-panel"
     }
   ],
   "refresh": "",
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": []
