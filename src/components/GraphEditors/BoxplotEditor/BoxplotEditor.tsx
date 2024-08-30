@@ -12,9 +12,9 @@ import { getDatasetItemUniqueName } from '../../../utils';
 const labelWidth = 10;
 
 /**
- * Line Item
+ * Boxplot Item
  */
-type LineSeriesItem = SeriesByType<SeriesItem, SeriesType.LINE>;
+type BoxplotSeriesItem = SeriesByType<SeriesItem, SeriesType.BOXPLOT>;
 
 /**
  * Properties
@@ -23,9 +23,9 @@ interface Props {
   /**
    * Value
    *
-   * @type {LineSeriesItem}
+   * @type {BoxplotSeriesItem}
    */
-  value: LineSeriesItem;
+  value: BoxplotSeriesItem;
 
   /**
    * On Change
@@ -39,9 +39,9 @@ interface Props {
 }
 
 /**
- * Line editor
+ * Boxplot editor
  */
-export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+export const BoxplotEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   return (
     <>
       <InlineFieldRow>
@@ -64,7 +64,7 @@ export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                 },
               });
             }}
-            aria-label={TEST_IDS.seriesEditor.fieldEncodeY}
+            aria-label={TEST_IDS.seriesEditor.boxplotFieldEncodeY}
           />
         </InlineField>
       </InlineFieldRow>
@@ -88,7 +88,7 @@ export const LineEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                 },
               });
             }}
-            aria-label={TEST_IDS.seriesEditor.fieldEncodeX}
+            aria-label={TEST_IDS.seriesEditor.boxplotFieldEncodeX}
           />
         </InlineField>
       </InlineFieldRow>

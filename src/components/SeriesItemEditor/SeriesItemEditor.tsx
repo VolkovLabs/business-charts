@@ -4,7 +4,7 @@ import React from 'react';
 import { SERIES_TYPE_OPTIONS, TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
 import { getSeriesWithNewType } from '../../utils';
-import { BarEditor, LineEditor, RadarEditor, SunburstEditor } from '../GraphEditors';
+import { BarEditor, BoxplotEditor, LineEditor, RadarEditor, SunburstEditor } from '../GraphEditors';
 /**
  * Label Width
  */
@@ -49,6 +49,9 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
       }
       case SeriesType.SUNBURST: {
         return <SunburstEditor value={value} onChange={onChange} dataset={dataset} />;
+      }
+      case SeriesType.BOXPLOT: {
+        return <BoxplotEditor value={value} onChange={onChange} dataset={dataset} />;
       }
       default: {
         return <></>;

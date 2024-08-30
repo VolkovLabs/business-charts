@@ -564,6 +564,77 @@ describe('Series Editor', () => {
       });
     });
 
+    describe('Boxplot', () => {
+      const boxplot = {
+        uid: 'box-1',
+        id: 'box-1',
+        name: 'box-1-1',
+        type: SeriesType.BOXPLOT,
+        encode: {
+          x: ['A:Time'],
+          y: ['A:Value'],
+        },
+      };
+      const items = [
+        boxplot,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+
+      it('Should update encode Y', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(boxplot.id);
+
+        fireEvent.change(item.boxplotFieldEncodeY(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.boxplotFieldEncodeY()).toHaveValue(['A:Value']);
+      });
+
+      it('Should update encode X', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(boxplot.id);
+
+        fireEvent.change(item.boxplotFieldEncodeX(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.boxplotFieldEncodeX()).toHaveValue(['A:Value']);
+      });
+    });
+
     describe('Sunburst', () => {
       const sunburstItem = {
         ...SUNBURST_DEFAULT,
