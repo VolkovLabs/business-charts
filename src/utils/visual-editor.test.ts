@@ -168,6 +168,23 @@ describe('Visual Editor Utils', () => {
       });
     });
 
+    it('Should return a Boxplot series', () => {
+      const item = { id: 1, name: 'Boxplot Series', uid: 'box-1' } as any;
+      const newType = SeriesType.BOXPLOT;
+      const result = getSeriesWithNewType(item, newType);
+
+      expect(result).toEqual({
+        id: 1,
+        name: 'Boxplot Series',
+        uid: 'box-1',
+        type: SeriesType.BOXPLOT,
+        encode: {
+          x: [],
+          y: [],
+        },
+      });
+    });
+
     it('Should return a Sunburst series', () => {
       const item = { id: 1, name: 'Sunburst Series', uid: 'sunburst-1' } as any;
       const newType = SeriesType.SUNBURST;
