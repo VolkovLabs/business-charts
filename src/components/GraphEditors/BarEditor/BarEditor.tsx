@@ -38,6 +38,9 @@ interface Props {
   dataset: DatasetItem[];
 }
 
+/**
+ * Bar editor
+ */
 export const BarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   return (
     <>

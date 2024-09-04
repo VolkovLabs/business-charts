@@ -90,7 +90,7 @@
           ]
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -176,7 +176,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -257,7 +257,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Calendar",
       "type": "volkovlabs-echarts-panel"
     },
@@ -306,7 +306,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Candlestick",
       "type": "volkovlabs-echarts-panel"
     },
@@ -361,7 +361,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -431,7 +431,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Geo/Map",
       "type": "volkovlabs-echarts-panel"
     },
@@ -480,7 +480,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Graph",
       "type": "volkovlabs-echarts-panel"
     },
@@ -555,7 +555,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -760,7 +760,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -845,7 +845,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -966,7 +966,7 @@
           ]
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -1055,7 +1055,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Sankey",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1104,7 +1104,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.4.0",
       "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1153,7 +1153,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.4.0",
       "title": "Sunburst",
       "type": "volkovlabs-echarts-panel"
     },
@@ -1202,8 +1202,171 @@
           "series": []
         }
       },
-      "pluginVersion": "6.2.0",
+      "pluginVersion": "6.4.0",
       "title": "Treemap",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 16,
+        "x": 0,
+        "y": 50
+      },
+      "id": 28,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "const series = context.panel.data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;\n  \n  return {\n    name: s.refId,\n    type: 'line',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\n/**\n * Enable Data Zoom by default\n */\nsetTimeout(() => context.panel.chart.dispatchAction({\n  type: 'takeGlobalCursor',\n  key: 'dataZoomSelect',\n  dataZoomSelectActive: true,\n}), 500);\n\n/**\n * Update Time Range on Zoom\n */\ncontext.panel.chart.on('datazoom', function (params) {\n  const startValue = params.batch[0]?.startValue;\n  const endValue = params.batch[0]?.endValue;\n  locationService.partial({ from: startValue, to: endValue });\n});\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: context.panel.data.series.map((s) => s.refId),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  toolbox: {\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none',\n        icon: {\n          zoom: 'path://',\n          back: 'path://',\n        },\n      },\n      saveAsImage: {},\n    }\n  },\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n  grid: {\n    left: '2%',\n    right: '2%',\n    top: '2%',\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/adwuy90r2w1z4a/boxplot?orgId=1');\n});\n\nreturn {\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 60,\n    scale: true\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
+          "dataset": [
+            {
+              "name": "country",
+              "source": "A"
+            },
+            {
+              "name": "country-alt",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "q1-alt",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            },
+            {
+              "name": "max-alt",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:country-alt"],
+                "y": ["A:min", "A:q1-alt", "A:median", "A:q2", "A:max-alt"]
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "cf8dd292-8738-4811-8b64-8dd34dea22fd"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "country",
+                "type": "string",
+                "values": ["Norway", "United States", "Germany", "Canada"]
+              },
+              {
+                "config": {},
+                "name": "country-alt",
+                "type": "string",
+                "values": ["Norway (EU)", "United States (AM)", "Germany (EU)", "Canada (AM)"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["11450", "15300", "7200", "12022"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["19862", "22572", "18274", "18076"]
+              },
+              {
+                "config": {},
+                "name": "q1-alt",
+                "type": "string",
+                "values": ["21000", "23500", "19500", "21000"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["35318", "30127", "28036", "26942"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["57000", "44296", "35671", "35354"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["65781", "55354", "44053", "43294"]
+              },
+              {
+                "config": {},
+                "name": "max-alt",
+                "type": "string",
+                "values": ["70000", "65000", "50000", "47000"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Boxplot",
       "type": "volkovlabs-echarts-panel"
     }
   ],

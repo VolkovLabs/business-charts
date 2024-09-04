@@ -1,6 +1,7 @@
 import { EChartOption } from 'echarts';
 
 import { BarSeriesOptions } from './bar';
+import { BoxplotSeriesOptions } from './boxplot';
 import { RadarConfigOptions, RadarSeriesOptions } from './radar';
 import { SunburstSeriesOptions } from './sunburst';
 
@@ -109,7 +110,7 @@ export type SeriesItem = BaseSeriesOptions &
     | ({ type: SeriesType.LINE } & LineSeriesOptions)
     | ({ type: SeriesType.BAR } & BarSeriesOptions)
     | { type: SeriesType.LINES }
-    | { type: SeriesType.BOXPLOT }
+    | ({ type: SeriesType.BOXPLOT } & BoxplotSeriesOptions)
     | { type: SeriesType.MAP }
     | { type: SeriesType.CUSTOM }
     | { type: SeriesType.HEATMAP }

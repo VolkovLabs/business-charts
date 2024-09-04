@@ -127,6 +127,16 @@ export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name
         type: newType,
       };
     }
+    case SeriesType.BOXPLOT: {
+      return {
+        ...commonValues,
+        encode: {
+          x: [],
+          y: [],
+        },
+        type: newType,
+      };
+    }
     default: {
       return {
         ...commonValues,

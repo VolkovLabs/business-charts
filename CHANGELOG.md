@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.4.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Added Boxplot in Visual Editor (#327)
+
 ## 6.3.0 (2024-08-26)
 
 ### Features / Enhancements

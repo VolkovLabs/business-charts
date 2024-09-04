@@ -1,4 +1,5 @@
 export * from './baidu';
+export * from './boxplot';
 export * from './editor';
 export * from './gaode';
 export * from './google';

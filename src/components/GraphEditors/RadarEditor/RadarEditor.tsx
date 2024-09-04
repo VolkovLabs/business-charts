@@ -33,6 +33,9 @@ interface Props {
   dataset: DatasetItem[];
 }
 
+/**
+ * Radar editor
+ */
 export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
   /**
    * Styles and Theme

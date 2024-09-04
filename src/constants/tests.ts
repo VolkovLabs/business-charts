@@ -50,6 +50,8 @@ export const TEST_IDS = {
     sortOption: (name: string) => `series-editor sort-option-${name}`,
     showLabelOption: (value: unknown) => `series-editor show-label-option-${value}`,
     emphasisFocusOption: (name: string) => `series-editor emphasis-focus-option-${name}`,
+    boxplotFieldEncodeX: 'series-editor boxplot-field-encode-x',
+    boxplotFieldEncodeY: 'series-editor boxplot-field-encode-y',
   },
   datasetEditor: {
     buttonAddNew: 'data-testid dataset-editor button-add-new',
