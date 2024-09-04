@@ -1,0 +1,870 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 21,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "name": "Business Input",
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  title: {\n    text: \"Boxplot Code editor mode with scatter\",\n  },\n  tooltip: {},\n  xAxis: {\n    type: \"category\",\n    data: [\"A\", \"B\", \"C\", \"D\", \"E\"],\n  },\n  yAxis: {\n    scale: true,\n  },\n  series: [\n    {\n      name: \"Boxplot\",\n      type: \"boxplot\",\n      data: [\n        [1, 2, 3, 4, 5], // A\n        [2, 3, 4, 5, 6], // B\n        [3, 4, 5, 6, 7], // C\n        [4, 5, 6, 7, 8], // D\n        [5, 6, 7, 8, 9], // E\n      ],\n      tooltip: {\n        formatter: function (param) {\n          return (\n            param.name +\n            \"<br/>\" +\n            \"Min: \" +\n            param.value[0] +\n            \"<br/>\" +\n            \"Q1: \" +\n            param.value[1] +\n            \"<br/>\" +\n            \"Median: \" +\n            param.value[2] +\n            \"<br/>\" +\n            \"Q2: \" +\n            param.value[3] +\n            \"<br/>\" +\n            \"Max: \" +\n            param.value[4]\n          );\n        },\n      },\n    },\n    {\n      name: \"Outliers\",\n      type: \"scatter\",\n      data: [\n        [\"A\", 0],\n        [\"A\", 7],\n        [\"B\", 8],\n        [\"C\", 6],\n        [\"D\", 9],\n        [\"E\", 10],\n      ],\n    },\n  ],\n}",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "name": "Business Input",
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 10,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "return {\n  title: {\n    text: \"Boxplot Code editor mode\",\n  },\n  tooltip: {},\n  xAxis: {\n    type: \"category\",\n    data: [\"A\", \"B\", \"C\", \"D\", \"E\"],\n  },\n  yAxis: {\n    scale: true,\n  },\n  series: [\n    {\n      name: \"Boxplot\",\n      type: \"boxplot\",\n      data: [\n        [1, 2, 3, 4, 5], // A\n        [2, 3, 4, 5, 6], // B\n        [3, 4, 5, 6, 7], // C\n        [4, 5, 6, 7, 8], // D\n        [5, 6, 7, 8, 9], // E\n      ],\n      tooltip: {\n        formatter: function (param) {\n          return (\n            param.name +\n            \"<br/>\" +\n            \"Min: \" +\n            param.value[0] +\n            \"<br/>\" +\n            \"Q1: \" +\n            param.value[1] +\n            \"<br/>\" +\n            \"Median: \" +\n            param.value[2] +\n            \"<br/>\" +\n            \"Q2: \" +\n            param.value[3] +\n            \"<br/>\" +\n            \"Max: \" +\n            param.value[4]\n          );\n        },\n      },\n    }\n  ],\n}",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  title: {\n    text: \"Boxplot Visual mode.\",\n  },\n  tooltip: {},\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category',\n  },\n  yAxis: {\n    type: 'value',\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "category",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": [],
+                "y": []
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "deda19fd-f436-4371-bd44-50c16f7fd66b"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "category",
+                "type": "string",
+                "values": ["a", "b", "c", "d"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["1", "2", "3", "4"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["2", "3", "4", "5"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["3", "4", "5", "6"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["4", "5", "6", "7"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["5", "6", "7", "8"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 10,
+        "y": 9
+      },
+      "id": 3,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  title: {\n    text: \"Boxplot Visual mode. Reverse axis\",\n  },\n  tooltip: {},\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'value',\n  },\n  yAxis: {\n    type: 'category',\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "category",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": [],
+                "y": []
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "deda19fd-f436-4371-bd44-50c16f7fd66b"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "category",
+                "type": "string",
+                "values": ["a", "b", "c", "d"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["1", "2", "3", "4"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["2", "3", "4", "5"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["3", "4", "5", "6"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["4", "5", "6", "7"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["5", "6", "7", "8"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 10,
+        "x": 0,
+        "y": 18
+      },
+      "id": 5,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  title: {\n    text: \"Boxplot Visual mode.\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  yAxis: {\n    type: 'category',\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "country",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": [],
+                "y": []
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "deda19fd-f436-4371-bd44-50c16f7fd66b"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "country",
+                "type": "string",
+                "values": ["Norway", "United States", "Germany", "Canada"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["11450", "15300", "7200", "12022"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["19862", "22572", "18274", "18076"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["35318", "30127", "28036", "26942"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["57000", "44296", "35671", "35354"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["65781", "55354", "44053", "43294"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 10,
+        "x": 10,
+        "y": 18
+      },
+      "id": 6,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log('console >> context', context)\nreturn {\n  title: {\n    text: \"Boxplot Visual mode. Encoded.\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "country",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            },
+            {
+              "name": "country alternative",
+              "source": "A"
+            },
+            {
+              "name": "q1 alternative",
+              "source": "A"
+            },
+            {
+              "name": "max alternative",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:country alternative"],
+                "y": ["A:min", "A:q1 alternative", "A:median", "A:q2", "A:max alternative"]
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "deda19fd-f436-4371-bd44-50c16f7fd66b"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "country",
+                "type": "string",
+                "values": ["Norway", "United States", "Germany", "Canada"]
+              },
+              {
+                "config": {},
+                "name": "country alternative",
+                "type": "string",
+                "values": ["Norway (EU)", "United States (AM)", "Germany (EU)", "Canada (AM)"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["11450", "15300", "7200", "12022"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["19862", "22572", "18274", "18076"]
+              },
+              {
+                "config": {},
+                "name": "q1 alternative",
+                "type": "string",
+                "values": ["21000", "23500", "19500", "21000"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["35318", "30127", "28036", "26942"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["57000", "44296", "35671", "35354"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["65781", "55354", "44053", "43294"]
+              },
+              {
+                "config": {},
+                "name": "max alternative",
+                "type": "string",
+                "values": ["70000", "65000", "50000", "47000"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 20,
+        "x": 0,
+        "y": 31
+      },
+      "id": 7,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "console.log('console >> context', context)\nreturn {\n  title: {\n    text: \"Boxplot Visual mode. Encoded. Scatter\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: [\n    context.editor.series[0],\n    {\n      name: \"Outliers\",\n      type: \"scatter\",\n      data: [\n        [\"Norway (EU)\", 8000],\n        [\"United States (AM)\"],\n        [\"Germany (EU)\", 8000],\n        [\"Canada (AM)\", 6000],\n      ],\n    }\n  ],\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "country",
+              "source": "A"
+            },
+            {
+              "name": "min",
+              "source": "A"
+            },
+            {
+              "name": "q1",
+              "source": "A"
+            },
+            {
+              "name": "median",
+              "source": "A"
+            },
+            {
+              "name": "q2",
+              "source": "A"
+            },
+            {
+              "name": "max",
+              "source": "A"
+            },
+            {
+              "name": "country alternative",
+              "source": "A"
+            },
+            {
+              "name": "q1 alternative",
+              "source": "A"
+            },
+            {
+              "name": "max alternative",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:country alternative"],
+                "y": ["A:min", "A:q1 alternative", "A:median", "A:q2", "A:max alternative"]
+              },
+              "id": "Boxplot",
+              "name": "Boxplot",
+              "type": "boxplot",
+              "uid": "deda19fd-f436-4371-bd44-50c16f7fd66b"
+            }
+          ]
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "country",
+                "type": "string",
+                "values": ["Norway", "United States", "Germany", "Canada"]
+              },
+              {
+                "config": {},
+                "name": "country alternative",
+                "type": "string",
+                "values": ["Norway (EU)", "United States (AM)", "Germany (EU)", "Canada (AM)"]
+              },
+              {
+                "config": {},
+                "name": "min",
+                "type": "string",
+                "values": ["11450", "15300", "7200", "12022"]
+              },
+              {
+                "config": {},
+                "name": "q1",
+                "type": "string",
+                "values": ["19862", "22572", "18274", "18076"]
+              },
+              {
+                "config": {},
+                "name": "q1 alternative",
+                "type": "string",
+                "values": ["21000", "23500", "19500", "21000"]
+              },
+              {
+                "config": {},
+                "name": "median",
+                "type": "string",
+                "values": ["35318", "30127", "28036", "26942"]
+              },
+              {
+                "config": {},
+                "name": "q2",
+                "type": "string",
+                "values": ["57000", "44296", "35671", "35354"]
+              },
+              {
+                "config": {},
+                "name": "max",
+                "type": "string",
+                "values": ["65781", "55354", "44053", "43294"]
+              },
+              {
+                "config": {},
+                "name": "max alternative",
+                "type": "string",
+                "values": ["70000", "65000", "50000", "47000"]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Boxplot",
+  "uid": "adwuy90r2w1z4a",
+  "version": 15,
+  "weekStart": ""
+}
