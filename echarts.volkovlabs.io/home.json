@@ -1213,7 +1213,7 @@
         "uid": "4ytGZmF4k"
       },
       "gridPos": {
-        "h": 17,
+        "h": 10,
         "w": 16,
         "x": 0,
         "y": 50
@@ -1244,7 +1244,7 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/adwuy90r2w1z4a/boxplot?orgId=1');\n});\n\nreturn {\n  title: {\n    text: \"Boxplot Visual mode\",\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/adwuy90r2w1z4a/boxplot?orgId=1');\n});\n\nreturn {\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  /**\n   * Set correct axis value\n   */\n  xAxis: {\n    type: 'category'\n  },\n  yAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 60,\n    scale: true\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "dataset": [
             {
               "name": "country",
@@ -1366,6 +1366,7 @@
           "refId": "A"
         }
       ],
+      "title": "Boxplot",
       "type": "volkovlabs-echarts-panel"
     }
   ],
