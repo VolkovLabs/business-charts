@@ -5,6 +5,7 @@
 ### Features / Enhancements
 
 - Added Boxplot in Visual Editor (#327)
+- Updated Grafana 11.2 dependencies (#330)
 
 ## 6.3.0 (2024-08-26)
 
