@@ -214,7 +214,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
                   dataset: {
                     source: getDatasetSource(data.series, options.visualEditor.dataset),
                   },
-                  series: getDataSeries(options.visualEditor.series, data.series),
+                  series: getDataSeries(options.visualEditor.series, data.series, options.visualEditor.dataset),
                   radar: getRadarOptions(options.visualEditor, data.series),
                 },
               })

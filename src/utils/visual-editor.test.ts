@@ -185,6 +185,25 @@ describe('Visual Editor Utils', () => {
       });
     });
 
+    it('Should return a Scatter series', () => {
+      const item = { id: 1, name: 'Scatter Series', uid: 'scatter-1' } as any;
+      const newType = SeriesType.SCATTER;
+      const result = getSeriesWithNewType(item, newType);
+
+      expect(result).toEqual({
+        id: 1,
+        name: 'Scatter Series',
+        uid: 'scatter-1',
+        type: SeriesType.SCATTER,
+        encode: {
+          x: [],
+          y: [],
+          tooltip: [],
+        },
+        symbol: 'circle',
+      });
+    });
+
     it('Should return a Sunburst series', () => {
       const item = { id: 1, name: 'Sunburst Series', uid: 'sunburst-1' } as any;
       const newType = SeriesType.SUNBURST;
@@ -259,7 +278,7 @@ describe('Visual Editor Utils', () => {
         },
       ] as any;
 
-      const result = convertSeriesToChartOption(item, series);
+      const result = convertSeriesToChartOption(item, series, []);
 
       expect(result).toEqual({
         id: 'RadarSeries',
@@ -315,7 +334,7 @@ describe('Visual Editor Utils', () => {
         },
       ] as any;
 
-      const result = convertSeriesToChartOption(item, series);
+      const result = convertSeriesToChartOption(item, series, []);
 
       expect(result).toEqual({
         id: 1,
@@ -336,6 +355,40 @@ describe('Visual Editor Utils', () => {
         levelValue: '1',
         outerRadius: '100%',
         sort: SunburstSortOption.DESC,
+      });
+    });
+
+    it('Should convert a scatter series to chart option', () => {
+      const item = {
+        data: [],
+        id: 'ScatterSeries',
+        uid: 'scatter-set',
+        name: 'Scatter Series',
+        type: SeriesType.SCATTER,
+        encode: {
+          tooltip: ['A:Size'],
+          x: ['A:X'],
+          y: ['A:Y'],
+        },
+        symbol: 'rect',
+      } as any;
+
+      const series = [] as any;
+
+      const result = convertSeriesToChartOption(item, series, []);
+
+      expect(result).toEqual({
+        id: 'ScatterSeries',
+        name: 'Scatter Series',
+        type: SeriesType.SCATTER,
+        uid: 'scatter-set',
+        data: [],
+        encode: {
+          tooltip: ['A:Size'],
+          x: ['A:X'],
+          y: ['A:Y'],
+        },
+        symbol: 'rect',
       });
     });
 
@@ -370,7 +423,7 @@ describe('Visual Editor Utils', () => {
         },
       ] as any;
 
-      const result = convertSeriesToChartOption(item, series);
+      const result = convertSeriesToChartOption(item, series, []);
 
       expect(result).toEqual({
         id: 'RadarSeries',

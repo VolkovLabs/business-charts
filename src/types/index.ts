@@ -5,6 +5,7 @@ export * from './gaode';
 export * from './google';
 export * from './panel';
 export * from './radar';
+export * from './scatter';
 export * from './sunburst';
 export * from './theme-editor';
 export * from './visual-editor';

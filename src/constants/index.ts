@@ -3,6 +3,7 @@ export * from './echarts';
 export * from './editor';
 export * from './maps';
 export * from './radar';
+export * from './scatter';
 export * from './sunburst';
 export * from './tests';
 export * from './visual-editor';

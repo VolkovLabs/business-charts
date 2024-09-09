@@ -635,6 +635,156 @@ describe('Series Editor', () => {
       });
     });
 
+    describe('Scatter', () => {
+      const scatter = {
+        uid: 'scatter-1',
+        id: 'scatter-1',
+        name: 'scatter-1-1',
+        type: SeriesType.SCATTER,
+        encode: {
+          x: ['A:Time'],
+          y: ['A:Value'],
+        },
+      };
+      const items = [
+        scatter,
+        {
+          uid: 'other',
+          id: 'other',
+          name: 'Other',
+        },
+      ];
+
+      it('Should update encode Y', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(scatter.id);
+
+        fireEvent.change(item.scatterFieldEncodeY(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.scatterFieldEncodeY()).toHaveValue(['A:Value']);
+      });
+
+      it('Should update encode X', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(scatter.id);
+
+        fireEvent.change(item.scatterFieldEncodeX(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.scatterFieldEncodeX()).toHaveValue(['A:Value']);
+      });
+
+      it('Should update field size', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(scatter.id);
+
+        fireEvent.change(item.scatterFieldSize(), { target: { value: 'A:Value' } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.scatterFieldSize()).toHaveValue('A:Value');
+      });
+
+      it('Should update symbol type', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(scatter.id);
+
+        expect(item.scatterFieldSymbolType()).toHaveValue('circle');
+
+        fireEvent.change(item.scatterFieldSymbolType(), { target: { value: 'triangle' } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.scatterFieldSymbolType()).toHaveValue('triangle');
+      });
+
+      it('Should update encode tooltip', () => {
+        const { value, onChange } = createOnChangeHandler(items);
+
+        const { rerender } = render(
+          getComponent({
+            value,
+            onChange,
+            dataset,
+          })
+        );
+
+        const item = openItem(scatter.id);
+
+        expect(item.scatterFieldTooltip()).toHaveValue(['']);
+
+        fireEvent.change(item.scatterFieldTooltip(), { target: { values: ['A:Value'] } });
+
+        rerender(
+          getComponent({
+            value,
+            onChange,
+          })
+        );
+
+        expect(item.scatterFieldTooltip()).toHaveValue(['A:Value']);
+      });
+    });
+
     describe('Sunburst', () => {
       const sunburstItem = {
         ...SUNBURST_DEFAULT,

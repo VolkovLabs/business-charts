@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { SUNBURST_DEFAULT } from '../constants';
 import { DatasetItem, RadarChartOptions, SeriesByType, SeriesItem, SeriesType, VisualEditorOptions } from '../types';
+import { convertScatterOptions } from './convert-scatter-options';
 import { convertSunburstOptions } from './convert-sunburst-options';
 import { getFieldValues } from './data-frame';
 
@@ -137,6 +138,18 @@ export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name
         type: newType,
       };
     }
+    case SeriesType.SCATTER: {
+      return {
+        ...commonValues,
+        encode: {
+          x: [],
+          y: [],
+          tooltip: [],
+        },
+        symbol: 'circle',
+        type: newType,
+      };
+    }
     default: {
       return {
         ...commonValues,
@@ -150,8 +163,9 @@ export const getSeriesWithNewType = <TItem extends Pick<SeriesItem, 'id' | 'name
  * Convert Series to chart option
  * @param item
  * @param series
+ * @param dataset
  */
-export const convertSeriesToChartOption = (item: SeriesItem, series: DataFrame[]) => {
+export const convertSeriesToChartOption = (item: SeriesItem, series: DataFrame[], dataset: DatasetItem[]) => {
   switch (item.type) {
     case SeriesType.RADAR: {
       const currentData = item.radarDimensions.map((dimension) => {
@@ -178,6 +192,9 @@ export const convertSeriesToChartOption = (item: SeriesItem, series: DataFrame[]
         data: currentData,
       };
     }
+    case SeriesType.SCATTER: {
+      return convertScatterOptions(item, dataset);
+    }
     case SeriesType.SUNBURST: {
       return convertSunburstOptions(item, series);
     }
@@ -196,10 +213,11 @@ export const getSeriesUniqueId = () => uuidv4();
  * Data Series
  * @param visualEditorSeries
  * @param series
+ * @param dataset
  */
-export const getDataSeries = (visualEditorSeries: SeriesItem[], series: DataFrame[]) => {
+export const getDataSeries = (visualEditorSeries: SeriesItem[], series: DataFrame[], dataset: DatasetItem[]) => {
   return visualEditorSeries.map((item) => {
-    return convertSeriesToChartOption(item, series);
+    return convertSeriesToChartOption(item, series, dataset);
   });
 };
 
