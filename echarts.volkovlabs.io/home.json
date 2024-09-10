@@ -1061,6 +1061,7 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
@@ -1080,7 +1081,7 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -1098,13 +1099,76 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "console.log(context);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "code": "context.panel.chart.on('click', (params) => {\n  context.grafana.locationService.replace('/d/U332C4K4z/scatter?orgId=1');\n});\n\n// See https://github.com/ecomfe/echarts-stat\ncontext.echarts.registerTransform(context.ecStat.transform.regression);\n\nreturn {\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  graphic: [\n    {\n      type: 'group',\n      rotation: Math.PI / 4,\n      bounding: 'raw',\n      right: 110,\n      bottom: 110,\n      z: 100,\n      children: [\n        {\n          type: 'rect',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          shape: {\n            width: 400,\n            height: 50\n          },\n          style: {\n            fill: 'rgba(0,0,0,0.3)'\n          }\n        },\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          z: 100,\n          style: {\n            fill: '#fff',\n            text: 'CLICK FOR MORE',\n            font: 'bold 26px sans-serif'\n          }\n        }\n      ]\n    }]\n}\n",
           "codeHeight": 600,
-          "dataset": [],
-          "series": []
+          "dataset": [
+            {
+              "name": "xAxis",
+              "source": "A"
+            },
+            {
+              "name": "yAxis",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:xAxis"],
+                "y": ["A:yAxis"]
+              },
+              "id": "Line",
+              "name": "Line",
+              "type": "line",
+              "uid": "a0096b03-9971-4890-835d-029716ec4521"
+            },
+            {
+              "encode": {
+                "tooltip": [],
+                "x": ["A:xAxis"],
+                "y": ["A:yAxis"]
+              },
+              "id": "Scatter",
+              "name": "",
+              "symbol": "circle",
+              "type": "scatter",
+              "uid": "4c88dedc-f52f-4eb9-bc10-6b3fcf67fbfc"
+            }
+          ]
         }
       },
       "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "xAxis",
+                "type": "number",
+                "values": []
+              },
+              {
+                "config": {},
+                "name": "yAxis",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const points = Array.from({ length: 18 }, (_, index) => index + 1)\nconst result = {\n  ...frame,\n  fields: frame.fields.map((field) => {\n    \n    if (field.name === 'xAxis') {\n      return ({\n        ...field,\n        values: points\n      })\n    }\n\n    const start = 4000;\n    const end = 78000;\n    const count = 18;\n\n    const r = Math.pow(end / start, 1 / (count - 1));\n\n    const numbers = Array.from({ length: count }, (_, index) => {\n      return Math.round(start * Math.pow(r, index));\n    });\n\n    console.log(numbers);\n\n    return ({\n      ...field,\n      values: numbers\n    })\n  })\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            }
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Scatter",
       "type": "volkovlabs-echarts-panel"
     },

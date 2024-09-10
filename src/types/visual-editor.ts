@@ -3,6 +3,7 @@ import { EChartOption } from 'echarts';
 import { BarSeriesOptions } from './bar';
 import { BoxplotSeriesOptions } from './boxplot';
 import { RadarConfigOptions, RadarSeriesOptions } from './radar';
+import { ScatterSeriesOptions } from './scatter';
 import { SunburstSeriesOptions } from './sunburst';
 
 /**
@@ -117,7 +118,7 @@ export type SeriesItem = BaseSeriesOptions &
     | { type: SeriesType.GRAPH }
     | { type: SeriesType.GAUGE }
     | { type: SeriesType.PIE }
-    | { type: SeriesType.SCATTER }
+    | ({ type: SeriesType.SCATTER } & ScatterSeriesOptions)
     | { type: SeriesType.EFFECTSCATTER }
     | ({ type: SeriesType.RADAR } & RadarSeriesOptions)
     | { type: SeriesType.TREE }

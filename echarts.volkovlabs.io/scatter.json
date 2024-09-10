@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 11,
   "links": [
     {
       "asDropdown": false,
@@ -43,6 +43,7 @@
   "panels": [
     {
       "datasource": {
+        "default": true,
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
@@ -62,7 +63,7 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -79,13 +80,141 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
-          "dataset": [],
-          "series": []
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  /**\n   * Should be add to see tooltip\n   */\n  tooltip: {},\n  xAxis: {\n    type: \"category\"\n  },\n  yAxis: {\n    type: \"value\"\n  },\n}\n",
+          "dataset": [
+            {
+              "name": "Yaxis",
+              "source": "A"
+            },
+            {
+              "name": "Xaxis",
+              "source": "A"
+            },
+            {
+              "name": "Size",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "tooltip": ["A:Size"],
+                "x": ["A:Xaxis"],
+                "y": ["A:Yaxis"]
+              },
+              "id": "Scatter",
+              "name": "Scatter",
+              "sizeField": "A:Size",
+              "symbol": "circle",
+              "type": "scatter",
+              "uid": "08dcc113-7054-459e-9d36-9375f41c5b21"
+            }
+          ]
         }
       },
-      "pluginVersion": "6.3.0",
-      "title": "Basic Scatter",
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Yaxis",
+                "type": "string",
+                "values": [
+                  "10",
+                  "8.07",
+                  "13.0",
+                  "9.05",
+                  "11",
+                  "14",
+                  "13.4",
+                  "10",
+                  "14",
+                  "12.5",
+                  "9.15",
+                  "11.5",
+                  "3.03",
+                  "12.2",
+                  "2.02",
+                  "1.05",
+                  "4.06",
+                  "6.03",
+                  "12.0",
+                  "12.0",
+                  "7.08",
+                  "5.02"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Xaxis",
+                "type": "string",
+                "values": [
+                  "8.04",
+                  "6.95",
+                  "7.58",
+                  "8.81",
+                  "8.33",
+                  "7.66",
+                  "6.81",
+                  "6.33",
+                  "8.96",
+                  "6.82",
+                  "7.20",
+                  "7.2",
+                  "4.23",
+                  "7.83",
+                  "4.47",
+                  "3.33",
+                  "4.96",
+                  "7.24",
+                  "8.84",
+                  "6.26",
+                  "5.82",
+                  "5.68"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Size",
+                "type": "string",
+                "values": [
+                  "20",
+                  "21",
+                  "22",
+                  "23",
+                  "24",
+                  "25",
+                  "26",
+                  "27",
+                  "28",
+                  "29",
+                  "30",
+                  "29",
+                  "28",
+                  "27",
+                  "26",
+                  "25",
+                  "24",
+                  "23",
+                  "22",
+                  "21",
+                  "20",
+                  "19"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Basic Scatter Visual Editor ",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -131,7 +260,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Anscombe's quartet",
       "type": "volkovlabs-echarts-panel"
     },
@@ -178,7 +307,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Clustering Process",
       "type": "volkovlabs-echarts-panel"
     },
@@ -225,12 +354,13 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Clustering Process",
       "type": "volkovlabs-echarts-panel"
     },
     {
       "datasource": {
+        "default": true,
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
@@ -250,7 +380,7 @@
           "format": "auto",
           "height": 600
         },
-        "editorMode": "code",
+        "editorMode": "visual",
         "gaode": {
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
@@ -267,13 +397,87 @@
           "name": "default"
         },
         "visualEditor": {
-          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
-          "dataset": [],
-          "series": []
+          "code": "// See https://github.com/ecomfe/echarts-stat\ncontext.echarts.registerTransform(context.ecStat.transform.regression);\nreturn {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n};\n\n",
+          "dataset": [
+            {
+              "name": "xAxis",
+              "source": "A"
+            },
+            {
+              "name": "yAxis",
+              "source": "A"
+            },
+            {
+              "name": "size",
+              "source": "A"
+            }
+          ],
+          "series": [
+            {
+              "encode": {
+                "x": ["A:xAxis"],
+                "y": ["A:yAxis"]
+              },
+              "id": "Line",
+              "name": "Line",
+              "type": "line",
+              "uid": "b03da6d0-fa2a-463f-ae6c-d559a4807084"
+            },
+            {
+              "encode": {
+                "tooltip": [],
+                "x": ["A:xAxis"],
+                "y": ["A:yAxis"]
+              },
+              "id": "Scatter",
+              "name": "Scatter",
+              "sizeField": "A:size",
+              "symbol": "pin",
+              "type": "scatter",
+              "uid": "ff7205b9-9724-47a4-9bb4-84d959b1cdb9"
+            }
+          ]
         }
       },
-      "pluginVersion": "6.3.0",
-      "title": "Exponential Regression",
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "4ytGZmF4k"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "xAxis",
+                "type": "number",
+                "values": []
+              },
+              {
+                "config": {},
+                "name": "yAxis",
+                "type": "number",
+                "values": []
+              },
+              {
+                "config": {},
+                "name": "size",
+                "type": "number",
+                "values": []
+              }
+            ],
+            "meta": {
+              "custom": {
+                "customCode": "const points = Array.from({ length: 18 }, (_, index) => index + 1)\nconst sizes = Array.from({ length: 18 }, (_, index) => index + 3)\nconst result = {\n  ...frame,\n  fields: frame.fields.map((field) => {\n\n    if (field.name === 'xAxis') {\n      return ({\n        ...field,\n        values: points\n      })\n    }\n\n    if (field.name === 'size') {\n      return ({\n        ...field,\n        values: sizes\n      })\n    }\n\n    const start = 4000;\n    const end = 78000;\n    const count = 18;\n\n    const r = Math.pow(end / start, 1 / (count - 1));\n\n    const numbers = Array.from({ length: count }, (_, index) => {\n      return Math.round(start * Math.pow(r, index));\n    });\n\n    console.log(numbers);\n\n    return ({\n      ...field,\n      values: numbers\n    })\n  })\n}\n\nreturn Promise.resolve(result);",
+                "valuesEditor": "custom"
+              }
+            }
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Exponential Regression Vvisual editor",
       "type": "volkovlabs-echarts-panel"
     },
     {
@@ -319,7 +523,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Effect Scatter",
       "type": "volkovlabs-echarts-panel"
     },
@@ -355,8 +559,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.4.0",
       "title": "Linear Regression",
       "type": "volkovlabs-echarts-panel"
     },
@@ -392,8 +606,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.4.0",
       "title": "Polynomial Regression",
       "type": "volkovlabs-echarts-panel"
     },
@@ -429,8 +653,18 @@
           "key": ""
         },
         "map": "json",
-        "renderer": "canvas"
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
       },
+      "pluginVersion": "6.4.0",
       "title": "Punch Card of Github",
       "type": "volkovlabs-echarts-panel"
     }
@@ -450,6 +684,6 @@
   "timezone": "",
   "title": "Scatter",
   "uid": "U332C4K4z",
-  "version": 1,
+  "version": 3,
   "weekStart": ""
 }

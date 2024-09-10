@@ -52,6 +52,11 @@ export const TEST_IDS = {
     emphasisFocusOption: (name: string) => `series-editor emphasis-focus-option-${name}`,
     boxplotFieldEncodeX: 'series-editor boxplot-field-encode-x',
     boxplotFieldEncodeY: 'series-editor boxplot-field-encode-y',
+    scatterFieldEncodeX: 'series-editor scatter-field-encode-x',
+    scatterFieldEncodeY: 'series-editor scatter-field-encode-y',
+    scatterFieldSize: 'series-editor scatter-field-size',
+    scatterFieldSymbolType: 'series-editor scatter-field-symbol-type',
+    scatterFieldTooltip: 'series-editor scatter-field-tooltip',
   },
   datasetEditor: {
     buttonAddNew: 'data-testid dataset-editor button-add-new',
