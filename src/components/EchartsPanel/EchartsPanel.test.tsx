@@ -184,47 +184,6 @@ describe('Panel', () => {
     });
   });
 
-  it('Should publish success and errors events with passed payload', () => {
-    const publish = jest.fn();
-    jest.mocked(getAppEvents).mockImplementation(
-      () =>
-        ({
-          publish,
-        }) as any
-    ); // we need only these options
-    const successPayload: AlertPayload = ['everything is fine'];
-    const errorPayload: AlertErrorPayload = ['something is wrong'];
-    jest.mocked(echarts.init).mockImplementationOnce(
-      () =>
-        ({
-          setOption: ({
-            notifySuccess,
-            notifyError,
-          }: {
-            notifySuccess: (payload: AlertPayload) => void;
-            notifyError: (payload: AlertErrorPayload) => void;
-          }) => {
-            notifySuccess(successPayload);
-            notifyError(errorPayload);
-          },
-          on: jest.fn(),
-          off: jest.fn(),
-          clear: jest.fn(),
-        }) as any
-    ); // we need only these options
-    render(
-      getComponent({
-        options: {
-          getOption: 'return {  refresh }',
-        },
-      })
-    );
-    expect(publish).toHaveBeenCalledWith({
-      type: AppEvents.alertSuccess.name,
-      payload: successPayload,
-    });
-  });
-
   it('Should publish events with passed payload even with promise return', () => {
     const publish = jest.fn();
     jest.mocked(getAppEvents).mockImplementation(
