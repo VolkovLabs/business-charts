@@ -29,3 +29,12 @@ datasources:
     orgId: 1
     version: 1
     editable: true
+  - name: Apache example
+    type: marcusolsson-json-datasource
+    url: https://echarts.apache.org/examples/data/asset/data/life-expectancy-table.json
+    access: proxy
+    uid: cdxk2saztwflsd
+    isDefault: false
+    orgId: 1
+    version: 1
+    editable: true
