@@ -184,6 +184,47 @@ describe('Panel', () => {
     });
   });
 
+  it('Should publish success and errors events with passed payload', () => {
+    const publish = jest.fn();
+    jest.mocked(getAppEvents).mockImplementation(
+      () =>
+        ({
+          publish,
+        }) as any
+    ); // we need only these options
+    const successPayload: AlertPayload = ['everything is fine'];
+    const errorPayload: AlertErrorPayload = ['something is wrong'];
+    jest.mocked(echarts.init).mockImplementationOnce(
+      () =>
+        ({
+          setOption: ({
+            notifySuccess,
+            notifyError,
+          }: {
+            notifySuccess: (payload: AlertPayload) => void;
+            notifyError: (payload: AlertErrorPayload) => void;
+          }) => {
+            notifySuccess(successPayload);
+            notifyError(errorPayload);
+          },
+          on: jest.fn(),
+          off: jest.fn(),
+          clear: jest.fn(),
+        }) as any
+    ); // we need only these options
+    render(
+      getComponent({
+        options: {
+          getOption: 'return {  refresh }',
+        },
+      })
+    );
+    expect(publish).toHaveBeenCalledWith({
+      type: AppEvents.alertSuccess.name,
+      payload: successPayload,
+    });
+  });
+
   it('Should publish events with passed payload even with promise return', () => {
     const publish = jest.fn();
     jest.mocked(getAppEvents).mockImplementation(
@@ -607,79 +648,5 @@ describe('Panel', () => {
         { notMerge: true }
       );
     });
-
-    // it('Should apply result from visual editor code with imports ', () => {
-    //   const getOption = `
-    //     const options = {
-    //       dataset: context.editor.dataset,
-    //       series: context.editor.series,
-    //     }
-
-    //     const myPromise = new Promise((resolve, reject) => {
-    //       resolve(options)
-    //     });
-
-    //     return myPromise
-    //   `;
-    //   const setOptionMock = jest.fn();
-    //   jest.mocked(echarts.init).mockImplementation(
-    //     () =>
-    //       ({
-    //         setOption: setOptionMock,
-    //         on: jest.fn(),
-    //         off: jest.fn(),
-    //       }) as any
-    //   );
-    //   const series = [{ id: 'line', name: 'Line', type: SeriesType.LINE, encode: { x: ['Time'], y: ['Value'] } }];
-
-    //   const data = {
-    //     series: [
-    //       toDataFrame({
-    //         fields: [
-    //           {
-    //             name: 'Time',
-    //             values: [1, 2, 3],
-    //           },
-    //           {
-    //             name: 'Value',
-    //             values: [10, 20, 30],
-    //           },
-    //         ],
-    //       }),
-    //     ],
-    //   };
-
-    //   /**
-    //    * Render
-    //    */
-    //   render(
-    //     getComponent({
-    //       data,
-    //       options: {
-    //         editorMode: EditorMode.VISUAL,
-    //         visualEditor: {
-    //           code: getOption,
-    //           dataset: [{ name: 'Time' }, { name: 'Value' }],
-    //           series,
-    //         },
-    //       },
-    //     })
-    //   );
-
-    //   expect(setOptionMock).toHaveBeenCalledWith(
-    //     expect.objectContaining({
-    //       series,
-    //       dataset: {
-    //         source: [
-    //           ['Time', 'Value'],
-    //           [1, 10],
-    //           [2, 20],
-    //           [3, 30],
-    //         ],
-    //       },
-    //     }),
-    //     { notMerge: true }
-    //   );
-    // });
   });
 });
