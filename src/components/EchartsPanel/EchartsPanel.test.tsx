@@ -184,6 +184,40 @@ describe('Panel', () => {
     });
   });
 
+  it('Should publish refresh method called', () => {
+    const publish = jest.fn();
+    jest.mocked(getAppEvents).mockImplementation(
+      () =>
+        ({
+          publish,
+        }) as any
+    ); // we need only these options
+
+    jest.mocked(echarts.init).mockImplementationOnce(
+      () =>
+        ({
+          setOption: () => {},
+          on: jest.fn(),
+          off: jest.fn(),
+          clear: jest.fn(),
+        }) as any
+    ); // we need only these options
+
+    render(
+      getComponent({
+        options: {
+          getOption: 'return {  refresh: context.grafana.refresh() }',
+        },
+      })
+    );
+    expect(publish).toHaveBeenCalledWith({
+      type: 'variables-changed',
+      payload: {
+        refreshAll: true,
+      },
+    });
+  });
+
   it('Should publish events with passed payload even with promise return', () => {
     const publish = jest.fn();
     jest.mocked(getAppEvents).mockImplementation(
