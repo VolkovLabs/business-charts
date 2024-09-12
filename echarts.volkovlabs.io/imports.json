@@ -1,0 +1,334 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": ["echarts"],
+      "targetBlank": false,
+      "title": "Apache ECharts",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "const values = [\n  [0.067732, 3.176513],\n  [0.42781, 3.816464],\n  [0.995731, 4.550095],\n  [0.738336, 4.256571],\n  [0.981083, 4.560815],\n  [0.526171, 3.929515],\n  [0.378887, 3.52617],\n  [0.033859, 3.156393],\n  [0.132791, 3.110301],\n  [0.138306, 3.149813],\n  [0.247809, 3.476346],\n  [0.64827, 4.119688],\n  [0.731209, 4.282233],\n  [0.236833, 3.486582],\n  [0.969788, 4.655492],\n  [0.607492, 3.965162],\n  [0.358622, 3.5149],\n  [0.147846, 3.125947],\n  [0.63782, 4.094115],\n  [0.230372, 3.476039],\n  [0.070237, 3.21061],\n  [0.067154, 3.190612],\n  [0.925577, 4.631504],\n  [0.717733, 4.29589],\n  [0.015371, 3.085028],\n  [0.33507, 3.44808],\n  [0.040486, 3.16744],\n  [0.212575, 3.364266],\n  [0.617218, 3.993482],\n  [0.541196, 3.891471],\n  [0.045353, 3.143259],\n  [0.126762, 3.114204],\n  [0.556486, 3.851484],\n  [0.901144, 4.621899],\n  [0.958476, 4.580768],\n  [0.274561, 3.620992],\n  [0.394396, 3.580501],\n  [0.87248, 4.618706],\n  [0.409932, 3.676867],\n  [0.908969, 4.641845],\n  [0.166819, 3.175939],\n  [0.665016, 4.26498],\n  [0.263727, 3.558448],\n  [0.231214, 3.436632],\n  [0.552928, 3.831052],\n  [0.047744, 3.182853],\n  [0.365746, 3.498906],\n  [0.495002, 3.946833],\n  [0.493466, 3.900583],\n  [0.792101, 4.238522],\n  [0.76966, 4.23308],\n  [0.251821, 3.521557],\n  [0.181951, 3.203344],\n  [0.808177, 4.278105],\n  [0.334116, 3.555705],\n  [0.33863, 3.502661],\n  [0.452584, 3.859776],\n  [0.69477, 4.275956],\n  [0.590902, 3.916191],\n  [0.307928, 3.587961],\n  [0.148364, 3.183004],\n  [0.70218, 4.225236],\n  [0.721544, 4.231083],\n  [0.666886, 4.240544],\n  [0.124931, 3.222372],\n  [0.618286, 4.021445],\n  [0.381086, 3.567479],\n  [0.385643, 3.56258],\n  [0.777175, 4.262059],\n  [0.116089, 3.208813],\n  [0.115487, 3.169825],\n  [0.66351, 4.193949],\n  [0.254884, 3.491678],\n  [0.993888, 4.533306],\n  [0.295434, 3.550108],\n  [0.952523, 4.636427],\n  [0.307047, 3.557078],\n  [0.277261, 3.552874],\n  [0.279101, 3.494159],\n  [0.175724, 3.206828],\n  [0.156383, 3.195266],\n  [0.733165, 4.221292],\n  [0.848142, 4.413372],\n  [0.771184, 4.184347],\n  [0.429492, 3.742878],\n  [0.162176, 3.201878],\n  [0.917064, 4.648964],\n  [0.315044, 3.510117],\n  [0.201473, 3.274434],\n  [0.297038, 3.579622],\n  [0.336647, 3.489244],\n  [0.666109, 4.237386],\n  [0.583888, 3.913749],\n  [0.085031, 3.22899],\n  [0.687006, 4.286286],\n  [0.949655, 4.628614],\n  [0.189912, 3.239536],\n  [0.844027, 4.457997],\n  [0.333288, 3.513384],\n  [0.427035, 3.729674],\n  [0.466369, 3.834274],\n  [0.550659, 3.811155],\n  [0.278213, 3.598316],\n  [0.918769, 4.692514],\n  [0.886555, 4.604859],\n  [0.569488, 3.864912],\n  [0.066379, 3.184236],\n  [0.335751, 3.500796],\n  [0.426863, 3.743365],\n  [0.395746, 3.622905],\n  [0.694221, 4.310796],\n  [0.27276, 3.583357],\n  [0.503495, 3.901852],\n  [0.067119, 3.233521],\n  [0.038326, 3.105266],\n  [0.599122, 3.865544],\n  [0.947054, 4.628625],\n  [0.671279, 4.231213],\n  [0.434811, 3.791149],\n  [0.509381, 3.968271],\n  [0.749442, 4.25391],\n  [0.058014, 3.19471],\n  [0.482978, 3.996503],\n  [0.466776, 3.904358],\n  [0.357767, 3.503976],\n  [0.949123, 4.557545],\n  [0.41732, 3.699876],\n  [0.920461, 4.613614],\n  [0.156433, 3.140401],\n  [0.656662, 4.206717],\n  [0.616418, 3.969524],\n  [0.853428, 4.476096],\n  [0.133295, 3.136528],\n  [0.693007, 4.279071],\n  [0.178449, 3.200603],\n  [0.199526, 3.299012],\n  [0.073224, 3.209873],\n  [0.286515, 3.632942],\n  [0.182026, 3.248361],\n  [0.621523, 3.995783],\n  [0.344584, 3.563262],\n  [0.398556, 3.649712],\n  [0.480369, 3.951845],\n  [0.15335, 3.145031],\n  [0.171846, 3.181577],\n  [0.867082, 4.637087],\n  [0.223855, 3.404964],\n  [0.528301, 3.873188],\n  [0.890192, 4.633648],\n  [0.106352, 3.154768],\n  [0.917886, 4.623637],\n  [0.014855, 3.078132],\n  [0.567682, 3.913596],\n  [0.068854, 3.221817],\n  [0.603535, 3.938071],\n  [0.53205, 3.880822],\n  [0.651362, 4.176436],\n  [0.901225, 4.648161],\n  [0.204337, 3.332312],\n  [0.696081, 4.240614],\n  [0.963924, 4.532224],\n  [0.98139, 4.557105],\n  [0.987911, 4.610072],\n  [0.990947, 4.636569],\n  [0.736021, 4.229813],\n  [0.253574, 3.50086],\n  [0.674722, 4.245514],\n  [0.939368, 4.605182],\n  [0.235419, 3.45434],\n  [0.110521, 3.180775],\n  [0.218023, 3.38082],\n  [0.869778, 4.56502],\n  [0.19683, 3.279973],\n  [0.958178, 4.554241],\n  [0.972673, 4.63352],\n  [0.745797, 4.281037],\n  [0.445674, 3.844426],\n  [0.470557, 3.891601],\n  [0.549236, 3.849728],\n  [0.335691, 3.492215],\n  [0.884739, 4.592374],\n  [0.918916, 4.632025],\n  [0.441815, 3.75675],\n  [0.116598, 3.133555],\n  [0.359274, 3.567919],\n  [0.814811, 4.363382],\n  [0.387125, 3.560165],\n  [0.982243, 4.564305],\n  [0.78088, 4.215055],\n  [0.652565, 4.174999],\n  [0.87003, 4.58664],\n  [0.604755, 3.960008],\n  [0.255212, 3.529963],\n  [0.730546, 4.213412],\n  [0.493829, 3.908685],\n  [0.257017, 3.585821],\n  [0.833735, 4.374394],\n  [0.070095, 3.213817],\n  [0.52707, 3.952681],\n  [0.116163, 3.129283]\n];\n\nconst options = {\n  grid: {\n    bottom: \"4%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        // 'linear' by default.\n        // config: { method: 'linear', formulaOn: 'end' }\n      }\n    }\n  ],\n  legend: {\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter'\n    },\n    {\n      name: 'line',\n      type: 'line',\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ]\n}\n\n/**\n * echarts-stat import\n */\nimport(\"https://esm.sh/echarts-stat@1.2.0\").then(({ default: ecStatImport }) => {\n  context.echarts.registerTransform(ecStatImport.transform.regression);\n\n  /**\n   * setOption method use\n   */\n  context.panel.chart.setOption(options)\n});\n",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "title": "Linear Regression ecStat import (set options)",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "const values = [\n  [0.067732, 3.176513],\n  [0.42781, 3.816464],\n  [0.995731, 4.550095],\n  [0.738336, 4.256571],\n  [0.981083, 4.560815],\n  [0.526171, 3.929515],\n  [0.378887, 3.52617],\n  [0.033859, 3.156393],\n  [0.132791, 3.110301],\n  [0.138306, 3.149813],\n  [0.247809, 3.476346],\n  [0.64827, 4.119688],\n  [0.731209, 4.282233],\n  [0.236833, 3.486582],\n  [0.969788, 4.655492],\n  [0.607492, 3.965162],\n  [0.358622, 3.5149],\n  [0.147846, 3.125947],\n  [0.63782, 4.094115],\n  [0.230372, 3.476039],\n  [0.070237, 3.21061],\n  [0.067154, 3.190612],\n  [0.925577, 4.631504],\n  [0.717733, 4.29589],\n  [0.015371, 3.085028],\n  [0.33507, 3.44808],\n  [0.040486, 3.16744],\n  [0.212575, 3.364266],\n  [0.617218, 3.993482],\n  [0.541196, 3.891471],\n  [0.045353, 3.143259],\n  [0.126762, 3.114204],\n  [0.556486, 3.851484],\n  [0.901144, 4.621899],\n  [0.958476, 4.580768],\n  [0.274561, 3.620992],\n  [0.394396, 3.580501],\n  [0.87248, 4.618706],\n  [0.409932, 3.676867],\n  [0.908969, 4.641845],\n  [0.166819, 3.175939],\n  [0.665016, 4.26498],\n  [0.263727, 3.558448],\n  [0.231214, 3.436632],\n  [0.552928, 3.831052],\n  [0.047744, 3.182853],\n  [0.365746, 3.498906],\n  [0.495002, 3.946833],\n  [0.493466, 3.900583],\n  [0.792101, 4.238522],\n  [0.76966, 4.23308],\n  [0.251821, 3.521557],\n  [0.181951, 3.203344],\n  [0.808177, 4.278105],\n  [0.334116, 3.555705],\n  [0.33863, 3.502661],\n  [0.452584, 3.859776],\n  [0.69477, 4.275956],\n  [0.590902, 3.916191],\n  [0.307928, 3.587961],\n  [0.148364, 3.183004],\n  [0.70218, 4.225236],\n  [0.721544, 4.231083],\n  [0.666886, 4.240544],\n  [0.124931, 3.222372],\n  [0.618286, 4.021445],\n  [0.381086, 3.567479],\n  [0.385643, 3.56258],\n  [0.777175, 4.262059],\n  [0.116089, 3.208813],\n  [0.115487, 3.169825],\n  [0.66351, 4.193949],\n  [0.254884, 3.491678],\n  [0.993888, 4.533306],\n  [0.295434, 3.550108],\n  [0.952523, 4.636427],\n  [0.307047, 3.557078],\n  [0.277261, 3.552874],\n  [0.279101, 3.494159],\n  [0.175724, 3.206828],\n  [0.156383, 3.195266],\n  [0.733165, 4.221292],\n  [0.848142, 4.413372],\n  [0.771184, 4.184347],\n  [0.429492, 3.742878],\n  [0.162176, 3.201878],\n  [0.917064, 4.648964],\n  [0.315044, 3.510117],\n  [0.201473, 3.274434],\n  [0.297038, 3.579622],\n  [0.336647, 3.489244],\n  [0.666109, 4.237386],\n  [0.583888, 3.913749],\n  [0.085031, 3.22899],\n  [0.687006, 4.286286],\n  [0.949655, 4.628614],\n  [0.189912, 3.239536],\n  [0.844027, 4.457997],\n  [0.333288, 3.513384],\n  [0.427035, 3.729674],\n  [0.466369, 3.834274],\n  [0.550659, 3.811155],\n  [0.278213, 3.598316],\n  [0.918769, 4.692514],\n  [0.886555, 4.604859],\n  [0.569488, 3.864912],\n  [0.066379, 3.184236],\n  [0.335751, 3.500796],\n  [0.426863, 3.743365],\n  [0.395746, 3.622905],\n  [0.694221, 4.310796],\n  [0.27276, 3.583357],\n  [0.503495, 3.901852],\n  [0.067119, 3.233521],\n  [0.038326, 3.105266],\n  [0.599122, 3.865544],\n  [0.947054, 4.628625],\n  [0.671279, 4.231213],\n  [0.434811, 3.791149],\n  [0.509381, 3.968271],\n  [0.749442, 4.25391],\n  [0.058014, 3.19471],\n  [0.482978, 3.996503],\n  [0.466776, 3.904358],\n  [0.357767, 3.503976],\n  [0.949123, 4.557545],\n  [0.41732, 3.699876],\n  [0.920461, 4.613614],\n  [0.156433, 3.140401],\n  [0.656662, 4.206717],\n  [0.616418, 3.969524],\n  [0.853428, 4.476096],\n  [0.133295, 3.136528],\n  [0.693007, 4.279071],\n  [0.178449, 3.200603],\n  [0.199526, 3.299012],\n  [0.073224, 3.209873],\n  [0.286515, 3.632942],\n  [0.182026, 3.248361],\n  [0.621523, 3.995783],\n  [0.344584, 3.563262],\n  [0.398556, 3.649712],\n  [0.480369, 3.951845],\n  [0.15335, 3.145031],\n  [0.171846, 3.181577],\n  [0.867082, 4.637087],\n  [0.223855, 3.404964],\n  [0.528301, 3.873188],\n  [0.890192, 4.633648],\n  [0.106352, 3.154768],\n  [0.917886, 4.623637],\n  [0.014855, 3.078132],\n  [0.567682, 3.913596],\n  [0.068854, 3.221817],\n  [0.603535, 3.938071],\n  [0.53205, 3.880822],\n  [0.651362, 4.176436],\n  [0.901225, 4.648161],\n  [0.204337, 3.332312],\n  [0.696081, 4.240614],\n  [0.963924, 4.532224],\n  [0.98139, 4.557105],\n  [0.987911, 4.610072],\n  [0.990947, 4.636569],\n  [0.736021, 4.229813],\n  [0.253574, 3.50086],\n  [0.674722, 4.245514],\n  [0.939368, 4.605182],\n  [0.235419, 3.45434],\n  [0.110521, 3.180775],\n  [0.218023, 3.38082],\n  [0.869778, 4.56502],\n  [0.19683, 3.279973],\n  [0.958178, 4.554241],\n  [0.972673, 4.63352],\n  [0.745797, 4.281037],\n  [0.445674, 3.844426],\n  [0.470557, 3.891601],\n  [0.549236, 3.849728],\n  [0.335691, 3.492215],\n  [0.884739, 4.592374],\n  [0.918916, 4.632025],\n  [0.441815, 3.75675],\n  [0.116598, 3.133555],\n  [0.359274, 3.567919],\n  [0.814811, 4.363382],\n  [0.387125, 3.560165],\n  [0.982243, 4.564305],\n  [0.78088, 4.215055],\n  [0.652565, 4.174999],\n  [0.87003, 4.58664],\n  [0.604755, 3.960008],\n  [0.255212, 3.529963],\n  [0.730546, 4.213412],\n  [0.493829, 3.908685],\n  [0.257017, 3.585821],\n  [0.833735, 4.374394],\n  [0.070095, 3.213817],\n  [0.52707, 3.952681],\n  [0.116163, 3.129283]\n];\n\nconst options = {\n  grid: {\n    bottom: \"4%\",\n    containLabel: true,\n    left: \"3%\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:regression',\n        // 'linear' by default.\n        // config: { method: 'linear', formulaOn: 'end' }\n      }\n    }\n  ],\n  legend: {\n  },\n  tooltip: {\n    trigger: 'axis',\n    axisPointer: {\n      type: 'cross'\n    }\n  },\n  xAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  yAxis: {\n    splitLine: {\n      lineStyle: {\n        type: 'dashed'\n      }\n    }\n  },\n  series: [\n    {\n      name: 'scatter',\n      type: 'scatter'\n    },\n    {\n      name: 'line',\n      type: 'line',\n      datasetIndex: 1,\n      symbolSize: 0.1,\n      symbol: 'circle',\n      label: { show: true, fontSize: 16 },\n      labelLayout: { dx: -20 },\n      encode: { label: 2, tooltip: 1 }\n    }\n  ]\n}\n\n/**\n * echarts-stat import\n */\nimport(\"https://esm.sh/echarts-stat@1.2.0\").then(({ default: ecStatImport }) => {\n  context.echarts.registerTransform(ecStatImport.transform.regression);\n\n  /**\n   * setOption method use\n   */\n  context.panel.chart.setOption(options)\n});\n",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "title": "Linear Regression ecStat import (set options)",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "marcusolsson-json-datasource",
+        "uid": "cdxk2saztwflsd"
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 12,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "const dataSetTest = context.panel.data.series[0].fields[0].values\n\nconst options = {\n  dataset: [\n    {\n      id: 'raw',\n      source: dataSetTest\n    },\n    {\n      id: 'since_year',\n      fromDatasetId: 'raw',\n      transform: [\n        {\n          type: 'filter',\n          config: {\n            dimension: 'Year',\n            gte: 1950\n          }\n        }\n      ]\n    },\n    {\n      id: 'income_aggregate',\n      fromDatasetId: 'since_year',\n      transform: [\n        {\n          type: 'ecSimpleTransform:aggregate',\n          config: {\n            resultDimensions: [\n              { name: 'min', from: 'Income', method: 'min' },\n              { name: 'Q1', from: 'Income', method: 'Q1' },\n              { name: 'median', from: 'Income', method: 'median' },\n              { name: 'Q3', from: 'Income', method: 'Q3' },\n              { name: 'max', from: 'Income', method: 'max' },\n              { name: 'Country', from: 'Country' }\n            ],\n            groupBy: 'Country'\n          }\n        },\n        {\n          type: 'sort',\n          config: {\n            dimension: 'Q3',\n            order: 'asc'\n          }\n        }\n      ]\n    }\n  ],\n  title: {\n    text: 'Income since 1950'\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  xAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  yAxis: {\n    type: 'category'\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n  dataZoom: [\n    {\n      type: 'inside'\n    },\n    {\n      type: 'slider',\n      height: 20\n    }\n  ],\n  series: [\n    {\n      name: 'boxplot',\n      type: 'boxplot',\n      datasetId: 'income_aggregate',\n      itemStyle: {\n        color: '#b8c5f2'\n      },\n      encode: {\n        x: ['min', 'Q1', 'median', 'Q3', 'max'],\n        y: 'Country',\n        itemName: ['Country'],\n        tooltip: ['min', 'Q1', 'median', 'Q3', 'max']\n      }\n    },\n    {\n      name: 'detail',\n      type: 'scatter',\n      datasetId: 'since_year',\n      symbolSize: 6,\n      tooltip: {\n        trigger: 'item'\n      },\n      label: {\n        show: true,\n        position: 'top',\n        align: 'left',\n        verticalAlign: 'middle',\n        rotate: 90,\n        fontSize: 12\n      },\n      itemStyle: {\n        color: '#d00000'\n      },\n      encode: {\n        x: 'Income',\n        y: 'Country',\n        label: 'Year',\n        itemName: 'Year',\n        tooltip: ['Country', 'Year', 'Income']\n      }\n    }\n  ]\n}\n\n/**\n * echarts-simple-transform import\n */\nimport(\"https://esm.sh/@manufac/echarts-simple-transform@2.0.11\").then(({ default: ecSimpleTransform }) => {\n  context.echarts.registerTransform(ecSimpleTransform.aggregate);\n\n  /**\n   * setOption method use\n   */\n  context.panel.chart.setOption(options)\n});",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "cdxk2saztwflsd"
+          },
+          "fields": [
+            {
+              "jsonPath": "$",
+              "language": "jsonata"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "ecSimpleTransform import (set options example)",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "marcusolsson-json-datasource",
+        "uid": "cdxk2saztwflsd"
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 14,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "const dataSetTest = context.panel.data.series[0].fields[0].values\n\nconst options = {\n  dataset: [\n    {\n      id: 'raw',\n      source: dataSetTest\n    },\n    {\n      id: 'since_year',\n      fromDatasetId: 'raw',\n      transform: [\n        {\n          type: 'filter',\n          config: {\n            dimension: 'Year',\n            gte: 1799\n          }\n        }\n      ]\n    },\n    {\n      id: 'income_aggregate',\n      fromDatasetId: 'since_year',\n      transform: [\n        {\n          type: 'ecSimpleTransform:aggregate',\n          config: {\n            resultDimensions: [\n              { name: 'min', from: 'Income', method: 'min' },\n              { name: 'Q1', from: 'Income', method: 'Q1' },\n              { name: 'median', from: 'Income', method: 'median' },\n              { name: 'Q3', from: 'Income', method: 'Q3' },\n              { name: 'max', from: 'Income', method: 'max' },\n              { name: 'Country', from: 'Country' }\n            ],\n            groupBy: 'Country'\n          }\n        },\n        {\n          type: 'sort',\n          config: {\n            dimension: 'Q3',\n            order: 'asc'\n          }\n        }\n      ]\n    }\n  ],\n  title: {\n    text: 'Income since 1800'\n  },\n  tooltip: {\n    trigger: 'axis',\n    confine: true\n  },\n  xAxis: {\n    name: 'Income',\n    nameLocation: 'middle',\n    nameGap: 30,\n    scale: true\n  },\n  yAxis: {\n    type: 'category'\n  },\n  grid: {\n    bottom: 100\n  },\n  legend: {\n    selected: { detail: false }\n  },\n  dataZoom: [\n    {\n      type: 'inside'\n    },\n    {\n      type: 'slider',\n      height: 20\n    }\n  ],\n  series: [\n    {\n      name: 'boxplot',\n      type: 'boxplot',\n      datasetId: 'income_aggregate',\n      itemStyle: {\n        color: '#b8c5f2'\n      },\n      encode: {\n        x: ['min', 'Q1', 'median', 'Q3', 'max'],\n        y: 'Country',\n        itemName: ['Country'],\n        tooltip: ['min', 'Q1', 'median', 'Q3', 'max']\n      }\n    },\n    {\n      name: 'detail',\n      type: 'scatter',\n      datasetId: 'since_year',\n      symbolSize: 6,\n      tooltip: {\n        trigger: 'item'\n      },\n      label: {\n        show: true,\n        position: 'top',\n        align: 'left',\n        verticalAlign: 'middle',\n        rotate: 90,\n        fontSize: 12\n      },\n      itemStyle: {\n        color: '#d00000'\n      },\n      encode: {\n        x: 'Income',\n        y: 'Country',\n        label: 'Year',\n        itemName: 'Year',\n        tooltip: ['Country', 'Year', 'Income']\n      }\n    }\n  ]\n}\n\n/**\n  * echarts-simple-transform import\n  */\nreturn import(\"https://esm.sh/@manufac/echarts-simple-transform@2.0.11\").then(({ default: ecSimpleTransform }) => {\n  context.echarts.registerTransform(ecSimpleTransform.aggregate);\n\n  /**\n   * return options\n   */\n  return options\n});",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "cdxk2saztwflsd"
+          },
+          "fields": [
+            {
+              "jsonPath": "$",
+              "language": "jsonata"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "ecSimpleTransform import (return options example)",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 13,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "editorMode": "code",
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "/**\n * values\n */\nconst values = [\n  [3.275154, 2.957587],\n  [-3.344465, 2.603513],\n  [0.355083, -3.376585],\n  [1.852435, 3.547351],\n  [-2.078973, 2.552013],\n  [-0.993756, -0.884433],\n  [2.682252, 4.007573],\n  [-3.087776, 2.878713],\n  [-1.565978, -1.256985],\n  [2.441611, 0.444826],\n  [-0.659487, 3.111284],\n  [-0.459601, -2.618005],\n  [2.17768, 2.387793],\n  [-2.920969, 2.917485],\n  [-0.028814, -4.168078],\n  [3.625746, 2.119041],\n  [-3.912363, 1.325108],\n  [-0.551694, -2.814223],\n  [2.855808, 3.483301],\n  [-3.594448, 2.856651],\n  [0.421993, -2.372646],\n  [1.650821, 3.407572],\n  [-2.082902, 3.384412],\n  [-0.718809, -2.492514],\n  [4.513623, 3.841029],\n  [-4.822011, 4.607049],\n  [-0.656297, -1.449872],\n  [1.919901, 4.439368],\n  [-3.287749, 3.918836],\n  [-1.576936, -2.977622],\n  [3.598143, 1.97597],\n  [-3.977329, 4.900932],\n  [-1.79108, -2.184517],\n  [3.914654, 3.559303],\n  [-1.910108, 4.166946],\n  [-1.226597, -3.317889],\n  [1.148946, 3.345138],\n  [-2.113864, 3.548172],\n  [0.845762, -3.589788],\n  [2.629062, 3.535831],\n  [-1.640717, 2.990517],\n  [-1.881012, -2.485405],\n  [4.606999, 3.510312],\n  [-4.366462, 4.023316],\n  [0.765015, -3.00127],\n  [3.121904, 2.173988],\n  [-4.025139, 4.65231],\n  [-0.559558, -3.840539],\n  [4.376754, 4.863579],\n  [-1.874308, 4.032237],\n  [-0.089337, -3.026809],\n  [3.997787, 2.518662],\n  [-3.082978, 2.884822],\n  [0.845235, -3.454465],\n  [1.327224, 3.358778],\n  [-2.889949, 3.596178],\n  [-0.966018, -2.839827],\n  [2.960769, 3.079555],\n  [-3.275518, 1.577068],\n  [0.639276, -3.41284]\n];\nvar CLUSTER_COUNT = 6;\nvar DIENSIION_CLUSTER_INDEX = 2;\nvar COLOR_ALL = [\n  '#37A2DA',\n  '#e06343',\n  '#37a354',\n  '#b55dba',\n  '#b5bd48',\n  '#8378EA',\n  '#96BFFF'\n];\nvar pieces = [];\nfor (var i = 0; i < CLUSTER_COUNT; i++) {\n  pieces.push({\n    value: i,\n    label: 'cluster ' + i,\n    color: COLOR_ALL[i]\n  });\n}\n\nconst options = {\n  dataset: [\n    {\n      source: values\n    },\n    {\n      transform: {\n        type: 'ecStat:clustering',\n        // print: true,\n        config: {\n          clusterCount: CLUSTER_COUNT,\n          outputType: 'single',\n          outputClusterIndexDimension: DIENSIION_CLUSTER_INDEX\n        }\n      }\n    }\n  ],\n  tooltip: {\n    position: 'top'\n  },\n  visualMap: {\n    type: 'piecewise',\n    top: 'middle',\n    min: 0,\n    max: CLUSTER_COUNT,\n    left: 10,\n    splitNumber: CLUSTER_COUNT,\n    dimension: DIENSIION_CLUSTER_INDEX,\n    pieces: pieces\n  },\n  grid: {\n    bottom: \"3%\",\n    containLabel: true,\n    left: \"120\",\n    right: \"4%\",\n    top: \"4%\"\n  },\n  xAxis: {},\n  yAxis: {},\n  series: {\n    type: 'scatter',\n    encode: { tooltip: [0, 1] },\n    symbolSize: 15,\n    itemStyle: {\n      borderColor: '#555'\n    },\n    datasetIndex: 1\n  }\n};\n\n/**\n * echarts-stat import\n */\nreturn import(\"https://esm.sh/echarts-stat@1.2.0\").then(({ default: ecStatImport }) => {\n\n  context.echarts.registerTransform(ecStatImport.transform.clustering);\n\n  /**\n   *  Return Options\n   */\n  return options\n});\n",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "json",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "name": "default"
+        },
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editor.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": []
+        }
+      },
+      "pluginVersion": "6.4.0",
+      "title": "Clustering Process ecStat import (return options)",
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "Imports",
+  "uid": "bdxgf42bbwphce",
+  "version": 1,
+  "weekStart": ""
+}

@@ -184,6 +184,93 @@ describe('Panel', () => {
     });
   });
 
+  it('Should publish refresh method called', () => {
+    const publish = jest.fn();
+    jest.mocked(getAppEvents).mockImplementation(
+      () =>
+        ({
+          publish,
+        }) as any
+    ); // we need only these options
+
+    jest.mocked(echarts.init).mockImplementationOnce(
+      () =>
+        ({
+          setOption: () => {},
+          on: jest.fn(),
+          off: jest.fn(),
+          clear: jest.fn(),
+        }) as any
+    ); // we need only these options
+
+    render(
+      getComponent({
+        options: {
+          getOption: 'return {  refresh: context.grafana.refresh() }',
+        },
+      })
+    );
+    expect(publish).toHaveBeenCalledWith({
+      type: 'variables-changed',
+      payload: {
+        refreshAll: true,
+      },
+    });
+  });
+
+  it('Should publish events with passed payload even with promise return', () => {
+    const publish = jest.fn();
+    jest.mocked(getAppEvents).mockImplementation(
+      () =>
+        ({
+          publish,
+        }) as any
+    ); // we need only these options
+    const successPayload: AlertPayload = ['Header', 'Message'];
+    const errorPayload: AlertErrorPayload = ['Header error', 'Message error'];
+    jest.mocked(echarts.init).mockImplementationOnce(
+      () =>
+        ({
+          setOption: ({
+            notifySuccess,
+            notifyError,
+          }: {
+            notifySuccess: (payload: AlertPayload) => void;
+            notifyError: (payload: AlertErrorPayload) => void;
+          }) => {
+            notifySuccess(successPayload);
+            notifyError(errorPayload);
+          },
+          on: jest.fn(),
+          off: jest.fn(),
+          clear: jest.fn(),
+        }) as any
+    ); // we need only these options
+    render(
+      getComponent({
+        options: {
+          getOption: `const options = {}
+             const myPromise = new Promise((resolve, reject) => {
+               context.grafana.notifySuccess(['Header', 'Message'])
+               context.grafana.notifyError(['Header error', 'Message error'])
+               resolve(options)
+             });
+
+            return myPromise
+           `,
+        },
+      })
+    );
+    expect(publish).toHaveBeenCalledWith({
+      type: AppEvents.alertSuccess.name,
+      payload: successPayload,
+    });
+    expect(publish).toHaveBeenCalledWith({
+      type: AppEvents.alertError.name,
+      payload: errorPayload,
+    });
+  });
+
   /**
    * Theme
    */
