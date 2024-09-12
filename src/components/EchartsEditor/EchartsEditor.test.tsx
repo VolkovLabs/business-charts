@@ -19,6 +19,14 @@ import { EchartsEditor } from './EchartsEditor';
 jest.mock('@grafana/ui', () => ({
   ...jest.requireActual('@grafana/ui'),
   CodeEditor: jest.fn().mockImplementation(() => null),
+  PageToolbar: jest.fn(({ leftItems, children }) => {
+    return (
+      <>
+        {leftItems}
+        {children}
+      </>
+    );
+  }),
 }));
 
 /**
