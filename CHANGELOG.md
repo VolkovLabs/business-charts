@@ -7,6 +7,7 @@
 - Added Boxplot in Visual Editor (#327)
 - Updated Grafana 11.2 dependencies (#330)
 - Added Scatter to Visual editor and limit selection to supported charts (#332)
+- Added promise libraries import (#333)
 
 ## 6.3.0 (2024-08-26)
 
