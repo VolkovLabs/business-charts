@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.4.1 (2024-09-16)
+
+### Features / Enhancements
+
+- Update Gauge dashboard (#337)
+
 ## 6.4.0 (2024-09-11)
 
 ### Features / Enhancements
