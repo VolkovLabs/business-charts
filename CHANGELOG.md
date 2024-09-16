@@ -4,7 +4,8 @@
 
 ### Features / Enhancements
 
-- Update Gauge dashboard (#337)
+- Updated Gauge dashboard (#337)
+- Updated Code Editor toolbar (#338)
 
 ## 6.4.0 (2024-09-11)
 
