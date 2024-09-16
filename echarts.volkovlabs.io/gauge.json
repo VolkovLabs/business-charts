@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
   "links": [
     {
       "asDropdown": false,
@@ -86,7 +85,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Gauge Basic chart",
       "type": "volkovlabs-echarts-panel"
     },
@@ -135,7 +134,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Simple Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -184,7 +183,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Speed Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -233,7 +232,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Progress Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -264,7 +263,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "return {\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 70\n        }\n      ]\n    }\n  ]\n};\n\nsetInterval(function () {\n  context.panel.chartsetOption({\n    series: [\n      {\n        data: [\n          {\n            value: +(Math.random() * 100).toFixed(2)\n          }\n        ]\n      }\n    ]\n  });\n}, 2000);",
+        "getOption": "const options = {\n  series: [\n    {\n      type: 'gauge',\n      axisLine: {\n        lineStyle: {\n          width: 30,\n          color: [\n            [0.3, '#67e0e3'],\n            [0.7, '#37a2da'],\n            [1, '#fd666d']\n          ]\n        }\n      },\n      pointer: {\n        itemStyle: {\n          color: 'auto'\n        }\n      },\n      axisTick: {\n        distance: -30,\n        length: 8,\n        lineStyle: {\n          color: '#fff',\n          width: 2\n        }\n      },\n      splitLine: {\n        distance: -30,\n        length: 30,\n        lineStyle: {\n          color: '#fff',\n          width: 4\n        }\n      },\n      axisLabel: {\n        color: 'auto',\n        distance: 40,\n        fontSize: 20\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: '{value} km/h',\n        color: 'auto'\n      },\n      data: [\n        {\n          value: 70\n        }\n      ]\n    }\n  ]\n}\n\nsetInterval(function () {\n  context.panel.chart.setOption({\n    series: [\n      {\n        data: [\n          {\n            value: +(Math.random() * 100).toFixed(2)\n          }\n        ]\n      }\n    ]\n  });\n}, 4000);\n\nreturn options;\n",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -288,7 +287,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "targets": [
         {
           "datasource": {
@@ -358,7 +357,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Grade Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -388,7 +387,7 @@
           "key": "",
           "plugin": "AMap.Scale,AMap.ToolBar"
         },
-        "getOption": "const gaugeData = [\n  {\n    value: 20,\n    name: 'Good',\n    title: {\n      offsetCenter: ['-40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['-40%', '95%']\n    }\n  },\n  {\n    value: 40,\n    name: 'Better',\n    title: {\n      offsetCenter: ['0%', '80%']\n    },\n    detail: {\n      offsetCenter: ['0%', '95%']\n    }\n  },\n  {\n    value: 60,\n    name: 'Perfect',\n    title: {\n      offsetCenter: ['40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['40%', '95%']\n    }\n  }\n];\n\noption = {\n  series: [\n    {\n      type: 'gauge',\n      anchor: {\n        show: true,\n        showAbove: true,\n        size: 18,\n        itemStyle: {\n          color: '#FAC858'\n        }\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 8,\n        length: '80%',\n        offsetCenter: [0, '8%']\n      },\n      progress: {\n        show: true,\n        overlap: true,\n        roundCap: true\n      },\n      axisLine: {\n        roundCap: true\n      },\n      data: gaugeData,\n      title: {\n        fontSize: 14\n      },\n      detail: {\n        width: 40,\n        height: 14,\n        fontSize: 14,\n        color: '#fff',\n        backgroundColor: 'auto',\n        borderRadius: 3,\n        formatter: '{value}%'\n      }\n    }\n  ]\n};\n\nsetInterval(function () {\n  gaugeData[0].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[1].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[2].value = +(Math.random() * 100).toFixed(2);\n  context.panel.chartsetOption({\n    series: [\n      {\n        data: gaugeData\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
+        "getOption": "const gaugeData = [\n  {\n    value: 20,\n    name: 'Good',\n    title: {\n      offsetCenter: ['-40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['-40%', '95%']\n    }\n  },\n  {\n    value: 40,\n    name: 'Better',\n    title: {\n      offsetCenter: ['0%', '80%']\n    },\n    detail: {\n      offsetCenter: ['0%', '95%']\n    }\n  },\n  {\n    value: 60,\n    name: 'Perfect',\n    title: {\n      offsetCenter: ['40%', '80%']\n    },\n    detail: {\n      offsetCenter: ['40%', '95%']\n    }\n  }\n];\n\noption = {\n  series: [\n    {\n      type: 'gauge',\n      anchor: {\n        show: true,\n        showAbove: true,\n        size: 18,\n        itemStyle: {\n          color: '#FAC858'\n        }\n      },\n      pointer: {\n        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',\n        width: 8,\n        length: '80%',\n        offsetCenter: [0, '8%']\n      },\n      progress: {\n        show: true,\n        overlap: true,\n        roundCap: true\n      },\n      axisLine: {\n        roundCap: true\n      },\n      data: gaugeData,\n      title: {\n        fontSize: 14\n      },\n      detail: {\n        width: 40,\n        height: 14,\n        fontSize: 14,\n        color: '#fff',\n        backgroundColor: 'auto',\n        borderRadius: 3,\n        formatter: '{value}%'\n      }\n    }\n  ]\n};\n\nsetInterval(function () {\n  gaugeData[0].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[1].value = +(Math.random() * 100).toFixed(2);\n  gaugeData[2].value = +(Math.random() * 100).toFixed(2);\n  context.panel.chart.setOption({\n    series: [\n      {\n        data: gaugeData\n      }\n    ]\n  });\n}, 2000);\n\nreturn option;",
         "google": {
           "callback": "gmapReady",
           "key": ""
@@ -407,7 +406,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Multi Title Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -456,7 +455,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Temperature",
       "type": "volkovlabs-echarts-panel"
     },
@@ -505,7 +504,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Ring Gauge",
       "type": "volkovlabs-echarts-panel"
     },
@@ -554,7 +553,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Gauge Barometer",
       "type": "volkovlabs-echarts-panel"
     },
@@ -601,7 +600,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Clock",
       "type": "volkovlabs-echarts-panel"
     },
@@ -648,7 +647,7 @@
           "series": []
         }
       },
-      "pluginVersion": "6.3.0",
+      "pluginVersion": "6.4.0",
       "title": "Gauge Car [TODO]",
       "type": "volkovlabs-echarts-panel"
     }
