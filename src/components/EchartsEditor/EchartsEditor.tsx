@@ -115,8 +115,6 @@ export const EchartsEditor: React.FC<Props> = ({ value, onChange, context, item 
         onSave={onChange}
         monacoOptions={{ ...monacoOptions, scrollBeyondLastLine: false }}
         onEditorDidMount={onEditorMount}
-        modalButtonTooltip={`Expand ${item.name}`}
-        modalTitle={`${item.name} editor`}
         {...getItemSpecificEditorProps()}
       />
     </div>
