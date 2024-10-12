@@ -51,7 +51,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill) to represent data in percentage.
 - Supports real-time data updates using streaming data sources and Grafana Live.
 - Supports light and dark themes adjusted to the Grafana theme.
-- Based on [Apache ECharts](https://github.com/apache/echarts/releases/tag/5.5.1).
+- Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
 - Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 - Supports the [Wordcloud extension](https://github.com/ecomfe/echarts-wordcloud)
 
@@ -65,7 +65,7 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | [Visual Editor](https://volkovlabs.io/plugins/business-charts/visualeditor/) | Explains how to work with the Visual Editor.                             |
 | [Examples](https://volkovlabs.io/plugins/business-charts/examples/)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
 | [Features](https://volkovlabs.io/plugins/business-charts/features/)          | Demonstrates the Business Charts panel features.                         |
-| [Maps](https://volkovlabs.io/plugins/maps/)                                  | Demonstrates how to work with different maps.                            |
+| [Maps](https://volkovlabs.io/plugins/business-charts/maps/)                  | Demonstrates how to work with different maps.                            |
 | [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials/)        | Tutorials for the Business Charts panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/business-charts/release/)      | Stay up to date with the latest features and updates.                    |
 
