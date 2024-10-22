@@ -21,8 +21,7 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock @grafana/scenes
- * mostly prevent IntersectionObserver is not defined
+ * Mock @grafana/scenes getTimeRange
  */
 jest.mock('@grafana/scenes', () => ({
   sceneGraph: {
