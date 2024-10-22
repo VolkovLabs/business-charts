@@ -4,16 +4,6 @@ import { Map, Theme } from './constants';
 import { plugin } from './module';
 
 /**
- * Mock @grafana/scenes
- * mostly prevent IntersectionObserver is not defined
- */
-jest.mock('@grafana/scenes', () => ({
-  sceneGraph: {
-    getTimeRange: jest.fn(),
-  },
-}));
-
-/**
  * Skip Register Maps
  */
 jest.mock('./maps', () => ({
