@@ -8,10 +8,11 @@ import 'echarts-extension-gmap';
 import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
+import { sceneGraph, SceneObject } from '@grafana/scenes';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
@@ -57,6 +58,24 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Transformations
    */
   const ecStat = echartsStat;
+
+  /**
+   * Refresh Dashboard
+   */
+  const refreshDashboard = useCallback(() => {
+    /**
+     * Refresh on scene dashboard
+     */
+    if (window && window.hasOwnProperty('__grafanaSceneContext')) {
+      const sceneContext = window.__grafanaSceneContext;
+      return sceneGraph.getTimeRange(sceneContext as SceneObject)?.onRefresh();
+    }
+
+    /**
+     * Refresh dashboard
+     */
+    return appEvents.publish({ type: 'variables-changed', payload: { refreshAll: true } });
+  }, [appEvents]);
 
   /**
    * Initialize Chart
@@ -200,7 +219,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
             locationService,
             notifySuccess,
             notifyError,
-            refresh: () => appEvents.publish({ type: 'variables-changed', payload: { refreshAll: true } }),
+            refresh: refreshDashboard,
           },
           panel: {
             data,
