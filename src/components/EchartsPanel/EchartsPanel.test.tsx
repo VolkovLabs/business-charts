@@ -21,7 +21,7 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock @grafana/runtime
+ * Mock @volkovlabs/components
  */
 jest.mock('@volkovlabs/components', () => ({
   ...jest.requireActual('@volkovlabs/components'),
