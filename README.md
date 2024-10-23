@@ -21,7 +21,7 @@ The Business Charts plugin offers an easy way of adding intuitive, interactive, 
 
 ## Requirements
 
-- Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
+- The Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
 - Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
 - Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
@@ -53,19 +53,21 @@ grafana-cli plugins install volkovlabs-echarts-panel
 - Supports light and dark themes adjusted to the Grafana theme.
 - Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
 - Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+- Supports the [Wordcloud extension](https://github.com/ecomfe/echarts-wordcloud)
 
 [![Examples](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
 
 ## Documentation
 
-| Section                                                                  | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| [Charts Function](https://volkovlabs.io/plugins/business-charts/options) | Explains how to configure the main Apache ECharts library function.      |
-| [Examples](https://volkovlabs.io/plugins/business-charts/examples)       | Explains how to get started with the Apache ECharts Examples in Grafana. |
-| [Features](https://volkovlabs.io/plugins/business-charts/features)       | Demonstrates the Business Charts panel features.                         |
-| [Maps](https://volkovlabs.io/plugins/business-charts/maps)               | Demonstrates how to work with different maps.                            |
-| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials)     | Tutorials for the Business Charts panel.                                 |
-| [Release Notes](https://volkovlabs.io/plugins/business-charts/release)   | Stay up to date with the latest features and updates.                    |
+| Section                                                                      | Description                                                              |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Charts Function](https://volkovlabs.io/plugins/business-charts/options/)    | Explains how to configure the main Apache ECharts library function.      |
+| [Visual Editor](https://volkovlabs.io/plugins/business-charts/visualeditor/) | Explains how to work with the Visual Editor.                             |
+| [Examples](https://volkovlabs.io/plugins/business-charts/examples/)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
+| [Features](https://volkovlabs.io/plugins/business-charts/features/)          | Demonstrates the Business Charts panel features.                         |
+| [Maps](https://volkovlabs.io/plugins/business-charts/maps/)                  | Demonstrates how to work with different maps.                            |
+| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials/)        | Tutorials for the Business Charts panel.                                 |
+| [Release Notes](https://volkovlabs.io/plugins/business-charts/release/)      | Stay up to date with the latest features and updates.                    |
 
 ## Business Suite for Grafana
 
@@ -75,14 +77,17 @@ The collection aims to solve the most frequent business tasks by providing an in
 
 [![Business Suite for Grafana](https://raw.githubusercontent.com/VolkovLabs/.github/main/business.png)](https://volkovlabs.io/plugins/)
 
-## Feedback
+### Enterprise Support
 
-We're looking forward to hearing from you. You can use different ways to get in touch with us.
+With the [Business Suite Enterprise](https://volkovlabs.io/pricing/), you're not just getting a product, you're getting a complete support system. You'll have a designated support team ready to tackle any issues.
+
+You can contact us via Zendesk, receive priority in feature requests and bug fixes, meet with us for in-person consultation, and get access to the Business Intelligence. It's a package that's designed to make your life easier.
+
+## Always happy to hear from you
 
 - Ask a question, request a new feature, or report an issue at [GitHub issues](https://github.com/volkovlabs/business-charts/issues).
-- Subscribe to our [YouTube Channel](https://www.youtube.com/@volkovlabs) and leave your comments.
-- Sponsor our open-source plugins for Grafana at [GitHub Sponsor](https://github.com/sponsors/VolkovLabs).
-- Support our project by starring the repository.
+- Subscribe to our [YouTube Channel](https://youtube.com/@volkovlabs) and leave your comments.
+- Become a [Business Suite sponsor](https://github.com/sponsors/VolkovLabs).
 
 ## Acknowledgment
 
