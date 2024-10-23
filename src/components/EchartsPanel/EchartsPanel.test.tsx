@@ -1,7 +1,7 @@
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
-import { sceneGraph, SceneObject } from '@grafana/scenes';
 import { render, screen } from '@testing-library/react';
+import { useDashboardRefresh } from '@volkovlabs/components';
 import * as echarts from 'echarts';
 import React from 'react';
 
@@ -21,12 +21,11 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock @grafana/scenes getTimeRange
+ * Mock @grafana/runtime
  */
-jest.mock('@grafana/scenes', () => ({
-  sceneGraph: {
-    getTimeRange: jest.fn(),
-  },
+jest.mock('@volkovlabs/components', () => ({
+  ...jest.requireActual('@volkovlabs/components'),
+  useDashboardRefresh: jest.fn(),
 }));
 
 /**
@@ -88,11 +87,6 @@ jest.mock('echarts-extension-gmap');
 describe('Panel', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-
-    /**
-     * delete __grafanaSceneContext
-     */
-    delete window.__grafanaSceneContext;
   });
 
   /**
@@ -200,13 +194,9 @@ describe('Panel', () => {
   });
 
   it('Should publish refresh method called', () => {
-    const publish = jest.fn();
-    jest.mocked(getAppEvents).mockImplementation(
-      () =>
-        ({
-          publish,
-        }) as any
-    ); // we need only these options
+    const refresh = jest.fn();
+
+    jest.mocked(useDashboardRefresh).mockImplementation(() => refresh);
 
     jest.mocked(echarts.init).mockImplementationOnce(
       () =>
@@ -225,50 +215,7 @@ describe('Panel', () => {
         },
       })
     );
-    expect(publish).toHaveBeenCalledWith({
-      type: 'variables-changed',
-      payload: {
-        refreshAll: true,
-      },
-    });
-  });
-
-  it('Should publish refresh method called in scene dashboard', () => {
-    window.__grafanaSceneContext = {
-      body: {
-        text: 'hello',
-      },
-    };
-
-    jest.mocked(sceneGraph.getTimeRange).mockReturnValue({
-      onRefresh: jest.fn(),
-    } as any);
-
-    const context = window.__grafanaSceneContext;
-    const result = sceneGraph.getTimeRange(context as SceneObject);
-
-    jest.mocked(echarts.init).mockImplementationOnce(
-      () =>
-        ({
-          setOption: () => {},
-          on: jest.fn(),
-          off: jest.fn(),
-          clear: jest.fn(),
-        }) as any
-    ); // we need only these options
-
-    render(
-      getComponent({
-        options: {
-          getOption: 'return {  refresh: context.grafana.refresh() }',
-        },
-      })
-    );
-
-    /**
-     * Dashboard should be refreshed
-     */
-    expect(result.onRefresh).toHaveBeenCalledTimes(1);
+    expect(refresh).toHaveBeenCalledTimes(1);
   });
 
   it('Should publish events with passed payload even with promise return', () => {
