@@ -1,6 +1,7 @@
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import { useDashboardRefresh } from '@volkovlabs/components';
 import * as echarts from 'echarts';
 import React from 'react';
 
@@ -17,6 +18,14 @@ jest.mock('../../maps', () => ({
   loadBaidu: jest.fn(),
   loadGaode: jest.fn(),
   loadGoogle: jest.fn(),
+}));
+
+/**
+ * Mock @volkovlabs/components
+ */
+jest.mock('@volkovlabs/components', () => ({
+  ...jest.requireActual('@volkovlabs/components'),
+  useDashboardRefresh: jest.fn(),
 }));
 
 /**
@@ -185,13 +194,9 @@ describe('Panel', () => {
   });
 
   it('Should publish refresh method called', () => {
-    const publish = jest.fn();
-    jest.mocked(getAppEvents).mockImplementation(
-      () =>
-        ({
-          publish,
-        }) as any
-    ); // we need only these options
+    const refresh = jest.fn();
+
+    jest.mocked(useDashboardRefresh).mockImplementation(() => refresh);
 
     jest.mocked(echarts.init).mockImplementationOnce(
       () =>
@@ -210,15 +215,10 @@ describe('Panel', () => {
         },
       })
     );
-    expect(publish).toHaveBeenCalledWith({
-      type: 'variables-changed',
-      payload: {
-        refreshAll: true,
-      },
-    });
+    expect(refresh).toHaveBeenCalledTimes(1);
   });
 
-  it('Should publish events with passed payload even with promise return', () => {
+  it('Should publish events with passed payload even with promise return', async () => {
     const publish = jest.fn();
     jest.mocked(getAppEvents).mockImplementation(
       () =>
@@ -246,10 +246,12 @@ describe('Panel', () => {
           clear: jest.fn(),
         }) as any
     ); // we need only these options
-    render(
-      getComponent({
-        options: {
-          getOption: `const options = {}
+
+    await act(async () =>
+      render(
+        getComponent({
+          options: {
+            getOption: `const options = {}
              const myPromise = new Promise((resolve, reject) => {
                context.grafana.notifySuccess(['Header', 'Message'])
                context.grafana.notifyError(['Header error', 'Message error'])
@@ -258,9 +260,11 @@ describe('Panel', () => {
 
             return myPromise
            `,
-        },
-      })
+          },
+        })
+      )
     );
+
     expect(publish).toHaveBeenCalledWith({
       type: AppEvents.alertSuccess.name,
       payload: successPayload,
