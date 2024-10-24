@@ -1,6 +1,7 @@
 import { getTemplateSrv } from '@grafana/runtime';
-import { CodeEditor, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { render, screen } from '@testing-library/react';
+import { CodeEditorSuggestionItemKind } from '@grafana/ui';
+import { act, render, screen } from '@testing-library/react';
+import { AutosizeCodeEditor } from '@volkovlabs/components';
 import React from 'react';
 
 import {
@@ -18,7 +19,6 @@ import { EchartsEditor } from './EchartsEditor';
  */
 jest.mock('@grafana/ui', () => ({
   ...jest.requireActual('@grafana/ui'),
-  CodeEditor: jest.fn().mockImplementation(() => null),
   PageToolbar: jest.fn(({ leftItems, children }) => {
     return (
       <>
@@ -27,6 +27,14 @@ jest.mock('@grafana/ui', () => ({
       </>
     );
   }),
+}));
+
+/**
+ * Mock @volkovlabs/components
+ */
+jest.mock('@volkovlabs/components', () => ({
+  ...jest.requireActual('@volkovlabs/components'),
+  AutosizeCodeEditor: jest.fn().mockImplementation(() => null),
 }));
 
 /**
@@ -73,14 +81,18 @@ describe('Echarts Editor', () => {
   });
 
   it('Should find component', async () => {
-    render(getComponent({}));
+    await act(async () => {
+      render(getComponent({}));
+    });
     expect(screen.getByTestId(TEST_IDS.editor.root)).toBeInTheDocument();
   });
 
-  it('Should show mini map if value more than 100 symbols', () => {
-    render(getComponent({ value: new Array(102).join('1') }));
+  it('Should show mini map if value more than 100 symbols', async () => {
+    await act(async () => {
+      render(getComponent({ value: new Array(102).join('1') }));
+    });
 
-    expect(CodeEditor).toHaveBeenCalledWith(
+    expect(AutosizeCodeEditor).toHaveBeenCalledWith(
       expect.objectContaining({
         showMiniMap: true,
       }),
@@ -88,7 +100,7 @@ describe('Echarts Editor', () => {
     );
   });
 
-  it('Should enable formatting if enabled', () => {
+  it('Should enable formatting if enabled', async () => {
     const runFormatDocument = jest.fn();
     const editor = {
       getAction: jest.fn().mockImplementation(() => ({
@@ -96,71 +108,89 @@ describe('Echarts Editor', () => {
       })),
     };
 
-    jest.mocked(CodeEditor).mockImplementationOnce(({ onEditorDidMount }: any) => {
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ onEditorDidMount }: any) => {
       onEditorDidMount(editor);
       return null;
     });
 
-    render(getComponent({}, getContext(['enableFormatting'])));
+    await act(async () => {
+      render(getComponent({ value: 'test' }, getContext(['some'])));
+    });
     jest.runAllTimers();
 
-    expect(CodeEditor).toHaveBeenCalledWith(
-      expect.objectContaining({
-        monacoOptions: {
-          formatOnPaste: true,
-          formatOnType: true,
-          scrollBeyondLastLine: false,
-        },
-      }),
-      expect.anything()
-    );
+    expect(editor.getAction).not.toHaveBeenCalledWith('editor.action.formatDocument');
+    expect(runFormatDocument).not.toHaveBeenCalled();
+  });
+
+  it('Should not run formatting if disabled', async () => {
+    const runFormatDocument = jest.fn();
+    const editor = {
+      getAction: jest.fn().mockImplementation(() => ({
+        run: runFormatDocument,
+      })),
+    };
+
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ onEditorDidMount }: any) => {
+      onEditorDidMount(editor);
+      return null;
+    });
+
+    await act(async () => {
+      render(getComponent({ value: 'test' }, getContext(['enableFormatting'])));
+    });
+    jest.runAllTimers();
+
     expect(editor.getAction).toHaveBeenCalledWith('editor.action.formatDocument');
     expect(runFormatDocument).toHaveBeenCalled();
   });
 
-  it('Should save changes on blur', () => {
+  it('Should save changes on blur', async () => {
     const value = 'some value';
     const onChange = jest.fn();
 
-    jest.mocked(CodeEditor).mockImplementationOnce(({ onBlur }: any) => {
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ onBlur }: any) => {
       onBlur(value);
       return null;
     });
 
-    render(
-      getComponent({
-        onChange,
-      })
-    );
+    await act(async () => {
+      render(
+        getComponent({
+          onChange,
+        })
+      );
+    });
 
     expect(onChange).toHaveBeenCalledWith(value);
   });
 
-  it('Should pass value on save', () => {
+  it('Should pass value on save', async () => {
     const value = 'some value';
     const onChange = jest.fn();
 
-    jest.mocked(CodeEditor).mockImplementationOnce(({ onSave }: any) => {
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ onSave }: any) => {
       onSave(value);
       return null;
     });
 
-    render(
-      getComponent({
-        onChange,
-      })
-    );
+    await act(async () => {
+      render(
+        getComponent({
+          onChange,
+        })
+      );
+    });
 
     expect(onChange).toHaveBeenCalledWith(value);
   });
 
-  it('Should make correct suggestions', () => {
+  it('Should make correct suggestions', async () => {
     let suggestionsResult;
     const variableWithDescription = { name: 'var1', description: 'Var description', label: 'Var Label' };
     const variableWithoutDescription = { name: 'var2', description: '', label: 'Var 2' };
     const variables = [variableWithDescription, variableWithoutDescription];
 
-    jest.mocked(CodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
       suggestionsResult = getSuggestions();
       return null;
     });
@@ -171,7 +201,9 @@ describe('Echarts Editor', () => {
         }) as any
     );
 
-    render(getComponent({}));
+    await act(async () => {
+      render(getComponent({}));
+    });
 
     expect(suggestionsResult).toEqual(expect.arrayContaining(CODE_EDITOR_SUGGESTIONS));
     expect(suggestionsResult).toEqual(
@@ -194,13 +226,13 @@ describe('Echarts Editor', () => {
     );
   });
 
-  it('Should make correct suggestions for visual editor', () => {
+  it('Should make correct suggestions for visual editor', async () => {
     let suggestionsResult;
     const variableWithDescription = { name: 'var1', description: 'Var description', label: 'Var Label' };
     const variableWithoutDescription = { name: 'var2', description: '', label: 'Var 2' };
     const variables = [variableWithDescription, variableWithoutDescription];
 
-    jest.mocked(CodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
+    jest.mocked(AutosizeCodeEditor).mockImplementationOnce(({ getSuggestions }: any) => {
       suggestionsResult = getSuggestions();
       return null;
     });
@@ -211,30 +243,34 @@ describe('Echarts Editor', () => {
         }) as any
     );
 
-    render(
-      getComponent(
-        {
-          item: { id: Editor.VISUALCODE },
-        },
-        {
-          options: {
-            editor: {
-              format: Format.NONE,
-            },
-            visualEditor: {
-              codeHeight: 300,
-            },
-          } as any,
-        }
-      )
-    );
+    await act(async () => {
+      render(
+        getComponent(
+          {
+            item: { id: Editor.VISUALCODE },
+          },
+          {
+            options: {
+              editor: {
+                format: Format.NONE,
+              },
+              visualEditor: {
+                codeHeight: 300,
+              },
+            } as any,
+          }
+        )
+      );
+    });
 
     expect(suggestionsResult).toEqual(expect.arrayContaining(VISUAL_CODE_EDITOR_SUGGESTIONS));
   });
 
-  it('Should use JSON language for themeConfig item', () => {
-    render(getComponent({ item: { id: Editor.THEME } }));
-    expect(CodeEditor).toHaveBeenCalledWith(
+  it('Should use JSON language for themeConfig item', async () => {
+    await act(async () => {
+      render(getComponent({ item: { id: Editor.THEME } }));
+    });
+    expect(AutosizeCodeEditor).toHaveBeenCalledWith(
       expect.objectContaining({
         language: CodeLanguage.JSON,
       }),
