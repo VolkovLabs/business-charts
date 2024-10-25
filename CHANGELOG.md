@@ -1,10 +1,12 @@
 # Change Log
 
-## 6.5.0 (IN PROGRESS)
+## 6.5.0 (2024-10-25)
 
 ### Features / Enhancements
 
 - Updated Autosize Code Editor toolbar (#341)
+- Updated refresh for dashboard scene (#346)
+- Updated Grafana 11.3.0 and dependencies (#346)
 
 ## 6.4.1 (2024-09-16)
 

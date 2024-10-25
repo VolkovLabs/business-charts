@@ -9,6 +9,7 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
+import { useDashboardRefresh } from '@volkovlabs/components';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
@@ -57,6 +58,11 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
    * Transformations
    */
   const ecStat = echartsStat;
+
+  /**
+   * Refresh dashboard
+   */
+  const refreshDashboard = useDashboardRefresh();
 
   /**
    * Initialize Chart
@@ -200,7 +206,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
             locationService,
             notifySuccess,
             notifyError,
-            refresh: () => appEvents.publish({ type: 'variables-changed', payload: { refreshAll: true } }),
+            refresh: () => refreshDashboard(),
           },
           panel: {
             data,
