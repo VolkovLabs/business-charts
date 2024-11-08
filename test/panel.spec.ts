@@ -1,5 +1,5 @@
 import { test, expect } from '@grafana/plugin-e2e';
-import { TEST_IDS } from '../src/constants/tests';
+import { PanelHelper } from './utils';
 
 test.describe('Business Charts Panel', () => {
   test('Check grafana version', async ({ grafanaVersion }) => {
@@ -7,24 +7,159 @@ test.describe('Business Charts Panel', () => {
     expect(grafanaVersion).toEqual(grafanaVersion);
   });
 
-  test('should display empty chart without data and Bar Chart', async ({ gotoDashboardPage, dashboardPage }) => {
+  test('Should add empty default chart', async ({ readProvisionedDashboard, gotoDashboardPage }) => {
     /**
-     * Go To E2E dashboard
+     * Go To Panels dashboard e2e.json
      * return dashboardPage
      */
-    await gotoDashboardPage({ uid: 'fdd5dbe3-794c-4441-9d1c-024a537bbe99' });
+    const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+    const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
 
     /**
-     * Find panel by title with chart
-     * Should be visible
+     * Add new visualization
      */
-    await expect(dashboardPage.getPanelByTitle('Bar Chart').locator).toBeVisible();
+    const editPage = await dashboardPage.addPanel();
+    await editPage.setVisualization('Business Charts');
+    await editPage.setPanelTitle('Business Chart Test');
+    await editPage.backToDashboard();
 
     /**
-     * Check and compare image
+     * Should add empty visualization without errors
      */
-    await expect(dashboardPage.getPanelByTitle('Bar Chart').locator.getByTestId(TEST_IDS.panel.chart)).toHaveScreenshot(
-      'actual-screenshot.png'
-    );
+    const panel = new PanelHelper(dashboardPage, 'Business Chart Test');
+    await panel.checkIfNoErrors();
+    await panel.checkPresence();
+
+    await panel.compareScreenshot('empty.png');
+  });
+
+  test('Should display error message', async ({ readProvisionedDashboard, gotoDashboardPage }) => {
+    /**
+     * Go To Panels dashboard e2e.json
+     * return dashboardPage
+     */
+    const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+    const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+    /**
+     * Check Presence
+     */
+    const panel = new PanelHelper(dashboardPage, 'Error panel');
+
+    await panel.checkIfNoErrors();
+    await panel.checkPresence();
+    await panel.checkAlert();
+  });
+
+  test.describe('Chart types', () => {
+    test('Should display Line Chart', async ({ gotoDashboardPage, readProvisionedDashboard }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Line Chart (code editor)');
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('line-screenshot.png');
+    });
+
+    test('Should display Radar Chart', async ({ gotoDashboardPage, readProvisionedDashboard }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Radar Chart (visual editor)');
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('radar-screenshot.png');
+    });
+
+    test('Should display Bar Chart', async ({ gotoDashboardPage, readProvisionedDashboard }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Bar Chart (code editor)');
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('bar-screenshot.png');
+    });
+
+    test('Should display Boxplot Chart', async ({ gotoDashboardPage, readProvisionedDashboard }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Boxplot (visual editor)');
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('boxplot-screenshot.png');
+    });
+
+    test('Should display Boxplot Chart code editor', async ({ gotoDashboardPage, readProvisionedDashboard }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Boxplot (code editor)');
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('boxplot-code-screenshot.png');
+    });
+
+    test('Should display Scatter Chart ', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+      /**
+       * Go To Panels dashboard e2e.json
+       * return dashboardPage
+       */
+      const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+      const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
+
+      /**
+       * Check Presence
+       */
+      const panel = new PanelHelper(dashboardPage, 'Scatter');
+
+      await page.waitForTimeout(500);
+
+      await panel.checkIfNoErrors();
+      await panel.checkPresence();
+      await panel.compareScreenshot('scatter-screenshot.png');
+    });
   });
 });
