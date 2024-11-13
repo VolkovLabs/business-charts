@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.6.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Added E2E tests (#349)
+
 ## 6.5.0 (2024-10-25)
 
 ### Features / Enhancements
