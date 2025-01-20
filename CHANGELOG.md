@@ -5,7 +5,8 @@
 ### Features / Enhancements
 
 - Added E2E tests (#349)
-- Update packages for Code Editor (#352)
+- Updated packages for Code Editor (#352)
+- Updated Apache ECharts 5.6.0 and dependencies (#355)
 
 ## 6.5.0 (2024-10-25)
 

@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
-![Grafana](https://img.shields.io/badge/Grafana-11.3-orange)
+![Grafana](https://img.shields.io/badge/Grafana-11.4-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)
 ![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)
@@ -21,7 +21,7 @@ The Business Charts plugin offers an easy way of adding intuitive, interactive, 
 
 ## Requirements
 
-- The Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
+- The Business Charts panel 6.X, 7.X requires **Grafana 10** or **Grafana 11**.
 - Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
 - Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
