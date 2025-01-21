@@ -1,4 +1,4 @@
-import { EChartOption, EChartsOptionConfig } from 'echarts';
+import { EChartsOption, SetOptionOpts } from 'echarts';
 
 import { Format } from '../constants';
 
@@ -26,16 +26,16 @@ export type CodeResultV2 = {
   /**
    * Option
    *
-   * @type {EChartOption}
+   * @type {EChartsOption}
    */
-  option?: EChartOption;
+  option?: EChartsOption;
 
   /**
    * Option Config
    *
-   * @type {EChartsOptionConfig}
+   * @type {SetOptionOpts}
    */
-  config?: EChartsOptionConfig;
+  config?: SetOptionOpts;
 
   /**
    * Unsubscribe Function
@@ -46,4 +46,4 @@ export type CodeResultV2 = {
 /**
  * Code Execution Result
  */
-export type CodeResult = undefined | EChartOption | CodeResultV2;
+export type CodeResult = undefined | EChartsOption | CodeResultV2;
