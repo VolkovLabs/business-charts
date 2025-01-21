@@ -499,7 +499,7 @@ describe('Panel', () => {
         expect.objectContaining({
           series: [],
         }),
-        { notMerge: true }
+        true
       );
     });
 
@@ -527,7 +527,7 @@ describe('Panel', () => {
         expect.objectContaining({
           series: [],
         }),
-        { notMerge: true }
+        true
       );
     });
 
@@ -549,7 +549,7 @@ describe('Panel', () => {
       );
       render(getComponent({ options: { getOption } }));
 
-      expect(setOptionMock).toHaveBeenCalledWith(expect.objectContaining({}), { notMerge: true });
+      expect(setOptionMock).toHaveBeenCalledWith(expect.objectContaining({}), true);
     });
 
     it('Should call unsubscribeFunction for v2 result', () => {
@@ -642,7 +642,7 @@ describe('Panel', () => {
             ],
           },
         }),
-        { notMerge: true }
+        true
       );
     });
   });
