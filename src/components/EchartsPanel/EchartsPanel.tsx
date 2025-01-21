@@ -251,7 +251,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
         /**
          * Default Option Config with merge disabled
          */
-        let notMerge: boolean = true;
+        let notMerge = true;
 
         /**
          * Check version
