@@ -251,9 +251,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
         /**
          * Default Option Config with merge disabled
          */
-        let chartOptionConfig: echarts.EChartsOptionConfig = {
-          notMerge: true,
-        };
+        let notMerge: boolean = true;
 
         /**
          * Check version
@@ -263,7 +261,10 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
            * Handle result v2
            */
           chartOption = codeResult.option || {};
-          chartOptionConfig = codeResult.config || chartOptionConfig;
+
+          if (codeResult.hasOwnProperty('notMerge')) {
+            notMerge = codeResult.notMerge;
+          }
 
           /**
            * Set Unsubscribe Function
@@ -289,7 +290,7 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
             backgroundColor: 'transparent',
             ...chartOption,
           },
-          chartOptionConfig
+          notMerge
         );
       } catch (err) {
         setError(err instanceof Error ? err : new Error(`${err}`));
