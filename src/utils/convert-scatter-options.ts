@@ -25,7 +25,9 @@ export const convertScatterOptions = (item: SeriesByType<SeriesItem, SeriesType.
         /**
          * Return for symbolSize value from field by position
          */
-        symbolSize: (value: unknown[]) => value[sizeIndex],
+        symbolSize: (value: number[]) => {
+          return value[sizeIndex];
+        },
       };
     }
   }
