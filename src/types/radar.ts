@@ -1,4 +1,5 @@
 import { RadarSeriesOption } from 'echarts';
+
 import { SeriesType } from './visual-editor';
 
 /**
