@@ -3,82 +3,19 @@ name: Release
 on:
   push:
     tags:
-      - 'v*.*.*' # Run workflow on version tags, e.g. v1.0.0.
+      - "v*" # Run workflow on version tags, e.g. v1.0.0.
 
 jobs:
   release:
+    permissions:
+      id-token: write
+      contents: write
+      attestations: write
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+      - uses: grafana/plugin-actions/build-plugin@main
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Sign plugin
-        run: npm run sign
-        env:
-          GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
-
-      - name: Get plugin metadata
-        id: metadata
-        run: |
-          sudo apt-get install jq
-
-          export GRAFANA_PLUGIN_ID=$(cat dist/plugin.json | jq -r .id)
-          export GRAFANA_PLUGIN_VERSION=$(cat dist/plugin.json | jq -r .info.version)
-          export GRAFANA_PLUGIN_TYPE=$(cat dist/plugin.json | jq -r .type)
-          export GRAFANA_PLUGIN_ARTIFACT=${GRAFANA_PLUGIN_ID}-${GRAFANA_PLUGIN_VERSION}.zip
-          export GRAFANA_PLUGIN_ARTIFACT_CHECKSUM=${GRAFANA_PLUGIN_ARTIFACT}.md5
-
-          echo "plugin-id=${GRAFANA_PLUGIN_ID}" >> $GITHUB_OUTPUT
-          echo "plugin-version=${GRAFANA_PLUGIN_VERSION}" >> $GITHUB_OUTPUT
-          echo "plugin-type=${GRAFANA_PLUGIN_TYPE}" >> $GITHUB_OUTPUT
-          echo "archive=${GRAFANA_PLUGIN_ARTIFACT}" >> $GITHUB_OUTPUT
-          echo "archive-checksum=${GRAFANA_PLUGIN_ARTIFACT_CHECKSUM}" >> $GITHUB_OUTPUT
-
-          echo "github-tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-
-      - name: Read changelog
-        id: changelog
-        run: |
-          awk '/^## / {s++} s == 1 {print}' CHANGELOG.md > release_notes.md
-          export RELEASE_TITLE=$(head -1 release_notes.md|sed 's/## //')
-          awk 'NR > 2 { print }' release_notes.md > release_body.md
-
-          echo "title=${RELEASE_TITLE}" >> $GITHUB_OUTPUT
-          echo "path=release_body.md" >> $GITHUB_OUTPUT
-          echo "version=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-
-      - name: Check package version
-        run: if [ "v${{ steps.metadata.outputs.plugin-version }}" != "${{ steps.metadata.outputs.github-tag }}" ]; then printf "\033[0;31mPlugin version doesn't match tag name\033[0m\n"; exit 1; fi
-
-      - name: Package plugin
-        id: package-plugin
-        run: |
-          mv dist ${{ steps.metadata.outputs.plugin-id }}
-          zip ${{ steps.metadata.outputs.archive }} ${{ steps.metadata.outputs.plugin-id }} -r
-          md5sum ${{ steps.metadata.outputs.archive }} > ${{ steps.metadata.outputs.archive-checksum }}
-          echo "checksum=$(cat ./${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)" >> $GITHUB_OUTPUT
-
-      - name: Create release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          name: ${{ steps.changelog.outputs.title }}
-          body_path: ${{ steps.changelog.outputs.path }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
-          files: |
-            ./${{ steps.metadata.outputs.archive }}
-            ./${{ steps.metadata.outputs.archive-checksum }}
+          policy_token: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+          attestation: true

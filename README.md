@@ -2,7 +2,7 @@
 
 ![ECharts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
-![Grafana](https://img.shields.io/badge/Grafana-11.4-orange)
+![Grafana](https://img.shields.io/badge/Grafana-11.5-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)
 ![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)
