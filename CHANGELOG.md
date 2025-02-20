@@ -7,8 +7,8 @@
 - Added E2E tests (#349)
 - Updated packages for Code Editor (#352)
 - Updated Apache ECharts 5.6.0 and dependencies (#355)
-- Updated to Grafana 11.5 and dependencies (#356)
-- Updated release workflow to include attestation (#356)
+- Updated to Grafana 11.5 and dependencies (#361)
+- Updated release workflow to include attestation (#361)
 
 ## 6.5.0 (2024-10-25)
 
