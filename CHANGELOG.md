@@ -1,6 +1,6 @@
 # Change Log
 
-## 7.0.0 (IN PROGRESS)
+## 6.6.0 (2025-02-20)
 
 ### Features / Enhancements
 
