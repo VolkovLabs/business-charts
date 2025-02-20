@@ -1,9 +1,17 @@
-import { EChartOption } from 'echarts';
+import { ScatterSeriesOption } from 'echarts';
+
+import { SeriesType } from './visual-editor';
 
 /**
  * Scatter Series Options
  */
-export interface ScatterSeriesOptions extends EChartOption.SeriesScatter {
+export interface ScatterSeriesOptions extends ScatterSeriesOption {
+  /**
+   * Type
+   * type?: string in ScatterSeriesOption not working as expected with SeriesByType
+   */
+  type: SeriesType.SCATTER;
+
   /**
    * Encode
    */
@@ -43,4 +51,10 @@ export interface ScatterSeriesOptions extends EChartOption.SeriesScatter {
    * @type {string}
    */
   symbol: string;
+
+  /**
+   * Symbol size
+   *
+   */
+  symbolSize?: (value: number[]) => number;
 }
