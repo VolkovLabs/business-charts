@@ -1,12 +1,11 @@
 import { DataFrame, FieldType, SelectableValue } from '@grafana/data';
-import { findField } from '@volkovlabs/grafana-utils';
 import { v4 as uuidv4 } from 'uuid';
 
 import { SUNBURST_DEFAULT } from '../constants';
 import { DatasetItem, RadarChartOptions, SeriesByType, SeriesItem, SeriesType, VisualEditorOptions } from '../types';
 import { convertScatterOptions } from './convert-scatter-options';
 import { convertSunburstOptions } from './convert-sunburst-options';
-import { getFieldValues } from './data-frame';
+import { findField, getFieldValues } from './data-frame';
 
 /**
  * Get field based on option value
