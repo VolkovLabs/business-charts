@@ -1,4 +1,6 @@
-import { EChartOption } from 'echarts';
+import { RadarSeriesOption } from 'echarts';
+
+import { SeriesType } from './visual-editor';
 
 /**
  * Radar Shape Type
@@ -115,7 +117,13 @@ export interface RadarDimensionItem {
 /**
  * Radar Series Options
  */
-export interface RadarSeriesOptions extends EChartOption.SeriesRadar {
+export interface RadarSeriesOptions extends RadarSeriesOption {
+  /**
+   * Type
+   * type?: string in RadarSeriesOption not working as expected with SeriesByType
+   */
+  type: SeriesType.RADAR;
+
   /**
    * Radar Dimensions
    *

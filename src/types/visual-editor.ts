@@ -1,4 +1,4 @@
-import { EChartOption } from 'echarts';
+import { LineSeriesOption } from 'echarts';
 
 import { BarSeriesOptions } from './bar';
 import { BoxplotSeriesOptions } from './boxplot';
@@ -82,7 +82,13 @@ export interface BaseSeriesOptions {
 /**
  * Line Series Options
  */
-export interface LineSeriesOptions extends EChartOption.SeriesLine {
+export interface LineSeriesOptions extends LineSeriesOption {
+  /**
+   * Type
+   * type?: string in LineSeriousOption not working as expected with SeriesByType
+   */
+  type: SeriesType.LINE;
+
   /**
    * Encode
    */

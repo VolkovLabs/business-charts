@@ -1,9 +1,17 @@
-import { EChartOption } from 'echarts';
+import { BoxplotSeriesOption } from 'echarts';
+
+import { SeriesType } from './visual-editor';
 
 /**
  * Boxplot Series Options
  */
-export interface BoxplotSeriesOptions extends EChartOption.SeriesLine {
+export interface BoxplotSeriesOptions extends BoxplotSeriesOption {
+  /**
+   * Type
+   * type?: string in BoxplotSeriesOption not working as expected with SeriesByType
+   */
+  type: SeriesType.BOXPLOT;
+
   /**
    * Encode
    */
