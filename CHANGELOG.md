@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.0 (IN PROGRESS)
+
+### Features / Enhancements
+
+- Remove @volkovlabs/grafana-utils (#362)
+
 ## 6.6.0 (2025-02-20)
 
 ### Features / Enhancements

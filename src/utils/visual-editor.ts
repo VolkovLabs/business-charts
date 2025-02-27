@@ -1,5 +1,5 @@
 import { DataFrame, FieldType, SelectableValue } from '@grafana/data';
-import { findField } from '@volkovlabs/grafana-utils';
+import { findField } from '@volkovlabs/components';
 import { v4 as uuidv4 } from 'uuid';
 
 import { SUNBURST_DEFAULT } from '../constants';
