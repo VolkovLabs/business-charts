@@ -1,98 +1,103 @@
 # Business Charts for Grafana
 
-![ECharts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
+![Business Charts Dashboard](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
-![Grafana](https://img.shields.io/badge/Grafana-11.5-orange)
-[![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
+![Grafana 11.5](https://img.shields.io/badge/Grafana-11.5-orange)
+[![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)
 ![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)
-[![codecov](https://codecov.io/gh/VolkovLabs/business-charts/branch/main/graph/badge.svg)](https://codecov.io/gh/VolkovLabs/business-charts)
+[![Codecov](https://codecov.io/gh/VolkovLabs/business-charts/branch/main/graph/badge.svg)](https://codecov.io/gh/VolkovLabs/business-charts)
 [![CodeQL](https://github.com/VolkovLabs/business-charts/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/business-charts/actions/workflows/codeql-analysis.yml)
 
 ## Introduction
 
-The Business Charts panel allows you to integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
+The **Business Charts** plugin integrates the powerful [Apache ECharts library](https://echarts.apache.org/en/index.html) into Grafana, enabling you to create rich, interactive charts and graphs within your dashboards. Built on pure JavaScript and leveraging [zrender](http://ecomfe.github.io/zrender/) for lightweight rendering, Apache ECharts offers a wide range of chart types and statistical tools.
 
-Apache ECharts is a powerful and versatile data visualization library providing a wide range of chart types including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
+Watch our tutorial video:
 
-[![Business Charts panel for Grafana 6.0.0 powered by Apache ECharts library | Visual Editor tutorial](https://raw.githubusercontent.com/volkovlabs/business-charts/main/img/business-charts.png)](https://youtu.be/adOjUxrfysc)
+[![Business Charts 6.0.0 | Visual Editor Tutorial](https://raw.githubusercontent.com/volkovlabs/business-charts/main/img/business-charts.png)](https://youtu.be/adOjUxrfysc)
 
-The Business Charts plugin offers an easy way of adding intuitive, interactive, and highly customizable charts to your Grafana dashboard.
+This plugin simplifies adding customizable, data-driven visualizations to Grafana, enhancing your ability to analyze and present business data effectively.
 
 ## Requirements
 
-- The Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
-- Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
-- Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
+- **Business Charts 6.x**: Requires Grafana 10 or Grafana 11.
+- **Apache ECharts 5.x**: Compatible with Grafana 9 or Grafana 10.
+- **Apache ECharts 3.x and 4.x**: Works with Grafana 8.5 or Grafana 9.
 
 ## Getting Started
 
-You can install the Business Charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or using the Grafana command line tool.
-
-For the latter, please use the following command.
+Install the Business Charts plugin from the [Grafana Plugins Catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or via the Grafana CLI:
 
 ```bash
-grafana-cli plugins install volkovlabs-echarts-panel
+grafana cli plugins install volkovlabs-echarts-panel
 ```
 
-## Highlights
+After installation, restart Grafana and add the Business Charts panel to your dashboard.
 
-- Provides [Monaco Code Editor](https://microsoft.github.io/monaco-editor/) for:
-  - Working with Grafana data frames (JavaScript).
-  - Updating chart configurations in the JSON format.
-  - Customizing theme configurations.
-- Supports Code Editor suggestions for parameters and variables.
-- Supports SVG and Canvas renderers.
-- Supports variables and [locationService](https://grafana.com/docs/grafana/latest/developers/plugins/create-a-grafana-plugin/extend-a-plugin/add-support-for-variables/#set-a-variable-from-your-plugin) to make charts interactive.
-- Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
-- Supports Baidu, Gaode, and Google Maps using API with required provision of the access key.
-- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl) proving 3D plots, globe visualization, and WebGL acceleration.
-- Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
-- Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill) to represent data in percentage.
-- Supports real-time data updates using streaming data sources and Grafana Live.
-- Supports light and dark themes adjusted to the Grafana theme.
-- Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
-- Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
-- Supports the [Wordcloud extension](https://github.com/ecomfe/echarts-wordcloud)
+## Features
 
-[![Examples](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
+- **Monaco Code Editor**: Customize charts with:
+  - JavaScript for Grafana data frames.
+  - JSON for chart configurations.
+  - Theme adjustments.
+- **Code Assistance**: Autocomplete for parameters and variables.
+- **Rendering Options**: Supports SVG and Canvas renderers.
+- **Interactivity**: Uses variables and [locationService](https://grafana.com/docs/grafana/latest/developers/plugins/create-a-grafana-plugin/extend-a-plugin/add-support-for-variables/#set-a-variable-from-your-plugin) for dynamic charts.
+- **Maps**: Includes USA and World GeoJSON maps; supports dynamic loading of additional maps.
+- **External Map APIs**: Integrates Baidu, Gaode, and Google Maps (API key required).
+- **Extensions**:
+  - [ECharts-GL](https://github.com/ecomfe/echarts-gl): 3D plots, globe visualization, and WebGL acceleration.
+  - [ecStat](https://github.com/ecomfe/echarts-stat): Statistical and data mining tools.
+  - [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill): Percentage-based visualizations.
+  - [Wordcloud](https://github.com/ecomfe/echarts-wordcloud): Word cloud charts.
+- **Real-Time Updates**: Supports streaming data sources and Grafana Live.
+- **Theming**: Adapts to Grafana’s light and dark themes.
+- **ECharts Version**: Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
+- **Examples**: Over 100 ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+
+[![Example Charts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
 
 ## Documentation
 
-| Section                                                                      | Description                                                              |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Charts Function](https://volkovlabs.io/plugins/business-charts/options/)    | Explains how to configure the main Apache ECharts library function.      |
-| [Visual Editor](https://volkovlabs.io/plugins/business-charts/visualeditor/) | Explains how to work with the Visual Editor.                             |
-| [Examples](https://volkovlabs.io/plugins/business-charts/examples/)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
-| [Features](https://volkovlabs.io/plugins/business-charts/features/)          | Demonstrates the Business Charts panel features.                         |
-| [Maps](https://volkovlabs.io/plugins/business-charts/maps/)                  | Demonstrates how to work with different maps.                            |
-| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials/)        | Tutorials for the Business Charts panel.                                 |
-| [Release Notes](https://volkovlabs.io/plugins/business-charts/release/)      | Stay up to date with the latest features and updates.                    |
+Explore detailed guides:
+
+| Section                                                                      | Description                                          |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [Charts Function](https://volkovlabs.io/plugins/business-charts/options/)    | Configure the core Apache ECharts function.          |
+| [Visual Editor](https://volkovlabs.io/plugins/business-charts/visualeditor/) | Use the Visual Editor for chart creation.            |
+| [Examples](https://volkovlabs.io/plugins/business-charts/examples/)          | Get started with Apache ECharts examples in Grafana. |
+| [Features](https://volkovlabs.io/plugins/business-charts/features/)          | Discover all plugin capabilities.                    |
+| [Maps](https://volkovlabs.io/plugins/business-charts/maps/)                  | Work with various map types.                         |
+| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials/)        | Follow step-by-step tutorials.                       |
+| [Release Notes](https://volkovlabs.io/plugins/business-charts/release/)      | Track the latest updates and features.               |
 
 ## Business Suite for Grafana
 
-The Business Suite is a collection of open source plugins created and actively maintained by Volkov Labs.
-
-The collection aims to solve the most frequent business tasks by providing an intuitive interface with detailed written documentation, examples, and video tutorials.
+Business Charts is part of the **Business Suite**, a collection of open-source Grafana plugins by [Volkov Labs](https://volkovlabs.io/). These plugins address common business needs with intuitive interfaces, comprehensive documentation, and video tutorials.
 
 [![Business Suite for Grafana](https://raw.githubusercontent.com/VolkovLabs/.github/main/business.png)](https://volkovlabs.io/plugins/)
 
 ### Enterprise Support
 
-With the [Business Suite Enterprise](https://volkovlabs.io/pricing/), you're not just getting a product, you're getting a complete support system. You'll have a designated support team ready to tackle any issues.
+Upgrade to [Business Suite Enterprise](https://volkovlabs.io/pricing/) for premium support:
 
-You can contact us via Zendesk, receive priority in feature requests and bug fixes, meet with us for in-person consultation, and get access to the Business Intelligence. It's a package that's designed to make your life easier.
+- Dedicated Zendesk support team.
+- Priority feature requests and bug fixes.
+- In-person consultations.
+- Access to Business Intelligence tools.
 
-## Always happy to hear from you
+## Feedback & Contributions
 
-- Ask a question, request a new feature, or report an issue at [GitHub issues](https://github.com/volkovlabs/business-charts/issues).
-- Subscribe to our [YouTube Channel](https://youtube.com/@volkovlabs) and leave your comments.
-- Become a [Business Suite sponsor](https://github.com/sponsors/VolkovLabs).
+We value your input! Get involved:
 
-## Acknowledgment
+- **Issues**: Report bugs or suggest features at [GitHub Issues](https://github.com/volkovlabs/business-charts/issues).
+- **YouTube**: Subscribe to [Volkov Labs](https://youtube.com/@volkovlabs) and comment on videos.
 
-The Apache Software Foundation Apache ECharts, ECharts, Apache, the Apache feather, and the Apache ECharts project logo are either registered trademarks or trademarks of the Apache Software Foundation.
+## Acknowledgments
+
+Apache ECharts, ECharts, Apache, the Apache feather logo, and the Apache ECharts project logo are registered trademarks or trademarks of The Apache Software Foundation.
 
 ## License
 
-Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/business-charts/blob/main/LICENSE).
+Licensed under the [Apache License 2.0](https://github.com/volkovlabs/business-charts/blob/main/LICENSE).
