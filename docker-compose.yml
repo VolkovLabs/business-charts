@@ -30,7 +30,7 @@ services:
       - main
 
   grafana-dep:
-    image: grafana/grafana:10.0.0
+    image: grafana/grafana:11.0.0
     ports:
       - 3000:3000/tcp
     environment:

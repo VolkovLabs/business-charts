@@ -2,9 +2,14 @@
 
 ## 7.0.0 (In Progress)
 
+### Breaking Changes
+
+- Now requires Grafana 11 or Grafana 12
+
 ### Enhancements
 
 - Removed `@volkovlabs/grafana-utils` dependency (#362)
+- Upgraded to Grafana 12.0 and updated dependencies
 
 ## 6.6.0 (2025-02-20)
 

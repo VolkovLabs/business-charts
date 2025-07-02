@@ -2,7 +2,7 @@
 
 ![Business Charts Dashboard](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
-![Grafana 11.5](https://img.shields.io/badge/Grafana-11.5-orange)
+![Grafana](https://img.shields.io/badge/Grafana-12.0-orange)
 [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)
 ![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)
@@ -21,6 +21,7 @@ This plugin simplifies adding customizable, data-driven visualizations to Grafan
 
 ## Requirements
 
+- **Business Charts 7.x**: Requires Grafana 11 or Grafana 12.
 - **Business Charts 6.x**: Requires Grafana 10 or Grafana 11.
 - **Apache ECharts 5.x**: Compatible with Grafana 9 or Grafana 10.
 - **Apache ECharts 3.x and 4.x**: Works with Grafana 8.5 or Grafana 9.
@@ -54,7 +55,10 @@ After installation, restart Grafana and add the Business Charts panel to your da
 - **Real-Time Updates**: Supports streaming data sources and Grafana Live.
 - **Theming**: Adapts to Grafana’s light and dark themes.
 - **ECharts Version**: Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
-- **Examples**: Over 100 ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+
+### Examples
+
+Over 100 ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
 [![Example Charts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
 
