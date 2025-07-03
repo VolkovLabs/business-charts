@@ -9,7 +9,7 @@
 ### Enhancements
 
 - Removed `@volkovlabs/grafana-utils` dependency (#362)
-- Upgraded to Grafana 12.0 and updated dependencies
+- Upgraded to Grafana 12.0 and updated dependencies (#371)
 
 ## 6.6.0 (2025-02-20)
 
