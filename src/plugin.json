@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "dependencies": {
-    "grafanaDependency": ">=10.0.0",
+    "grafanaDependency": ">=11.0.0",
     "plugins": []
   },
   "id": "volkovlabs-echarts-panel",
@@ -22,8 +22,8 @@
         "url": "https://echarts.volkovlabs.io"
       },
       {
-        "name": "GitHub",
-        "url": "https://github.com/VolkovLabs/business-charts"
+        "name": "Sponsor",
+        "url": "https://volkovlabs.io/pricing/"
       }
     ],
     "logos": {
