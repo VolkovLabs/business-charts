@@ -83,15 +83,7 @@ Upgrade to [Business Suite Enterprise](https://volkovlabs.io/pricing/) for premi
 - Dedicated Zendesk support team.
 - Priority handling for feature requests and bug fixes.
 - In-person consultations.
-- Access to advanced Business Intelligence tools.
-
-## 💬 Feedback & Contributions
-
-We welcome your input to improve Business Charts:
-
-- **Issues**: Report bugs or suggest features on [GitHub Issues](https://github.com/volkovlabs/business-charts/issues).
-- **YouTube**: Subscribe to [Volkov Labs](https://youtube.com/@volkovlabs) and share your thoughts in video comments.
-- **Contributions**: Fork the repository, make changes, and submit a pull request!
+- Access to advanced Business Intelligence platform.
 
 ## 🙏 Acknowledgments
 
