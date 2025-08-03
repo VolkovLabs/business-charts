@@ -21,8 +21,14 @@ const grafanaESModules = [
   'd3-scale-chromatic',
   'ol',
   'react-colorful',
+  'react-calendar',
   'rxjs',
   'uuid',
+  'marked',
+  'mimic-function',
+  'get-user-locale',
+  'memoize',
+  '@wojtekmaj',
 ];
 
 module.exports = {
