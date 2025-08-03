@@ -2,7 +2,7 @@
 
 ![Business Charts Dashboard](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-12.0-orange)](https://grafana.com/)
+[![Grafana](https://img.shields.io/badge/Grafana-12.1-orange)](https://grafana.com/)
 [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 [![CI](https://github.com/volkovlabs/business-charts/workflows/CI/badge.svg)](https://github.com/volkovlabs/business-charts/actions/workflows/ci.yml)
 [![E2E](https://github.com/volkovlabs/business-charts/workflows/E2E/badge.svg)](https://github.com/volkovlabs/business-charts/actions/workflows/e2e.yml)
@@ -11,7 +11,7 @@
 
 **Business Charts** is a powerful Grafana plugin that integrates the [Apache ECharts library](https://echarts.apache.org/en/index.html) to create dynamic, interactive visualizations for your dashboards. Built with pure JavaScript and lightweight rendering via [zrender](http://ecomfe.github.io/zrender/), this plugin offers a wide variety of chart types and advanced statistical tools to enhance business data analysis.
 
-📺 **Watch the Tutorial**:
+## 📺 **Watch the Tutorial**
 
 [![Business Charts 6.0.0 | Visual Editor Tutorial](https://raw.githubusercontent.com/volkovlabs/business-charts/main/img/business-charts.png)](https://youtu.be/adOjUxrfysc)
 
@@ -34,7 +34,8 @@
 
 ### Explore Examples
 
-Discover over 100 ready-to-use chart examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).  
+Discover over 100 ready-to-use chart examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+
 [![Example Charts](https://github.com/VolkovLabs/business-charts/raw/main/src/img/examples.png)](https://echarts.volkovlabs.io)
 
 ## 📋 Requirements
