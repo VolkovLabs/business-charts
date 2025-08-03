@@ -6,7 +6,8 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ### Enhancements
 
-- Updated ESLint configuration ([#372](https://github.com/volkovlabs/business-charts/issues/372)).
+- Updated ESLint configuration ([#374](https://github.com/volkovlabs/business-charts/issues/374)).
+- Upgraded to **Grafana 12.1** and updated dependencies ([#378](https://github.com/volkovlabs/business-charts/issues/378)).
 
 ## [7.0.0] - 2025-07-21
 
