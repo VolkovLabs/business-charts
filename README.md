@@ -57,6 +57,10 @@ grafana-cli plugins install volkovlabs-echarts-panel
 
 After installation, restart Grafana and add the **Business Charts** panel to your dashboard.
 
+### 📺 **Need help with installation?**
+
+[![Install Business Suite Plugins in Cloud, OSS, Enterprise](https://raw.githubusercontent.com/volkovlabs/.github/main/started.png)](https://youtu.be/1qYzHfPXJF8)
+
 ## 📚 Documentation
 
 Dive into detailed guides to make the most of Business Charts:
