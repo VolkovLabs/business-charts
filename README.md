@@ -81,15 +81,6 @@ Business Charts is part of the **Business Suite**, a collection of open-source G
 
 [![Business Suite for Grafana](https://raw.githubusercontent.com/VolkovLabs/.github/main/business.png)](https://volkovlabs.io/plugins/)
 
-### Enterprise Support
-
-Upgrade to [Business Suite Enterprise](https://volkovlabs.io/pricing/) for premium benefits:
-
-- Dedicated Zendesk support team.
-- Priority handling for feature requests and bug fixes.
-- In-person consultations.
-- Access to advanced Business Intelligence platform.
-
 ## 🙏 Acknowledgments
 
 Apache ECharts, ECharts, Apache, the Apache feather logo, and the Apache ECharts project logo are registered trademarks or trademarks of The Apache Software Foundation.
